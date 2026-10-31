@@ -542,6 +542,45 @@ button {
 .swatch-peach { background-color: #FFB786; }
 .swatch-purple { background-color: #D0BCFF; }
 
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: var(--md-shape-pill);
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.8125rem;
+  transition:
+    background-color var(--md-transition-fast),
+    color var(--md-transition-fast),
+    border-color var(--md-transition-fast),
+    transform var(--md-sys-motion-spring-fast-spatial);
+}
+
+.lang-toggle-btn:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-primary);
+  border-color: var(--md-sys-color-outline-hover);
+}
+
+.lang-toggle-btn:active {
+  transform: scale(0.96);
+}
+
+.lang-icon {
+  font-size: 18px;
+  color: var(--md-sys-color-primary);
+}
+
+.lang-code {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
 .theme-toggle-btn {
   display: flex;
   align-items: center;
@@ -1751,6 +1790,11 @@ html[data-theme="light"] .accent-graphite .m3-icon-box {
   .theme-toggle-wrapper {
     top: 12px;
     right: 12px;
+    gap: 6px;
+  }
+
+  .lang-toggle-btn {
+    padding: 0 12px;
   }
 
   .theme-toggle-btn {
