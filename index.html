@@ -27,9 +27,9 @@
     content="Wpadnij na moją interaktywną stronę w stylu Material 3 Expressive. Wsparcie IT, cyberbezpieczeństwo, sprzęt z rodziny Google Pixel, Miska Ryżenu i muzyka na żywo z Last.fm.">
   <meta name="twitter:image" content="https://m1chi0001.github.io/assets/michal.jpg">
 
-  <!-- Favicon / Touch Icon -->
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23A8C7FA'><circle cx='12' cy='12' r='10'/><path d='M8 12l3 3 5-5' stroke='%23062E6F' stroke-width='2.5' fill='none'/></svg>">
+  <!-- Favicon / Touch Icon (Material 3 Expressive Squircle Monogram) -->
+  <link id="site-favicon" rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='18' fill='%2310141C'/><rect x='2' y='2' width='60' height='60' rx='16' fill='none' stroke='%23A8C7FA' stroke-width='2.5' stroke-opacity='0.45'/><path d='M16 44V20h6.5l9.5 13.5L41.5 20H48v24h-6.5V30.5L32 43.5l-9.5-13V44H16z' fill='%23A8C7FA'/><circle cx='50' cy='16' r='5' fill='%2381C995'/></svg>">
 
   <!-- Google Fonts: Google Sans Flex (all 6 axes), JetBrains Mono (for terminal & tabular figures), Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
     rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles/main.css?v=5">
+  <link rel="stylesheet" href="styles/main.css?v=6">
 </head>
 
 <body>
@@ -315,9 +315,9 @@
               <h3 class="m3-card-title" data-i18n="about.job.title">Junior IT Specialist</h3>
               <p class="m3-card-subtitle">IT Solution Factor Sp. z o.o.</p>
               <p class="m3-card-desc" data-i18n="about.job.desc">
-                Pomagam pracownikom rozwiązywać problemy ze sprzętem, systemem i oprogramowaniem przez telefon oraz
-                zdalnie. Przygotowuję laptopy do pracy, diagnozuję usterki, a większe awarie przekazuję dalej do
-                administratorów.
+                Pierwsza linia wsparcia IT. Przez telefon i zdalnie pomagam użytkownikom z pocztą, pakietem biurowym,
+                uprawnieniami, systemem oraz sprzętem, tłumacząc techniczne sprawy prostym językiem. Diagnozuję
+                problemy, a większe awarie przekazuję dalej do odpowiedzialnych grup.
               </p>
             </div>
             <div class="m3-card-footer">
@@ -342,8 +342,8 @@
             </div>
             <div class="m3-card-footer">
               <div class="m3-chip-group">
-                <span class="m3-chip" data-i18n="about.age.chip1">4 marca 2006</span>
-                <span class="m3-chip" data-i18n="about.age.chip2">Rocznik ’06</span>
+                <span class="m3-chip" data-i18n="about.age.chip1">Urodzony 4 marca</span>
+                <span class="m3-chip" data-i18n="about.age.chip2">Rocznik 2006</span>
               </div>
             </div>
           </article>
@@ -373,8 +373,8 @@
             </div>
           </article>
 
-          <!-- Card 4: Edukacja (span 4) -->
-          <article class="m3-card bento-span-4 accent-lavender">
+          <!-- Card 4: Edukacja (span 4) - Granatowy kolor uczelni WSEI -->
+          <article class="m3-card bento-span-4 accent-navy">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">school</span>
@@ -418,7 +418,7 @@
                 <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.music"
                   data-toast-icon="music_note" data-toast-accent="#FFB786"
                   data-easter-msg="Słuchawki mam na uszach przez większość dnia. Kafelek na górze strony pokazuje na żywo to, czego aktualnie słucham na Last.fm.">
-                  <span data-i18n="about.hobbies.chip1">Muzyka i Last.fm</span>
+                  <span data-i18n="about.hobbies.chip1">Muzyka</span>
                 </button>
                 <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.pixel"
                   data-toast-icon="groups" data-toast-accent="#81C995"
@@ -493,8 +493,9 @@
             <div class="m3-card-body">
               <h3 class="m3-card-title" data-i18n="exp.helpdesk.title">Wsparcie techniczne w IT Solution Factor</h3>
               <p class="m3-card-desc" data-i18n="exp.helpdesk.desc">
-                Pierwsza linia wsparcia IT. Pomagam użytkownikom z pocztą, pakietem biurowym, uprawnieniami i sprzętem,
-                tłumacząc techniczne sprawy prostym językiem.
+                Codzienna obsługa zgłoszeń użytkowników. Odblokowuję konta, konfiguruję stanowiska pracy, rozwiązuję
+                błędy w systemie Windows i aplikacjach firmowych oraz pilnuję, by każde zgłoszenie trafiło we właściwe
+                ręce.
               </p>
             </div>
             <div class="m3-card-footer">
@@ -584,16 +585,16 @@
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">smartphone</span>
                 </div>
-                <span class="m3-card-meta" data-i18n="devices.p8p.meta">Smartfon</span>
-              </div>
-              <div class="m3-card-body">
-                <div class="device-title-row">
-                  <h3 class="m3-card-title">Google Pixel 8 Pro</h3>
+                <div class="device-header-meta">
+                  <span class="m3-card-meta" data-i18n="devices.p8p.meta">Smartfon</span>
                   <span class="device-color-pill">
                     <span class="spec-color-dot" style="background-color: #A8E6CF;"></span>
                     <span data-i18n="devices.p8p.color">Mint</span>
                   </span>
                 </div>
+              </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Google Pixel 8 Pro</h3>
                 <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
                   <div class="spec-item spec-item-wide">
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
@@ -606,14 +607,14 @@
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">developer_board</span>
                     <div class="spec-text">
                       <dt class="spec-label" data-i18n="devices.label.memory">Pamięć</dt>
-                      <dd class="spec-value">12 GB / 128 GB</dd>
+                      <dd class="spec-value">12 GB RAM • 128 GB UFS 3.1</dd>
                     </div>
                   </div>
                   <div class="spec-item">
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">fit_screen</span>
                     <div class="spec-text">
                       <dt class="spec-label" data-i18n="devices.label.display">Ekran</dt>
-                      <dd class="spec-value" data-i18n="devices.p8p.display">6,7" LTPO 120 Hz</dd>
+                      <dd class="spec-value" data-i18n="devices.p8p.display">6,7" LTPO OLED 120 Hz</dd>
                     </div>
                   </div>
                 </dl>
@@ -628,16 +629,16 @@
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">headphones</span>
                 </div>
-                <span class="m3-card-meta" data-i18n="devices.buds.meta">Słuchawki</span>
-              </div>
-              <div class="m3-card-body">
-                <div class="device-title-row">
-                  <h3 class="m3-card-title">Google Pixel Buds Pro 2</h3>
+                <div class="device-header-meta">
+                  <span class="m3-card-meta" data-i18n="devices.buds.meta">Słuchawki</span>
                   <span class="device-color-pill">
                     <span class="spec-color-dot" style="background-color: #B8C5D6;"></span>
                     <span data-i18n="devices.buds.color">Moonstone</span>
                   </span>
                 </div>
+              </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Google Pixel Buds Pro 2</h3>
                 <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
                   <div class="spec-item spec-item-wide">
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
@@ -657,7 +658,7 @@
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">speaker</span>
                     <div class="spec-text">
                       <dt class="spec-label" data-i18n="devices.label.drivers">Przetworniki</dt>
-                      <dd class="spec-value" data-i18n="devices.buds.drivers">11 mm • Dźwięk 360°</dd>
+                      <dd class="spec-value" data-i18n="devices.buds.drivers">11 mm • Dźwięk przestrzenny</dd>
                     </div>
                   </div>
                 </dl>
@@ -672,16 +673,16 @@
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">watch</span>
                 </div>
-                <span class="m3-card-meta" data-i18n="devices.watch.meta">Smartwatch</span>
-              </div>
-              <div class="m3-card-body">
-                <div class="device-title-row">
-                  <h3 class="m3-card-title">Google Pixel Watch 2</h3>
+                <div class="device-header-meta">
+                  <span class="m3-card-meta" data-i18n="devices.watch.meta">Smartwatch</span>
                   <span class="device-color-pill">
                     <span class="spec-color-dot" style="background-color: #6B6B73;"></span>
                     <span data-i18n="devices.watch.color">Matte Black</span>
                   </span>
                 </div>
+              </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Google Pixel Watch 2</h3>
                 <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
                   <div class="spec-item spec-item-wide">
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
@@ -694,14 +695,14 @@
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">developer_board</span>
                     <div class="spec-text">
                       <dt class="spec-label" data-i18n="devices.label.memory">Pamięć</dt>
-                      <dd class="spec-value">2 GB / 32 GB eMMC</dd>
+                      <dd class="spec-value">2 GB RAM • 32 GB eMMC</dd>
                     </div>
                   </div>
                   <div class="spec-item">
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">watch</span>
                     <div class="spec-text">
                       <dt class="spec-label" data-i18n="devices.label.case">Koperta</dt>
-                      <dd class="spec-value" data-i18n="devices.watch.case">41 mm • Wear OS</dd>
+                      <dd class="spec-value" data-i18n="devices.watch.case">41 mm Wi-Fi • Wear OS</dd>
                     </div>
                   </div>
                 </dl>
@@ -721,16 +722,16 @@
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">laptop_chromebook</span>
                 </div>
-                <span class="m3-card-meta" data-i18n="devices.surface.meta">Komputer 2 w 1</span>
-              </div>
-              <div class="m3-card-body">
-                <div class="device-title-row">
-                  <h3 class="m3-card-title">Microsoft Surface Pro, 11th Edition</h3>
+                <div class="device-header-meta">
+                  <span class="m3-card-meta" data-i18n="devices.surface.meta">Komputer 2 w 1</span>
                   <span class="device-color-pill">
                     <span class="spec-color-dot" style="background-color: #D8DCE2;"></span>
                     <span>Platinum</span>
                   </span>
                 </div>
+              </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Microsoft Surface Pro, 11th Edition</h3>
                 <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
                   <div class="spec-item">
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
@@ -772,16 +773,16 @@
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">desktop_windows</span>
                 </div>
-                <span class="m3-card-meta" data-i18n="devices.pc.meta">Komputer stacjonarny</span>
-              </div>
-              <div class="m3-card-body">
-                <div class="device-title-row">
-                  <h3 class="m3-card-title">Miska Ryżenu (PC Desktop)</h3>
+                <div class="device-header-meta">
+                  <span class="m3-card-meta" data-i18n="devices.pc.meta">Komputer stacjonarny</span>
                   <span class="device-color-pill">
                     <span class="spec-color-dot" style="background-color: #EF4444;"></span>
                     <span data-i18n="devices.pc.tag">Custom Build</span>
                   </span>
                 </div>
+              </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Miska Ryżenu (PC Desktop)</h3>
                 <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
                   <div class="spec-item">
                     <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
@@ -1056,7 +1057,7 @@
   </aside>
 
   <!-- Main JavaScript Logic -->
-  <script src="scripts/main.js?v=5"></script>
+  <script src="scripts/main.js?v=6"></script>
 </body>
 
 </html>

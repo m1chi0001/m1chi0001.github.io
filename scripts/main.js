@@ -87,14 +87,14 @@ const I18N = {
     "about.subtitle": "Czym zajmuję się w pracy, czego uczę się na studiach i co robię po godzinach.",
     "about.job.meta": "Praca zawodowa",
     "about.job.title": "Junior IT Specialist",
-    "about.job.desc": "Pomagam pracownikom rozwiązywać problemy ze sprzętem, systemem i oprogramowaniem przez telefon oraz zdalnie. Przygotowuję laptopy do pracy, diagnozuję usterki, a większe awarie przekazuję dalej do administratorów.",
+    "about.job.desc": "Pierwsza linia wsparcia IT. Przez telefon i zdalnie pomagam użytkownikom z pocztą, pakietem biurowym, uprawnieniami, systemem oraz sprzętem, tłumacząc techniczne sprawy prostym językiem. Diagnozuję problemy, a większe awarie przekazuję dalej do odpowiedzialnych grup.",
     "about.job.chip1": "Wsparcie użytkowników",
     "about.job.chip2": "Diagnostyka sprzętu",
     "about.job.chip3": "Obsługa incydentów",
 
     "about.age.meta": "Wiek",
-    "about.age.chip1": "4 marca 2006",
-    "about.age.chip2": "Rocznik ’06",
+    "about.age.chip1": "Urodzony 4 marca",
+    "about.age.chip2": "Rocznik 2006",
 
     "about.loc.meta": "Lokalizacja",
     "about.loc.title": "Warszawa i Adamów",
@@ -113,7 +113,7 @@ const I18N = {
     "about.hobbies.title": "Zajawki poza pracą",
     "about.hobbies.subtitle": "Społeczność, muzyka i sprzęt",
     "about.hobbies.desc": "Prowadzę grupę Google Pixel Polska, instaluję testowe wersje Androida i Windowsa oraz składam komputery. Wieczorami słucham muzyki albo gram na PC.",
-    "about.hobbies.chip1": "Muzyka i Last.fm",
+    "about.hobbies.chip1": "Muzyka",
     "about.hobbies.chip2": "Google Pixel Polska",
     "about.hobbies.chip3": "Testy Beta OS",
     "about.hobbies.chip4": "Składanie PC",
@@ -139,7 +139,7 @@ const I18N = {
 
     "exp.helpdesk.meta": "Helpdesk",
     "exp.helpdesk.title": "Wsparcie techniczne w IT Solution Factor",
-    "exp.helpdesk.desc": "Pierwsza linia wsparcia IT. Pomagam użytkownikom z pocztą, pakietem biurowym, uprawnieniami i sprzętem, tłumacząc techniczne sprawy prostym językiem.",
+    "exp.helpdesk.desc": "Codzienna obsługa zgłoszeń użytkowników. Odblokowuję konta, konfiguruję stanowiska pracy, rozwiązuję błędy w systemie Windows i aplikacjach firmowych oraz pilnuję, by każde zgłoszenie trafiło we właściwe ręce.",
     "exp.helpdesk.chip2": "Pomoc zdalna",
     "exp.helpdesk.chip3": "Obsługa zgłoszeń",
 
@@ -166,14 +166,14 @@ const I18N = {
     "devices.label.gpu": "Grafika",
     "devices.label.storage": "Dyski",
     "devices.p8p.meta": "Smartfon",
-    "devices.p8p.display": "6,7\" LTPO 120 Hz",
+    "devices.p8p.display": "6,7\" LTPO OLED 120 Hz",
     "devices.p8p.color": "Mint",
     "devices.buds.meta": "Słuchawki",
     "devices.buds.chip1": "Google Tensor A1",
-    "devices.buds.drivers": "11 mm • Dźwięk 360°",
+    "devices.buds.drivers": "11 mm • Dźwięk przestrzenny",
     "devices.buds.color": "Moonstone",
     "devices.watch.meta": "Smartwatch",
-    "devices.watch.case": "41 mm • Wear OS",
+    "devices.watch.case": "41 mm Wi-Fi • Wear OS",
     "devices.watch.color": "Matte Black",
     "devices.surface.meta": "Komputer 2 w 1",
     "devices.surface.cpu": "Snapdragon X Elite (12 rdzeni)",
@@ -276,14 +276,14 @@ const I18N = {
     "about.subtitle": "What I do at work, what I study at university, and how I spend my free time.",
     "about.job.meta": "Current role",
     "about.job.title": "Junior IT Specialist",
-    "about.job.desc": "I help employees fix hardware, OS, and software issues over the phone and remotely. I set up laptops, track down hardware faults, and pass larger infrastructure incidents to the sysadmin team.",
+    "about.job.desc": "First-line IT support. Over the phone and remotely, I help users with email, office apps, permissions, OS, and hardware, explaining technical issues in plain language. I diagnose problems and pass larger outages on to the responsible teams.",
     "about.job.chip1": "User support",
     "about.job.chip2": "Hardware diagnostics",
     "about.job.chip3": "Incident management",
 
     "about.age.meta": "Age",
-    "about.age.chip1": "March 4, 2006",
-    "about.age.chip2": "Born ’06",
+    "about.age.chip1": "Born March 4",
+    "about.age.chip2": "Year 2006",
 
     "about.loc.meta": "Location",
     "about.loc.title": "Warsaw & Adamów",
@@ -302,7 +302,7 @@ const I18N = {
     "about.hobbies.title": "Interests outside work",
     "about.hobbies.subtitle": "Community, music, and hardware",
     "about.hobbies.desc": "I help run the Google Pixel Polska group, install test builds of Android and Windows, and build desktop PCs. In the evenings I listen to music or play games.",
-    "about.hobbies.chip1": "Music & Last.fm",
+    "about.hobbies.chip1": "Music",
     "about.hobbies.chip2": "Google Pixel Polska",
     "about.hobbies.chip3": "Beta OS testing",
     "about.hobbies.chip4": "PC building",
@@ -328,7 +328,7 @@ const I18N = {
 
     "exp.helpdesk.meta": "Helpdesk",
     "exp.helpdesk.title": "IT Support at IT Solution Factor",
-    "exp.helpdesk.desc": "First-line IT support. I help users with email, office apps, account permissions, and hardware while explaining technical issues in plain language.",
+    "exp.helpdesk.desc": "Daily ticket handling and user support. I unlock accounts, configure workstations, fix Windows and business application issues, and make sure every request reaches the right team.",
     "exp.helpdesk.chip2": "Remote support",
     "exp.helpdesk.chip3": "Ticket handling",
 
@@ -355,14 +355,14 @@ const I18N = {
     "devices.label.gpu": "Graphics",
     "devices.label.storage": "Drives",
     "devices.p8p.meta": "Smartphone",
-    "devices.p8p.display": "6.7\" LTPO 120 Hz",
+    "devices.p8p.display": "6.7\" LTPO OLED 120 Hz",
     "devices.p8p.color": "Mint",
     "devices.buds.meta": "Earbuds",
     "devices.buds.chip1": "Google Tensor A1",
     "devices.buds.drivers": "11 mm • Spatial Audio",
     "devices.buds.color": "Moonstone",
     "devices.watch.meta": "Smartwatch",
-    "devices.watch.case": "41 mm • Wear OS",
+    "devices.watch.case": "41 mm Wi-Fi • Wear OS",
     "devices.watch.color": "Matte Black",
     "devices.surface.meta": "2-in-1 PC",
     "devices.surface.cpu": "Snapdragon X Elite (12 cores)",
@@ -1004,6 +1004,7 @@ function initScrollPinDock() {
    =================================================================== */
 let lastFmSeedHsl = null;
 let lastFmExtractedUrl = "";
+let lastFmIsPlaying = false;
 
 /**
  * Convert sRGB [0..255] to HSL [h: 0..360, s: 0..100, l: 0..100]
@@ -1157,7 +1158,16 @@ function extractExpressiveSeedFromImage(imgEl) {
  */
 function applyLastFmExpressiveColors() {
   const card = document.getElementById("lastfm-now-playing") || document.getElementById("lastfm-card");
-  if (!card || !lastFmSeedHsl) return;
+  if (!card) return;
+
+  if (!lastFmIsPlaying || !lastFmSeedHsl) {
+    card.classList.remove("has-dynamic-palette");
+    card.classList.add("is-offline");
+    card.style.removeProperty("--lastfm-accent");
+    card.style.removeProperty("--lastfm-container");
+    card.style.removeProperty("--lastfm-glow");
+    return;
+  }
 
   const isLight = document.documentElement.getAttribute("data-theme") === "light";
   const { h, s } = lastFmSeedHsl;
@@ -1176,6 +1186,7 @@ function applyLastFmExpressiveColors() {
   const containerColor = `hsl(${h} ${Math.max(45, expressiveSat - 18)}% ${containerLightness}%)`;
   const glowColor = `hsl(${h} ${expressiveSat}% ${glowLightness}% / ${glowAlpha})`;
 
+  card.classList.remove("is-offline");
   card.style.setProperty("--lastfm-accent", accentColor);
   card.style.setProperty("--lastfm-container", containerColor);
   card.style.setProperty("--lastfm-glow", glowColor);
@@ -1290,9 +1301,10 @@ async function updateLastFmStatus() {
       albumImgEl.src = albumImg;
     }
 
-    syncLastFmCoverPalette(albumImg, trackName, trackArtist);
+    lastFmIsPlaying = isPlaying;
 
     if (isPlaying) {
+      syncLastFmCoverPalette(albumImg, trackName, trackArtist);
       if (statusBadgeEl) statusBadgeEl.className = "lastfm-live-badge is-playing";
       if (statusTextEl) statusTextEl.textContent = t("lastfm.nowPlaying");
 
@@ -1300,6 +1312,7 @@ async function updateLastFmStatus() {
       container.style.opacity = "1";
       container.style.display = "flex";
     } else if (LASTFM_CONFIG.showRecentlyPlayedWhenOffline) {
+      applyLastFmExpressiveColors();
       if (statusBadgeEl) statusBadgeEl.className = "lastfm-live-badge is-recent";
       if (statusTextEl) statusTextEl.textContent = t("lastfm.recentlyPlayed");
 
