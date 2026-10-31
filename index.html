@@ -4,27 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michał Dzido — Junior IT Specialist & Cybersec | Portfolio</title>
+  <title>Michał Dzido | Junior IT Specialist & Cybersec</title>
   <meta name="description"
-    content="Osobiste portfolio Michała Dzido — Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI oraz pasjonat ekosystemu Google Pixel.">
-  <meta name="theme-color" content="#0F1115">
+    content="Portfolio Michała Dzido. Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI oraz moderator społeczności Google Pixel Polska.">
+  <meta name="theme-color" content="#111318">
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Michał Dzido — Junior IT Specialist | Portfolio">
+  <meta property="og:title" content="Michał Dzido | Junior IT Specialist">
   <meta property="og:description"
-    content="Poznaj mnie bliżej — wsparcie IT, cyberbezpieczeństwo, społeczność Google Pixel Polska i technologia z ludzką twarzą.">
+    content="Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI i pasjonat ekosystemu Google Pixel.">
   <meta property="og:image" content="assets/michal.jpg">
 
   <!-- Favicon / Touch Icon -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23A8C7FA'><circle cx='12' cy='12' r='10'/><path d='M8 12l3 3 5-5' stroke='%23062E6F' stroke-width='2.5' fill='none'/></svg>">
 
-  <!-- Google Fonts: Google Sans Flex (with ROND), Roboto Flex, Material Symbols Outlined & Rounded -->
+  <!-- Google Fonts: Google Sans Flex (all 6 axes), JetBrains Mono (for terminal & tabular figures), Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:GRAD,ROND,opsz,wdth,wght@0..100,0..100,8..144,25..151,100..1000&family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD@8..144,-10..0,25..151,100..1000,-200..150&family=Plus+Jakarta+Sans:wght@300..800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:GRAD,ROND,opsz,slnt,wdth,wght@0..100,0..100,8..144,-10..0,25..151,100..1000&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
     rel="stylesheet">
 
   <!-- Main Stylesheet -->
@@ -33,18 +33,11 @@
 
 <body>
 
-  <!-- Ambient Expressive Glowing Canvas (Mouse-Reactive M3 Blobs) -->
-  <div class="ambient-canvas" id="ambient-canvas" aria-hidden="true">
-    <div class="ambient-blob blob-1" data-parallax="0.03"></div>
-    <div class="ambient-blob blob-2" data-parallax="-0.025"></div>
-    <div class="ambient-blob blob-3" data-parallax="0.02"></div>
-  </div>
-
   <!-- Docked Mini-Avatar Chip (Scroll Pin past Hero) -->
   <aside id="docked-avatar-chip" class="docked-avatar-chip" role="button" tabindex="0"
-    aria-label="Przewiń do góry strony" title="Wróć na samą górę">
+    aria-label="Przewiń do góry strony" title="Wróć na górę strony">
     <div class="docked-avatar-media">
-      <img src="assets/michal.jpg" alt="Michał Dzido miniatura" class="docked-avatar-photo" width="36" height="36"
+      <img src="assets/michal.jpg" alt="Michał Dzido" class="docked-avatar-photo" width="32" height="32"
         loading="lazy">
       <span class="docked-status-indicator" title="Aktywny zawodowo"></span>
     </div>
@@ -55,47 +48,38 @@
     <span class="material-symbols-outlined docked-icon" aria-hidden="true">arrow_upward</span>
   </aside>
 
-  <!-- Desktop Floating Pill Navigation Header (Viewport >= 768px) -->
+  <!-- Desktop Navigation Header (Viewport >= 768px) -->
   <header class="app-header" role="banner" id="desktop-header">
     <nav class="nav-container" aria-label="Główna nawigacja strony">
       <ul class="nav-tabs" role="tablist">
-        <!-- 1. Strona główna -->
         <li class="nav-item" role="presentation">
           <a href="#hero" class="nav-link active" role="tab" id="tab-hero" aria-selected="true" aria-controls="hero">
             <span class="material-symbols-outlined nav-icon" aria-hidden="true">home</span>
             <span class="nav-label">Start</span>
           </a>
         </li>
-
-        <!-- 2. O mnie -->
         <li class="nav-item" role="presentation">
           <a href="#about" class="nav-link" role="tab" id="tab-about" aria-selected="false" aria-controls="about">
             <span class="material-symbols-outlined nav-icon" aria-hidden="true">person</span>
             <span class="nav-label">O mnie</span>
           </a>
         </li>
-
-        <!-- 3. Pasje i Doświadczenie -->
         <li class="nav-item" role="presentation">
           <a href="#experience" class="nav-link" role="tab" id="tab-experience" aria-selected="false"
             aria-controls="experience">
-            <span class="material-symbols-outlined nav-icon" aria-hidden="true">history_edu</span>
+            <span class="material-symbols-outlined nav-icon" aria-hidden="true">work</span>
             <span class="nav-label">Doświadczenie</span>
           </a>
         </li>
-
-        <!-- 4. Moje urządzenia -->
         <li class="nav-item" role="presentation">
           <a href="#devices" class="nav-link" role="tab" id="tab-devices" aria-selected="false" aria-controls="devices">
             <span class="material-symbols-outlined nav-icon" aria-hidden="true">devices</span>
             <span class="nav-label">Urządzenia</span>
           </a>
         </li>
-
-        <!-- 5. Kontakt -->
         <li class="nav-item" role="presentation">
           <a href="#contact" class="nav-link" role="tab" id="tab-contact" aria-selected="false" aria-controls="contact">
-            <span class="material-symbols-outlined nav-icon" aria-hidden="true">alternate_email</span>
+            <span class="material-symbols-outlined nav-icon" aria-hidden="true">mail</span>
             <span class="nav-label">Kontakt</span>
           </a>
         </li>
@@ -103,7 +87,7 @@
     </nav>
   </header>
 
-  <!-- Mobile Bottom Navigation Bar (Viewport < 768px, M3 Bottom Nav) -->
+  <!-- Mobile Bottom Navigation Bar (Viewport < 768px) -->
   <nav class="mobile-bottom-nav" aria-label="Nawigacja mobilna dolna" id="mobile-nav">
     <a href="#hero" class="mobile-nav-item active" id="mob-hero" aria-label="Start">
       <div class="mobile-icon-box">
@@ -119,7 +103,7 @@
     </a>
     <a href="#experience" class="mobile-nav-item" id="mob-experience" aria-label="Doświadczenie">
       <div class="mobile-icon-box">
-        <span class="material-symbols-outlined" aria-hidden="true">history_edu</span>
+        <span class="material-symbols-outlined" aria-hidden="true">work</span>
       </div>
       <span class="mobile-nav-label">Ścieżka</span>
     </a>
@@ -131,43 +115,41 @@
     </a>
     <a href="#contact" class="mobile-nav-item" id="mob-contact" aria-label="Kontakt">
       <div class="mobile-icon-box">
-        <span class="material-symbols-outlined" aria-hidden="true">alternate_email</span>
+        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
       </div>
       <span class="mobile-nav-label">Kontakt</span>
     </a>
   </nav>
 
-  <!-- Floating Theme & Material You Dynamic Palette Switcher (Top-Right Corner) -->
-  <aside class="theme-toggle-wrapper" aria-label="Personalizacja wyglądu Material You">
-    <!-- Material You Dynamic Color Picker -->
+  <!-- Top-Right Controls: Material You Palette & Theme Switcher -->
+  <aside class="theme-toggle-wrapper" aria-label="Personalizacja wyglądu">
     <div class="palette-picker" id="palette-picker">
-      <button id="palette-toggle-btn" class="palette-toggle-btn" aria-label="Zmień akcent kolorystyczny Material You"
-        aria-expanded="false" data-tooltip="Kolory Material You">
-        <span class="material-symbols-rounded palette-icon" aria-hidden="true">palette</span>
+      <button id="palette-toggle-btn" class="icon-control-btn" aria-label="Zmień akcent kolorystyczny Material You"
+        aria-expanded="false" title="Kolory Material You">
+        <span class="material-symbols-rounded" aria-hidden="true">palette</span>
       </button>
       <div class="palette-menu" id="palette-menu" role="radiogroup" aria-label="Wybierz motyw kolorystyczny">
         <button class="palette-swatch active" data-palette-choice="blue" role="radio" aria-checked="true"
-          aria-label="Ocean Blue" title="Ocean Blue (Domyślny)">
+          aria-label="Ocean Blue" title="Ocean Blue">
           <span class="swatch-circle swatch-blue"></span>
         </button>
         <button class="palette-swatch" data-palette-choice="mint" role="radio" aria-checked="false"
-          aria-label="Pixel Mint" title="Pixel Mint (Inspirowany Pixelem 8 Pro)">
+          aria-label="Pixel Mint" title="Pixel Mint">
           <span class="swatch-circle swatch-mint"></span>
         </button>
         <button class="palette-swatch" data-palette-choice="peach" role="radio" aria-checked="false"
-          aria-label="Sunset Peach" title="Sunset Peach (Ciepły bursztyn)">
+          aria-label="Sunset Peach" title="Sunset Peach">
           <span class="swatch-circle swatch-peach"></span>
         </button>
         <button class="palette-swatch" data-palette-choice="purple" role="radio" aria-checked="false"
-          aria-label="Cyber Purple" title="Cyber Purple (Klimat Cybersec)">
+          aria-label="Cyber Purple" title="Cyber Purple">
           <span class="swatch-circle swatch-purple"></span>
         </button>
       </div>
     </div>
 
-    <!-- Light / Dark Mode Switch -->
     <button id="theme-toggle" class="theme-toggle-btn" aria-label="Przełącz motyw (Ciemny / Jasny)"
-      data-tooltip="Zmień motyw">
+      title="Zmień motyw jasny / ciemny">
       <div class="theme-icon-container" aria-hidden="true">
         <span class="material-symbols-outlined theme-icon sun-icon">light_mode</span>
         <span class="material-symbols-outlined theme-icon moon-icon">dark_mode</span>
@@ -176,102 +158,81 @@
     </button>
   </aside>
 
-  <!-- Main Viewport Content -->
+  <!-- Main Content -->
   <main class="main-wrapper" id="main-content">
 
     <!-- ===================================================================
-         SECTION 1: STRONA GŁÓWNA (HERO)
+         SECTION 1: HERO
          =================================================================== -->
     <section id="hero" class="snap-section hero-section" aria-labelledby="hero-title-h1">
       <div class="section-container">
         <div class="hero-grid">
 
-          <!-- Left Column: Copy, Highlights, CTAs & Last.fm Tile -->
+          <!-- Left Column: Identity, Bio, Primary Actions & Live Last.fm -->
           <div class="hero-content">
 
-            <!-- Badges & Status Chips -->
             <div class="badge-group">
-              <div class="status-chip highlight-chip" title="Chętnie porozmawiam o technologii i projektach IT">
-                <span class="status-dot"></span>
-                <span>Otwarty na ciekawe wyzwania</span>
+              <div class="status-chip">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span>Junior IT Specialist w IT Solution Factor</span>
               </div>
-              <button type="button" class="status-chip role-chip interactive-chip" id="hero-terminal-trigger"
-                data-tooltip="Kliknij, aby otworzyć mini-terminal IT">
+              <button type="button" class="status-chip status-chip-action" id="hero-terminal-trigger"
+                title="Uruchom terminal (klawisz ~)">
                 <span class="material-symbols-outlined chip-icon" aria-hidden="true">terminal</span>
-                <span>Junior IT Specialist</span>
+                <span class="mono-label">m1chi@pixel-os</span>
               </button>
             </div>
 
-            <!-- Headline -->
             <h1 id="hero-title-h1" class="hero-title">
-              Cześć! Jestem <br>
-              <span class="gradient-name">Michał Dzido</span>
+              Cześć, jestem <span class="hero-name-accent">Michał Dzido</span>
             </h1>
 
-            <!-- Subtitle / Friendly & Natural Hook -->
             <p class="hero-subtitle">
-              Na co dzień pomagam ludziom okiełznać technologię w <strong>IT Solution Factor</strong> i studiuję
-              cyberbezpieczeństwo na <strong>Uniwersytecie WSEI</strong>. Po godzinach żyję ekosystemem Androida,
-              składam sprzęt i sprawdzam, co nowego piszczy w świecie IT.
+              Pracuję w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję
+              cyberbezpieczeństwo na <strong>Uniwersytecie WSEI</strong>. Na co dzień diagnozuję sprzęt, konfiguruję
+              systemy oraz sieci komputerowe, a po godzinach testuję nowe wydania Androida na urządzeniach Google Pixel.
             </p>
 
-            <!-- Expressive Call-To-Action Buttons -->
+            <!-- Material 3 Action Hierarchy: 1 Filled Primary + 1 Tonal Secondary -->
             <div class="hero-actions">
               <a href="#contact" class="m3-btn m3-btn-filled">
-                <span>Pogadajmy</span>
-                <span class="material-symbols-outlined" aria-hidden="true">chat_bubble</span>
+                <span>Napisz do mnie</span>
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
               </a>
               <a href="#about" class="m3-btn m3-btn-tonal">
-                <span>Poznaj mnie bliżej</span>
-                <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+                <span>Więcej o mnie</span>
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
               </a>
-              <button type="button" id="download-vcard-hero" class="m3-btn m3-btn-outlined"
-                data-tooltip="Pobierz kontakt do telefonu (.vcf)">
-                <span class="material-symbols-rounded" aria-hidden="true">contact_page</span>
-                <span>Wizytówka vCard</span>
-              </button>
             </div>
 
-            <!-- Live Last.fm Now Playing Tile (Android 15/16 Media Style) -->
+            <!-- Live Last.fm Now Playing Media Card -->
             <div id="lastfm-container" class="lastfm-container" aria-live="polite">
               <a href="https://www.last.fm/user/M1chiii" target="_blank" rel="noopener noreferrer"
-                id="lastfm-now-playing" class="lastfm-card m3-card-glow" style="display: none;"
-                title="Zobacz, czego słucham na Last.fm">
+                id="lastfm-now-playing" class="m3-card lastfm-card" style="display: none;"
+                title="Otwórz profil Last.fm">
                 <div class="lastfm-cover-wrap">
                   <img id="lastfm-album-art"
-                    src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='%230842A0'><rect width='48' height='48' rx='12'/><circle cx='24' cy='24' r='8' fill='%23A8C7FA'/></svg>"
-                    alt="Okładka albumu" class="lastfm-art" width="54" height="54" loading="lazy">
+                    src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='%231E2025'><rect width='48' height='48' rx='10'/><circle cx='24' cy='24' r='8' fill='%23A8C7FA'/></svg>"
+                    alt="Okładka albumu" class="lastfm-art" width="52" height="52" loading="lazy">
                 </div>
 
                 <div class="lastfm-track-info">
                   <div class="lastfm-badge-row">
                     <span id="lastfm-status-badge" class="lastfm-live-badge">
                       <span id="lastfm-status-dot" class="live-dot"></span>
-                      <!-- Animated Equalizer Bars (Android Media Notification Style) -->
                       <span class="lastfm-eq" aria-hidden="true">
                         <span class="eq-bar"></span>
                         <span class="eq-bar"></span>
                         <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
                       </span>
-                      <span id="lastfm-status-text">TERAZ W SŁUCHAWKACH</span>
+                      <span id="lastfm-status-text">Teraz odtwarzane</span>
                     </span>
                   </div>
                   <span id="lastfm-track-title" class="lastfm-title">Ładowanie utworu...</span>
-                  <span id="lastfm-artist-name" class="lastfm-artist">Michał Dzido na Last.fm</span>
-
-                  <!-- Decorative Android 15/16 Expressive Squiggly Progress Wave -->
-                  <div class="android-media-wave" aria-hidden="true">
-                    <svg viewBox="0 0 180 8" preserveAspectRatio="none">
-                      <path class="wave-path"
-                        d="M 0 4 Q 6 1, 12 4 T 24 4 T 36 4 T 48 4 T 60 4 T 72 4 T 84 4 T 96 4 T 108 4 T 120 4" />
-                      <line class="wave-track" x1="122" y1="4" x2="180" y2="4" />
-                      <circle class="wave-thumb" cx="120" cy="4" r="3.5" />
-                    </svg>
-                  </div>
+                  <span id="lastfm-artist-name" class="lastfm-artist">Last.fm</span>
                 </div>
 
-                <div class="lastfm-action-arrow" aria-hidden="true">
+                <div class="m3-card-arrow" aria-hidden="true">
                   <span class="material-symbols-outlined">north_east</span>
                 </div>
               </a>
@@ -279,48 +240,24 @@
 
           </div>
 
-          <!-- Right Column: Interactive Avatar with Hover Swap & Highlights -->
+          <!-- Right Column: Interactive Portrait / 3D Avatar Squircle -->
           <div class="hero-visual">
             <div class="avatar-interactive-wrapper" id="hero-avatar-wrapper"
-              aria-label="Interaktywny awatar Michała Dzido (najedź kursorem, aby przełączyć na ilustrowany awatar)">
+              aria-label="Portret Michała Dzido. Najedź lub kliknij, aby przełączyć widok na ilustrację 3D">
 
-              <!-- Frame with Dual Avatars for smooth hover swap -->
               <div class="avatar-squircle">
-                <!-- Default State: Real photo -->
-                <img src="assets/michal.jpg" alt="Michał Dzido — Fotografia portretowa" class="avatar-img avatar-photo"
-                  width="420" height="420" fetchpriority="high">
-                <!-- Hover State: Illustrated 3D avatar -->
-                <img src="assets/michal-avatar.jpg"
-                  alt="Michał Dzido — Ilustrowany awatar 3D w stylistyce Material 3 Expressive"
-                  class="avatar-img avatar-art" width="420" height="420" loading="eager">
+                <img src="assets/michal.jpg" alt="Michał Dzido, zdjęcie portretowe" class="avatar-img avatar-photo"
+                  width="400" height="400" fetchpriority="high">
+                <img src="assets/michal-avatar.jpg" alt="Michał Dzido, ilustrowany awatar 3D"
+                  class="avatar-img avatar-art" width="400" height="400" loading="eager">
               </div>
 
-              <!-- Center Interaction Button (pinned at horizontal center of bottom perimeter) -->
-              <div class="avatar-hover-hint" id="avatar-hover-hint" role="button" aria-label="Przełącz widok awatara"
-                tabindex="0">
-                <span class="material-symbols-outlined hint-icon" aria-hidden="true">touch_app</span>
-                <span class="hint-desktop-text">Najedź na mnie</span>
-                <span class="hint-touch-text">Dotknij mnie</span>
-              </div>
-
-              <!-- Floating Micro-Pill 1: IT Solution Factor (Firma) -->
-              <div class="floating-pill pill-pos-1 pill-company pill-it-specialist"
-                title="Miejsce pracy: IT Solution Factor">
-                <span class="material-symbols-outlined pill-icon" aria-hidden="true">domain</span>
-                <span>IT Solution Factor</span>
-              </div>
-
-              <!-- Floating Micro-Pill 2: Cybersec & Networks -->
-              <div class="floating-pill pill-pos-2 pill-cybersec" title="Kierunek rozwoju: Cyberbezpieczeństwo i sieci">
-                <span class="material-symbols-outlined pill-icon" aria-hidden="true">shield</span>
-                <span>Cybersec & Networks</span>
-              </div>
-
-              <!-- Floating Micro-Pill 3: Google Pixel & Android -->
-              <div class="floating-pill pill-pos-3 pill-pixel-android" title="Ulubiony ekosystem: Google Pixel & Android">
-                <span class="material-symbols-rounded pill-icon" aria-hidden="true">android</span>
-                <span>Google Pixel & Android</span>
-              </div>
+              <button type="button" class="avatar-hover-hint" id="avatar-hover-hint"
+                aria-label="Przełącz między zdjęciem a awatarem 3D">
+                <span class="material-symbols-outlined hint-icon" aria-hidden="true">swap_horiz</span>
+                <span class="hint-desktop-text">Zdjęcie / Awatar 3D</span>
+                <span class="hint-touch-text">Przełącz widok</span>
+              </button>
 
             </div>
           </div>
@@ -330,164 +267,129 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 2: O MNIE (BENTO / INFO CARDS)
+         SECTION 2: O MNIE
          =================================================================== -->
     <section id="about" class="snap-section reveal-section" aria-labelledby="about-heading">
       <div class="section-container">
 
-        <!-- Section Header -->
         <header class="section-header">
-          <div class="section-tag">
-            <span class="material-symbols-outlined" style="font-size: 1.15rem;" aria-hidden="true">badge</span>
-            <span>Trochę o mnie</span>
-          </div>
-          <h2 id="about-heading" class="section-title">Kim jestem na co dzień?</h2>
-
-          <!-- Natural, friendly summary quote -->
-          <blockquote class="about-lead-quote">
-            „Lubię wiedzieć, jak rzeczy działają od środka — niezależnie od tego, czy to firmowa sieć, nowy build
-            Androida na Pixelu, czy komputer składany od podstaw.”
-          </blockquote>
+          <h2 id="about-heading" class="section-title">O mnie</h2>
+          <p class="section-subtitle">
+            Kilka konkretów o mojej codziennej pracy w IT, studiach inżynierskich i zainteresowaniach po godzinach.
+          </p>
         </header>
 
-        <!-- Material 3 Expressive Bento / Info Cards Grid -->
-        <div class="bento-grid">
+        <div class="m3-grid m3-grid-bento">
 
-          <!-- Bento Card 1: Wiek (Dynamiczny) -->
-          <article class="bento-card bento-age m3-card-glow">
-            <div class="bento-header">
-              <div class="bento-icon-box primary-box" aria-hidden="true">
-                <span class="material-symbols-outlined">cake</span>
-              </div>
-              <span class="bento-step-pill">ENERGIA</span>
-            </div>
-            <div class="bento-body">
-              <span class="bento-meta-label">Wiek</span>
-              <div class="age-stat-row" id="user-age">
-                <span id="age" class="age-digit">20</span>
-                <span class="age-unit">lat</span>
-              </div>
-              <p class="bento-desc">
-                Spore pokłady ciekawości, otwarta głowa na nowinki i podejście „sprawdźmy, jak to naprawić” zamiast
-                szukania wymówek.
-              </p>
-            </div>
-            <div class="bento-footer-tag">
-              <span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">celebration</span>
-              <span>Urodziny: 4 marca</span>
-            </div>
-          </article>
-
-          <!-- Bento Card 2: Rola zawodowa -->
-          <article class="bento-card bento-role m3-card-glow">
-            <div class="bento-header">
-              <div class="bento-icon-box secondary-box" aria-hidden="true">
+          <!-- Card 1: Praca zawodowa (span 7) -->
+          <article class="m3-card bento-span-7">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">support_agent</span>
               </div>
-              <span class="bento-step-pill">PRACA W IT</span>
+              <span class="m3-card-meta">Praca zawodowa</span>
             </div>
-            <div class="bento-body">
-              <span class="bento-meta-label">Gdzie pracuję</span>
-              <h3 class="bento-title">Junior IT Specialist</h3>
-              <p class="bento-company">@ IT Solution Factor</p>
-              <p class="bento-desc">
-                Pierwsza linia wsparcia, gdzie oprócz wiedzy technicznej liczy się cierpliwość i dobry kontakt z
-                człowiekiem. Pomagam rozwiązywać problemy ze sprzętem i systemami zdalnie oraz telefonicznie, a
-                złożone awarie kieruję do odpowiednich zespołów.
+            <div class="m3-card-body">
+              <h3 class="m3-card-title">Junior IT Specialist</h3>
+              <p class="m3-card-subtitle">IT Solution Factor Sp. z o.o.</p>
+              <p class="m3-card-desc">
+                Rozwiązuję bieżące problemy techniczne użytkowników drogą telefoniczną i zdalną. Diagnozuję usterki
+                sprzętowe, konfiguruję stacje robocze i kwalifikuję złożone awarie dla zespołów infrastrukturalnych.
               </p>
             </div>
-            <div class="bento-footer-tag">
-              <span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">domain</span>
-              <span>IT Solution Factor Sp. z o.o.</span>
+            <div class="m3-card-footer">
+              <div class="m3-chip-group">
+                <span class="m3-chip">Wsparcie użytkowników</span>
+                <span class="m3-chip">Diagnostyka sprzętu</span>
+                <span class="m3-chip">Obsługa incydentów</span>
+              </div>
             </div>
           </article>
 
-          <!-- Bento Card 3: Edukacja -->
-          <article class="bento-card bento-education m3-card-glow">
-            <div class="bento-header">
-              <div class="bento-icon-box tertiary-box" aria-hidden="true">
+          <!-- Card 2: Wiek i lokalizacja (span 5) -->
+          <article class="m3-card bento-span-5">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">location_on</span>
+              </div>
+              <span class="m3-card-meta">Lokalizacja i wiek</span>
+            </div>
+            <div class="m3-card-body">
+              <h3 class="m3-card-title">Warszawa i Adamów</h3>
+              <p class="m3-card-subtitle" id="user-age">
+                <span id="age" class="mono-num">20</span> <span class="age-unit">lat</span> (ur. 4 marca)
+              </p>
+              <p class="m3-card-desc">
+                W tygodniu pracuję stacjonarnie w Warszawie. W weekendy studiuję zaocznie i spędzam czas w rodzinnych
+                stronach.
+              </p>
+            </div>
+            <div class="m3-card-footer m3-card-footer-split">
+              <span class="meta-inline">
+                <span class="material-symbols-outlined meta-inline-icon" aria-hidden="true">schedule</span>
+                <span>Czas lokalny: <strong id="live-warsaw-time" class="mono-num">--:--:--</strong></span>
+              </span>
+              <span class="m3-chip">Strefa CET</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Edukacja (span 6) -->
+          <article class="m3-card bento-span-6">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">school</span>
               </div>
-              <span class="bento-step-pill">STUDIA INŻYNIERSKIE</span>
+              <span class="m3-card-meta">Edukacja</span>
             </div>
-            <div class="bento-body">
-              <span class="bento-meta-label">Edukacja i kierunek</span>
-              <h3 class="bento-title">Uniwersytet WSEI</h3>
-              <p class="bento-spec">Cyberbezpieczeństwo i technologie sieciowe</p>
-              <p class="bento-desc">
-                Po zdobyciu tytułu Technika Informatyka poszedłem za ciosem na studia. Najbardziej wciąga mnie
-                bezpieczna architektura sieciowa, analiza ruchu i łączenie wiedzy z uczelni z realnymi przypadkami w
-                pracy.
+            <div class="m3-card-body">
+              <h3 class="m3-card-title">Uniwersytet WSEI</h3>
+              <p class="m3-card-subtitle">Cyberbezpieczeństwo i technologie sieciowe</p>
+              <p class="m3-card-desc">
+                Po zdobyciu tytułu Technika Informatyka kontynuuję naukę na studiach inżynierskich. Skupiam się na
+                architekturze sieci komputerowych, analizie ruchu i bezpieczeństwie systemów operacyjnych.
               </p>
             </div>
-            <div class="bento-footer-tag">
-              <span class="material-symbols-outlined" style="font-size: 1rem;"
-                aria-hidden="true">workspace_premium</span>
-              <span>Technik Informatyk + Studia w toku</span>
+            <div class="m3-card-footer">
+              <div class="m3-chip-group">
+                <span class="m3-chip">Technik Informatyk</span>
+                <span class="m3-chip">Studia inżynierskie</span>
+              </div>
             </div>
           </article>
 
-          <!-- Bento Card 4: Lokalizacja + Czas -->
-          <article class="bento-card bento-location m3-card-glow">
-            <div class="bento-header">
-              <div class="bento-icon-box accent-box" aria-hidden="true">
-                <span class="material-symbols-outlined">pin_drop</span>
+          <!-- Card 4: Zainteresowania po godzinach (span 6) -->
+          <article class="m3-card bento-span-6">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">interests</span>
               </div>
-              <span class="bento-step-pill">LOKALIZACJA</span>
+              <span class="m3-card-meta">Po godzinach</span>
             </div>
-            <div class="bento-body">
-              <span class="bento-meta-label">Gdzie mnie złapiesz</span>
-              <h3 class="bento-title">Warszawa x Adamów</h3>
-              <p class="bento-desc">
-                W tygodniu działam stacjonarnie w Warszawie, a w weekendy łączę naukę na studiach zaocznych z
-                odpoczynkiem w rodzinnych stronach.
+            <div class="m3-card-body">
+              <h3 class="m3-card-title">Zajawki poza pracą</h3>
+              <p class="m3-card-subtitle">Społeczność, muzyka i sprzęt</p>
+              <p class="m3-card-desc">
+                Moderuję grupę Google Pixel Polska, testuję wersje beta Androida i Windowsa oraz składam komputery
+                stacjonarne. Wieczorami słucham muzyki lub gram na PC.
               </p>
             </div>
-            <div class="bento-footer-tag bento-footer-split">
-              <span class="footer-tag-left">
-                <span class="material-symbols-outlined" style="font-size: 1rem;" aria-hidden="true">schedule</span>
-                <span>Czas lokalny: <strong id="live-warsaw-time">--:--:--</strong></span>
-              </span>
-              <span class="location-badge-online">Polska (CET)</span>
-            </div>
-          </article>
-
-          <!-- Bento Card 5: Po godzinach & Zajawki (Personal & Friendly Touch) -->
-          <article class="bento-card bento-passions m3-card-glow">
-            <div class="bento-header">
-              <div class="bento-icon-box passions-box" aria-hidden="true">
-                <span class="material-symbols-rounded">interests</span>
-              </div>
-              <span class="bento-step-pill">PO GODZINACH</span>
-            </div>
-            <div class="bento-body">
-              <span class="bento-meta-label">Co robię w wolnym czasie</span>
-              <h3 class="bento-title">Zajawki poza pracą i uczelnią</h3>
-              <p class="bento-desc">
-                Kiedy zamykam służbowe zgłoszenia, technologia nadal sprawia mi frajdę — tylko w luźniejszym wydaniu.
-                Pomagam rozwijać polską społeczność fanów Google Pixel, testuję świeże kompilacje systemów operacyjnych,
-                odkrywam nową muzykę i chętnie siadam do dobrego tytułu na PC.
-              </p>
-              <div class="passion-pills-row">
-                <button type="button" class="passion-pill" data-easter-msg="🎧 Ponad 99% czasu przy komputerze leci u mnie muzyka — zerknij na widżet Last.fm wyżej!">
-                  <span class="material-symbols-rounded" aria-hidden="true">headphones</span>
-                  <span>Muzyka & Last.fm</span>
+            <div class="m3-card-footer">
+              <div class="m3-chip-group">
+                <button type="button" class="m3-chip m3-chip-action"
+                  data-easter-msg="Muzyka towarzyszy mi przez większość dnia. Aktualny utwór pobiera się na żywo z Last.fm.">
+                  <span>Muzyka i Last.fm</span>
                 </button>
-                <button type="button" class="passion-pill" data-easter-msg="📱 Jako moderator Google Pixel Polska pomagam rozwiązywać problemy i dzielę się nowościami Made by Google!">
-                  <span class="material-symbols-rounded" aria-hidden="true">groups</span>
-                  <span>Społeczność Pixel Polska</span>
+                <button type="button" class="m3-chip m3-chip-action"
+                  data-easter-msg="Współtworzę i moderuję polską społeczność użytkowników urządzeń Google Pixel.">
+                  <span>Google Pixel Polska</span>
                 </button>
-                <button type="button" class="passion-pill" data-easter-msg="🎮 Po pracy Miska Ryżenu i RTX 4060 nie służą tylko do wirtualnych maszyn — dobry gaming to podstawa!">
-                  <span class="material-symbols-rounded" aria-hidden="true">sports_esports</span>
-                  <span>Gaming po godzinach</span>
+                <button type="button" class="m3-chip m3-chip-action"
+                  data-easter-msg="Testuję kompilacje Android Beta i Windows Insider przed ich oficjalną premierą.">
+                  <span>Testy Beta OS</span>
                 </button>
-                <button type="button" class="passion-pill" data-easter-msg="🧪 Zawsze na kanale Beta/Insider — lubię sprawdzać nowe funkcje na długo przed oficjalną premierą.">
-                  <span class="material-symbols-rounded" aria-hidden="true">science</span>
-                  <span>Testy Android Beta & Insider</span>
-                </button>
-                <button type="button" class="passion-pill" data-easter-msg="🛠️ Pasta termoprzewodząca, zarządzanie kablami i diagnostyka — składanie PC to dla mnie czysta relaksacja.">
-                  <span class="material-symbols-rounded" aria-hidden="true">build</span>
-                  <span>Majsterkowanie przy PC</span>
+                <button type="button" class="m3-chip m3-chip-action"
+                  data-easter-msg="Samodzielnie składam, czyszczę i diagnozuję zestawy komputerowe.">
+                  <span>Składanie PC</span>
                 </button>
               </div>
             </div>
@@ -498,117 +400,113 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 3: PASJE I DOŚWIADCZENIE
+         SECTION 3: DOŚWIADCZENIE I KOMPETENCJE
          =================================================================== -->
     <section id="experience" class="snap-section reveal-section" aria-labelledby="exp-heading">
       <div class="section-container">
 
-        <!-- Section Header -->
         <header class="section-header">
-          <div class="section-tag">
-            <span class="material-symbols-outlined" style="font-size: 1.15rem;" aria-hidden="true">history_edu</span>
-            <span>Doświadczenie</span>
-          </div>
-          <h2 id="exp-heading" class="section-title">Czym się zajmuję i co potrafię</h2>
+          <h2 id="exp-heading" class="section-title">Doświadczenie i umiejętności</h2>
           <p class="section-subtitle">
-            Cztery obszary, które najlepiej opisują moją codzienną ścieżkę — od śrubokręta i płyty głównej po sieci i
-            nowoczesny design.
+            Obszary techniczne, z którymi pracuję zawodowo oraz na uczelni.
           </p>
         </header>
 
-        <!-- 4 Expressive Experience Cards Grid -->
-        <div class="exp-grid">
+        <div class="m3-grid m3-grid-2">
 
-          <!-- Pillar 1: Wykształcenie & Tytuł -->
-          <article class="exp-card exp-card-tech m3-card-glow">
-            <div class="exp-header">
-              <div class="exp-icon-pill" aria-hidden="true">
-                <span class="material-symbols-outlined">military_tech</span>
+          <!-- Card 1: Sprzęt -->
+          <article class="m3-card">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">memory</span>
               </div>
-              <span class="exp-badge">01 • FUNDAMENT</span>
+              <span class="m3-card-meta">Sprzęt komputerowy</span>
             </div>
-            <div class="exp-body">
-              <h3 class="exp-title">Sprzęt i diagnostyka od podszewki</h3>
-              <p class="exp-desc">
-                Tytuł <strong>Technika Informatyka</strong> dał mi coś, co procentuje każdego dnia: wyczucie sprzętu.
-                Rozumiem fizyczną budowę komputerów, potrafię zdiagnozować kapryśną płytę główną, dobrać podzespoły i
-                postawić sprzęt na nogi.
+            <div class="m3-card-body">
+              <h3 class="m3-card-title">Diagnostyka i serwis PC</h3>
+              <p class="m3-card-desc">
+                Znam budowę komputerów od strony fizycznej. Składam stacje robocze, dobieram podzespoły i diagnozuję
+                usterki płyt głównych, zasilaczy oraz pamięci RAM.
               </p>
             </div>
-            <div class="exp-chips">
-              <span class="exp-chip">Technik Informatyk</span>
-              <span class="exp-chip">Diagnostyka Hardware</span>
-              <span class="exp-chip">Składanie & Serwis PC</span>
+            <div class="m3-card-footer">
+              <div class="m3-chip-group">
+                <span class="m3-chip">Technik Informatyk</span>
+                <span class="m3-chip">Diagnostyka hardware</span>
+                <span class="m3-chip">Serwis PC</span>
+              </div>
             </div>
           </article>
 
-          <!-- Pillar 2: Praca zawodowa -->
-          <article class="exp-card exp-card-work m3-card-glow">
-            <div class="exp-header">
-              <div class="exp-icon-pill" aria-hidden="true">
-                <span class="material-symbols-outlined">dns</span>
+          <!-- Card 2: Wsparcie IT -->
+          <article class="m3-card">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">headset_mic</span>
               </div>
-              <span class="exp-badge">02 • PRAKTYKA</span>
+              <span class="m3-card-meta">Helpdesk</span>
             </div>
-            <div class="exp-body">
-              <h3 class="exp-title">Wsparcie IT z ludzkim podejściem</h3>
-              <p class="exp-desc">
-                W <strong>IT Solution Factor</strong> dbam o to, by technologia pomagała, a nie przeszkadzała w pracy.
-                Zdalnie i telefonicznie rozwiązuję bieżące problemy użytkowników, diagnozuję usterki sprzętowe i
-                sprawnie przekazuję trudniejsze incydenty do zespołów wdrożeniowych.
+            <div class="m3-card-body">
+              <h3 class="m3-card-title">Wsparcie techniczne w IT Solution Factor</h3>
+              <p class="m3-card-desc">
+                Odpowiadam za pierwszą linię pomocy technicznej. Rozwiązuję problemy z oprogramowaniem biurowym,
+                dostępami i sprzętem, dbając o jasną komunikację z użytkownikiem.
               </p>
             </div>
-            <div class="exp-chips">
-              <span class="exp-chip">IT Solution Factor</span>
-              <span class="exp-chip">Helpdesk & Wsparcie</span>
-              <span class="exp-chip">Rozwiązywanie problemów</span>
+            <div class="m3-card-footer">
+              <div class="m3-chip-group">
+                <span class="m3-chip">IT Solution Factor</span>
+                <span class="m3-chip">Pomoc zdalna</span>
+                <span class="m3-chip">Obsługa zgłoszeń</span>
+              </div>
             </div>
           </article>
 
-          <!-- Pillar 3: Obszary technologiczne -->
-          <article class="exp-card exp-card-cyber m3-card-glow">
-            <div class="exp-header">
-              <div class="exp-icon-pill" aria-hidden="true">
-                <span class="material-symbols-outlined">security</span>
+          <!-- Card 3: Sieci i systemy -->
+          <article class="m3-card">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">lan</span>
               </div>
-              <span class="exp-badge">03 • TECHNOLOGIA</span>
+              <span class="m3-card-meta">Infrastruktura i sieci</span>
             </div>
-            <div class="exp-body">
-              <h3 class="exp-title">Sieci, systemy i bezpieczeństwo</h3>
-              <p class="exp-desc">
-                Swobodnie pracuję zarówno w środowiskach <strong>Windows oraz Linux</strong>, jak i przy konfiguracji
-                sieci komputerowych (TCP/IP, VLAN, routing, zapory firewall). Na studiach i w domowym labie rozwijam się
-                w kierunku <strong>cyberbezpieczeństwa</strong>.
+            <div class="m3-card-body">
+              <h3 class="m3-card-title">Systemy operacyjne i bezpieczeństwo</h3>
+              <p class="m3-card-desc">
+                Pracuję z systemami Windows Server (Active Directory) oraz Linux. Konfiguruję sieci komputerowe
+                (TCP/IP, VLAN, routing) oraz reguły zapór sieciowych.
               </p>
             </div>
-            <div class="exp-chips">
-              <span class="exp-chip">Windows Server & AD</span>
-              <span class="exp-chip">Linux & Bash</span>
-              <span class="exp-chip">Sieci & Cybersec</span>
+            <div class="m3-card-footer">
+              <div class="m3-chip-group">
+                <span class="m3-chip">Windows Server & AD</span>
+                <span class="m3-chip">Linux & Bash</span>
+                <span class="m3-chip">TCP/IP & VLAN</span>
+              </div>
             </div>
           </article>
 
-          <!-- Pillar 4: Systemy operacyjne & Ekosystem Pixel -->
-          <article class="exp-card exp-card-systems m3-card-glow">
-            <div class="exp-header">
-              <div class="exp-icon-pill exp-icon-systems" aria-hidden="true">
-                <span class="material-symbols-rounded">terminal</span>
+          <!-- Card 4: Ekosystem mobilny -->
+          <article class="m3-card">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">phone_android</span>
               </div>
-              <span class="exp-badge">04 • SYSTEMY & EKOSYSTEM</span>
+              <span class="m3-card-meta">Systemy mobilne</span>
             </div>
-            <div class="exp-body">
-              <h3 class="exp-title">Kanał Beta & Ekosystem Google Pixel</h3>
-              <p class="exp-desc">
-                Nie lubię czekać na oficjalne premiery — aktywnie testuję wczesne wydania w <strong>Android Beta
-                  Program</strong> oraz <strong>Windows Insider</strong>. Pasjonuję się urządzeniami Google Pixel,
-                kulturą czystego Androida i wzornictwem <strong>Material 3 Expressive</strong>.
+            <div class="m3-card-body">
+              <h3 class="m3-card-title">Kanały Beta i ekosystem Google Pixel</h3>
+              <p class="m3-card-desc">
+                Uczestniczę w programach Android Beta oraz Windows Insider. Sprawdzam nowe funkcje systemowe, poprawki
+                bezpieczeństwa i wytyczne projektowe Material 3 Expressive.
               </p>
             </div>
-            <div class="exp-chips">
-              <span class="exp-chip">Android Beta</span>
-              <span class="exp-chip">Windows Insider</span>
-              <span class="exp-chip">Google Pixel</span>
-              <span class="exp-chip">Material 3 Expressive</span>
+            <div class="m3-card-footer">
+              <div class="m3-chip-group">
+                <span class="m3-chip">Android Beta</span>
+                <span class="m3-chip">Windows Insider</span>
+                <span class="m3-chip">Material 3 Expressive</span>
+              </div>
             </div>
           </article>
 
@@ -617,199 +515,150 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 4: MOJE URZĄDZENIA (HARDWARE & GEAR)
+         SECTION 4: MOJE URZĄDZENIA
          =================================================================== -->
     <section id="devices" class="snap-section reveal-section" aria-labelledby="devices-heading">
       <div class="section-container">
 
-        <!-- Section Header -->
         <header class="section-header">
-          <div class="section-tag">
-            <span class="material-symbols-outlined" style="font-size: 1.15rem;" aria-hidden="true">devices</span>
-            <span>Mój ekosystem</span>
-          </div>
-          <h2 id="devices-heading" class="section-title">Sprzęt, z którego korzystam</h2>
+          <h2 id="devices-heading" class="section-title">Moje urządzenia</h2>
           <p class="section-subtitle">
-            Zestaw sprawdzonych narzędzi, które towarzyszą mi w pracy, na uczelni i podczas wieczornego testowania
-            nowości.
+            Sprzęt, na którym pracuję, uczę się i testuję oprogramowanie.
           </p>
         </header>
 
-        <!-- 5 M3 Expressive Hardware Cards (3 + 2 Two-Tier Layout) -->
         <div class="devices-layout">
 
-          <!-- Row 1: Google Pixel Ecosystem (3 items) -->
-          <div class="devices-tier devices-tier-1">
+          <!-- Tier 1: Google Pixel Ecosystem (3 cards) -->
+          <div class="m3-grid m3-grid-3">
 
             <!-- Device 1: Google Pixel 8 Pro -->
-            <article class="device-card device-card-pixel m3-card-glow" id="card-pixel-8-pro"
-              data-easter-msg="🌿 Pixel 8 Pro w kolorze Mint! Czysty Android prosto od Google i zawsze najświeższa kompilacja Beta.">
-              <div class="device-card-top">
-                <div class="device-icon-box pixel-accent pixel-mint-accent" aria-hidden="true">
-                  <span class="material-symbols-rounded">smartphone</span>
+            <article class="m3-card" id="card-pixel-8-pro"
+              data-easter-msg="Google Pixel 8 Pro (Mint): czysta wersja systemu Android z aktywnym kanałem Beta.">
+              <div class="m3-card-header">
+                <div class="m3-icon-box" aria-hidden="true">
+                  <span class="material-symbols-outlined">smartphone</span>
                 </div>
-                <span class="device-category">Smartfon</span>
+                <span class="m3-card-meta">Smartfon</span>
               </div>
-              <div class="device-card-body">
-                <h3 class="device-name">Google Pixel 8 Pro</h3>
-                <p class="device-purpose">Mój główny towarzysz na co dzień — czysty Android, świetny aparat i poligon
-                  doświadczalny dla nowych funkcji Material You.</p>
-                <div class="device-specs-wrap">
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">storage</span>
-                    <span class="spec-text">12 / 128 GB pamięci</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">palette</span>
-                    <span class="spec-text">Kolor: Mint</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">shield</span>
-                    <span class="spec-text">Google Tensor G3 & Titan M2</span>
-                  </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Google Pixel 8 Pro</h3>
+                <p class="m3-card-subtitle">Google Tensor G3 • 12 / 128 GB</p>
+                <p class="m3-card-desc">
+                  Główny telefon do codziennej komunikacji, fotografii mobilnej i testowania wczesnych wydań systemu
+                  Android.
+                </p>
+              </div>
+              <div class="m3-card-footer">
+                <div class="m3-chip-group">
+                  <span class="m3-chip">Kolor: Mint</span>
+                  <span class="m3-chip">Titan M2</span>
+                  <span class="m3-chip">Android Beta</span>
                 </div>
-              </div>
-              <div class="device-card-footer">
-                <span class="device-tag">Kolor miętowy</span>
-                <span class="device-tag">Android Beta Tester</span>
               </div>
             </article>
 
             <!-- Device 2: Google Pixel Buds Pro 2 -->
-            <article class="device-card device-card-buds m3-card-glow">
-              <div class="device-card-top">
-                <div class="device-icon-box audio-accent buds-moonstone-accent" aria-hidden="true">
-                  <span class="material-symbols-rounded">headphones</span>
+            <article class="m3-card">
+              <div class="m3-card-header">
+                <div class="m3-icon-box" aria-hidden="true">
+                  <span class="material-symbols-outlined">headphones</span>
                 </div>
-                <span class="device-category">Słuchawki</span>
+                <span class="m3-card-meta">Słuchawki</span>
               </div>
-              <div class="device-card-body">
-                <h3 class="device-name">Google Pixel Buds Pro 2</h3>
-                <p class="device-purpose">Niezastąpione w drodze do pracy i podczas skupienia — wycinają hałas miasta i
-                  błyskawicznie przełączają się między urządzeniami.</p>
-                <div class="device-specs-wrap">
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">palette</span>
-                    <span class="spec-text">Kolor: Moonstone</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">hearing</span>
-                    <span class="spec-text">Aktywna redukcja szumów ANC</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">memory</span>
-                    <span class="spec-text">Dedykowany chip Tensor A1</span>
-                  </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Google Pixel Buds Pro 2</h3>
+                <p class="m3-card-subtitle">Układ Google Tensor A1 • ANC</p>
+                <p class="m3-card-desc">
+                  Słuchawki dokanałowe z aktywną redukcją hałasu, z których korzystam w komunikacji miejskiej i podczas
+                  pracy.
+                </p>
+              </div>
+              <div class="m3-card-footer">
+                <div class="m3-chip-group">
+                  <span class="m3-chip">Kolor: Moonstone</span>
+                  <span class="m3-chip">Redukcja szumów ANC</span>
                 </div>
-              </div>
-              <div class="device-card-footer">
-                <span class="device-tag">Tensor A1</span>
-                <span class="device-tag">ANC</span>
               </div>
             </article>
 
             <!-- Device 3: Google Pixel Watch 2 -->
-            <article class="device-card device-card-watch m3-card-glow">
-              <div class="device-card-top">
-                <div class="device-icon-box watch-accent watch-matte-accent" aria-hidden="true">
-                  <span class="material-symbols-rounded">watch</span>
+            <article class="m3-card">
+              <div class="m3-card-header">
+                <div class="m3-icon-box" aria-hidden="true">
+                  <span class="material-symbols-outlined">watch</span>
                 </div>
-                <span class="device-category">Smartwatch</span>
+                <span class="m3-card-meta">Smartwatch</span>
               </div>
-              <div class="device-card-body">
-                <h3 class="device-name">Google Pixel Watch 2</h3>
-                <p class="device-purpose">Dyskretne centrum powiadomień na nadgarstku, szybkie podglądy komunikatów i
-                  śledzenie codziennej aktywności na Wear OS.</p>
-                <div class="device-specs-wrap">
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">wifi</span>
-                    <span class="spec-text">Wersja Wi-Fi</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">palette</span>
-                    <span class="spec-text">Kolor: Matte Black</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">vital_signs</span>
-                    <span class="spec-text">Precyzyjne sensory biometryczne</span>
-                  </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Google Pixel Watch 2</h3>
+                <p class="m3-card-subtitle">Wear OS • Wersja Wi-Fi</p>
+                <p class="m3-card-desc">
+                  Zegarek do sprawdzania powiadomień, szybkich odpowiedzi na wiadomości i pomiarów aktywności w ciągu
+                  dnia.
+                </p>
+              </div>
+              <div class="m3-card-footer">
+                <div class="m3-chip-group">
+                  <span class="m3-chip">Kolor: Matte Black</span>
+                  <span class="m3-chip">Wear OS</span>
                 </div>
-              </div>
-              <div class="device-card-footer">
-                <span class="device-tag">Ciemnoszary</span>
-                <span class="device-tag">Wear OS</span>
               </div>
             </article>
 
           </div>
 
-          <!-- Row 2: Productivity & Desktop Workstations (2 items centered) -->
-          <div class="devices-tier devices-tier-2">
+          <!-- Tier 2: Computers (2 cards) -->
+          <div class="m3-grid m3-grid-2">
 
-            <!-- Device 4: Microsoft Surface Pro 11 Edition -->
-            <article class="device-card device-card-surface m3-card-glow">
-              <div class="device-card-top">
-                <div class="device-icon-box surface-accent surface-platinum-accent" aria-hidden="true">
-                  <span class="material-symbols-rounded">laptop_chromebook</span>
+            <!-- Device 4: Microsoft Surface Pro 11 -->
+            <article class="m3-card">
+              <div class="m3-card-header">
+                <div class="m3-icon-box" aria-hidden="true">
+                  <span class="material-symbols-outlined">laptop_chromebook</span>
                 </div>
-                <span class="device-category">2-in-1</span>
+                <span class="m3-card-meta">Komputer mobilny 2 w 1</span>
               </div>
-              <div class="device-card-body">
-                <h3 class="device-name">Microsoft Surface Pro, 11th Edition</h3>
-                <p class="device-purpose">Lekkie, mobilne biuro na wykłady i wyjazdy. Architektura ARM pozwala zapomnieć
-                  o ładowarce na cały dzień nauki i pracy z siecią.</p>
-                <div class="device-specs-wrap">
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">memory</span>
-                    <span class="spec-text">Snapdragon X Elite</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">speed</span>
-                    <span class="spec-text">16 GB RAM</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">hard_drive</span>
-                    <span class="spec-text">1 TB SSD</span>
-                  </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Microsoft Surface Pro, 11th Edition</h3>
+                <p class="m3-card-subtitle">Snapdragon X Elite • 16 GB RAM • 1 TB SSD</p>
+                <p class="m3-card-desc">
+                  Lekki komputer na wykłady i wyjazdy. Architektura ARM zapewnia wielogodzinną pracę na baterii bez
+                  konieczności noszenia ładowarki.
+                </p>
+              </div>
+              <div class="m3-card-footer">
+                <div class="m3-chip-group">
+                  <span class="m3-chip">Windows 11 ARM</span>
+                  <span class="m3-chip">16 GB RAM</span>
+                  <span class="m3-chip">1 TB NVMe</span>
                 </div>
-              </div>
-              <div class="device-card-footer">
-                <span class="device-tag">Windows on ARM</span>
-                <span class="device-tag">Mobilność</span>
               </div>
             </article>
 
-            <!-- Device 5: Miska Ryżenu (PC Desktop with Easter Egg) -->
-            <article class="device-card device-card-desktop m3-card-glow" id="card-miska-ryzenu"
-              data-easter-msg="🍚 Miska Ryżenu melduje gotowość! Temp. CPU: 42°C | Maszyny wirtualne: Online | FPS: Stabilne!">
-              <div class="device-card-top">
-                <div class="device-icon-box desktop-accent desktop-ryzen-accent" aria-hidden="true">
-                  <span class="material-symbols-rounded">desktop_windows</span>
+            <!-- Device 5: Miska Ryżenu -->
+            <article class="m3-card" id="card-miska-ryzenu"
+              data-easter-msg="Miska Ryżenu: AMD Ryzen 5 5600G + GeForce RTX 4060. Maszyny wirtualne i gry działają płynnie.">
+              <div class="m3-card-header">
+                <div class="m3-icon-box" aria-hidden="true">
+                  <span class="material-symbols-outlined">desktop_windows</span>
                 </div>
-                <span class="device-category">Stacja robocza • Kliknij!</span>
+                <span class="m3-card-meta">Stacja robocza</span>
               </div>
-              <div class="device-card-body">
-                <h3 class="device-name">Miska Ryżenu</h3>
-                <p class="device-purpose">Moja domowa baza dowodzenia — stworzona do stawiania wirtualnych laboratoriów
-                  sieciowych, wielozadaniowości i wieczornego grania.</p>
-                <div class="device-specs-wrap">
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">developer_board</span>
-                    <span class="spec-text">AMD Ryzen 5 5600G</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">speed</span>
-                    <span class="spec-text">16 GB RAM DDR4</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="material-symbols-rounded spec-icon" aria-hidden="true">videocam</span>
-                    <span class="spec-text">NVIDIA GeForce RTX 4060</span>
-                  </div>
+              <div class="m3-card-body">
+                <h3 class="m3-card-title">Miska Ryżenu (PC)</h3>
+                <p class="m3-card-subtitle">AMD Ryzen 5 5600G • RTX 4060 • 16 GB RAM</p>
+                <p class="m3-card-desc">
+                  Domowy komputer stacjonarny zbudowany do uruchamiania wirtualnych maszyn laboratoryjnych, nauki sieci
+                  i gier.
+                </p>
+              </div>
+              <div class="m3-card-footer">
+                <div class="m3-chip-group">
+                  <span class="m3-chip">Ryzen 5 5600G</span>
+                  <span class="m3-chip">GeForce RTX 4060</span>
+                  <span class="m3-chip">16 GB DDR4</span>
                 </div>
-              </div>
-              <div class="device-card-footer">
-                <span class="device-tag">Ryzen 5</span>
-                <span class="device-tag">GeForce RTX 4060</span>
               </div>
             </article>
 
@@ -825,191 +674,153 @@
     <section id="contact" class="snap-section reveal-section" aria-labelledby="contact-heading">
       <div class="section-container">
 
-        <!-- Section Header -->
         <header class="section-header">
-          <div class="section-tag">
-            <span class="material-symbols-outlined" style="font-size: 1.15rem;"
-              aria-hidden="true">alternate_email</span>
-            <span>Bądźmy w kontakcie</span>
-          </div>
-          <h2 id="contact-heading" class="section-title">Napisz do mnie lub zajrzyj</h2>
+          <h2 id="contact-heading" class="section-title">Kontakt</h2>
           <p class="section-subtitle">
-            Niezależnie od tego, czy chcesz porozmawiać o współpracy w IT, wymienić się doświadczeniami o Pixelach, czy
-            po prostu się przywitać — zapraszam!
+            Napisz do mnie wiadomość e-mail lub odwiedź moje profile w sieci.
           </p>
-
-          <!-- Expressive Quick Action Bar (Copy Email, vCard, Mini-Terminal) -->
-          <div class="contact-quick-bar">
-            <button type="button" id="copy-email-btn" class="m3-btn m3-btn-tonal quick-action-pill"
-              data-tooltip="Skopiuj michaldzido2@gmail.com do schowka">
-              <span class="material-symbols-rounded" aria-hidden="true">content_copy</span>
-              <span>Skopiuj e-mail</span>
-            </button>
-            <button type="button" id="download-vcard-contact" class="m3-btn m3-btn-tonal quick-action-pill"
-              data-tooltip="Zapisz moje dane kontaktowe w telefonie lub adresowniku">
-              <span class="material-symbols-rounded" aria-hidden="true">person_add</span>
-              <span>Pobierz wizytówkę (.vcf)</span>
-            </button>
-            <button type="button" id="open-terminal-btn" class="m3-btn m3-btn-outlined quick-action-pill"
-              data-tooltip="Otwórz interaktywny mini-terminal (Easter Egg)">
-              <span class="material-symbols-rounded" aria-hidden="true">terminal</span>
-              <span>Mini-Terminal IT</span>
-            </button>
-          </div>
         </header>
 
-        <!-- 6 Interactive M3 Expressive Social & Contact Cards Grid -->
-        <div class="socials-grid">
+        <div class="m3-grid m3-grid-3 socials-grid">
 
-          <!-- 1. LinkedIn Card -->
+          <!-- 1. LinkedIn -->
           <a href="https://www.linkedin.com/in/micha%C5%82-dzido/" target="_blank" rel="noopener noreferrer"
-            class="social-card social-card-linkedin m3-card-glow" aria-label="Odwiedź profil LinkedIn Michał Dzido">
-            <div class="social-header">
-              <div class="social-icon-box linkedin-accent" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
+            class="m3-card m3-card-interactive" aria-label="Odwiedź profil LinkedIn Michał Dzido">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="m3-svg-icon">
                   <path
                     d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.59 1.59 0 0 0 0-3.18 1.59 1.59 0 0 0 0 3.18m1.39 9.74v-8.37H5.07v8.37h2.78z" />
                 </svg>
               </div>
-              <div class="arrow-action-pill" aria-hidden="true">
+              <span class="m3-card-arrow" aria-hidden="true">
                 <span class="material-symbols-outlined">north_east</span>
-              </div>
+              </span>
             </div>
-            <div class="social-details">
-              <span class="social-handle">LinkedIn</span>
-              <h3 class="social-name">Michał Dzido</h3>
-              <p class="social-desc">Profil zawodowy, ścieżka kariery i kontakt biznesowy</p>
+            <div class="m3-card-body">
+              <span class="m3-card-meta">LinkedIn</span>
+              <h3 class="m3-card-title">Michał Dzido</h3>
+              <p class="m3-card-desc">Profil zawodowy, doświadczenie i sieć kontaktów</p>
             </div>
           </a>
 
-          <!-- 2. GitHub Card -->
+          <!-- 2. GitHub -->
           <a href="https://github.com/m1chi0001" target="_blank" rel="noopener noreferrer"
-            class="social-card social-card-github m3-card-glow" aria-label="Odwiedź profil GitHub m1chi0001">
-            <div class="social-header">
-              <div class="social-icon-box github-accent" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
+            class="m3-card m3-card-interactive" aria-label="Odwiedź profil GitHub m1chi0001">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="m3-svg-icon">
                   <path
                     d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
                 </svg>
               </div>
-              <div class="arrow-action-pill" aria-hidden="true">
+              <span class="m3-card-arrow" aria-hidden="true">
                 <span class="material-symbols-outlined">north_east</span>
-              </div>
+              </span>
             </div>
-            <div class="social-details">
-              <span class="social-handle">GitHub</span>
-              <h3 class="social-name">m1chi0001</h3>
-              <p class="social-desc">Moje repozytoria, projekty uczelniane i kod źródłowy tej strony</p>
+            <div class="m3-card-body">
+              <span class="m3-card-meta">GitHub</span>
+              <h3 class="m3-card-title">m1chi0001</h3>
+              <p class="m3-card-desc">Repozytoria projektów i kod źródłowy strony</p>
             </div>
           </a>
 
-          <!-- 3. Instagram Card -->
+          <!-- 3. Instagram -->
           <a href="https://www.instagram.com/m1chi0001/" target="_blank" rel="noopener noreferrer"
-            class="social-card social-card-instagram m3-card-glow" aria-label="Odwiedź profil Instagram m1chi0001">
-            <div class="social-header">
-              <div class="social-icon-box instagram-accent" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
+            class="m3-card m3-card-interactive" aria-label="Odwiedź profil Instagram m1chi0001">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="m3-svg-icon">
                   <path
                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
                 </svg>
               </div>
-              <div class="arrow-action-pill" aria-hidden="true">
+              <span class="m3-card-arrow" aria-hidden="true">
                 <span class="material-symbols-outlined">north_east</span>
-              </div>
+              </span>
             </div>
-            <div class="social-details">
-              <span class="social-handle">Instagram</span>
-              <h3 class="social-name">@m1chi0001</h3>
-              <p class="social-desc">Kadry z życia wzięte, wyjazdy i migawki uchwycone obiektywem Pixela</p>
+            <div class="m3-card-body">
+              <span class="m3-card-meta">Instagram</span>
+              <h3 class="m3-card-title">@m1chi0001</h3>
+              <p class="m3-card-desc">Zdjęcia z wyjazdów i codzienności robione Pixelem</p>
             </div>
           </a>
 
-          <!-- 4. X (Twitter) Card -->
+          <!-- 4. X (Twitter) -->
           <a href="https://x.com/M1chi0001" target="_blank" rel="noopener noreferrer"
-            class="social-card social-card-x m3-card-glow" aria-label="Odwiedź profil X Twitter M1chi0001">
-            <div class="social-header">
-              <div class="social-icon-box x-accent" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
+            class="m3-card m3-card-interactive" aria-label="Odwiedź profil X M1chi0001">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="m3-svg-icon">
                   <path
                     d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </div>
-              <div class="arrow-action-pill" aria-hidden="true">
+              <span class="m3-card-arrow" aria-hidden="true">
                 <span class="material-symbols-outlined">north_east</span>
-              </div>
+              </span>
             </div>
-            <div class="social-details">
-              <span class="social-handle">X (Twitter)</span>
-              <h3 class="social-name">@M1chi0001</h3>
-              <p class="social-desc">Szybkie przemyślenia o premierach sprzętu, Androidzie i świecie tech</p>
+            <div class="m3-card-body">
+              <span class="m3-card-meta">X (Twitter)</span>
+              <h3 class="m3-card-title">@M1chi0001</h3>
+              <p class="m3-card-desc">Dyskusje o premierach sprzętu, Androidzie i branży IT</p>
             </div>
           </a>
 
-          <!-- 5. Google Pixel Polska (Community Leadership) -->
+          <!-- 5. Google Pixel Polska -->
           <a href="https://www.facebook.com/groups/googlepixelpolska" target="_blank" rel="noopener noreferrer"
-            class="social-card social-card-pixel-community m3-card-glow"
-            aria-label="Grupa Facebook Google Pixel Polska — Moderator Społeczności">
-            <div class="social-header">
-              <div class="social-icon-box pixel-community-accent" aria-hidden="true">
-                <span class="material-symbols-rounded" style="font-size: 1.6rem;">groups</span>
+            class="m3-card m3-card-interactive" aria-label="Grupa Facebook Google Pixel Polska">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">groups</span>
               </div>
-              <div class="arrow-action-pill" aria-hidden="true">
+              <span class="m3-card-arrow" aria-hidden="true">
                 <span class="material-symbols-outlined">north_east</span>
-              </div>
+              </span>
             </div>
-            <div class="social-details">
-              <span class="social-handle">Moderator Społeczności</span>
-              <h3 class="social-name">Google Pixel Polska</h3>
-              <p class="social-desc">Współtworzę i moderuję największą w Polsce grupę pasjonatów smartfonów Google Pixel
-                oraz urządzeń Made by Google.</p>
+            <div class="m3-card-body">
+              <span class="m3-card-meta">Społeczność</span>
+              <h3 class="m3-card-title">Google Pixel Polska</h3>
+              <p class="m3-card-desc">Moderowanie polskiej grupy użytkowników urządzeń z rodziny Made by Google</p>
             </div>
           </a>
 
           <!-- 6. Direct E-mail Card -->
-          <a href="mailto:michaldzido2@gmail.com" class="social-card email-social-card m3-card-glow"
+          <a href="mailto:michaldzido2@gmail.com" class="m3-card m3-card-interactive"
             aria-label="Wyślij e-mail do michaldzido2@gmail.com">
-            <div class="social-header">
-              <div class="social-icon-box email-accent" aria-hidden="true">
-                <span class="material-symbols-outlined" style="font-size: 1.6rem;">mail</span>
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">mail</span>
               </div>
-              <div class="arrow-action-pill" aria-hidden="true">
+              <span class="m3-card-arrow" aria-hidden="true">
                 <span class="material-symbols-outlined">send</span>
-              </div>
+              </span>
             </div>
-            <div class="social-details">
-              <span class="social-handle">Poczta e-mail</span>
-              <h3 class="social-name">michaldzido2@gmail.com</h3>
-              <p class="social-desc">Kliknij, aby otworzyć program pocztowy i napisać bezpośrednio do mnie</p>
+            <div class="m3-card-body">
+              <span class="m3-card-meta">Poczta e-mail</span>
+              <h3 class="m3-card-title">michaldzido2@gmail.com</h3>
+              <p class="m3-card-desc">Otwórz domyślną aplikację pocztową i wyślij wiadomość</p>
             </div>
           </a>
 
         </div>
 
-        <!-- Material 3 Expressive Minimalist Footer -->
+        <!-- Minimalist Material 3 Footer -->
         <footer class="app-footer">
           <div class="footer-content">
-            <!-- Attribution Pill -->
-            <div class="footer-attribution-pill">
-              <span class="attribution-item">
-                <span class="material-symbols-rounded footer-icon icon-gemini" aria-hidden="true">auto_awesome</span>
-                <span>Stworzono przy wsparciu <strong>Google Gemini</strong></span>
-              </span>
-              <span class="footer-divider" aria-hidden="true">•</span>
-              <span class="attribution-item">
-                <span class="material-symbols-rounded footer-icon icon-antigravity" aria-hidden="true">terminal</span>
-                <span>w środowisku <strong>Antigravity IDE</strong></span>
-              </span>
-            </div>
-
-            <!-- Copyright & Meta -->
             <div class="footer-meta-row">
               <p class="footer-copyright">
-                <span class="material-symbols-rounded footer-fingerprint-icon" aria-hidden="true">fingerprint</span>
-                <span><span id="current-year"></span> Michał Dzido</span>
+                <span>&copy; <span id="current-year">2026</span> Michał Dzido</span>
               </p>
-              <div class="footer-system-pill">
-                <span>Material 3 Expressive • Google Sans Flex</span>
-              </div>
+              <span class="footer-divider" aria-hidden="true">•</span>
+              <span class="footer-tech-note">Material 3 Expressive &amp; Google Sans Flex</span>
+              <span class="footer-divider" aria-hidden="true">•</span>
+              <button type="button" id="open-terminal-btn" class="footer-terminal-link"
+                title="Otwórz interaktywny terminal (klawisz ~)">
+                <span class="material-symbols-outlined" aria-hidden="true">terminal</span>
+                <span>Terminal</span>
+                <kbd class="m3-kbd">~</kbd>
+              </button>
             </div>
           </div>
         </footer>
@@ -1020,56 +831,55 @@
   </main>
 
   <!-- ===================================================================
-       EASTER EGG: INTERACTIVE M3 EXPRESSIVE MINI-TERMINAL MODAL
+       EASTER EGG: MINI-TERMINAL MODAL (JETBRAINS MONO)
        =================================================================== -->
   <div id="terminal-backdrop" class="terminal-backdrop" aria-hidden="true">
     <aside id="m3-terminal-modal" class="m3-terminal-modal" role="dialog" aria-modal="true"
       aria-labelledby="terminal-title">
       <header class="terminal-header">
         <div class="terminal-title-group">
-          <span class="material-symbols-rounded terminal-badge-icon" aria-hidden="true">terminal</span>
+          <span class="material-symbols-outlined terminal-badge-icon" aria-hidden="true">terminal</span>
           <div>
             <h3 id="terminal-title" class="terminal-title">m1chi@pixel-os: ~</h3>
-            <span class="terminal-subtitle">Interaktywna konsola Michała • Material 3 Expressive Shell</span>
+            <span class="terminal-subtitle">JetBrains Mono • powłoka interaktywna</span>
           </div>
         </div>
         <button type="button" id="close-terminal-btn" class="terminal-close-btn" aria-label="Zamknij terminal">
-          <span class="material-symbols-rounded" aria-hidden="true">close</span>
+          <span class="material-symbols-outlined" aria-hidden="true">close</span>
         </button>
       </header>
 
       <div id="terminal-output" class="terminal-output" aria-live="polite">
         <div class="term-line term-welcome">
-          Witaj w mini-terminalu <strong>Michała Dzido</strong>! Wybierz jedną z komend poniżej lub wpisz własną:
+          Sesja uruchomiona. Wybierz polecenie poniżej lub wpisz komendę (np. <strong>help</strong>):
         </div>
       </div>
 
-      <!-- Quick Command Chips -->
       <div class="terminal-chips" aria-label="Szybkie komendy terminala">
         <button type="button" class="term-chip" data-cmd="whoami">whoami</button>
         <button type="button" class="term-chip" data-cmd="neofetch">neofetch</button>
         <button type="button" class="term-chip" data-cmd="skills">skills</button>
         <button type="button" class="term-chip" data-cmd="pixel">pixel</button>
         <button type="button" class="term-chip" data-cmd="ryzen">ryzen</button>
-        <button type="button" class="term-chip" data-cmd="coffee">coffee</button>
+        <button type="button" class="term-chip" data-cmd="uptime">uptime</button>
         <button type="button" class="term-chip" data-cmd="clear">clear</button>
       </div>
 
       <form id="terminal-form" class="terminal-input-row" autocomplete="off">
         <span class="terminal-prompt" aria-hidden="true">m1chi@wsei:~$</span>
         <input type="text" id="terminal-input" class="terminal-input"
-          placeholder="Wpisz komendę (np. help, neofetch, coffee)..." aria-label="Wpisz komendę terminala">
+          placeholder="Wpisz komendę (help, neofetch, skills)..." aria-label="Wpisz komendę terminala">
         <button type="submit" class="terminal-send-btn" aria-label="Wykonaj komendę">
-          <span class="material-symbols-rounded" aria-hidden="true">subdirectory_arrow_left</span>
+          <span class="material-symbols-outlined" aria-hidden="true">subdirectory_arrow_left</span>
         </button>
       </form>
     </aside>
   </div>
 
-  <!-- M3 Floating Toast / Snackbar Notification -->
+  <!-- M3 Snackbar Notification -->
   <aside id="m3-toast" class="m3-toast" role="status" aria-live="polite">
-    <span class="material-symbols-outlined toast-icon" aria-hidden="true">check_circle</span>
-    <span class="toast-msg">Skopiowano adres e-mail do schowka!</span>
+    <span class="material-symbols-outlined toast-icon" aria-hidden="true">info</span>
+    <span class="toast-msg">Status</span>
   </aside>
 
   <!-- Main JavaScript Logic -->

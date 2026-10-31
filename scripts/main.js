@@ -56,9 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Navigation (Desktop Pill Bar & Mobile Bottom Nav) with Scroll Spy
   initNavigationScrollSpy();
 
-  // 6. Smooth Scroll-Reveal Animations & Ambient Blob Parallax
+  // 6. Smooth Scroll-Reveal Animations
   initScrollReveal();
-  initAmbientParallax();
 
   // 7. Interactive Avatar Hover & Touch Swap
   initAvatarInteractive();
@@ -66,16 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. Scroll Pin / Docked Avatar Chip
   initScrollPinDock();
 
-  // 9. Copy E-mail, vCard Download & Easter Egg Interactions
-  initEmailCopy();
-  initVCardDownload();
+  // 9. Interactive Chips & Mini-Terminal (JetBrains Mono)
   initEasterEggs();
   initMiniTerminal();
 
-  // 10. Material 3 Ripple Effect
-  initRippleEffect();
-
-  // 11. Real-time Warsaw, Poland Clock
+  // 10. Real-time Warsaw, Poland Clock
   initWarsawClock();
 });
 
@@ -86,22 +80,23 @@ document.addEventListener('DOMContentLoaded', () => {
 function initAgeCalculator() {
   const birthDate = new Date(2006, 2, 4); // March 4, 2006 (Month is 0-indexed)
   const today = new Date();
-  
+
   let age = today.getFullYear() - birthDate.getFullYear();
   const monthDiff = today.getMonth() - birthDate.getMonth();
-  
+
   if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
     age--;
   }
 
-  const ageEl = document.getElementById("user-age");
-  if (ageEl) {
-    ageEl.innerHTML = `<span id="age" class="age-digit">${age}</span> <span class="age-unit">lat</span>`;
+  const ageDigitEl = document.getElementById("age");
+  if (ageDigitEl) {
+    ageDigitEl.textContent = age;
+    return;
   }
 
-  const legacyAgeEl = document.getElementById("age");
-  if (legacyAgeEl && legacyAgeEl !== ageEl) {
-    legacyAgeEl.textContent = age;
+  const ageEl = document.getElementById("user-age");
+  if (ageEl) {
+    ageEl.innerHTML = `<span id="age" class="mono-num">${age}</span> <span class="age-unit">lat</span> (ur. 4 marca)`;
   }
 }
 
@@ -109,7 +104,7 @@ function initAgeCalculator() {
 const initAgeCalculation = initAgeCalculator;
 
 /* ===================================================================
-   DYNAMIC CURRENT YEAR IN FOOTER
+   2. DYNAMIC CURRENT YEAR IN FOOTER
    =================================================================== */
 function initFooterYear() {
   const yearEl = document.getElementById("current-year");
@@ -119,7 +114,7 @@ function initFooterYear() {
 }
 
 /* ===================================================================
-   2. THEME & DYNAMIC MATERIAL YOU PALETTE MANAGER
+   3. THEME & DYNAMIC MATERIAL YOU PALETTE MANAGER
    =================================================================== */
 function initThemeManager() {
   const themeToggleBtn = document.getElementById('theme-toggle');
@@ -203,13 +198,13 @@ function initPaletteManager() {
       s.setAttribute('aria-checked', isMatch ? 'true' : 'false');
     });
     if (notify && paletteNames[palette]) {
-      showToast(`🎨 Motyw Material You: ${paletteNames[palette]}`);
+      showToast(`Motyw Material You: ${paletteNames[palette]}`);
     }
   }
 }
 
 /* ===================================================================
-   3. NAVIGATION & SCROLL SPY
+   4. NAVIGATION & SCROLL SPY
    =================================================================== */
 function initNavigationScrollSpy() {
   const desktopLinks = document.querySelectorAll('.nav-link');
@@ -285,7 +280,7 @@ function initNavigationScrollSpy() {
 }
 
 /* ===================================================================
-   3B. NATURAL SCROLL REVEAL & AMBIENT PARALLAX
+   5. SCROLL REVEAL
    =================================================================== */
 function initScrollReveal() {
   const revealSections = document.querySelectorAll('.reveal-section');
@@ -310,29 +305,8 @@ function initScrollReveal() {
   revealSections.forEach((sec) => revealObserver.observe(sec));
 }
 
-function initAmbientParallax() {
-  const blobs = document.querySelectorAll('.ambient-blob[data-parallax]');
-  if (!blobs.length || window.matchMedia('(pointer: coarse)').matches) return;
-
-  let ticking = false;
-  window.addEventListener('mousemove', (e) => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const cx = e.clientX - window.innerWidth / 2;
-        const cy = e.clientY - window.innerHeight / 2;
-        blobs.forEach((blob) => {
-          const factor = parseFloat(blob.getAttribute('data-parallax')) || 0.02;
-          blob.style.transform = `translate3d(${cx * factor}px, ${cy * factor}px, 0)`;
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-}
-
 /* ===================================================================
-   4. INTERACTIVE AVATAR HOVER & TOUCH SWAP
+   6. INTERACTIVE AVATAR HOVER & TOUCH SWAP
    =================================================================== */
 function initAvatarInteractive() {
   const avatarWrapper = document.getElementById('hero-avatar-wrapper');
@@ -373,7 +347,7 @@ function initAvatarInteractive() {
 }
 
 /* ===================================================================
-   5. SCROLL PIN / DOCKED AVATAR CHIP
+   7. SCROLL PIN / DOCKED AVATAR CHIP
    =================================================================== */
 function initScrollPinDock() {
   const dockedChip = document.getElementById('docked-avatar-chip');
@@ -412,7 +386,7 @@ function initScrollPinDock() {
 }
 
 /* ===================================================================
-   6. LIVE LAST.FM NOW PLAYING SERVICE & API INTEGRATION
+   8. LIVE LAST.FM NOW PLAYING SERVICE & API INTEGRATION
    =================================================================== */
 async function updateLastFmStatus() {
   const container = document.getElementById("lastfm-now-playing") || document.getElementById("lastfm-card");
@@ -477,14 +451,14 @@ async function updateLastFmStatus() {
 
     if (isPlaying) {
       if (statusBadgeEl) statusBadgeEl.className = "lastfm-live-badge is-playing";
-      if (statusTextEl) statusTextEl.textContent = "TERAZ W SŁUCHAWKACH";
+      if (statusTextEl) statusTextEl.textContent = "Teraz odtwarzane";
 
       container.classList.remove("hidden");
       container.style.opacity = "1";
       container.style.display = "flex";
     } else if (LASTFM_CONFIG.showRecentlyPlayedWhenOffline) {
       if (statusBadgeEl) statusBadgeEl.className = "lastfm-live-badge is-recent";
-      if (statusTextEl) statusTextEl.textContent = "OSTATNIO SŁUCHANE";
+      if (statusTextEl) statusTextEl.textContent = "Ostatnio odtwarzane";
 
       container.classList.remove("hidden");
       container.style.opacity = "1";
@@ -501,81 +475,8 @@ async function updateLastFmStatus() {
 const initLastFmService = updateLastFmStatus;
 
 /* ===================================================================
-   7. COPY E-MAIL, VCARD (.VCF) DOWNLOAD & EASTER EGGS
+   9. INTERACTIVE CHIPS & MINI-TERMINAL (JETBRAINS MONO)
    =================================================================== */
-function initEmailCopy() {
-  const copyBtn = document.getElementById('copy-email-btn');
-  const emailVal = 'michaldzido2@gmail.com';
-
-  if (!copyBtn) return;
-
-  copyBtn.addEventListener('click', async () => {
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(emailVal);
-      } else {
-        throw new Error('Clipboard API unavailable');
-      }
-    } catch {
-      try {
-        const textArea = document.createElement('textarea');
-        textArea.value = emailVal;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-9999px';
-        textArea.style.top = '0';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-      } catch (fallbackErr) {
-        console.warn('Clipboard fallback notice:', fallbackErr);
-      }
-    }
-
-    showToast('📬 Skopiowano adres michaldzido2@gmail.com do schowka!');
-  });
-}
-
-function initVCardDownload() {
-  const btns = [
-    document.getElementById('download-vcard-hero'),
-    document.getElementById('download-vcard-contact')
-  ].filter(Boolean);
-
-  if (!btns.length) return;
-
-  const generateVCard = () => {
-    const vcardLines = [
-      'BEGIN:VCARD',
-      'VERSION:3.0',
-      'N:Dzido;Michał;;;',
-      'FN:Michał Dzido',
-      'ORG:IT Solution Factor Sp. z o.o.',
-      'TITLE:Junior IT Specialist',
-      'EMAIL;TYPE=INTERNET,WORK:michaldzido2@gmail.com',
-      'ADR;TYPE=WORK:;;Warszawa;;;Polska',
-      'URL:https://github.com/m1chi0001',
-      'NOTE:Junior IT Specialist @ IT Solution Factor | Student Cyberbezpieczeństwa WSEI | Moderator Google Pixel Polska',
-      'END:VCARD'
-    ].join('\r\n');
-
-    const blob = new Blob([vcardLines], { type: 'text/vcard;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Michal_Dzido.vcf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-    showToast('📇 Pobrano wizytówkę vCard (Michal_Dzido.vcf)!');
-  };
-
-  btns.forEach((btn) => btn.addEventListener('click', generateVCard));
-}
-
 function initEasterEggs() {
   const interactiveItems = document.querySelectorAll('[data-easter-msg]');
   interactiveItems.forEach((item) => {
@@ -588,9 +489,6 @@ function initEasterEggs() {
   });
 }
 
-/* ===================================================================
-   8. INTERACTIVE MINI-TERMINAL IT (EASTER EGG MODAL)
-   =================================================================== */
 function initMiniTerminal() {
   const backdrop = document.getElementById('terminal-backdrop');
   const openBtns = [
@@ -605,15 +503,22 @@ function initMiniTerminal() {
 
   if (!backdrop || !output || !form || !input) return;
 
+  const sessionStart = Date.now();
+
   const commands = {
-    help: 'Dostępne komendy: <strong>whoami</strong>, <strong>neofetch</strong>, <strong>skills</strong>, <strong>pixel</strong>, <strong>ryzen</strong>, <strong>coffee</strong>, <strong>contact</strong>, <strong>clear</strong>',
-    whoami: '👋 Cześć! Jestem <strong>Michał Dzido</strong> — Junior IT Specialist w IT Solution Factor, student Cyberbezpieczeństwa na Uniwersytecie WSEI oraz moderator społeczności Google Pixel Polska.',
-    neofetch: '💻 <strong>OS</strong>: Android 16 Beta / Windows 11 Insider<br>📱 <strong>Host</strong>: Google Pixel 8 Pro (Mint) & Surface Pro 11<br>🖥️ <strong>Workstation</strong>: Miska Ryżenu (Ryzen 5 5600G + RTX 4060)<br>🎨 <strong>UI</strong>: Material 3 Expressive (Google Sans Flex)',
-    skills: '🛡️ <strong>Stack & Narzędzia</strong>: Windows Server, Active Directory, Linux/Bash, Sieci TCP/IP & VLAN, Diagnostyka Hardware, Wsparcie Helpdesk L1/L2, Cybersec.',
-    pixel: '🌿 <strong>Team Pixel!</strong> Korzystam z Pixela 8 Pro (Mint), Pixel Buds Pro 2 (Moonstone) oraz Pixel Watcha 2. Współtworzę też grupę Google Pixel Polska!',
-    ryzen: '🍚 <strong>Miska Ryżenu</strong> pracuje na pełnych obrotach! Procesor AMD Ryzen 5 5600G + GeForce RTX 4060 — gotowa na lab sieciowy i wieczorny gaming.',
-    coffee: '☕ Parzenie wirtualnego espresso dla gościa... Gotowe! Poziom energii: 100%.',
-    contact: '📬 Napisz do mnie na: <strong>michaldzido2@gmail.com</strong> albo złap mnie na LinkedInie / GitHubie (m1chi0001)!'
+    help: 'Dostępne polecenia: <strong>whoami</strong>, <strong>neofetch</strong>, <strong>skills</strong>, <strong>pixel</strong>, <strong>ryzen</strong>, <strong>uptime</strong>, <strong>contact</strong>, <strong>clear</strong>',
+    whoami: '<strong>Michał Dzido</strong> • Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI oraz moderator społeczności Google Pixel Polska.',
+    neofetch: '<strong>OS</strong>: Android 16 Beta / Windows 11 Insider<br><strong>Host</strong>: Google Pixel 8 Pro (Mint) &amp; Surface Pro 11<br><strong>Workstation</strong>: Miska Ryżenu (Ryzen 5 5600G + RTX 4060)<br><strong>Font</strong>: Google Sans Flex + JetBrains Mono<br><strong>UI</strong>: Material 3 Expressive',
+    skills: '<strong>Obszary techniczne</strong>: Windows Server, Active Directory, Linux/Bash, sieci TCP/IP &amp; VLAN, diagnostyka sprzętu PC, pierwsza linia wsparcia IT.',
+    pixel: '<strong>Ekosystem Google Pixel</strong>: Pixel 8 Pro (Mint, Tensor G3), Pixel Buds Pro 2 (Moonstone, Tensor A1) oraz Pixel Watch 2. Prowadzę również moderację grupy Google Pixel Polska.',
+    ryzen: '<strong>Miska Ryżenu (PC)</strong>: AMD Ryzen 5 5600G, GeForce RTX 4060, 16 GB RAM DDR4. Stacja robocza do wirtualnych maszyn laboratoryjnych, nauki sieci i gier.',
+    uptime: () => {
+      const elapsedSec = Math.max(1, Math.floor((Date.now() - sessionStart) / 1000));
+      const mins = Math.floor(elapsedSec / 60);
+      const secs = elapsedSec % 60;
+      return `<strong>Status sesji</strong>: aktywna od ${mins}m ${secs}s • lokalizacja: Warszawa (Europe/Warsaw)`;
+    },
+    contact: '<strong>Kontakt</strong>: michaldzido2@gmail.com • GitHub: github.com/m1chi0001 • LinkedIn: in/michał-dzido'
   };
 
   function openTerminal() {
@@ -632,7 +537,7 @@ function initMiniTerminal() {
     if (!cmd) return;
 
     if (cmd === 'clear') {
-      output.innerHTML = '<div class="term-line term-welcome">Konsola wyczyszczona. Wpisz <strong>help</strong>, aby zobaczyć listę komend.</div>';
+      output.innerHTML = '<div class="term-line term-welcome">Konsola wyczyszczona. Wpisz <strong>help</strong>, aby wyświetlić listę poleceń.</div>';
       return;
     }
 
@@ -644,7 +549,8 @@ function initMiniTerminal() {
     const respLine = document.createElement('div');
     respLine.className = 'term-line term-response';
     if (commands[cmd]) {
-      respLine.innerHTML = commands[cmd];
+      const result = typeof commands[cmd] === 'function' ? commands[cmd]() : commands[cmd];
+      respLine.innerHTML = result;
     } else {
       respLine.innerHTML = `Nieznana komenda: <code>${cmd.replace(/[<>&"']/g, '')}</code>. Wpisz <strong>help</strong>, aby zobaczyć dostępne polecenia.`;
     }
@@ -680,40 +586,6 @@ function initMiniTerminal() {
     const val = input.value;
     input.value = '';
     runCommand(val);
-  });
-}
-
-/* ===================================================================
-   9. MATERIAL 3 RIPPLE WAVE EFFECT
-   =================================================================== */
-function initRippleEffect() {
-  const rippleTargets = document.querySelectorAll(
-    '.m3-btn, .social-card, .bento-card, .exp-card, .device-card, .theme-toggle-btn, .palette-toggle-btn, .passion-pill, .lastfm-card, .floating-pill'
-  );
-
-  rippleTargets.forEach((elem) => {
-    elem.addEventListener('click', function (e) {
-      const rect = this.getBoundingClientRect();
-      const circle = document.createElement('span');
-      const diameter = Math.max(rect.width, rect.height);
-      const radius = diameter / 2;
-
-      circle.style.width = circle.style.height = `${diameter}px`;
-      circle.style.left = `${e.clientX - rect.left - radius}px`;
-      circle.style.top = `${e.clientY - rect.top - radius}px`;
-      circle.classList.add('m3-ripple-wave');
-
-      const existingRipple = this.querySelector('.m3-ripple-wave');
-      if (existingRipple) {
-        existingRipple.remove();
-      }
-
-      this.appendChild(circle);
-
-      setTimeout(() => {
-        circle.remove();
-      }, 600);
-    });
   });
 }
 
