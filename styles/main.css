@@ -178,6 +178,7 @@ html {
   color: var(--md-sys-color-on-background);
   transition: background-color var(--md-transition-medium), color var(--md-transition-medium);
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -186,7 +187,6 @@ body {
   color: var(--md-sys-color-on-surface);
   font-family: var(--font-sans);
   font-variation-settings: 'wght' 400, 'wdth' 100, 'slnt' 0, 'ROND' 40, 'GRAD' var(--font-grad), 'opsz' 16;
-  overflow-x: hidden;
 }
 
 /* Material 3 Expressive Type Scale with Google Sans Flex 6-Axis Mapping */
@@ -644,6 +644,7 @@ html[data-theme="light"] .moon-icon {
    ------------------------------------------------------------------- */
 .main-wrapper {
   width: 100%;
+  overflow-x: clip;
 }
 
 .snap-section {
