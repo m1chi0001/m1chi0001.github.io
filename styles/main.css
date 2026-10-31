@@ -32,6 +32,12 @@
   --md-transition-medium: 260ms var(--md-motion-standard);
   --md-transition-expressive: 360ms var(--md-motion-expressive);
 
+  /* Material 3 Expressive spring tokens (CSS approximations of the motion physics system) */
+  --md-sys-motion-spring-fast-spatial: 350ms cubic-bezier(0.42, 1.67, 0.21, 0.90);
+  --md-sys-motion-spring-default-spatial: 500ms cubic-bezier(0.38, 1.21, 0.22, 1.00);
+  --md-sys-motion-spring-fast-effects: 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+  --md-type-morph: font-variation-settings 0.35s cubic-bezier(0.2, 0, 0, 1);
+
   /* Dark Mode Semantic Palette — Ocean Blue Seed (Default) */
   color-scheme: dark;
   --md-sys-color-background: #111318;
@@ -186,20 +192,20 @@ body {
 /* Material 3 Expressive Type Scale with Google Sans Flex 6-Axis Mapping */
 h1, .hero-title {
   font-family: var(--font-sans);
-  font-size: clamp(2.25rem, 4.2vw, 3.5rem);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
+  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   color: var(--md-sys-color-on-surface);
-  font-variation-settings: 'wght' 650, 'wdth' 102, 'slnt' 0, 'ROND' 90, 'GRAD' var(--font-grad), 'opsz' 48;
+  font-variation-settings: 'wght' 800, 'wdth' 112, 'ROND' 100, 'opsz' 120, 'GRAD' var(--font-grad, 0), 'slnt' 0;
 }
 
 h2, .section-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.625rem, 2.8vw, 2.125rem);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3vw, 2.375rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   color: var(--md-sys-color-on-surface);
-  font-variation-settings: 'wght' 600, 'wdth' 100, 'slnt' 0, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 32;
+  font-variation-settings: 'wght' 800, 'wdth' 112, 'ROND' 100, 'opsz' 120, 'GRAD' var(--font-grad, 0), 'slnt' 0;
 }
 
 h3, .m3-card-title {
@@ -208,8 +214,22 @@ h3, .m3-card-title {
   line-height: 1.35;
   letter-spacing: -0.01em;
   color: var(--md-sys-color-on-surface);
-  font-variation-settings: 'wght' 600, 'wdth' 100, 'slnt' 0, 'ROND' 70, 'GRAD' var(--font-grad), 'opsz' 20;
-  transition: font-variation-settings var(--md-transition-fast);
+  font-variation-settings: 'wght' 650, 'wdth' 102, 'slnt' 0, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 20;
+  transition: var(--md-type-morph);
+}
+
+/* Highlighted words: playful slant + wider stance on hover */
+em,
+.expressive-accent {
+  font-style: normal;
+  display: inline-block;
+  font-variation-settings: 'wght' 800, 'wdth' 112, 'ROND' 100, 'opsz' 120, 'GRAD' var(--font-grad, 0), 'slnt' 0;
+  transition: var(--md-type-morph);
+}
+
+em:hover,
+.expressive-accent:hover {
+  font-variation-settings: 'wght' 850, 'wdth' 115, 'ROND' 100, 'opsz' 120, 'GRAD' 80, 'slnt' -6;
 }
 
 p {
@@ -289,31 +309,67 @@ button {
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 36px;
-  padding: 0 14px;
+  height: 40px;
+  padding: 0 11px;
   border-radius: var(--md-shape-pill);
   font-size: 0.875rem;
   color: var(--md-sys-color-on-surface-variant);
-  font-variation-settings: 'wght' 500, 'wdth' 98, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 14;
-  transition: background-color var(--md-transition-fast), color var(--md-transition-fast), font-variation-settings var(--md-transition-fast);
+  font-variation-settings: 'wght' 500, 'wdth' 100, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 14, 'slnt' 0;
+  transition:
+    background-color var(--md-transition-fast),
+    color var(--md-transition-fast),
+    padding var(--md-sys-motion-spring-fast-spatial),
+    font-variation-settings 0.35s cubic-bezier(0.2, 0, 0, 1);
   white-space: nowrap;
 }
 
 .nav-link .nav-icon {
-  font-size: 18px;
+  font-size: 20px;
+  transition: font-variation-settings var(--md-transition-fast);
 }
 
-.nav-link:hover {
+/* Inactive tabs show only the icon; label collapses to zero width */
+.nav-link .nav-label {
+  display: inline-block;
+  max-width: 0;
+  margin-left: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-width var(--md-sys-motion-spring-fast-spatial),
+    margin-left var(--md-sys-motion-spring-fast-spatial),
+    opacity var(--md-sys-motion-spring-fast-effects);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
   color: var(--md-sys-color-on-surface);
   background-color: var(--md-sys-color-surface-container-high);
-  font-variation-settings: 'wght' 500, 'wdth' 98, 'ROND' 80, 'GRAD' var(--font-grad-hover), 'opsz' 14;
+  font-variation-settings: 'wght' 600, 'wdth' 100, 'ROND' 100, 'GRAD' 80, 'opsz' 14, 'slnt' -6;
+}
+
+.nav-link:hover .nav-label,
+.nav-link:focus-visible .nav-label,
+.nav-link.active .nav-label {
+  max-width: 160px;
+  margin-left: 8px;
+  opacity: 1;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.active {
+  padding: 0 16px 0 12px;
 }
 
 .nav-link.active {
   background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
-  font-variation-settings: 'wght' 600, 'wdth' 98, 'ROND' 90, 'GRAD' var(--font-grad), 'opsz' 14;
+  font-variation-settings: 'wght' 700, 'wdth' 100, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 14, 'slnt' 0;
+}
+
+.nav-link.active .nav-icon {
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
 }
 
 /* Docked Mini-Avatar Chip (Top-Left on Scroll) */
@@ -702,17 +758,18 @@ html[data-theme="light"] .moon-icon {
   padding: 0 20px;
   border-radius: var(--md-shape-pill);
   font-size: 0.9375rem;
-  font-variation-settings: 'wght' 600, 'wdth' 98, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 15;
-  transition: background-color var(--md-transition-fast), color var(--md-transition-fast), border-color var(--md-transition-fast), transform var(--md-transition-fast), font-variation-settings var(--md-transition-fast);
+  font-variation-settings: 'wght' 650, 'wdth' 102, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 15, 'slnt' 0;
+  transition: background-color var(--md-transition-fast), color var(--md-transition-fast), border-color var(--md-transition-fast), transform var(--md-sys-motion-spring-fast-spatial), border-radius var(--md-sys-motion-spring-fast-spatial), font-variation-settings 0.35s cubic-bezier(0.2, 0, 0, 1);
   user-select: none;
 }
 
 .m3-btn:hover {
-  font-variation-settings: 'wght' 600, 'wdth' 98, 'ROND' 95, 'GRAD' var(--font-grad-hover), 'opsz' 15;
+  font-variation-settings: 'wght' 750, 'wdth' 102, 'ROND' 100, 'GRAD' 80, 'opsz' 15, 'slnt' -6;
 }
 
 .m3-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+  border-radius: 16px;
 }
 
 .m3-btn-filled {
@@ -760,13 +817,7 @@ html[data-theme="light"] .moon-icon {
   background-color: var(--md-sys-color-surface-container-low);
   border: 1px solid var(--md-sys-color-outline-variant);
   overflow: hidden;
-  transition: border-color var(--md-transition-medium), border-radius var(--md-transition-expressive);
-}
-
-.avatar-interactive-wrapper:hover .avatar-squircle,
-.avatar-interactive-wrapper.is-hovered .avatar-squircle {
-  border-color: var(--md-sys-color-primary);
-  border-radius: 36px;
+  transition: border-color var(--md-transition-medium), border-radius var(--md-sys-motion-spring-default-spatial);
 }
 
 .avatar-img {
@@ -791,14 +842,35 @@ html[data-theme="light"] .moon-icon {
   z-index: 2;
 }
 
-.avatar-interactive-wrapper:hover .avatar-photo,
-.avatar-interactive-wrapper.is-hovered .avatar-photo {
+/* Explicit toggled state (tap / click) works on every input type */
+.avatar-interactive-wrapper.is-avatar-active .avatar-squircle {
+  border-color: var(--md-sys-color-primary);
+  border-radius: 40px;
+}
+
+.avatar-interactive-wrapper.is-avatar-active .avatar-photo {
   opacity: 0;
 }
 
-.avatar-interactive-wrapper:hover .avatar-art,
-.avatar-interactive-wrapper.is-hovered .avatar-art {
+.avatar-interactive-wrapper.is-avatar-active .avatar-art {
   opacity: 1;
+}
+
+/* Hover preview only on real pointers, so touch browsers never get stuck in :hover.
+   .hover-suppressed is set right after a click so the toggle is visible immediately. */
+@media (hover: hover) and (pointer: fine) {
+  .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-squircle {
+    border-color: var(--md-sys-color-primary);
+    border-radius: 40px;
+  }
+
+  .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-photo {
+    opacity: 0;
+  }
+
+  .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-art {
+    opacity: 1;
+  }
 }
 
 .avatar-hover-hint {
@@ -862,6 +934,7 @@ html[data-theme="light"] .moon-icon {
 .bento-span-7 { grid-column: span 7; }
 .bento-span-5 { grid-column: span 5; }
 .bento-span-6 { grid-column: span 6; }
+.bento-span-4 { grid-column: span 4; }
 
 .m3-grid-2 {
   grid-template-columns: repeat(2, 1fr);
@@ -877,22 +950,59 @@ html[data-theme="light"] .moon-icon {
   gap: 16px;
 }
 
-/* Base Unified Card */
+/* Per-card Material You accents.
+   Each accent class sets a dark-theme and a light-theme tone; .m3-card resolves
+   --card-accent / --card-glow from them so every child can reuse the same color. */
+.accent-sky        { --accent-dark: #A8C7FA; --accent-light: #0B57D0; }
+.accent-mint       { --accent-dark: #81C995; --accent-light: #188038; }
+.accent-lavender   { --accent-dark: #D0BCFF; --accent-light: #6750A4; }
+.accent-amber      { --accent-dark: #FDD663; --accent-light: #B06000; }
+.accent-peach      { --accent-dark: #FFB786; --accent-light: #A0430A; }
+.accent-cobalt     { --accent-dark: #7CACF8; --accent-light: #1A5FD0; }
+.accent-cyan       { --accent-dark: #78D9EC; --accent-light: #00838F; }
+.accent-android    { --accent-dark: #3DDC84; --accent-light: #137A3E; }
+.accent-community  { --accent-dark: #1877F2; --accent-light: #1877F2; }
+.accent-pixel-mint { --accent-dark: #A8E6CF; --accent-light: #2E7D5B; }
+.accent-moonstone  { --accent-dark: #B8C5D6; --accent-light: #50627A; }
+.accent-graphite   { --accent-dark: #9E9EA4; --accent-light: #4A4A52; --icon-bg: #2A2B32; }
+.accent-platinum   { --accent-dark: #E3E5E8; --accent-light: #5F6368; }
+.accent-crimson    { --accent-dark: #EF4444; --accent-light: #C62828; }
+.accent-linkedin   { --accent-dark: #0A66C2; --accent-light: #0A66C2; }
+.accent-instagram  { --accent-dark: #E4405F; --accent-light: #C13584; }
+.accent-github     { --accent-dark: #F0F6FC; --accent-light: #24292F; }
+.accent-x          { --accent-dark: #E7E9EA; --accent-light: #0F1419; }
+
+/* Base Unified Card: 28px squircle that morphs to 36px on hover */
 .m3-card {
+  --card-accent: var(--accent-dark, var(--md-sys-color-primary));
+  --card-glow: color-mix(in srgb, var(--card-accent) 38%, transparent);
+  position: relative;
   background-color: var(--md-sys-color-surface-container-low);
   border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--md-shape-lg);
+  border-radius: var(--md-shape-xl);
   padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  transition: background-color var(--md-transition-fast), border-color var(--md-transition-fast), border-radius var(--md-transition-expressive);
+  transition:
+    background-color var(--md-transition-fast),
+    border-color var(--md-transition-medium),
+    box-shadow var(--md-transition-medium),
+    border-radius var(--md-sys-motion-spring-default-spatial),
+    transform var(--md-sys-motion-spring-fast-spatial);
+}
+
+html[data-theme="light"] .m3-card {
+  --card-accent: var(--accent-light, var(--md-sys-color-primary));
+  --card-glow: color-mix(in srgb, var(--card-accent) 24%, transparent);
 }
 
 .m3-card:hover {
   background-color: var(--md-sys-color-surface-container);
-  border-color: var(--md-sys-color-outline-hover);
+  border-color: var(--card-accent);
+  border-radius: 36px;
+  box-shadow: 0 12px 32px -8px var(--card-glow);
 }
 
 /* Interactive Cards (Links / Easter Egg Cards) */
@@ -905,16 +1015,16 @@ html[data-theme="light"] .moon-icon {
 .m3-card-interactive:hover,
 #card-pixel-8-pro:hover,
 #card-miska-ryzenu:hover {
-  border-color: var(--md-sys-color-primary);
-  border-radius: var(--md-shape-xl);
+  transform: translateY(-2px);
 }
 
+/* GRAD + slant morph: no width change, so the card never reflows on hover */
 .m3-card:hover .m3-card-title {
-  font-variation-settings: 'wght' 600, 'wdth' 100, 'slnt' 0, 'ROND' 85, 'GRAD' var(--font-grad-hover), 'opsz' 20;
+  font-variation-settings: 'wght' 700, 'wdth' 102, 'slnt' -6, 'ROND' 100, 'GRAD' 80, 'opsz' 20;
 }
 
 .m3-card:active {
-  transform: scale(0.995);
+  transform: scale(0.99);
 }
 
 /* Card Header */
@@ -925,24 +1035,40 @@ html[data-theme="light"] .moon-icon {
   gap: 12px;
 }
 
-/* Unified Icon Box: 40x40px, 12px radius, single tonal color role */
+/* Tinted icon box: accent at 16% over the card, morphs from squircle to circle */
 .m3-icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--md-shape-sm);
-  background-color: var(--md-sys-color-surface-container-high);
-  color: var(--md-sys-color-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background-color: var(--icon-bg, color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 16%, transparent));
+  color: var(--card-accent, var(--md-sys-color-primary));
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background-color var(--md-transition-fast), color var(--md-transition-fast), border-radius var(--md-transition-expressive);
+  transition:
+    background-color var(--md-transition-fast),
+    border-radius var(--md-sys-motion-spring-default-spatial),
+    transform var(--md-sys-motion-spring-fast-spatial);
+}
+
+html[data-theme="light"] .accent-graphite .m3-icon-box {
+  --icon-bg: color-mix(in srgb, var(--card-accent) 16%, transparent);
+}
+
+.m3-icon-box .material-symbols-outlined {
+  font-size: 22px;
+  transition: font-variation-settings var(--md-transition-fast);
 }
 
 .m3-card:hover .m3-icon-box {
-  background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
-  border-radius: 14px;
+  border-radius: 50%;
+  transform: rotate(-6deg);
+  background-color: var(--icon-bg, color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 26%, transparent));
+}
+
+.m3-card:hover .m3-icon-box .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
 }
 
 .m3-svg-icon {
@@ -954,12 +1080,12 @@ html[data-theme="light"] .moon-icon {
 .m3-card-meta {
   font-size: 0.8125rem;
   color: var(--md-sys-color-on-surface-variant);
-  font-variation-settings: 'wght' 500, 'wdth' 98, 'ROND' 50, 'GRAD' var(--font-grad), 'opsz' 13;
+  font-variation-settings: 'wght' 650, 'wdth' 105, 'ROND' 100, 'opsz' 18, 'GRAD' var(--font-grad);
 }
 
 .m3-card-arrow {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background-color: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface-variant);
@@ -967,7 +1093,10 @@ html[data-theme="light"] .moon-icon {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background-color var(--md-transition-fast), color var(--md-transition-fast);
+  transition:
+    background-color var(--md-transition-fast),
+    color var(--md-transition-fast),
+    transform var(--md-sys-motion-spring-fast-spatial);
 }
 
 .m3-card-arrow .material-symbols-outlined {
@@ -976,8 +1105,9 @@ html[data-theme="light"] .moon-icon {
 
 .m3-card-interactive:hover .m3-card-arrow,
 .lastfm-card:hover .m3-card-arrow {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  background-color: color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 22%, transparent);
+  color: var(--card-accent, var(--md-sys-color-primary));
+  transform: rotate(45deg) scale(1.06);
 }
 
 /* Card Body */
@@ -990,8 +1120,8 @@ html[data-theme="light"] .moon-icon {
 
 .m3-card-subtitle {
   font-size: 0.875rem;
-  color: var(--md-sys-color-primary);
-  font-variation-settings: 'wght' 500, 'wdth' 98, 'ROND' 50, 'GRAD' var(--font-grad), 'opsz' 14;
+  color: var(--card-accent, var(--md-sys-color-primary));
+  font-variation-settings: 'wght' 600, 'wdth' 100, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 14;
 }
 
 .m3-card-desc {
@@ -999,6 +1129,26 @@ html[data-theme="light"] .moon-icon {
   color: var(--md-sys-color-on-surface-variant);
   line-height: 1.6;
   margin-top: 2px;
+}
+
+/* Age counter card: large expressive numeral */
+.age-value {
+  display: inline-block;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--card-accent);
+  font-variant-numeric: tabular-nums;
+  font-variation-settings: 'wght' 800, 'wdth' 112, 'ROND' 100, 'opsz' 120, 'GRAD' var(--font-grad, 0), 'slnt' 0;
+  transition: var(--md-type-morph);
+}
+
+.m3-card-age .m3-card-body {
+  justify-content: center;
+}
+
+.m3-card-age:hover .age-value {
+  font-variation-settings: 'wght' 900, 'wdth' 112, 'ROND' 100, 'opsz' 120, 'GRAD' 80, 'slnt' -6;
 }
 
 /* Card Footer & Unified Chips */
@@ -1025,7 +1175,7 @@ html[data-theme="light"] .moon-icon {
 
 .meta-inline-icon {
   font-size: 16px;
-  color: var(--md-sys-color-primary);
+  color: var(--card-accent, var(--md-sys-color-primary));
 }
 
 .meta-inline strong {
@@ -1037,30 +1187,42 @@ html[data-theme="light"] .moon-icon {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  list-style: none;
 }
 
-/* Nested Radius Math: Card is 24px, inner chip is 8px */
+.m3-spec-list {
+  margin-top: 10px;
+}
+
+/* Pill chips tinted with the card accent */
 .m3-chip {
   display: inline-flex;
   align-items: center;
-  height: 28px;
-  padding: 0 10px;
-  border-radius: var(--md-shape-xs);
-  background-color: var(--md-sys-color-surface-container-high);
+  min-height: 30px;
+  padding: 4px 12px;
+  border-radius: var(--md-shape-pill);
+  background-color: color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 10%, var(--md-sys-color-surface-container-high));
   color: var(--md-sys-color-on-surface-variant);
   font-size: 0.75rem;
-  font-variation-settings: 'wght' 500, 'wdth' 98, 'ROND' 60, 'GRAD' var(--font-grad), 'opsz' 12;
-  transition: background-color var(--md-transition-fast), color var(--md-transition-fast);
+  line-height: 1.3;
+  font-variation-settings: 'wght' 650, 'wdth' 105, 'ROND' 100, 'opsz' 18, 'GRAD' var(--font-grad);
+  transition: background-color var(--md-transition-fast), color var(--md-transition-fast), border-color var(--md-transition-fast);
+}
+
+.m3-card:hover .m3-chip {
+  color: var(--md-sys-color-on-surface);
 }
 
 .m3-chip-action {
   border: 1px solid var(--md-sys-color-outline-variant);
+  transition: background-color var(--md-transition-fast), color var(--md-transition-fast), font-variation-settings 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .m3-chip-action:hover {
-  background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
+  background-color: color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 24%, transparent);
+  color: var(--card-accent, var(--md-sys-color-primary));
   border-color: transparent;
+  font-variation-settings: 'wght' 750, 'wdth' 105, 'ROND' 100, 'opsz' 18, 'GRAD' 80, 'slnt' -6;
 }
 
 /* -------------------------------------------------------------------
@@ -1500,19 +1662,27 @@ html[data-theme="light"] .moon-icon {
     grid-column: span 12;
   }
 
+  .bento-span-4 {
+    grid-column: span 6;
+  }
+
   .m3-grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 767px) {
-  /* Google Sans Flex responsive condensed width on mobile screens */
+  /* Google Sans Flex: keep the rounded, heavy display voice but narrow the stance on phones */
   h1, .hero-title {
-    font-variation-settings: 'wght' 650, 'wdth' 96, 'slnt' 0, 'ROND' 90, 'GRAD' var(--font-grad), 'opsz' 40;
+    font-variation-settings: 'wght' 800, 'wdth' 100, 'ROND' 100, 'opsz' 96, 'GRAD' var(--font-grad, 0), 'slnt' 0;
   }
 
   h2, .section-title {
-    font-variation-settings: 'wght' 600, 'wdth' 96, 'slnt' 0, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 28;
+    font-variation-settings: 'wght' 800, 'wdth' 100, 'ROND' 100, 'opsz' 72, 'GRAD' var(--font-grad, 0), 'slnt' 0;
+  }
+
+  .bento-span-4 {
+    grid-column: span 12;
   }
 
   .app-header,
@@ -1543,22 +1713,31 @@ html[data-theme="light"] .moon-icon {
   }
 
   .mobile-icon-box {
-    width: 48px;
+    width: 56px;
     height: 40px;
     border-radius: var(--md-shape-pill);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color var(--md-transition-fast), color var(--md-transition-fast);
+    transition:
+      background-color var(--md-transition-fast),
+      color var(--md-transition-fast),
+      width var(--md-sys-motion-spring-fast-spatial);
   }
 
   .mobile-nav-item.active .mobile-icon-box {
+    width: 64px;
     background-color: var(--md-sys-color-primary-container);
     color: var(--md-sys-color-on-primary-container);
   }
 
-  .mobile-nav-label {
-    display: none;
+  .mobile-nav-item.active .mobile-icon-box .material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+  }
+
+  .mobile-nav-label,
+  .mobile-bottom-nav .nav-label {
+    display: none !important;
   }
 
   .snap-section {

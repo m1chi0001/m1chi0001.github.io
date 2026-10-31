@@ -184,7 +184,7 @@
             </div>
 
             <h1 id="hero-title-h1" class="hero-title">
-              Cześć, jestem <span class="hero-name-accent">Michał Dzido</span>
+              Cześć, jestem <span class="hero-name-accent expressive-accent">Michał Dzido</span>
             </h1>
 
             <p class="hero-subtitle">
@@ -282,7 +282,7 @@
         <div class="m3-grid m3-grid-bento">
 
           <!-- Card 1: Praca zawodowa (span 7) -->
-          <article class="m3-card bento-span-7">
+          <article class="m3-card bento-span-7 accent-mint">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">support_agent</span>
@@ -306,19 +306,35 @@
             </div>
           </article>
 
-          <!-- Card 2: Wiek i lokalizacja (span 5) -->
-          <article class="m3-card bento-span-5">
+          <!-- Card 2: Wiek, automatyczny licznik (span 5) -->
+          <article class="m3-card bento-span-5 accent-sky m3-card-age">
+            <div class="m3-card-header">
+              <div class="m3-icon-box" aria-hidden="true">
+                <span class="material-symbols-outlined">cake</span>
+              </div>
+              <span class="m3-card-meta">Wiek</span>
+            </div>
+            <div class="m3-card-body">
+              <span id="user-age" class="age-value">20 lat</span>
+            </div>
+            <div class="m3-card-footer">
+              <div class="m3-chip-group">
+                <span class="m3-chip">4 marca 2006</span>
+                <span class="m3-chip">Rocznik ’06</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Lokalizacja (span 4) -->
+          <article class="m3-card bento-span-4 accent-amber">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">location_on</span>
               </div>
-              <span class="m3-card-meta">Lokalizacja i wiek</span>
+              <span class="m3-card-meta">Lokalizacja</span>
             </div>
             <div class="m3-card-body">
               <h3 class="m3-card-title">Warszawa i Adamów</h3>
-              <p class="m3-card-subtitle" id="user-age">
-                <span id="age" class="mono-num">20</span> <span class="age-unit">lat</span> (ur. 4 marca)
-              </p>
               <p class="m3-card-desc">
                 W tygodniu pracuję stacjonarnie w Warszawie. W weekendy studiuję zaocznie i spędzam czas w rodzinnych
                 stronach.
@@ -333,8 +349,8 @@
             </div>
           </article>
 
-          <!-- Card 3: Edukacja (span 6) -->
-          <article class="m3-card bento-span-6">
+          <!-- Card 4: Edukacja (span 4) -->
+          <article class="m3-card bento-span-4 accent-lavender">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">school</span>
@@ -357,8 +373,8 @@
             </div>
           </article>
 
-          <!-- Card 4: Zainteresowania po godzinach (span 6) -->
-          <article class="m3-card bento-span-6">
+          <!-- Card 5: Zainteresowania po godzinach (span 4) -->
+          <article class="m3-card bento-span-4 accent-peach">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">interests</span>
@@ -415,7 +431,7 @@
         <div class="m3-grid m3-grid-2">
 
           <!-- Card 1: Sprzęt -->
-          <article class="m3-card">
+          <article class="m3-card accent-cobalt">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">memory</span>
@@ -439,7 +455,7 @@
           </article>
 
           <!-- Card 2: Wsparcie IT -->
-          <article class="m3-card">
+          <article class="m3-card accent-community">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">headset_mic</span>
@@ -463,7 +479,7 @@
           </article>
 
           <!-- Card 3: Sieci i systemy -->
-          <article class="m3-card">
+          <article class="m3-card accent-cyan">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">lan</span>
@@ -487,7 +503,7 @@
           </article>
 
           <!-- Card 4: Ekosystem mobilny -->
-          <article class="m3-card">
+          <article class="m3-card accent-android">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">phone_android</span>
@@ -533,8 +549,8 @@
           <div class="m3-grid m3-grid-3">
 
             <!-- Device 1: Google Pixel 8 Pro -->
-            <article class="m3-card" id="card-pixel-8-pro"
-              data-easter-msg="Google Pixel 8 Pro (Mint): czysta wersja systemu Android z aktywnym kanałem Beta.">
+            <article class="m3-card accent-pixel-mint" id="card-pixel-8-pro"
+              data-easter-msg="Google Pixel 8 Pro (Mint) na kanale Android Beta.">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">smartphone</span>
@@ -543,23 +559,18 @@
               </div>
               <div class="m3-card-body">
                 <h3 class="m3-card-title">Google Pixel 8 Pro</h3>
-                <p class="m3-card-subtitle">Google Tensor G3 • 12 / 128 GB</p>
-                <p class="m3-card-desc">
-                  Główny telefon do codziennej komunikacji, fotografii mobilnej i testowania wczesnych wydań systemu
-                  Android.
-                </p>
-              </div>
-              <div class="m3-card-footer">
-                <div class="m3-chip-group">
-                  <span class="m3-chip">Kolor: Mint</span>
-                  <span class="m3-chip">Titan M2</span>
-                  <span class="m3-chip">Android Beta</span>
-                </div>
+                <ul class="m3-chip-group m3-spec-list" aria-label="Specyfikacja">
+                  <li class="m3-chip">Google Tensor G3</li>
+                  <li class="m3-chip">12 GB RAM</li>
+                  <li class="m3-chip">128 GB UFS 3.1</li>
+                  <li class="m3-chip">6,7" LTPO OLED 120 Hz</li>
+                  <li class="m3-chip">Kolor Mint</li>
+                </ul>
               </div>
             </article>
 
             <!-- Device 2: Google Pixel Buds Pro 2 -->
-            <article class="m3-card">
+            <article class="m3-card accent-moonstone">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">headphones</span>
@@ -568,22 +579,16 @@
               </div>
               <div class="m3-card-body">
                 <h3 class="m3-card-title">Google Pixel Buds Pro 2</h3>
-                <p class="m3-card-subtitle">Układ Google Tensor A1 • ANC</p>
-                <p class="m3-card-desc">
-                  Słuchawki dokanałowe z aktywną redukcją hałasu, z których korzystam w komunikacji miejskiej i podczas
-                  pracy.
-                </p>
-              </div>
-              <div class="m3-card-footer">
-                <div class="m3-chip-group">
-                  <span class="m3-chip">Kolor: Moonstone</span>
-                  <span class="m3-chip">Redukcja szumów ANC</span>
-                </div>
+                <ul class="m3-chip-group m3-spec-list" aria-label="Specyfikacja">
+                  <li class="m3-chip">Układ Google Tensor A1</li>
+                  <li class="m3-chip">Active Noise Cancellation (Silent Seal 2.0)</li>
+                  <li class="m3-chip">Kolor Moonstone</li>
+                </ul>
               </div>
             </article>
 
             <!-- Device 3: Google Pixel Watch 2 -->
-            <article class="m3-card">
+            <article class="m3-card accent-graphite">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">watch</span>
@@ -592,17 +597,13 @@
               </div>
               <div class="m3-card-body">
                 <h3 class="m3-card-title">Google Pixel Watch 2</h3>
-                <p class="m3-card-subtitle">Wear OS • Wersja Wi-Fi</p>
-                <p class="m3-card-desc">
-                  Zegarek do sprawdzania powiadomień, szybkich odpowiedzi na wiadomości i pomiarów aktywności w ciągu
-                  dnia.
-                </p>
-              </div>
-              <div class="m3-card-footer">
-                <div class="m3-chip-group">
-                  <span class="m3-chip">Kolor: Matte Black</span>
-                  <span class="m3-chip">Wear OS</span>
-                </div>
+                <ul class="m3-chip-group m3-spec-list" aria-label="Specyfikacja">
+                  <li class="m3-chip">Qualcomm SW5100</li>
+                  <li class="m3-chip">2 GB RAM</li>
+                  <li class="m3-chip">32 GB eMMC</li>
+                  <li class="m3-chip">Koperta 41 mm Wi-Fi</li>
+                  <li class="m3-chip">Kolor Matte Black</li>
+                </ul>
               </div>
             </article>
 
@@ -612,53 +613,43 @@
           <div class="m3-grid m3-grid-2">
 
             <!-- Device 4: Microsoft Surface Pro 11 -->
-            <article class="m3-card">
+            <article class="m3-card accent-platinum">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">laptop_chromebook</span>
                 </div>
-                <span class="m3-card-meta">Komputer mobilny 2 w 1</span>
+                <span class="m3-card-meta">Komputer 2 w 1</span>
               </div>
               <div class="m3-card-body">
-                <h3 class="m3-card-title">Microsoft Surface Pro, 11th Edition</h3>
-                <p class="m3-card-subtitle">Snapdragon X Elite • 16 GB RAM • 1 TB SSD</p>
-                <p class="m3-card-desc">
-                  Lekki komputer na wykłady i wyjazdy. Architektura ARM zapewnia wielogodzinną pracę na baterii bez
-                  konieczności noszenia ładowarki.
-                </p>
-              </div>
-              <div class="m3-card-footer">
-                <div class="m3-chip-group">
-                  <span class="m3-chip">Windows 11 ARM</span>
-                  <span class="m3-chip">16 GB RAM</span>
-                  <span class="m3-chip">1 TB NVMe</span>
-                </div>
+                <h3 class="m3-card-title">Microsoft Surface Pro 11 Edition</h3>
+                <ul class="m3-chip-group m3-spec-list" aria-label="Specyfikacja">
+                  <li class="m3-chip">Snapdragon X Elite (12 rdzeni)</li>
+                  <li class="m3-chip">Qualcomm Hexagon NPU</li>
+                  <li class="m3-chip">16 GB LPDDR5x RAM</li>
+                  <li class="m3-chip">1 TB SSD</li>
+                  <li class="m3-chip">13" PixelSense Flow 120 Hz</li>
+                </ul>
               </div>
             </article>
 
             <!-- Device 5: Miska Ryżenu -->
-            <article class="m3-card" id="card-miska-ryzenu"
-              data-easter-msg="Miska Ryżenu: AMD Ryzen 5 5600G + GeForce RTX 4060. Maszyny wirtualne i gry działają płynnie.">
+            <article class="m3-card accent-crimson" id="card-miska-ryzenu"
+              data-easter-msg="Miska Ryżenu: AMD Ryzen 5 5600G + GeForce RTX 4060.">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">desktop_windows</span>
                 </div>
-                <span class="m3-card-meta">Stacja robocza</span>
+                <span class="m3-card-meta">Komputer stacjonarny</span>
               </div>
               <div class="m3-card-body">
-                <h3 class="m3-card-title">Miska Ryżenu (PC)</h3>
-                <p class="m3-card-subtitle">AMD Ryzen 5 5600G • RTX 4060 • 16 GB RAM</p>
-                <p class="m3-card-desc">
-                  Domowy komputer stacjonarny zbudowany do uruchamiania wirtualnych maszyn laboratoryjnych, nauki sieci
-                  i gier.
-                </p>
-              </div>
-              <div class="m3-card-footer">
-                <div class="m3-chip-group">
-                  <span class="m3-chip">Ryzen 5 5600G</span>
-                  <span class="m3-chip">GeForce RTX 4060</span>
-                  <span class="m3-chip">16 GB DDR4</span>
-                </div>
+                <h3 class="m3-card-title">Miska Ryżenu (PC Desktop)</h3>
+                <ul class="m3-chip-group m3-spec-list" aria-label="Specyfikacja">
+                  <li class="m3-chip">AMD Ryzen 5 5600G</li>
+                  <li class="m3-chip">NVIDIA GeForce RTX 4060 8 GB</li>
+                  <li class="m3-chip">16 GB DDR4 RAM</li>
+                  <li class="m3-chip">1 TB NVMe SSD</li>
+                  <li class="m3-chip">512 GB HDD</li>
+                </ul>
               </div>
             </article>
 
@@ -685,7 +676,7 @@
 
           <!-- 1. LinkedIn -->
           <a href="https://www.linkedin.com/in/micha%C5%82-dzido/" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive" aria-label="Odwiedź profil LinkedIn Michał Dzido">
+            class="m3-card m3-card-interactive accent-linkedin" aria-label="Odwiedź profil LinkedIn Michał Dzido">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="m3-svg-icon">
@@ -706,7 +697,7 @@
 
           <!-- 2. GitHub -->
           <a href="https://github.com/m1chi0001" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive" aria-label="Odwiedź profil GitHub m1chi0001">
+            class="m3-card m3-card-interactive accent-github" aria-label="Odwiedź profil GitHub m1chi0001">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="m3-svg-icon">
@@ -727,7 +718,7 @@
 
           <!-- 3. Instagram -->
           <a href="https://www.instagram.com/m1chi0001/" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive" aria-label="Odwiedź profil Instagram m1chi0001">
+            class="m3-card m3-card-interactive accent-instagram" aria-label="Odwiedź profil Instagram m1chi0001">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="m3-svg-icon">
@@ -748,7 +739,7 @@
 
           <!-- 4. X (Twitter) -->
           <a href="https://x.com/M1chi0001" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive" aria-label="Odwiedź profil X M1chi0001">
+            class="m3-card m3-card-interactive accent-x" aria-label="Odwiedź profil X M1chi0001">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="m3-svg-icon">
@@ -769,7 +760,7 @@
 
           <!-- 5. Google Pixel Polska -->
           <a href="https://www.facebook.com/groups/googlepixelpolska" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive" aria-label="Grupa Facebook Google Pixel Polska">
+            class="m3-card m3-card-interactive accent-community" aria-label="Grupa Facebook Google Pixel Polska">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">groups</span>
@@ -786,7 +777,7 @@
           </a>
 
           <!-- 6. Direct E-mail Card -->
-          <a href="mailto:michaldzido2@gmail.com" class="m3-card m3-card-interactive"
+          <a href="mailto:michaldzido2@gmail.com" class="m3-card m3-card-interactive accent-sky"
             aria-label="Wyślij e-mail do michaldzido2@gmail.com">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">

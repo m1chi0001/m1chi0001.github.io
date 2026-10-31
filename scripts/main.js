@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
    Birthdate: March 4, 2006 (2006-03-04)
    =================================================================== */
 function initAgeCalculator() {
-  const birthDate = new Date(2006, 2, 4); // March 4, 2006 (Month is 0-indexed)
+  const birthDate = new Date(2006, 2, 4); // March 4, 2006 (0-indexed month)
   const today = new Date();
 
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -88,15 +88,19 @@ function initAgeCalculator() {
     age--;
   }
 
-  const ageDigitEl = document.getElementById("age");
-  if (ageDigitEl) {
-    ageDigitEl.textContent = age;
-    return;
+  // Polish pluralization: 1 rok, 2-4 / 22-24 lata, 5-21 / 25+ lat (12-14 always "lat")
+  const lastDigit = age % 10;
+  const lastTwoDigits = age % 100;
+  let suffix = "lat";
+  if (age === 1) {
+    suffix = "rok";
+  } else if ((lastTwoDigits < 12 || lastTwoDigits > 14) && lastDigit >= 2 && lastDigit <= 4) {
+    suffix = "lata";
   }
 
   const ageEl = document.getElementById("user-age");
   if (ageEl) {
-    ageEl.innerHTML = `<span id="age" class="mono-num">${age}</span> <span class="age-unit">lat</span> (ur. 4 marca)`;
+    ageEl.textContent = `${age} ${suffix}`;
   }
 }
 
@@ -209,74 +213,100 @@ function initPaletteManager() {
 function initNavigationScrollSpy() {
   const desktopLinks = document.querySelectorAll('.nav-link');
   const mobileLinks = document.querySelectorAll('.mobile-nav-item');
-  const sections = document.querySelectorAll('.snap-section');
+  const sections = Array.from(document.querySelectorAll('.snap-section'));
 
-  if (!desktopLinks.length || !sections.length) return;
+  if (!sections.length) return;
+
+  let lockedTargetId = null;
+  let lockReleaseTimer = null;
+  let ticking = false;
 
   const setActiveSection = (targetId) => {
     desktopLinks.forEach((link) => {
-      const href = link.getAttribute('href');
-      if (href === `#${targetId}`) {
-        link.classList.add('active');
-        link.setAttribute('aria-selected', 'true');
-      } else {
-        link.classList.remove('active');
-        link.setAttribute('aria-selected', 'false');
-      }
+      const isMatch = link.getAttribute('href') === `#${targetId}`;
+      link.classList.toggle('active', isMatch);
+      link.setAttribute('aria-selected', isMatch ? 'true' : 'false');
     });
 
     mobileLinks.forEach((mLink) => {
-      const href = mLink.getAttribute('href');
-      if (href === `#${targetId}`) {
-        mLink.classList.add('active');
+      const isMatch = mLink.getAttribute('href') === `#${targetId}`;
+      mLink.classList.toggle('active', isMatch);
+      if (isMatch) {
+        mLink.setAttribute('aria-current', 'location');
       } else {
-        mLink.classList.remove('active');
+        mLink.removeAttribute('aria-current');
       }
     });
   };
 
-  desktopLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
+  // Viewport-center detection: the active section is the last one whose top edge
+  // has crossed a probe line at 40% of the viewport height. Works for sections of any height.
+  const detectActiveSection = () => {
+    const probeY = window.innerHeight * 0.4;
+    let currentId = sections[0].id;
 
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(targetId);
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= probeY) {
+        currentId = section.id;
+      } else {
+        break;
       }
-    });
-  });
+    }
 
-  mobileLinks.forEach((mLink) => {
-    mLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = mLink.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
+    // At the very bottom the last section may be too short to reach the probe line
+    const scrolledToBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    if (scrolledToBottom) {
+      currentId = sections[sections.length - 1].id;
+    }
 
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(targetId);
-      }
-    });
-  });
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -30% 0px',
-    threshold: 0.18
+    return currentId;
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        setActiveSection(id);
-      }
-    });
-  }, observerOptions);
+  const onScroll = () => {
+    if (lockedTargetId) {
+      // While a click-triggered smooth scroll runs, keep the clicked tab highlighted
+      // and release the lock shortly after scrolling stops.
+      clearTimeout(lockReleaseTimer);
+      lockReleaseTimer = setTimeout(() => {
+        lockedTargetId = null;
+        setActiveSection(detectActiveSection());
+      }, 160);
+      return;
+    }
 
-  sections.forEach((section) => observer.observe(section));
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        setActiveSection(detectActiveSection());
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  const handleNavClick = (e, link) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+    if (!targetSection) return;
+
+    lockedTargetId = targetId;
+    setActiveSection(targetId);
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+
+    // Fallback release in case the page is already at the target and no scroll event fires
+    clearTimeout(lockReleaseTimer);
+    lockReleaseTimer = setTimeout(() => {
+      lockedTargetId = null;
+    }, 1200);
+  };
+
+  desktopLinks.forEach((link) => link.addEventListener('click', (e) => handleNavClick(e, link)));
+  mobileLinks.forEach((mLink) => mLink.addEventListener('click', (e) => handleNavClick(e, mLink)));
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  setActiveSection(detectActiveSection());
 }
 
 /* ===================================================================
@@ -312,38 +342,30 @@ function initAvatarInteractive() {
   const avatarWrapper = document.getElementById('hero-avatar-wrapper');
   if (!avatarWrapper) return;
 
-  let touchHandled = false;
+  const hintBtn = document.getElementById('avatar-hover-hint');
 
-  avatarWrapper.addEventListener('mouseenter', () => {
-    avatarWrapper.classList.add('is-hovered');
+  const syncAria = () => {
+    const isActive = avatarWrapper.classList.contains('is-avatar-active');
+    if (hintBtn) hintBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  };
+
+  // A single click handler serves mouse, touch and keyboard (Enter/Space on the hint
+  // button fire a native click that bubbles here). Every tap flips photo <-> avatar.
+  avatarWrapper.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    avatarWrapper.classList.toggle('is-avatar-active');
+    // Suppress the desktop :hover preview until the pointer leaves, so the
+    // toggle is visible right away instead of being masked by the hover state.
+    avatarWrapper.classList.add('hover-suppressed');
+    syncAria();
   });
 
   avatarWrapper.addEventListener('mouseleave', () => {
-    avatarWrapper.classList.remove('is-hovered');
+    avatarWrapper.classList.remove('hover-suppressed');
   });
 
-  avatarWrapper.addEventListener('touchstart', () => {
-    touchHandled = true;
-    avatarWrapper.classList.toggle('is-hovered');
-    setTimeout(() => {
-      touchHandled = false;
-    }, 400);
-  }, { passive: true });
-
-  avatarWrapper.addEventListener('click', () => {
-    if (touchHandled) return;
-    avatarWrapper.classList.toggle('is-hovered');
-  });
-
-  const hintBtn = document.getElementById('avatar-hover-hint');
-  if (hintBtn) {
-    hintBtn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        avatarWrapper.classList.toggle('is-hovered');
-      }
-    });
-  }
+  syncAria();
 }
 
 /* ===================================================================
