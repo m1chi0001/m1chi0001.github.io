@@ -202,7 +202,7 @@ function initPaletteManager() {
       s.setAttribute('aria-checked', isMatch ? 'true' : 'false');
     });
     if (notify && paletteNames[palette]) {
-      showToast(`Motyw Material You: ${paletteNames[palette]}`);
+      showToast(`Motyw: ${paletteNames[palette]}`);
     }
   }
 }
@@ -425,8 +425,8 @@ async function updateLastFmStatus() {
     const url = LASTFM_CONFIG.proxyUrl
       ? LASTFM_CONFIG.proxyUrl
       : `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${encodeURIComponent(
-          LASTFM_CONFIG.username
-        )}&api_key=${encodeURIComponent(LASTFM_CONFIG.apiKey)}&format=json&limit=2${cacheBuster}`;
+        LASTFM_CONFIG.username
+      )}&api_key=${encodeURIComponent(LASTFM_CONFIG.apiKey)}&format=json&limit=2${cacheBuster}`;
 
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) {
