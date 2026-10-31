@@ -20,6 +20,24 @@ const LASTFM_CONFIG = {
   showRecentlyPlayedWhenOffline: true // Displays the authentic last-scrobbled song when not actively streaming
 };
 
+let globalToastTimer = null;
+
+/**
+ * Universal Material 3 Snackbar / Toast helper
+ */
+function showToast(message) {
+  const toast = document.getElementById('m3-toast');
+  if (!toast) return;
+  const msgEl = toast.querySelector('.toast-msg');
+  if (msgEl) msgEl.textContent = message;
+
+  toast.classList.add('show');
+  clearTimeout(globalToastTimer);
+  globalToastTimer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3600);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Dynamic Age Engine (Birthdate: March 4, 2006)
   initAgeCalculator();
@@ -31,25 +49,33 @@ document.addEventListener('DOMContentLoaded', () => {
   updateLastFmStatus();
   setInterval(updateLastFmStatus, LASTFM_CONFIG.pollIntervalMs);
 
-  // 4. Material 3 Theme Management (Default: Dark Mode)
+  // 4. Material 3 Theme & Dynamic Color Palette Manager
   initThemeManager();
+  initPaletteManager();
 
   // 5. Navigation (Desktop Pill Bar & Mobile Bottom Nav) with Scroll Spy
   initNavigationScrollSpy();
 
-  // 6. Interactive Avatar Hover & Touch Swap
+  // 6. Smooth Scroll-Reveal Animations & Ambient Blob Parallax
+  initScrollReveal();
+  initAmbientParallax();
+
+  // 7. Interactive Avatar Hover & Touch Swap
   initAvatarInteractive();
 
-  // 7. Scroll Pin / Docked Avatar Chip
+  // 8. Scroll Pin / Docked Avatar Chip
   initScrollPinDock();
 
-  // 8. Copy E-mail & Toast System
+  // 9. Copy E-mail, vCard Download & Easter Egg Interactions
   initEmailCopy();
+  initVCardDownload();
+  initEasterEggs();
+  initMiniTerminal();
 
-  // 9. Material 3 Ripple Effect
+  // 10. Material 3 Ripple Effect
   initRippleEffect();
 
-  // 10. Real-time Warsaw, Poland Clock
+  // 11. Real-time Warsaw, Poland Clock
   initWarsawClock();
 });
 
@@ -93,15 +119,13 @@ function initFooterYear() {
 }
 
 /* ===================================================================
-   2. THEME MANAGER (DARK MODE DEFAULT)
-   Persists preference in localStorage
+   2. THEME & DYNAMIC MATERIAL YOU PALETTE MANAGER
    =================================================================== */
 function initThemeManager() {
   const themeToggleBtn = document.getElementById('theme-toggle');
   const htmlRoot = document.documentElement;
   const themeText = document.getElementById('theme-text');
 
-  // Check saved preference; default to 'dark' strictly per specifications
   const savedTheme = localStorage.getItem('m3_portfolio_theme') || 'dark';
   applyTheme(savedTheme);
 
@@ -128,10 +152,64 @@ function initThemeManager() {
   }
 }
 
+function initPaletteManager() {
+  const picker = document.getElementById('palette-picker');
+  const toggleBtn = document.getElementById('palette-toggle-btn');
+  const swatches = document.querySelectorAll('.palette-swatch');
+  const htmlRoot = document.documentElement;
+
+  const paletteNames = {
+    blue: 'Ocean Blue (Domyślny)',
+    mint: 'Pixel Mint',
+    peach: 'Sunset Peach',
+    purple: 'Cyber Purple'
+  };
+
+  const savedPalette = localStorage.getItem('m3_portfolio_palette') || 'blue';
+  applyPalette(savedPalette, false);
+
+  if (toggleBtn && picker) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = picker.classList.toggle('is-open');
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!picker.contains(e.target)) {
+        picker.classList.remove('is-open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  swatches.forEach((swatch) => {
+    swatch.addEventListener('click', () => {
+      const choice = swatch.getAttribute('data-palette-choice') || 'blue';
+      applyPalette(choice, true);
+      localStorage.setItem('m3_portfolio_palette', choice);
+      if (picker && toggleBtn) {
+        picker.classList.remove('is-open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  function applyPalette(palette, notify) {
+    htmlRoot.setAttribute('data-palette', palette);
+    swatches.forEach((s) => {
+      const isMatch = s.getAttribute('data-palette-choice') === palette;
+      s.classList.toggle('active', isMatch);
+      s.setAttribute('aria-checked', isMatch ? 'true' : 'false');
+    });
+    if (notify && paletteNames[palette]) {
+      showToast(`🎨 Motyw Material You: ${paletteNames[palette]}`);
+    }
+  }
+}
+
 /* ===================================================================
    3. NAVIGATION & SCROLL SPY
-   - Desktop: Adaptive Tab Expansion & Sliding Pill Indicator
-   - Mobile: Bottom Navigation Bar with Vertical Icon Stack
    =================================================================== */
 function initNavigationScrollSpy() {
   const desktopLinks = document.querySelectorAll('.nav-link');
@@ -140,9 +218,7 @@ function initNavigationScrollSpy() {
 
   if (!desktopLinks.length || !sections.length) return;
 
-  // Synchronize active states across both desktop and mobile navigation
   const setActiveSection = (targetId) => {
-    // 1. Update Desktop Tabs
     desktopLinks.forEach((link) => {
       const href = link.getAttribute('href');
       if (href === `#${targetId}`) {
@@ -154,7 +230,6 @@ function initNavigationScrollSpy() {
       }
     });
 
-    // 2. Update Mobile Bottom Navigation
     mobileLinks.forEach((mLink) => {
       const href = mLink.getAttribute('href');
       if (href === `#${targetId}`) {
@@ -165,7 +240,6 @@ function initNavigationScrollSpy() {
     });
   };
 
-  // Smooth scroll click handler for desktop tabs
   desktopLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -179,7 +253,6 @@ function initNavigationScrollSpy() {
     });
   });
 
-  // Smooth scroll click handler for mobile bottom nav
   mobileLinks.forEach((mLink) => {
     mLink.addEventListener('click', (e) => {
       e.preventDefault();
@@ -193,11 +266,10 @@ function initNavigationScrollSpy() {
     });
   });
 
-  // IntersectionObserver to continuously spy active section in viewport
   const observerOptions = {
     root: null,
-    rootMargin: '-20% 0px -25% 0px',
-    threshold: 0.25
+    rootMargin: '-20% 0px -30% 0px',
+    threshold: 0.18
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -213,8 +285,54 @@ function initNavigationScrollSpy() {
 }
 
 /* ===================================================================
+   3B. NATURAL SCROLL REVEAL & AMBIENT PARALLAX
+   =================================================================== */
+function initScrollReveal() {
+  const revealSections = document.querySelectorAll('.reveal-section');
+  if (!revealSections.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    revealSections.forEach((sec) => sec.classList.add('is-visible'));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  revealSections.forEach((sec) => revealObserver.observe(sec));
+}
+
+function initAmbientParallax() {
+  const blobs = document.querySelectorAll('.ambient-blob[data-parallax]');
+  if (!blobs.length || window.matchMedia('(pointer: coarse)').matches) return;
+
+  let ticking = false;
+  window.addEventListener('mousemove', (e) => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const cx = e.clientX - window.innerWidth / 2;
+        const cy = e.clientY - window.innerHeight / 2;
+        blobs.forEach((blob) => {
+          const factor = parseFloat(blob.getAttribute('data-parallax')) || 0.02;
+          blob.style.transform = `translate3d(${cx * factor}px, ${cy * factor}px, 0)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ===================================================================
    4. INTERACTIVE AVATAR HOVER & TOUCH SWAP
-   Crossfades from photo to illustrated 3D avatar on hover or touch
    =================================================================== */
 function initAvatarInteractive() {
   const avatarWrapper = document.getElementById('hero-avatar-wrapper');
@@ -256,7 +374,6 @@ function initAvatarInteractive() {
 
 /* ===================================================================
    5. SCROLL PIN / DOCKED AVATAR CHIP
-   When scrolling past Hero, scales down and docks seamlessly at top-left
    =================================================================== */
 function initScrollPinDock() {
   const dockedChip = document.getElementById('docked-avatar-chip');
@@ -264,7 +381,6 @@ function initScrollPinDock() {
 
   if (!dockedChip || !heroSection) return;
 
-  // Click docked avatar to smoothly return to top / hero
   dockedChip.addEventListener('click', () => {
     heroSection.scrollIntoView({ behavior: 'smooth' });
   });
@@ -276,7 +392,6 @@ function initScrollPinDock() {
     }
   });
 
-  // Observe when hero exits view to dock the avatar chip
   const heroObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -297,15 +412,7 @@ function initScrollPinDock() {
 }
 
 /* ===================================================================
-   5. LIVE LAST.FM NOW PLAYING SERVICE & API INTEGRATION
-   - Query Last.fm 2.0 API for user: M1chiii
-   - Conditional Rendering: ONLY active tracks (nowplaying === 'true')
-   - Animated CSS audio equalizer bars indicating real-time playback
-   - Album art thumbnail, track title, artist name & Last.fm brand crimson accent
-   - Queries Last.fm 2.0 API in real time with cache-busting
-   - Automatically detects active playback (nowplaying === 'true')
-   - Graceful fallback: renders authentic latest scrobbled track with 'Ostatnio odtwarzane'
-   - High-contrast squircle artwork, live sound-wave bars, and brand crimson styling
+   6. LIVE LAST.FM NOW PLAYING SERVICE & API INTEGRATION
    =================================================================== */
 async function updateLastFmStatus() {
   const container = document.getElementById("lastfm-now-playing") || document.getElementById("lastfm-card");
@@ -351,7 +458,6 @@ async function updateLastFmStatus() {
     const statusBadgeEl = document.getElementById("lastfm-status-badge");
     const statusTextEl = document.getElementById("lastfm-status-text");
 
-    // Track metadata
     const trackName = track.name || "Nieznany utwór";
     const trackArtist = typeof track.artist === "object"
       ? (track.artist?.["#text"] || track.artist?.name || "Nieznany wykonawca")
@@ -360,7 +466,6 @@ async function updateLastFmStatus() {
     if (titleEl) titleEl.textContent = trackName;
     if (artistEl) artistEl.textContent = trackArtist;
 
-    // Highest quality available album artwork
     const albumImg = track.image?.find(img => img.size === "large")?.["#text"]
       || track.image?.find(img => img.size === "extralarge")?.["#text"]
       || track.image?.find(img => img.size === "medium")?.["#text"]
@@ -371,17 +476,15 @@ async function updateLastFmStatus() {
     }
 
     if (isPlaying) {
-      // 1. Actively streaming right now
       if (statusBadgeEl) statusBadgeEl.className = "lastfm-live-badge is-playing";
-      if (statusTextEl) statusTextEl.textContent = "TERAZ ODTWARZANE";
+      if (statusTextEl) statusTextEl.textContent = "TERAZ W SŁUCHAWKACH";
 
       container.classList.remove("hidden");
       container.style.opacity = "1";
       container.style.display = "flex";
     } else if (LASTFM_CONFIG.showRecentlyPlayedWhenOffline) {
-      // 2. Offline / recently scrobbled authentic track
       if (statusBadgeEl) statusBadgeEl.className = "lastfm-live-badge is-recent";
-      if (statusTextEl) statusTextEl.textContent = "OSTATNIO ODTWARZANE";
+      if (statusTextEl) statusTextEl.textContent = "OSTATNIO SŁUCHANE";
 
       container.classList.remove("hidden");
       container.style.opacity = "1";
@@ -395,17 +498,14 @@ async function updateLastFmStatus() {
   }
 }
 
-// Backwards compatibility alias
 const initLastFmService = updateLastFmStatus;
 
 /* ===================================================================
-   6. COPY E-MAIL TO CLIPBOARD & TOAST SYSTEM
+   7. COPY E-MAIL, VCARD (.VCF) DOWNLOAD & EASTER EGGS
    =================================================================== */
 function initEmailCopy() {
   const copyBtn = document.getElementById('copy-email-btn');
-  const toast = document.getElementById('m3-toast');
   const emailVal = 'michaldzido2@gmail.com';
-  let toastTimer = null;
 
   if (!copyBtn) return;
 
@@ -433,28 +533,162 @@ function initEmailCopy() {
       }
     }
 
-    showToast('Skopiowano adres e-mail (michaldzido2@gmail.com) do schowka!');
+    showToast('📬 Skopiowano adres michaldzido2@gmail.com do schowka!');
   });
+}
 
-  function showToast(message) {
-    if (!toast) return;
-    const msgEl = toast.querySelector('.toast-msg');
-    if (msgEl) msgEl.textContent = message;
+function initVCardDownload() {
+  const btns = [
+    document.getElementById('download-vcard-hero'),
+    document.getElementById('download-vcard-contact')
+  ].filter(Boolean);
 
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3200);
-  }
+  if (!btns.length) return;
+
+  const generateVCard = () => {
+    const vcardLines = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'N:Dzido;Michał;;;',
+      'FN:Michał Dzido',
+      'ORG:IT Solution Factor Sp. z o.o.',
+      'TITLE:Junior IT Specialist',
+      'EMAIL;TYPE=INTERNET,WORK:michaldzido2@gmail.com',
+      'ADR;TYPE=WORK:;;Warszawa;;;Polska',
+      'URL:https://github.com/m1chi0001',
+      'NOTE:Junior IT Specialist @ IT Solution Factor | Student Cyberbezpieczeństwa WSEI | Moderator Google Pixel Polska',
+      'END:VCARD'
+    ].join('\r\n');
+
+    const blob = new Blob([vcardLines], { type: 'text/vcard;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Michal_Dzido.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+    showToast('📇 Pobrano wizytówkę vCard (Michal_Dzido.vcf)!');
+  };
+
+  btns.forEach((btn) => btn.addEventListener('click', generateVCard));
+}
+
+function initEasterEggs() {
+  const interactiveItems = document.querySelectorAll('[data-easter-msg]');
+  interactiveItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      const msg = item.getAttribute('data-easter-msg');
+      if (msg) {
+        showToast(msg);
+      }
+    });
+  });
 }
 
 /* ===================================================================
-   7. MATERIAL 3 RIPPLE WAVE EFFECT
+   8. INTERACTIVE MINI-TERMINAL IT (EASTER EGG MODAL)
+   =================================================================== */
+function initMiniTerminal() {
+  const backdrop = document.getElementById('terminal-backdrop');
+  const openBtns = [
+    document.getElementById('hero-terminal-trigger'),
+    document.getElementById('open-terminal-btn')
+  ].filter(Boolean);
+  const closeBtn = document.getElementById('close-terminal-btn');
+  const output = document.getElementById('terminal-output');
+  const form = document.getElementById('terminal-form');
+  const input = document.getElementById('terminal-input');
+  const chips = document.querySelectorAll('.term-chip');
+
+  if (!backdrop || !output || !form || !input) return;
+
+  const commands = {
+    help: 'Dostępne komendy: <strong>whoami</strong>, <strong>neofetch</strong>, <strong>skills</strong>, <strong>pixel</strong>, <strong>ryzen</strong>, <strong>coffee</strong>, <strong>contact</strong>, <strong>clear</strong>',
+    whoami: '👋 Cześć! Jestem <strong>Michał Dzido</strong> — Junior IT Specialist w IT Solution Factor, student Cyberbezpieczeństwa na Uniwersytecie WSEI oraz moderator społeczności Google Pixel Polska.',
+    neofetch: '💻 <strong>OS</strong>: Android 16 Beta / Windows 11 Insider<br>📱 <strong>Host</strong>: Google Pixel 8 Pro (Mint) & Surface Pro 11<br>🖥️ <strong>Workstation</strong>: Miska Ryżenu (Ryzen 5 5600G + RTX 4060)<br>🎨 <strong>UI</strong>: Material 3 Expressive (Google Sans Flex)',
+    skills: '🛡️ <strong>Stack & Narzędzia</strong>: Windows Server, Active Directory, Linux/Bash, Sieci TCP/IP & VLAN, Diagnostyka Hardware, Wsparcie Helpdesk L1/L2, Cybersec.',
+    pixel: '🌿 <strong>Team Pixel!</strong> Korzystam z Pixela 8 Pro (Mint), Pixel Buds Pro 2 (Moonstone) oraz Pixel Watcha 2. Współtworzę też grupę Google Pixel Polska!',
+    ryzen: '🍚 <strong>Miska Ryżenu</strong> pracuje na pełnych obrotach! Procesor AMD Ryzen 5 5600G + GeForce RTX 4060 — gotowa na lab sieciowy i wieczorny gaming.',
+    coffee: '☕ Parzenie wirtualnego espresso dla gościa... Gotowe! Poziom energii: 100%.',
+    contact: '📬 Napisz do mnie na: <strong>michaldzido2@gmail.com</strong> albo złap mnie na LinkedInie / GitHubie (m1chi0001)!'
+  };
+
+  function openTerminal() {
+    backdrop.classList.add('is-open');
+    backdrop.setAttribute('aria-hidden', 'false');
+    setTimeout(() => input.focus(), 120);
+  }
+
+  function closeTerminal() {
+    backdrop.classList.remove('is-open');
+    backdrop.setAttribute('aria-hidden', 'true');
+  }
+
+  function runCommand(rawCmd) {
+    const cmd = rawCmd.trim().toLowerCase();
+    if (!cmd) return;
+
+    if (cmd === 'clear') {
+      output.innerHTML = '<div class="term-line term-welcome">Konsola wyczyszczona. Wpisz <strong>help</strong>, aby zobaczyć listę komend.</div>';
+      return;
+    }
+
+    const echoLine = document.createElement('div');
+    echoLine.className = 'term-line term-cmd-echo';
+    echoLine.textContent = `m1chi@wsei:~$ ${rawCmd}`;
+    output.appendChild(echoLine);
+
+    const respLine = document.createElement('div');
+    respLine.className = 'term-line term-response';
+    if (commands[cmd]) {
+      respLine.innerHTML = commands[cmd];
+    } else {
+      respLine.innerHTML = `Nieznana komenda: <code>${cmd.replace(/[<>&"']/g, '')}</code>. Wpisz <strong>help</strong>, aby zobaczyć dostępne polecenia.`;
+    }
+    output.appendChild(respLine);
+    output.scrollTop = output.scrollHeight;
+  }
+
+  openBtns.forEach((btn) => btn.addEventListener('click', openTerminal));
+  if (closeBtn) closeBtn.addEventListener('click', closeTerminal);
+
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeTerminal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
+      closeTerminal();
+    } else if (e.key === '`' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+      e.preventDefault();
+      backdrop.classList.contains('is-open') ? closeTerminal() : openTerminal();
+    }
+  });
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const cmd = chip.getAttribute('data-cmd');
+      if (cmd) runCommand(cmd);
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = input.value;
+    input.value = '';
+    runCommand(val);
+  });
+}
+
+/* ===================================================================
+   9. MATERIAL 3 RIPPLE WAVE EFFECT
    =================================================================== */
 function initRippleEffect() {
   const rippleTargets = document.querySelectorAll(
-    '.m3-btn, .social-card, .bento-card, .exp-card, .device-card, .theme-toggle-btn, .copy-btn, .lastfm-card, .floating-pill'
+    '.m3-btn, .social-card, .bento-card, .exp-card, .device-card, .theme-toggle-btn, .palette-toggle-btn, .passion-pill, .lastfm-card, .floating-pill'
   );
 
   rippleTargets.forEach((elem) => {
@@ -484,7 +718,7 @@ function initRippleEffect() {
 }
 
 /* ===================================================================
-   8. REAL-TIME WARSAW, POLAND CLOCK
+   10. REAL-TIME WARSAW, POLAND CLOCK
    =================================================================== */
 function initWarsawClock() {
   const timeElem = document.getElementById('live-warsaw-time');
