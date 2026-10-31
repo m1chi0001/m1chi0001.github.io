@@ -24,8 +24,8 @@ const LASTFM_CONFIG = {
 // === BILINGUAL TRANSLATION DICTIONARY (PL / EN) ===
 const I18N = {
   pl: {
-    "meta.title": "Michał Dzido | Junior IT Specialist & Cybersec",
-    "meta.description": "Portfolio Michała Dzido. Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI oraz moderator społeczności Google Pixel Polska.",
+    "meta.title": "Michał Dzido • IT, Cybersec & Team Pixel",
+    "meta.description": "Wpadnij na moją interaktywną stronę w stylu Material 3 Expressive. Na co dzień ogarniam wsparcie IT i studiuję cyberbezpieczeństwo, a po godzinach testuję bety Androida na Pixelu, składam PC i słucham muzyki na żywo z Last.fm.",
 
     "docked.aria": "Przewiń do góry strony",
     "docked.title": "Wróć na górę strony",
@@ -191,8 +191,8 @@ const I18N = {
   },
 
   en: {
-    "meta.title": "Michał Dzido | Junior IT Specialist & Cybersec",
-    "meta.description": "Portfolio of Michał Dzido. Junior IT Specialist at IT Solution Factor, Cybersecurity student at WSEI University, and Google Pixel Polska community moderator.",
+    "meta.title": "Michał Dzido • IT, Cybersec & Team Pixel",
+    "meta.description": "Check out my interactive Material 3 Expressive site. Day to day I work in IT support and study cybersecurity, and after hours I test Android betas on Pixel, build PCs, and stream live tracks via Last.fm.",
 
     "docked.aria": "Scroll to top of page",
     "docked.title": "Back to top",
