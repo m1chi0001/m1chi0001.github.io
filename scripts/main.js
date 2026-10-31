@@ -93,8 +93,8 @@ const I18N = {
     "about.job.chip3": "Obsługa incydentów",
 
     "about.age.meta": "Wiek",
-    "about.age.chip1": "Urodzony 4 marca",
-    "about.age.chip2": "Rocznik 2006",
+    "about.age.chip1": "Urodziny 4 marca",
+    "about.age.chip2": "Rocznik '06",
 
     "about.loc.meta": "Lokalizacja",
     "about.loc.title": "Warszawa i Adamów",
@@ -282,8 +282,8 @@ const I18N = {
     "about.job.chip3": "Incident management",
 
     "about.age.meta": "Age",
-    "about.age.chip1": "Born March 4",
-    "about.age.chip2": "Year 2006",
+    "about.age.chip1": "Birthday March 4",
+    "about.age.chip2": "Born in '06",
 
     "about.loc.meta": "Location",
     "about.loc.title": "Warsaw & Adamów",
