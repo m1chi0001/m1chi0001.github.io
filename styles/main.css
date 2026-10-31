@@ -846,17 +846,21 @@ html[data-theme="light"] .moon-icon {
   cursor: pointer;
 }
 
-/* Outer radius: 32px, padding: 8px -> Inner radius: 24px (Nested Radius Math) */
+/* Outer radius: 32px, padding: 8px -> Inner radius: 24px (Nested Radius Math)
+   Active/Hover outer radius: 44px, padding: 8px -> Inner radius: 36px */
 .avatar-squircle {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: var(--md-shape-squircle);
+  border-radius: 32px;
   padding: 8px;
   background-color: var(--md-sys-color-surface-container-low);
   border: 1px solid var(--md-sys-color-outline-variant);
   overflow: hidden;
-  transition: border-color var(--md-transition-medium), border-radius var(--md-sys-motion-spring-default-spatial);
+  transition:
+    border-color var(--md-transition-medium),
+    border-radius var(--md-sys-motion-spring-default-spatial),
+    box-shadow var(--md-transition-medium);
 }
 
 .avatar-img {
@@ -865,9 +869,11 @@ html[data-theme="light"] .moon-icon {
   width: calc(100% - 16px);
   height: calc(100% - 16px);
   object-fit: cover;
-  border-radius: var(--md-shape-lg);
+  border-radius: 24px;
   display: block;
-  transition: opacity 320ms var(--md-motion-standard);
+  transition:
+    opacity 320ms var(--md-motion-standard),
+    border-radius var(--md-sys-motion-spring-default-spatial);
   pointer-events: none;
 }
 
@@ -884,7 +890,11 @@ html[data-theme="light"] .moon-icon {
 /* Explicit toggled state (tap / click) works on every input type */
 .avatar-interactive-wrapper.is-avatar-active .avatar-squircle {
   border-color: var(--md-sys-color-primary);
-  border-radius: 40px;
+  border-radius: 44px;
+}
+
+.avatar-interactive-wrapper.is-avatar-active .avatar-img {
+  border-radius: 36px;
 }
 
 .avatar-interactive-wrapper.is-avatar-active .avatar-photo {
@@ -900,7 +910,11 @@ html[data-theme="light"] .moon-icon {
 @media (hover: hover) and (pointer: fine) {
   .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-squircle {
     border-color: var(--md-sys-color-primary);
-    border-radius: 40px;
+    border-radius: 44px;
+  }
+
+  .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-img {
+    border-radius: 36px;
   }
 
   .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-photo {
@@ -1265,7 +1279,108 @@ html[data-theme="light"] .accent-graphite .m3-icon-box {
 }
 
 /* -------------------------------------------------------------------
-   9. LIVE LAST.FM MEDIA CARD (Built on .m3-card)
+   8B. EXPRESSIVE HARDWARE SPEC TILES (#devices)
+   ------------------------------------------------------------------- */
+.device-card .m3-card-body {
+  gap: 14px;
+}
+
+.device-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.device-color-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: var(--md-shape-pill);
+  background-color: color-mix(in srgb, var(--card-accent) 12%, var(--md-sys-color-surface-container-high));
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.75rem;
+  font-variation-settings: 'wght' 650, 'wdth' 102, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 14;
+}
+
+.spec-color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.device-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 12%, transparent);
+  min-width: 0;
+  transition:
+    background-color var(--md-transition-fast),
+    border-color var(--md-transition-fast),
+    border-radius var(--md-sys-motion-spring-fast-spatial);
+}
+
+.spec-item-wide {
+  grid-column: span 2;
+}
+
+.device-card:hover .spec-item {
+  background-color: color-mix(in srgb, var(--card-accent) 10%, var(--md-sys-color-surface-container-high));
+  border-color: color-mix(in srgb, var(--card-accent) 28%, transparent);
+  border-radius: 16px;
+}
+
+.spec-icon {
+  font-size: 18px;
+  color: var(--card-accent);
+  flex-shrink: 0;
+  opacity: 0.92;
+}
+
+.spec-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.spec-label {
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  color: var(--md-sys-color-on-surface-variant);
+  font-variation-settings: 'wght' 550, 'wdth' 100, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 12;
+}
+
+.spec-value {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  color: var(--md-sys-color-on-surface);
+  font-variant-numeric: tabular-nums;
+  font-variation-settings: 'wght' 650, 'wdth' 100, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 14;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* -------------------------------------------------------------------
+   9. LIVE LAST.FM MEDIA CARD (Material 3 Expressive Dynamic Color)
    ------------------------------------------------------------------- */
 .lastfm-container {
   width: 100%;
@@ -1275,6 +1390,11 @@ html[data-theme="light"] .accent-graphite .m3-icon-box {
 
 /* Outer radius: 20px, padding: 12px -> Inner album art radius: 8px */
 .lastfm-card {
+  --lastfm-accent: var(--md-status-online);
+  --lastfm-container: color-mix(in srgb, var(--lastfm-accent) 16%, var(--md-sys-color-surface-container-low));
+  --lastfm-glow: color-mix(in srgb, var(--lastfm-accent) 36%, transparent);
+  --card-accent: var(--lastfm-accent);
+  --card-glow: var(--lastfm-glow);
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -1283,13 +1403,35 @@ html[data-theme="light"] .accent-graphite .m3-icon-box {
   border-radius: 20px;
 }
 
+.lastfm-card.has-dynamic-palette {
+  background:
+    radial-gradient(120% 140% at 0% 50%, color-mix(in srgb, var(--lastfm-accent) 18%, transparent) 0%, transparent 72%),
+    var(--md-sys-color-surface-container-low);
+  border-color: color-mix(in srgb, var(--lastfm-accent) 44%, var(--md-sys-color-outline-variant));
+  box-shadow: 0 10px 28px -10px var(--lastfm-glow);
+}
+
+.lastfm-card.has-dynamic-palette:hover {
+  background:
+    radial-gradient(130% 150% at 0% 50%, color-mix(in srgb, var(--lastfm-accent) 26%, transparent) 0%, transparent 78%),
+    var(--md-sys-color-surface-container);
+  border-color: var(--lastfm-accent);
+  box-shadow: 0 14px 36px -8px var(--lastfm-glow);
+}
+
 .lastfm-cover-wrap {
   width: 52px;
   height: 52px;
-  border-radius: var(--md-shape-xs);
+  border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
   background-color: var(--md-sys-color-surface-container-high);
+  box-shadow: 0 4px 14px -4px var(--lastfm-glow);
+  transition: transform var(--md-sys-motion-spring-fast-spatial), box-shadow var(--md-transition-medium);
+}
+
+.lastfm-card:hover .lastfm-cover-wrap {
+  transform: scale(1.04);
 }
 
 .lastfm-art {
@@ -1317,15 +1459,17 @@ html[data-theme="light"] .accent-graphite .m3-icon-box {
   align-items: center;
   gap: 6px;
   font-size: 0.75rem;
-  color: var(--md-status-online);
-  font-variation-settings: 'wght' 600, 'wdth' 98, 'ROND' 60, 'GRAD' var(--font-grad), 'opsz' 12;
+  color: var(--lastfm-accent, var(--md-status-online));
+  font-variation-settings: 'wght' 650, 'wdth' 100, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 12;
+  transition: color var(--md-transition-fast);
 }
 
 .live-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--md-status-online);
+  background-color: var(--lastfm-accent, var(--md-status-online));
+  transition: background-color var(--md-transition-fast);
 }
 
 .lastfm-eq {
@@ -1337,9 +1481,10 @@ html[data-theme="light"] .accent-graphite .m3-icon-box {
 
 .eq-bar {
   width: 2px;
-  background-color: var(--md-status-online);
+  background-color: var(--lastfm-accent, var(--md-status-online));
   border-radius: 1px;
   animation: eq-level 800ms ease-in-out infinite alternate;
+  transition: background-color var(--md-transition-fast);
 }
 
 .eq-bar:nth-child(1) { height: 4px; animation-duration: 600ms; }
@@ -1352,7 +1497,7 @@ html[data-theme="light"] .accent-graphite .m3-icon-box {
 }
 
 .lastfm-live-badge.is-recent {
-  color: var(--md-sys-color-on-surface-variant);
+  color: var(--lastfm-accent, var(--md-sys-color-on-surface-variant));
 }
 
 .lastfm-live-badge.is-recent .live-dot,
@@ -1896,6 +2041,93 @@ html[data-theme="light"] .m3-toast {
 
   .m3-card {
     padding: 20px;
+  }
+
+  .device-specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-item-wide {
+    grid-column: span 1;
+  }
+
+  .spec-value {
+    white-space: normal;
+  }
+
+  /* Mobile Terminal: adaptive sheet above virtual keyboard */
+  .terminal-backdrop {
+    align-items: flex-end;
+    padding: 10px 10px 14px;
+  }
+
+  .m3-terminal-modal {
+    max-width: 100%;
+    max-height: min(82dvh, 560px);
+    border-radius: 24px;
+    transform: translateY(20px);
+  }
+
+  .terminal-header {
+    padding: 14px 16px;
+  }
+
+  .terminal-close-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+  }
+
+  .terminal-output {
+    padding: 14px 16px;
+    min-height: 150px;
+    max-height: 38dvh;
+    font-size: 0.8125rem;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .terminal-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 14px;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .terminal-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .term-chip {
+    flex-shrink: 0;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+  }
+
+  .terminal-input-row {
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .prompt-host {
+    display: none;
+  }
+
+  /* 16px prevents iOS Safari / mobile browsers from auto-zooming on input focus */
+  .terminal-input {
+    font-size: 16px;
+    min-width: 0;
+  }
+
+  .terminal-send-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    flex-shrink: 0;
   }
 
   .m3-toast {

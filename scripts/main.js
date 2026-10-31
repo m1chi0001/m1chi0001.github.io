@@ -65,7 +65,7 @@ const I18N = {
     "hero.badgeRole": "Junior IT Specialist w IT Solution Factor",
     "hero.terminalTitle": "Uruchom terminal (klawisz ~)",
     "hero.titleHtml": "Cześć, jestem <span class=\"hero-name-accent expressive-accent\">Michał Dzido</span>",
-    "hero.subtitleHtml": "Pracuję w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję cyberbezpieczeństwo na <strong>Uniwersytecie WSEI</strong>. Na co dzień diagnozuję sprzęt, konfiguruję systemy oraz sieci komputerowe, a po godzinach testuję nowe wydania Androida na urządzeniach Google Pixel.",
+    "hero.subtitleHtml": "Pracuję w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję cyberbezpieczeństwo na <strong>Uniwersytecie WSEI</strong>. Na co dzień pomagam użytkownikom, diagnozuję sprzęt i konfiguruję sieci, a po godzinach testuję nowe wersje Androida na Pixelu.",
     "hero.ctaContact": "Napisz do mnie",
     "hero.ctaAbout": "Więcej o mnie",
     "hero.avatarWrapperAria": "Portret Michała Dzido. Najedź lub kliknij, aby przełączyć widok na ilustrację 3D",
@@ -84,10 +84,10 @@ const I18N = {
     "lastfm.unknownArtist": "Nieznany wykonawca",
 
     "about.heading": "O mnie",
-    "about.subtitle": "Kilka konkretów o mojej codziennej pracy w IT, studiach inżynierskich i zainteresowaniach po godzinach.",
+    "about.subtitle": "Czym zajmuję się w pracy, czego uczę się na studiach i co robię po godzinach.",
     "about.job.meta": "Praca zawodowa",
     "about.job.title": "Junior IT Specialist",
-    "about.job.desc": "Rozwiązuję bieżące problemy techniczne użytkowników drogą telefoniczną i zdalną. Diagnozuję usterki sprzętowe, konfiguruję stacje robocze i kwalifikuję złożone awarie dla zespołów infrastrukturalnych.",
+    "about.job.desc": "Pomagam pracownikom rozwiązywać problemy ze sprzętem, systemem i oprogramowaniem przez telefon oraz zdalnie. Przygotowuję laptopy do pracy, diagnozuję usterki, a większe awarie przekazuję dalej do administratorów.",
     "about.job.chip1": "Wsparcie użytkowników",
     "about.job.chip2": "Diagnostyka sprzętu",
     "about.job.chip3": "Obsługa incydentów",
@@ -98,91 +98,104 @@ const I18N = {
 
     "about.loc.meta": "Lokalizacja",
     "about.loc.title": "Warszawa i Adamów",
-    "about.loc.desc": "W tygodniu pracuję stacjonarnie w Warszawie. W weekendy studiuję zaocznie i spędzam czas w rodzinnych stronach.",
+    "about.loc.desc": "Od poniedziałku do piątku pracuję w biurze w Warszawie. Na weekendy jadę na zjazdy na uczelni albo wracam do rodzinnego Adamowa.",
     "about.loc.timeLabel": "Czas lokalny:",
     "about.loc.chip": "Strefa CET",
 
     "about.edu.meta": "Edukacja",
     "about.edu.title": "Uniwersytet WSEI",
     "about.edu.subtitle": "Cyberbezpieczeństwo i technologie sieciowe",
-    "about.edu.desc": "Po zdobyciu tytułu Technika Informatyka kontynuuję naukę na studiach inżynierskich. Skupiam się na architekturze sieci komputerowych, analizie ruchu i bezpieczeństwie systemów operacyjnych.",
+    "about.edu.desc": "Po technikum informatycznym poszedłem na studia inżynierskie w Lublinie. Najwięcej czasu poświęcam sieciom komputerowym, analizie ruchu i zabezpieczaniu systemów.",
     "about.edu.chip1": "Technik Informatyk",
     "about.edu.chip2": "Studia inżynierskie",
 
     "about.hobbies.meta": "Po godzinach",
     "about.hobbies.title": "Zajawki poza pracą",
     "about.hobbies.subtitle": "Społeczność, muzyka i sprzęt",
-    "about.hobbies.desc": "Moderuję grupę Google Pixel Polska, testuję wersje beta Androida i Windowsa oraz składam komputery stacjonarne. Wieczorami słucham muzyki lub gram na PC.",
+    "about.hobbies.desc": "Prowadzę grupę Google Pixel Polska, instaluję testowe wersje Androida i Windowsa oraz składam komputery. Wieczorami słucham muzyki albo gram na PC.",
     "about.hobbies.chip1": "Muzyka i Last.fm",
     "about.hobbies.chip2": "Google Pixel Polska",
     "about.hobbies.chip3": "Testy Beta OS",
     "about.hobbies.chip4": "Składanie PC",
 
-    "easter.music": "Muzyka gra u mnie niemal non-stop — aktualny utwór pobiera się na żywo z Last.fm.",
-    "easter.pixel": "Współtworzę i moderuję polską społeczność użytkowników urządzeń Google Pixel.",
-    "easter.beta": "Testuję kompilacje Android Beta i Windows Insider przed ich oficjalną premierą.",
-    "easter.pc": "Samodzielnie składam, czyszczę i diagnozuję zestawy komputerowe.",
-    "easter.pixel8pro": "Mój główny smartfon w kolorze Mint — działa na kanale Android Beta z układem Tensor G3.",
-    "easter.buds": "Słuchawki w kolorze Moonstone z układem Google Tensor A1 i aktywną redukcją hałasu ANC.",
-    "easter.watch": "Koperta 41 mm Matte Black na Wear OS — szybkie powiadomienia i pomiary Fitbit na co dzień.",
-    "easter.surface": "Mobilny komputer 2 w 1 na układzie ARM Snapdragon X Elite z ekranem OLED 120 Hz na uczelnię i w podróż.",
-    "easter.ryzen": "Domowa stacja robocza z Ryzenem 5 5600G i RTX 4060 do wirtualnych maszyn, nauki sieci i grania.",
+    "easter.music": "Słuchawki mam na uszach przez większość dnia. Kafelek na górze strony pokazuje na żywo to, czego aktualnie słucham na Last.fm.",
+    "easter.pixel": "Razem z innymi moderatorami prowadzę na Facebooku polską społeczność użytkowników telefonów Google Pixel.",
+    "easter.beta": "Lubię sprawdzać nowości przed oficjalną premierą, dlatego na co dzień korzystam z Android Beta i Windows Insider.",
+    "easter.pc": "Dobieram części, składam komputery od zera, wymieniam pasty termoprzewodzące i szukam przyczyn dziwnych awarii.",
+    "easter.pixel8pro": "Mój główny telefon w kolorze Mint. Działa na testowym kanale Android Beta i robi świetne zdjęcia z 5-krotnego zbliżenia.",
+    "easter.buds": "Słuchawki w kolorze Moonstone z układem Tensor A1. Małe, wygodne i dobrze wyciszają biuro oraz pociąg.",
+    "easter.watch": "Zegarek w wersji 41 mm Matte Black z Wear OS. Używam go głównie do powiadomień, płatności zbliżeniowych i mierzenia kroków.",
+    "easter.surface": "Lekki laptop 2 w 1 z procesorem Snapdragon X Elite i ekranem OLED 120 Hz. Zabieram go na uczelnię i w podróż, bo długo trzyma na baterii.",
+    "easter.ryzen": "Mój domowy komputer z Ryzenem 5 5600G i grafiką RTX 4060. Stawiam na nim wirtualne maszyny, uczę się sieci i gram wieczorami.",
 
     "exp.heading": "Doświadczenie i umiejętności",
-    "exp.subtitle": "Obszary techniczne, z którymi pracuję zawodowo oraz na uczelni.",
+    "exp.subtitle": "Rzeczy, z którymi mam do czynienia w codziennej pracy i na laboratoriach.",
     "exp.hw.meta": "Sprzęt komputerowy",
     "exp.hw.title": "Diagnostyka i serwis PC",
-    "exp.hw.desc": "Znam budowę komputerów od strony fizycznej. Składam stacje robocze, dobieram podzespoły i diagnozuję usterki płyt głównych, zasilaczy oraz pamięci RAM.",
+    "exp.hw.desc": "Składam komputery stacjonarne, wymieniam podzespoły w laptopach i szukam przyczyn usterek sprzętowych, od pamięci RAM po zasilacze i płyty główne.",
     "exp.hw.chip1": "Technik Informatyk",
     "exp.hw.chip2": "Diagnostyka hardware",
     "exp.hw.chip3": "Serwis PC",
 
     "exp.helpdesk.meta": "Helpdesk",
     "exp.helpdesk.title": "Wsparcie techniczne w IT Solution Factor",
-    "exp.helpdesk.desc": "Odpowiadam za pierwszą linię pomocy technicznej. Rozwiązuję problemy z oprogramowaniem biurowym, dostępami i sprzętem, dbając o jasną komunikację z użytkownikiem.",
+    "exp.helpdesk.desc": "Pierwsza linia wsparcia IT. Pomagam użytkownikom z pocztą, pakietem biurowym, uprawnieniami i sprzętem, tłumacząc techniczne sprawy prostym językiem.",
     "exp.helpdesk.chip2": "Pomoc zdalna",
     "exp.helpdesk.chip3": "Obsługa zgłoszeń",
 
     "exp.net.meta": "Infrastruktura i sieci",
     "exp.net.title": "Systemy operacyjne i bezpieczeństwo",
-    "exp.net.desc": "Pracuję z systemami Windows Server (Active Directory) oraz Linux. Konfiguruję sieci komputerowe (TCP/IP, VLAN, routing) oraz reguły zapór sieciowych.",
+    "exp.net.desc": "Konfiguruję konta i uprawnienia w Windows Server (Active Directory), pracuję w Linuksie oraz ustawiam adresację TCP/IP, sieci VLAN, routing i reguły firewalli.",
 
     "exp.mobile.meta": "Systemy mobilne",
     "exp.mobile.title": "Kanały Beta i ekosystem Google Pixel",
-    "exp.mobile.desc": "Uczestniczę w programach Android Beta oraz Windows Insider. Sprawdzam nowe funkcje systemowe, poprawki bezpieczeństwa i wytyczne projektowe Material 3 Expressive.",
+    "exp.mobile.desc": "Korzystam z programów Android Beta i Windows Insider. Testuję nowe funkcje systemowe oraz poprawki bezpieczeństwa na urządzeniach z serii Google Pixel.",
 
     "devices.heading": "Moje urządzenia",
-    "devices.subtitle": "Sprzęt, na którym pracuję, uczę się i testuję oprogramowanie.",
+    "devices.subtitle": "Sprzęt, z którego korzystam na co dzień w pracy, na studiach i w domu.",
     "devices.specAria": "Specyfikacja",
+    "devices.label.soc": "Układ SoC",
+    "devices.label.memory": "Pamięć",
+    "devices.label.display": "Ekran",
+    "devices.label.audioChip": "Układ audio",
+    "devices.label.anc": "Redukcja hałasu",
+    "devices.label.drivers": "Przetworniki",
+    "devices.label.case": "Koperta",
+    "devices.label.cpu": "Procesor",
+    "devices.label.memoryStorage": "RAM i dysk",
+    "devices.label.gpu": "Grafika",
+    "devices.label.storage": "Dyski",
     "devices.p8p.meta": "Smartfon",
-    "devices.p8p.display": "6,7\" LTPO OLED 120 Hz",
-    "devices.p8p.color": "Kolor Mint",
+    "devices.p8p.display": "6,7\" LTPO 120 Hz",
+    "devices.p8p.color": "Mint",
     "devices.buds.meta": "Słuchawki",
-    "devices.buds.chip1": "Układ Google Tensor A1",
-    "devices.buds.color": "Kolor Moonstone",
+    "devices.buds.chip1": "Google Tensor A1",
+    "devices.buds.drivers": "11 mm • Dźwięk 360°",
+    "devices.buds.color": "Moonstone",
     "devices.watch.meta": "Smartwatch",
-    "devices.watch.case": "Koperta 41 mm Wi-Fi",
-    "devices.watch.color": "Kolor Matte Black",
+    "devices.watch.case": "41 mm • Wear OS",
+    "devices.watch.color": "Matte Black",
     "devices.surface.meta": "Komputer 2 w 1",
     "devices.surface.cpu": "Snapdragon X Elite (12 rdzeni)",
     "devices.pc.meta": "Komputer stacjonarny",
+    "devices.pc.tag": "Custom Build",
 
     "contact.heading": "Kontakt",
-    "contact.subtitle": "Napisz do mnie wiadomość e-mail lub odwiedź moje profile w sieci.",
+    "contact.subtitle": "Najłatwiej złapać mnie mailowo albo przez jedną z poniższych platform.",
     "contact.linkedin.aria": "Odwiedź profil LinkedIn Michał Dzido",
-    "contact.linkedin.desc": "Profil zawodowy, doświadczenie i sieć kontaktów",
+    "contact.linkedin.desc": "Doświadczenie zawodowe, certyfikaty i kontakt biznesowy",
     "contact.github.aria": "Odwiedź profil GitHub m1chi0001",
-    "contact.github.desc": "Repozytoria projektów i kod źródłowy strony",
+    "contact.github.desc": "Kod źródłowy tej strony i projekty ze studiów",
     "contact.instagram.aria": "Odwiedź profil Instagram m1chi0001",
-    "contact.instagram.desc": "Zdjęcia z wyjazdów i codzienności robione Pixelem",
+    "contact.instagram.desc": "Zdjęcia z wyjazdów i kadry robione Pixelem",
     "contact.x.aria": "Odwiedź profil X M1chi0001",
-    "contact.x.desc": "Dyskusje o premierach sprzętu, Androidzie i branży IT",
+    "contact.x.desc": "Krótkie wpisy o premierach sprzętu, Androidzie i pracy w IT",
     "contact.pixel.aria": "Grupa Facebook Google Pixel Polska",
     "contact.pixel.meta": "Społeczność",
-    "contact.pixel.desc": "Moderowanie polskiej grupy użytkowników urządzeń z rodziny Made by Google",
+    "contact.pixel.desc": "Polska społeczność użytkowników telefonów i akcesoriów Google Pixel",
     "contact.email.aria": "Wyślij e-mail do michaldzido2@gmail.com",
     "contact.email.meta": "Poczta e-mail",
-    "contact.email.desc": "Otwórz domyślną aplikację pocztową i wyślij wiadomość",
+    "contact.email.desc": "Napisz bezpośrednio na moją skrzynkę pocztową",
 
     "footer.terminalTitle": "Otwórz interaktywny terminal (klawisz ~)",
     "footer.terminalLabel": "Terminal",
@@ -241,7 +254,7 @@ const I18N = {
     "hero.badgeRole": "Junior IT Specialist at IT Solution Factor",
     "hero.terminalTitle": "Open terminal (~ key)",
     "hero.titleHtml": "Hi, I'm <span class=\"hero-name-accent expressive-accent\">Michał Dzido</span>",
-    "hero.subtitleHtml": "I work in first-line IT support at <strong>IT Solution Factor</strong> and study cybersecurity at <strong>WSEI University</strong>. Day to day I troubleshoot hardware, configure operating systems and networks, and after hours I test new Android builds on Google Pixel devices.",
+    "hero.subtitleHtml": "I work in first-line IT support at <strong>IT Solution Factor</strong> and study cybersecurity at <strong>WSEI University</strong>. Day to day I help users, troubleshoot hardware, and configure networks. After hours, I test new Android builds on my Pixel.",
     "hero.ctaContact": "Get in touch",
     "hero.ctaAbout": "More about me",
     "hero.avatarWrapperAria": "Portrait of Michał Dzido. Hover or tap to switch to the 3D illustration",
@@ -260,10 +273,10 @@ const I18N = {
     "lastfm.unknownArtist": "Unknown artist",
 
     "about.heading": "About me",
-    "about.subtitle": "A quick look at my daily IT support work, engineering studies, and after-hours interests.",
+    "about.subtitle": "What I do at work, what I study at university, and how I spend my free time.",
     "about.job.meta": "Current role",
     "about.job.title": "Junior IT Specialist",
-    "about.job.desc": "I resolve daily technical issues for users over the phone and remotely. I diagnose hardware faults, configure workstations, and triage complex incidents for infrastructure teams.",
+    "about.job.desc": "I help employees fix hardware, OS, and software issues over the phone and remotely. I set up laptops, track down hardware faults, and pass larger infrastructure incidents to the sysadmin team.",
     "about.job.chip1": "User support",
     "about.job.chip2": "Hardware diagnostics",
     "about.job.chip3": "Incident management",
@@ -274,91 +287,104 @@ const I18N = {
 
     "about.loc.meta": "Location",
     "about.loc.title": "Warsaw & Adamów",
-    "about.loc.desc": "During the week I work on-site in Warsaw. On weekends I attend part-time university classes and spend time in my hometown.",
+    "about.loc.desc": "Monday through Friday I work from the office in Warsaw. On weekends I head to university classes or back home to Adamów.",
     "about.loc.timeLabel": "Local time:",
     "about.loc.chip": "CET zone",
 
     "about.edu.meta": "Education",
     "about.edu.title": "WSEI University",
     "about.edu.subtitle": "Cybersecurity & Network Technologies",
-    "about.edu.desc": "After earning my IT Technician diploma, I am pursuing an engineering degree focused on network architecture, traffic analysis, and operating system security.",
+    "about.edu.desc": "After finishing IT technical high school, I started my engineering degree in Lublin. I focus mostly on computer networks, traffic analysis, and system security.",
     "about.edu.chip1": "IT Technician",
     "about.edu.chip2": "B.Eng. student",
 
     "about.hobbies.meta": "After hours",
     "about.hobbies.title": "Interests outside work",
     "about.hobbies.subtitle": "Community, music, and hardware",
-    "about.hobbies.desc": "I moderate the Google Pixel Polska community, test Android and Windows beta builds, and assemble desktop PCs. In the evenings I listen to music or game on PC.",
+    "about.hobbies.desc": "I help run the Google Pixel Polska group, install test builds of Android and Windows, and build desktop PCs. In the evenings I listen to music or play games.",
     "about.hobbies.chip1": "Music & Last.fm",
     "about.hobbies.chip2": "Google Pixel Polska",
     "about.hobbies.chip3": "Beta OS testing",
     "about.hobbies.chip4": "PC building",
 
-    "easter.music": "Music plays for most of my day — the current track updates live from Last.fm.",
-    "easter.pixel": "I co-organize and moderate the Polish community of Google Pixel users.",
-    "easter.beta": "I test Android Beta and Windows Insider builds ahead of public release.",
-    "easter.pc": "I build, clean, and diagnose custom desktop PCs.",
-    "easter.pixel8pro": "My daily driver in Mint — running the Android Beta channel on Google Tensor G3.",
-    "easter.buds": "Moonstone earbuds powered by the Google Tensor A1 chip with Active Noise Cancellation.",
-    "easter.watch": "41 mm Matte Black case running Wear OS — daily notifications and Fitbit tracking.",
-    "easter.surface": "2-in-1 ARM laptop with Snapdragon X Elite and a 120 Hz OLED display for university and travel.",
-    "easter.ryzen": "Home workstation with AMD Ryzen 5 5600G and GeForce RTX 4060 for virtual labs, networking, and gaming.",
+    "easter.music": "I have headphones on for most of the day. The card at the top shows what I am listening to live from Last.fm.",
+    "easter.pixel": "Together with other moderators, I run the Polish Facebook community for Google Pixel users.",
+    "easter.beta": "I like trying new features ahead of release, so I run Android Beta and Windows Insider builds daily.",
+    "easter.pc": "I pick parts, build PCs from scratch, repaste coolers, and track down tricky hardware faults.",
+    "easter.pixel8pro": "My main phone in Mint. It runs the Android Beta channel and takes great shots with the 5x telephoto lens.",
+    "easter.buds": "Moonstone earbuds with the Tensor A1 chip. Compact, comfortable, and great at blocking out office and train noise.",
+    "easter.watch": "41 mm Matte Black watch running Wear OS. I use it mostly for notifications, contactless payments, and step tracking.",
+    "easter.surface": "Lightweight 2-in-1 with a Snapdragon X Elite chip and a 120 Hz OLED screen. I take it to university and on trips for its battery life.",
+    "easter.ryzen": "My home desktop with a Ryzen 5 5600G and RTX 4060. I use it for virtual machines, networking labs, and evening gaming.",
 
     "exp.heading": "Experience & skills",
-    "exp.subtitle": "Technical areas I work with on the job and at university.",
+    "exp.subtitle": "What I work with day to day on the job and in university labs.",
     "exp.hw.meta": "Computer hardware",
     "exp.hw.title": "PC diagnostics & servicing",
-    "exp.hw.desc": "Hands-on experience with computer internals. I assemble workstations, select components, and troubleshoot motherboards, power supplies, and RAM.",
+    "exp.hw.desc": "I build desktop PCs, replace laptop components, and track down hardware failures across RAM, power supplies, and motherboards.",
     "exp.hw.chip1": "IT Technician",
     "exp.hw.chip2": "Hardware diagnostics",
     "exp.hw.chip3": "PC servicing",
 
     "exp.helpdesk.meta": "Helpdesk",
     "exp.helpdesk.title": "IT Support at IT Solution Factor",
-    "exp.helpdesk.desc": "First-line technical support. I resolve issues with office software, account permissions, and hardware while keeping communication clear for the user.",
+    "exp.helpdesk.desc": "First-line IT support. I help users with email, office apps, account permissions, and hardware while explaining technical issues in plain language.",
     "exp.helpdesk.chip2": "Remote support",
     "exp.helpdesk.chip3": "Ticket handling",
 
     "exp.net.meta": "Infrastructure & networks",
     "exp.net.title": "Operating systems & security",
-    "exp.net.desc": "I work with Windows Server (Active Directory) and Linux, configuring TCP/IP networks, VLANs, routing, and firewall rules.",
+    "exp.net.desc": "I manage accounts and permissions in Windows Server (Active Directory), work in Linux, and configure TCP/IP addressing, VLANs, routing, and firewall rules.",
 
     "exp.mobile.meta": "Mobile systems",
     "exp.mobile.title": "Beta channels & Google Pixel ecosystem",
-    "exp.mobile.desc": "Active participant in Android Beta and Windows Insider programs. I evaluate new system features, security patches, and Material 3 Expressive design updates.",
+    "exp.mobile.desc": "I take part in the Android Beta and Windows Insider programs, testing new OS features and security updates across Google Pixel devices.",
 
     "devices.heading": "My devices",
-    "devices.subtitle": "Hardware I use for work, study, and software testing.",
+    "devices.subtitle": "Hardware I use every day at work, at university, and at home.",
     "devices.specAria": "Specifications",
+    "devices.label.soc": "SoC chip",
+    "devices.label.memory": "Memory",
+    "devices.label.display": "Display",
+    "devices.label.audioChip": "Audio chip",
+    "devices.label.anc": "Noise control",
+    "devices.label.drivers": "Drivers",
+    "devices.label.case": "Case",
+    "devices.label.cpu": "Processor",
+    "devices.label.memoryStorage": "RAM & storage",
+    "devices.label.gpu": "Graphics",
+    "devices.label.storage": "Drives",
     "devices.p8p.meta": "Smartphone",
-    "devices.p8p.display": "6.7\" LTPO OLED 120 Hz",
-    "devices.p8p.color": "Mint color",
+    "devices.p8p.display": "6.7\" LTPO 120 Hz",
+    "devices.p8p.color": "Mint",
     "devices.buds.meta": "Earbuds",
-    "devices.buds.chip1": "Google Tensor A1 chip",
-    "devices.buds.color": "Moonstone color",
+    "devices.buds.chip1": "Google Tensor A1",
+    "devices.buds.drivers": "11 mm • Spatial Audio",
+    "devices.buds.color": "Moonstone",
     "devices.watch.meta": "Smartwatch",
-    "devices.watch.case": "41 mm Wi-Fi case",
-    "devices.watch.color": "Matte Black color",
+    "devices.watch.case": "41 mm • Wear OS",
+    "devices.watch.color": "Matte Black",
     "devices.surface.meta": "2-in-1 PC",
     "devices.surface.cpu": "Snapdragon X Elite (12 cores)",
     "devices.pc.meta": "Desktop PC",
+    "devices.pc.tag": "Custom Build",
 
     "contact.heading": "Contact",
-    "contact.subtitle": "Send me an email or connect with me online.",
+    "contact.subtitle": "The easiest way to reach me is by email or through any of the platforms below.",
     "contact.linkedin.aria": "Visit Michał Dzido's LinkedIn profile",
-    "contact.linkedin.desc": "Professional profile, work history, and network",
+    "contact.linkedin.desc": "Work history, certifications, and professional contact",
     "contact.github.aria": "Visit GitHub profile m1chi0001",
-    "contact.github.desc": "Project repositories and website source code",
+    "contact.github.desc": "Source code for this site and university projects",
     "contact.instagram.aria": "Visit Instagram profile m1chi0001",
-    "contact.instagram.desc": "Travel and everyday photos shot on Pixel",
+    "contact.instagram.desc": "Travel shots and everyday photos taken on Pixel",
     "contact.x.aria": "Visit X profile M1chi0001",
-    "contact.x.desc": "Discussions on hardware launches, Android, and IT",
+    "contact.x.desc": "Short posts on hardware launches, Android, and IT work",
     "contact.pixel.aria": "Google Pixel Polska Facebook group",
     "contact.pixel.meta": "Community",
-    "contact.pixel.desc": "Moderating the Polish community for Made by Google device users",
+    "contact.pixel.desc": "Polish community of Google Pixel phone and accessory users",
     "contact.email.aria": "Send an email to michaldzido2@gmail.com",
     "contact.email.meta": "Email",
-    "contact.email.desc": "Open your default mail client and send a message",
+    "contact.email.desc": "Write directly to my inbox",
 
     "footer.terminalTitle": "Open interactive terminal (~ key)",
     "footer.terminalLabel": "Terminal",
@@ -696,6 +722,9 @@ function initThemeManager() {
   function applyTheme(theme) {
     htmlRoot.setAttribute('data-theme', theme);
     syncThemeLabels();
+    if (typeof applyLastFmExpressiveColors === 'function') {
+      applyLastFmExpressiveColors();
+    }
   }
 }
 
@@ -971,8 +1000,223 @@ function initScrollPinDock() {
 }
 
 /* ===================================================================
-   8. LIVE LAST.FM NOW PLAYING SERVICE & API INTEGRATION
+   8. LIVE LAST.FM NOW PLAYING & MATERIAL 3 EXPRESSIVE COLOR ENGINE
    =================================================================== */
+let lastFmSeedHsl = null;
+let lastFmExtractedUrl = "";
+
+/**
+ * Convert sRGB [0..255] to HSL [h: 0..360, s: 0..100, l: 0..100]
+ */
+function rgbToHsl(r, g, b) {
+  const rn = r / 255;
+  const gn = g / 255;
+  const bn = b / 255;
+  const max = Math.max(rn, gn, bn);
+  const min = Math.min(rn, gn, bn);
+  let h = 0;
+  let s = 0;
+  const l = (max + min) / 2;
+
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case rn:
+        h = (gn - bn) / d + (gn < bn ? 6 : 0);
+        break;
+      case gn:
+        h = (bn - rn) / d + 2;
+        break;
+      default:
+        h = (rn - gn) / d + 4;
+        break;
+    }
+    h /= 6;
+  }
+
+  return {
+    h: Math.round(h * 360),
+    s: Math.round(s * 100),
+    l: Math.round(l * 100)
+  };
+}
+
+/**
+ * Deterministic fallback seed hue from track + artist string
+ */
+function fallbackSeedFromTrack(trackName = "", artistName = "") {
+  const str = `${trackName}-${artistName}`;
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return {
+    h: Math.abs(hash) % 360,
+    s: 78,
+    l: 56
+  };
+}
+
+/**
+ * Material 3 Expressive Quantizer & Chroma Scorer:
+ * Samples a 32x32 offscreen canvas of the album cover, groups pixels into
+ * 18-degree hue buckets, and scores each bucket by vibrancy (chroma) + population
+ * so dominant colorful accents win over dark/gray backgrounds.
+ */
+function extractExpressiveSeedFromImage(imgEl) {
+  const canvas = document.createElement("canvas");
+  const size = 32;
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return null;
+
+  ctx.drawImage(imgEl, 0, 0, size, size);
+  const { data } = ctx.getImageData(0, 0, size, size);
+
+  const buckets = Array.from({ length: 20 }, () => ({
+    count: 0,
+    score: 0,
+    hSum: 0,
+    sSum: 0,
+    lSum: 0
+  }));
+
+  let fallbackR = 0;
+  let fallbackG = 0;
+  let fallbackB = 0;
+  let validPixels = 0;
+
+  for (let i = 0; i < data.length; i += 4) {
+    const a = data[i + 3];
+    if (a < 128) continue;
+
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+
+    fallbackR += r;
+    fallbackG += g;
+    fallbackB += b;
+    validPixels++;
+
+    const { h, s, l } = rgbToHsl(r, g, b);
+    // Filter out near-black, near-white, and desaturated gray pixels
+    if (l < 10 || l > 92 || s < 14) continue;
+
+    const bucketIdx = Math.min(19, Math.floor(h / 18));
+    // Material 3 Expressive favors high chroma and mid-tone lightness
+    const lightnessWeight = 1 - Math.abs(l - 52) / 52;
+    const chromaWeight = Math.pow(s / 100, 1.35);
+    const pixelScore = 1 + chromaWeight * 3.2 + lightnessWeight * 0.8;
+
+    const bucket = buckets[bucketIdx];
+    bucket.count += 1;
+    bucket.score += pixelScore;
+    bucket.hSum += h;
+    bucket.sSum += s;
+    bucket.lSum += l;
+  }
+
+  let bestBucket = null;
+  for (const b of buckets) {
+    if (b.count > 0 && (!bestBucket || b.score > bestBucket.score)) {
+      bestBucket = b;
+    }
+  }
+
+  if (bestBucket) {
+    return {
+      h: Math.round(bestBucket.hSum / bestBucket.count),
+      s: Math.max(68, Math.min(92, Math.round(bestBucket.sSum / bestBucket.count))),
+      l: Math.round(bestBucket.lSum / bestBucket.count)
+    };
+  }
+
+  if (validPixels > 0) {
+    const avg = rgbToHsl(
+      Math.round(fallbackR / validPixels),
+      Math.round(fallbackG / validPixels),
+      Math.round(fallbackB / validPixels)
+    );
+    return {
+      h: avg.h,
+      s: Math.max(55, avg.s),
+      l: Math.min(72, Math.max(40, avg.l))
+    };
+  }
+
+  return null;
+}
+
+/**
+ * Applies Material 3 Expressive tonal tokens (--lastfm-accent, --lastfm-container, --lastfm-glow)
+ * to #lastfm-now-playing based on the extracted album seed and active theme (dark / light).
+ */
+function applyLastFmExpressiveColors() {
+  const card = document.getElementById("lastfm-now-playing") || document.getElementById("lastfm-card");
+  if (!card || !lastFmSeedHsl) return;
+
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  const { h, s } = lastFmSeedHsl;
+
+  // Material 3 Expressive uses boosted chroma and distinct tonal roles for dark vs light surfaces
+  const expressiveSat = isLight
+    ? Math.max(66, Math.min(88, s + 8))
+    : Math.max(74, Math.min(95, s + 12));
+
+  const accentLightness = isLight ? 36 : 70;
+  const containerLightness = isLight ? 92 : 20;
+  const glowAlpha = isLight ? 0.28 : 0.44;
+  const glowLightness = isLight ? 46 : 64;
+
+  const accentColor = `hsl(${h} ${expressiveSat}% ${accentLightness}%)`;
+  const containerColor = `hsl(${h} ${Math.max(45, expressiveSat - 18)}% ${containerLightness}%)`;
+  const glowColor = `hsl(${h} ${expressiveSat}% ${glowLightness}% / ${glowAlpha})`;
+
+  card.style.setProperty("--lastfm-accent", accentColor);
+  card.style.setProperty("--lastfm-container", containerColor);
+  card.style.setProperty("--lastfm-glow", glowColor);
+  card.classList.add("has-dynamic-palette");
+}
+
+/**
+ * Loads album cover via CORS-enabled offscreen Image and runs the M3 Expressive color engine
+ */
+function syncLastFmCoverPalette(imageUrl, trackName, trackArtist) {
+  if (!imageUrl || imageUrl.startsWith("data:")) {
+    lastFmSeedHsl = fallbackSeedFromTrack(trackName, trackArtist);
+    applyLastFmExpressiveColors();
+    return;
+  }
+
+  if (imageUrl === lastFmExtractedUrl && lastFmSeedHsl) {
+    applyLastFmExpressiveColors();
+    return;
+  }
+
+  const probe = new Image();
+  probe.crossOrigin = "anonymous";
+  probe.onload = () => {
+    try {
+      const extracted = extractExpressiveSeedFromImage(probe);
+      lastFmSeedHsl = extracted || fallbackSeedFromTrack(trackName, trackArtist);
+      lastFmExtractedUrl = imageUrl;
+      applyLastFmExpressiveColors();
+    } catch {
+      lastFmSeedHsl = fallbackSeedFromTrack(trackName, trackArtist);
+      applyLastFmExpressiveColors();
+    }
+  };
+  probe.onerror = () => {
+    lastFmSeedHsl = fallbackSeedFromTrack(trackName, trackArtist);
+    applyLastFmExpressiveColors();
+  };
+  probe.src = imageUrl;
+}
+
 function syncLastFmLabels() {
   const statusBadgeEl = document.getElementById("lastfm-status-badge");
   const statusTextEl = document.getElementById("lastfm-status-text");
@@ -1045,6 +1289,8 @@ async function updateLastFmStatus() {
     if (albumImg && albumImgEl) {
       albumImgEl.src = albumImg;
     }
+
+    syncLastFmCoverPalette(albumImg, trackName, trackArtist);
 
     if (isPlaying) {
       if (statusBadgeEl) statusBadgeEl.className = "lastfm-live-badge is-playing";
@@ -1164,15 +1410,25 @@ function initMiniTerminal() {
     }
   };
 
+  const isCoarsePointer = () =>
+    window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
   function openTerminal() {
     backdrop.classList.add('is-open');
     backdrop.setAttribute('aria-hidden', 'false');
-    setTimeout(() => input.focus(), 120);
+    document.body.style.overflow = 'hidden';
+    // Only auto-focus input on desktop pointers so mobile phones don't pop up
+    // the virtual keyboard immediately and obscure the quick command chips.
+    if (!isCoarsePointer()) {
+      setTimeout(() => input.focus(), 120);
+    }
   }
 
   function closeTerminal() {
     backdrop.classList.remove('is-open');
     backdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    input.blur();
   }
 
   function runCommand(rawCmd) {
@@ -1231,6 +1487,9 @@ function initMiniTerminal() {
     const val = input.value;
     input.value = '';
     runCommand(val);
+    if (isCoarsePointer()) {
+      input.blur();
+    }
   });
 }
 
