@@ -1643,38 +1643,120 @@ html[data-theme="light"] .accent-graphite .m3-icon-box {
   justify-content: center;
 }
 
-/* Material 3 Snackbar / Toast */
+/* Material 3 Expressive Snackbar / Notification Card */
 .m3-toast {
+  --toast-accent: var(--md-sys-color-primary);
   position: fixed;
   bottom: 24px;
   left: 50%;
-  transform: translateX(-50%) translateY(80px);
-  background-color: var(--md-sys-color-inverse-surface);
-  color: var(--md-sys-color-inverse-on-surface);
-  padding: 12px 20px;
-  border-radius: var(--md-shape-sm);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  transform: translateX(-50%) translateY(32px) scale(0.92);
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+  border: 1.5px solid color-mix(in srgb, var(--toast-accent) 45%, var(--md-sys-color-outline-variant));
+  padding: 12px 14px 12px 12px;
+  border-radius: 22px;
+  box-shadow:
+    0 16px 40px -8px rgba(0, 0, 0, 0.48),
+    0 0 28px -8px color-mix(in srgb, var(--toast-accent) 38%, transparent);
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.875rem;
-  font-variation-settings: 'wght' 500, 'wdth' 98, 'ROND' 50, 'GRAD' 0, 'opsz' 14;
+  gap: 14px;
   z-index: 9999;
   opacity: 0;
   pointer-events: none;
-  max-width: calc(100vw - 32px);
-  transition: transform var(--md-transition-medium), opacity var(--md-transition-fast);
+  width: max-content;
+  max-width: min(520px, calc(100vw - 28px));
+  transition:
+    transform var(--md-sys-motion-spring-default-spatial),
+    opacity var(--md-transition-fast),
+    border-color var(--md-transition-fast),
+    box-shadow var(--md-transition-fast);
+}
+
+html[data-theme="light"] .m3-toast {
+  background-color: var(--md-sys-color-surface-container-lowest);
+  box-shadow:
+    0 14px 36px -8px rgba(15, 20, 25, 0.18),
+    0 0 24px -8px color-mix(in srgb, var(--toast-accent) 26%, transparent);
 }
 
 .m3-toast.show {
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0) scale(1);
   opacity: 1;
+  pointer-events: auto;
+}
+
+.toast-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background-color: color-mix(in srgb, var(--toast-accent) 18%, transparent);
+  color: var(--toast-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background-color var(--md-transition-fast),
+    color var(--md-transition-fast),
+    border-radius var(--md-sys-motion-spring-default-spatial),
+    transform var(--md-sys-motion-spring-fast-spatial);
+}
+
+.m3-toast.show .toast-icon-box {
+  border-radius: 16px;
 }
 
 .toast-icon {
-  color: var(--md-sys-color-primary);
-  font-size: 18px;
+  font-size: 22px;
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}
+
+.toast-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.toast-title {
+  font-size: 0.75rem;
+  line-height: 1.25;
+  color: var(--toast-accent);
+  letter-spacing: 0.01em;
+  font-variation-settings: 'wght' 750, 'wdth' 106, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 18;
+}
+
+.toast-msg {
+  font-size: 0.9rem;
+  line-height: 1.42;
+  color: var(--md-sys-color-on-surface);
+  font-variation-settings: 'wght' 500, 'wdth' 100, 'ROND' 60, 'GRAD' var(--font-grad), 'opsz' 15;
+}
+
+.toast-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  margin-left: 2px;
+  transition: background-color var(--md-transition-fast), color var(--md-transition-fast), transform var(--md-transition-fast);
+}
+
+.toast-close-btn .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.toast-close-btn:hover {
+  background-color: color-mix(in srgb, var(--toast-accent) 22%, transparent);
+  color: var(--toast-accent);
+  transform: scale(1.06);
 }
 
 /* -------------------------------------------------------------------

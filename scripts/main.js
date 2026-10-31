@@ -44,17 +44,23 @@ const I18N = {
     "controls.aria": "Personalizacja wyglądu i języka",
     "controls.langAria": "Zmień język na angielski",
     "controls.langTitle": "Przełącz język (PL / EN)",
-    "controls.langToast": "Język: Polski",
+    "controls.langToastTitle": "Język strony",
+    "controls.langToast": "Przełączono na język polski",
     "controls.paletteAria": "Zmień akcent kolorystyczny Material You",
     "controls.paletteTitle": "Kolory Material You",
     "controls.paletteMenuAria": "Wybierz motyw kolorystyczny",
     "controls.themeTitle": "Zmień motyw jasny / ciemny",
     "controls.themeDark": "Ciemny",
     "controls.themeLight": "Jasny",
+    "controls.themeToastTitle": "Tryb wyglądu",
+    "controls.themeToastDark": "Włączono motyw ciemny",
+    "controls.themeToastLight": "Włączono motyw jasny",
     "controls.themeAriaToLight": "Przełącz na tryb jasny",
     "controls.themeAriaToDark": "Przełącz na tryb ciemny",
-    "controls.palettePrefix": "Motyw",
+    "controls.paletteToastTitle": "Motyw Material You",
+    "controls.palettePrefix": "Aktywny akcent",
     "controls.paletteBlue": "Ocean Blue (Domyślny)",
+    "toast.closeAria": "Zamknij powiadomienie",
 
     "hero.badgeRole": "Junior IT Specialist w IT Solution Factor",
     "hero.terminalTitle": "Uruchom terminal (klawisz ~)",
@@ -112,12 +118,15 @@ const I18N = {
     "about.hobbies.chip3": "Testy Beta OS",
     "about.hobbies.chip4": "Składanie PC",
 
-    "easter.music": "Muzyka towarzyszy mi przez większość dnia. Aktualny utwór pobiera się na żywo z Last.fm.",
+    "easter.music": "Muzyka gra u mnie niemal non-stop — aktualny utwór pobiera się na żywo z Last.fm.",
     "easter.pixel": "Współtworzę i moderuję polską społeczność użytkowników urządzeń Google Pixel.",
     "easter.beta": "Testuję kompilacje Android Beta i Windows Insider przed ich oficjalną premierą.",
     "easter.pc": "Samodzielnie składam, czyszczę i diagnozuję zestawy komputerowe.",
-    "easter.pixel8pro": "Google Pixel 8 Pro (Mint) na kanale Android Beta.",
-    "easter.ryzen": "Miska Ryżenu: AMD Ryzen 5 5600G + GeForce RTX 4060.",
+    "easter.pixel8pro": "Mój główny smartfon w kolorze Mint — działa na kanale Android Beta z układem Tensor G3.",
+    "easter.buds": "Słuchawki w kolorze Moonstone z układem Google Tensor A1 i aktywną redukcją hałasu ANC.",
+    "easter.watch": "Koperta 41 mm Matte Black na Wear OS — szybkie powiadomienia i pomiary Fitbit na co dzień.",
+    "easter.surface": "Mobilny komputer 2 w 1 na układzie ARM Snapdragon X Elite z ekranem OLED 120 Hz na uczelnię i w podróż.",
+    "easter.ryzen": "Domowa stacja robocza z Ryzenem 5 5600G i RTX 4060 do wirtualnych maszyn, nauki sieci i grania.",
 
     "exp.heading": "Doświadczenie i umiejętności",
     "exp.subtitle": "Obszary techniczne, z którymi pracuję zawodowo oraz na uczelni.",
@@ -211,17 +220,23 @@ const I18N = {
     "controls.aria": "Appearance and language controls",
     "controls.langAria": "Switch language to Polish",
     "controls.langTitle": "Switch language (PL / EN)",
-    "controls.langToast": "Language: English",
+    "controls.langToastTitle": "Site language",
+    "controls.langToast": "Switched to English",
     "controls.paletteAria": "Change Material You color accent",
     "controls.paletteTitle": "Material You colors",
     "controls.paletteMenuAria": "Select color theme",
     "controls.themeTitle": "Toggle light / dark theme",
     "controls.themeDark": "Dark",
     "controls.themeLight": "Light",
+    "controls.themeToastTitle": "Appearance mode",
+    "controls.themeToastDark": "Dark theme enabled",
+    "controls.themeToastLight": "Light theme enabled",
     "controls.themeAriaToLight": "Switch to light mode",
     "controls.themeAriaToDark": "Switch to dark mode",
-    "controls.palettePrefix": "Theme",
+    "controls.paletteToastTitle": "Material You theme",
+    "controls.palettePrefix": "Active accent",
     "controls.paletteBlue": "Ocean Blue (Default)",
+    "toast.closeAria": "Dismiss notification",
 
     "hero.badgeRole": "Junior IT Specialist at IT Solution Factor",
     "hero.terminalTitle": "Open terminal (~ key)",
@@ -279,12 +294,15 @@ const I18N = {
     "about.hobbies.chip3": "Beta OS testing",
     "about.hobbies.chip4": "PC building",
 
-    "easter.music": "Music plays for most of my day. The current track updates live from Last.fm.",
+    "easter.music": "Music plays for most of my day — the current track updates live from Last.fm.",
     "easter.pixel": "I co-organize and moderate the Polish community of Google Pixel users.",
     "easter.beta": "I test Android Beta and Windows Insider builds ahead of public release.",
     "easter.pc": "I build, clean, and diagnose custom desktop PCs.",
-    "easter.pixel8pro": "Google Pixel 8 Pro (Mint) running the Android Beta channel.",
-    "easter.ryzen": "Miska Ryżenu: AMD Ryzen 5 5600G + GeForce RTX 4060.",
+    "easter.pixel8pro": "My daily driver in Mint — running the Android Beta channel on Google Tensor G3.",
+    "easter.buds": "Moonstone earbuds powered by the Google Tensor A1 chip with Active Noise Cancellation.",
+    "easter.watch": "41 mm Matte Black case running Wear OS — daily notifications and Fitbit tracking.",
+    "easter.surface": "2-in-1 ARM laptop with Snapdragon X Elite and a 120 Hz OLED display for university and travel.",
+    "easter.ryzen": "Home workstation with AMD Ryzen 5 5600G and GeForce RTX 4060 for virtual labs, networking, and gaming.",
 
     "exp.heading": "Experience & skills",
     "exp.subtitle": "Technical areas I work with on the job and at university.",
@@ -388,19 +406,48 @@ function detectInitialLanguage() {
 }
 
 /**
- * Universal Material 3 Snackbar / Toast helper
+ * Universal Material 3 Expressive Notification Card / Toast helper
+ * Accepts either a plain string or an options object: { title, message, icon, accent }
  */
-function showToast(message) {
+function showToast(input) {
   const toast = document.getElementById('m3-toast');
   if (!toast) return;
-  const msgEl = toast.querySelector('.toast-msg');
-  if (msgEl) msgEl.textContent = message;
+
+  const isObj = typeof input === 'object' && input !== null;
+  const message = isObj ? (input.message || '') : String(input || '');
+  const title = isObj ? (input.title || '') : '';
+  const icon = isObj ? (input.icon || 'auto_awesome') : 'auto_awesome';
+  const accent = isObj ? (input.accent || 'var(--md-sys-color-primary)') : 'var(--md-sys-color-primary)';
+
+  const titleEl = toast.querySelector('#toast-title, .toast-title');
+  const msgEl = toast.querySelector('#toast-msg, .toast-msg');
+  const iconEl = toast.querySelector('#toast-icon, .toast-icon');
+
+  toast.style.setProperty('--toast-accent', accent);
+
+  if (iconEl) {
+    iconEl.textContent = icon;
+  }
+
+  if (titleEl) {
+    if (title) {
+      titleEl.textContent = title;
+      titleEl.classList.remove('is-empty');
+    } else {
+      titleEl.textContent = '';
+      titleEl.classList.add('is-empty');
+    }
+  }
+
+  if (msgEl) {
+    msgEl.textContent = message;
+  }
 
   toast.classList.add('show');
   clearTimeout(globalToastTimer);
   globalToastTimer = setTimeout(() => {
     toast.classList.remove('show');
-  }, 3600);
+  }, 4200);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -533,7 +580,12 @@ function applyLanguage(lang, notify = false) {
   syncLastFmLabels();
 
   if (notify) {
-    showToast(t('controls.langToast'));
+    showToast({
+      title: t('controls.langToastTitle'),
+      message: t('controls.langToast'),
+      icon: 'translate',
+      accent: 'var(--md-sys-color-primary)'
+    });
   }
 }
 
@@ -632,6 +684,12 @@ function initThemeManager() {
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       applyTheme(newTheme);
       localStorage.setItem('m3_portfolio_theme', newTheme);
+      showToast({
+        title: t('controls.themeToastTitle'),
+        message: newTheme === 'dark' ? t('controls.themeToastDark') : t('controls.themeToastLight'),
+        icon: newTheme === 'dark' ? 'dark_mode' : 'light_mode',
+        accent: 'var(--md-sys-color-primary)'
+      });
     });
   }
 
@@ -695,8 +753,19 @@ function initPaletteManager() {
       s.setAttribute('aria-checked', isMatch ? 'true' : 'false');
     });
     const paletteName = getPaletteName(palette);
+    const paletteAccents = {
+      blue: '#60A5FA',
+      mint: '#4ADE80',
+      peach: '#FB923C',
+      purple: '#C084FC'
+    };
     if (notify && paletteName) {
-      showToast(`${t('controls.palettePrefix')}: ${paletteName}`);
+      showToast({
+        title: t('controls.paletteToastTitle'),
+        message: `${t('controls.palettePrefix')}: ${paletteName}`,
+        icon: 'palette',
+        accent: paletteAccents[palette] || 'var(--md-sys-color-primary)'
+      });
     }
   }
 }
@@ -1006,13 +1075,42 @@ const initLastFmService = updateLastFmStatus;
    9. INTERACTIVE CHIPS & MINI-TERMINAL (JETBRAINS MONO)
    =================================================================== */
 function initEasterEggs() {
+  const closeBtn = document.getElementById('toast-close-btn');
+  const toast = document.getElementById('m3-toast');
+  if (closeBtn && toast) {
+    closeBtn.addEventListener('click', () => {
+      clearTimeout(globalToastTimer);
+      toast.classList.remove('show');
+    });
+  }
+
   const interactiveItems = document.querySelectorAll('[data-easter-msg]');
   interactiveItems.forEach((item) => {
     item.addEventListener('click', () => {
       const msg = item.getAttribute('data-easter-msg');
-      if (msg) {
-        showToast(msg);
-      }
+      if (!msg) return;
+
+      const cardTitleEl = item.querySelector('.m3-card-title');
+      const chipLabelEl = item.querySelector('span:not(.material-symbols-rounded)');
+      const fallbackIconEl = item.querySelector('.material-symbols-rounded');
+
+      const title = cardTitleEl
+        ? cardTitleEl.textContent.trim()
+        : (chipLabelEl ? chipLabelEl.textContent.trim() : '');
+
+      const icon = item.getAttribute('data-toast-icon')
+        || (fallbackIconEl ? fallbackIconEl.textContent.trim() : 'auto_awesome');
+
+      const accent = item.getAttribute('data-toast-accent')
+        || getComputedStyle(item).getPropertyValue('--card-accent').trim()
+        || 'var(--md-sys-color-primary)';
+
+      showToast({
+        title,
+        message: msg,
+        icon,
+        accent
+      });
     });
   });
 }

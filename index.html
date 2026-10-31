@@ -39,7 +39,7 @@
     rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles/main.css?v=3">
+  <link rel="stylesheet" href="styles/main.css?v=4">
 </head>
 
 <body>
@@ -415,19 +415,23 @@
             <div class="m3-card-footer">
               <div class="m3-chip-group">
                 <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.music"
-                  data-easter-msg="Muzyka towarzyszy mi przez większość dnia. Aktualny utwór pobiera się na żywo z Last.fm.">
+                  data-toast-icon="music_note" data-toast-accent="#FFB786"
+                  data-easter-msg="Muzyka gra u mnie przez większość dnia. Aktualny utwór pobiera się na żywo z Last.fm.">
                   <span data-i18n="about.hobbies.chip1">Muzyka i Last.fm</span>
                 </button>
                 <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.pixel"
-                  data-easter-msg="Współtworzę i moderuję polską społeczność użytkowników urządzeń Google Pixel.">
+                  data-toast-icon="groups" data-toast-accent="#81C995"
+                  data-easter-msg="Współtworzę i moderuję polską społeczność użytkowników telefonów Google Pixel.">
                   <span data-i18n="about.hobbies.chip2">Google Pixel Polska</span>
                 </button>
                 <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.beta"
-                  data-easter-msg="Testuję kompilacje Android Beta i Windows Insider przed ich oficjalną premierą.">
+                  data-toast-icon="science" data-toast-accent="#78D9EC"
+                  data-easter-msg="Sprawdzam nowe wydania Android Beta i Windows Insider na własnym sprzęcie.">
                   <span data-i18n="about.hobbies.chip3">Testy Beta OS</span>
                 </button>
                 <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.pc"
-                  data-easter-msg="Samodzielnie składam, czyszczę i diagnozuję zestawy komputerowe.">
+                  data-toast-icon="memory" data-toast-accent="#A8C7FA"
+                  data-easter-msg="Samodzielnie dobieram części, składam i diagnozuję komputery stacjonarne.">
                   <span data-i18n="about.hobbies.chip4">Składanie PC</span>
                 </button>
               </div>
@@ -572,8 +576,9 @@
           <div class="m3-grid m3-grid-3">
 
             <!-- Device 1: Google Pixel 8 Pro -->
-            <article class="m3-card accent-pixel-mint" id="card-pixel-8-pro" data-i18n-easter="easter.pixel8pro"
-              data-easter-msg="Google Pixel 8 Pro (Mint) na kanale Android Beta.">
+            <article class="m3-card m3-card-interactive accent-pixel-mint" id="card-pixel-8-pro"
+              data-i18n-easter="easter.pixel8pro" data-toast-icon="smartphone" data-toast-accent="#A8E6CF"
+              data-easter-msg="Główny smartfon z czystym Androidem w kanale Beta i aparatem z 5-krotnym teleobiektywem.">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">smartphone</span>
@@ -593,7 +598,9 @@
             </article>
 
             <!-- Device 2: Google Pixel Buds Pro 2 -->
-            <article class="m3-card accent-moonstone">
+            <article class="m3-card m3-card-interactive accent-moonstone" id="card-pixel-buds"
+              data-i18n-easter="easter.buds" data-toast-icon="headphones" data-toast-accent="#B8C5D6"
+              data-easter-msg="Codzienne słuchawki do pracy i podróży z układem Tensor A1 i redukcją hałasu ANC.">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">headphones</span>
@@ -611,7 +618,9 @@
             </article>
 
             <!-- Device 3: Google Pixel Watch 2 -->
-            <article class="m3-card accent-graphite">
+            <article class="m3-card m3-card-interactive accent-graphite" id="card-pixel-watch"
+              data-i18n-easter="easter.watch" data-toast-icon="watch" data-toast-accent="#9E9EA4"
+              data-easter-msg="Zegarek z Wear OS do powiadomień, płatności zbliżeniowych i monitorowania treningów.">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">watch</span>
@@ -636,7 +645,9 @@
           <div class="m3-grid m3-grid-2">
 
             <!-- Device 4: Microsoft Surface Pro 11 -->
-            <article class="m3-card accent-platinum">
+            <article class="m3-card m3-card-interactive accent-platinum" id="card-surface-pro"
+              data-i18n-easter="easter.surface" data-toast-icon="laptop_chromebook" data-toast-accent="#E3E5E8"
+              data-easter-msg="Mobilny komputer 2 w 1 z procesorem ARM na uczelnię i do pracy poza domem.">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">laptop_chromebook</span>
@@ -656,8 +667,9 @@
             </article>
 
             <!-- Device 5: Miska Ryżenu -->
-            <article class="m3-card accent-crimson" id="card-miska-ryzenu" data-i18n-easter="easter.ryzen"
-              data-easter-msg="Miska Ryżenu: AMD Ryzen 5 5600G + GeForce RTX 4060.">
+            <article class="m3-card m3-card-interactive accent-crimson" id="card-miska-ryzenu"
+              data-i18n-easter="easter.ryzen" data-toast-icon="desktop_windows" data-toast-accent="#EF4444"
+              data-easter-msg="Domowa stacja robocza do maszyn wirtualnych, labów sieciowych i wieczornego grania.">
               <div class="m3-card-header">
                 <div class="m3-icon-box" aria-hidden="true">
                   <span class="material-symbols-outlined">desktop_windows</span>
@@ -898,14 +910,23 @@
     </aside>
   </div>
 
-  <!-- M3 Snackbar Notification -->
+  <!-- M3 Expressive Snackbar Notification -->
   <aside id="m3-toast" class="m3-toast" role="status" aria-live="polite">
-    <span class="material-symbols-outlined toast-icon" aria-hidden="true">info</span>
-    <span class="toast-msg">Status</span>
+    <div class="toast-icon-box" aria-hidden="true">
+      <span id="toast-icon" class="material-symbols-outlined toast-icon">info</span>
+    </div>
+    <div class="toast-content">
+      <span id="toast-title" class="toast-title">Status</span>
+      <span id="toast-msg" class="toast-msg">Komunikat</span>
+    </div>
+    <button type="button" id="toast-close-btn" class="toast-close-btn" aria-label="Zamknij powiadomienie"
+      data-i18n-aria="toast.closeAria">
+      <span class="material-symbols-outlined" aria-hidden="true">close</span>
+    </button>
   </aside>
 
   <!-- Main JavaScript Logic -->
-  <script src="scripts/main.js?v=3"></script>
+  <script src="scripts/main.js?v=4"></script>
 </body>
 
 </html>
