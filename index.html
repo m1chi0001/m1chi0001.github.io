@@ -39,7 +39,7 @@
     rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles/main.css?v=6">
+  <link rel="stylesheet" href="styles/main.css?v=8">
 </head>
 
 <body>
@@ -59,10 +59,10 @@
     <span class="material-symbols-outlined docked-icon" aria-hidden="true">arrow_upward</span>
   </aside>
 
-  <!-- Desktop Navigation Header (Viewport >= 768px) -->
+  <!-- Desktop Navigation Header (Viewport >= 768px) — M3 Expressive Floating Toolbar -->
   <header class="app-header" role="banner" id="desktop-header">
-    <nav class="nav-container" aria-label="Główna nawigacja strony" data-i18n-aria="nav.desktopAria">
-      <ul class="nav-tabs" role="tablist">
+    <nav class="nav-container m3-floating-toolbar" aria-label="Główna nawigacja strony" data-i18n-aria="nav.desktopAria">
+      <ul class="nav-tabs m3-button-group" role="tablist">
         <li class="nav-item" role="presentation">
           <a href="#hero" class="nav-link active" role="tab" id="tab-hero" aria-selected="true" aria-controls="hero">
             <span class="material-symbols-outlined nav-icon" aria-hidden="true">home</span>
@@ -98,8 +98,8 @@
     </nav>
   </header>
 
-  <!-- Mobile Bottom Navigation Bar (Viewport < 768px) -->
-  <nav class="mobile-bottom-nav" aria-label="Nawigacja mobilna dolna" id="mobile-nav" data-i18n-aria="nav.mobileAria">
+  <!-- Mobile Bottom Navigation Bar (Viewport < 768px) — M3 Expressive Floating Toolbar -->
+  <nav class="mobile-bottom-nav m3-floating-toolbar" aria-label="Nawigacja mobilna dolna" id="mobile-nav" data-i18n-aria="nav.mobileAria">
     <a href="#hero" class="mobile-nav-item active" id="mob-hero" aria-label="Start" data-i18n-aria="nav.home">
       <div class="mobile-icon-box">
         <span class="material-symbols-outlined" aria-hidden="true">home</span>
@@ -133,16 +133,16 @@
     </a>
   </nav>
 
-  <!-- Top-Right Controls: Language Switcher, Material You Palette & Theme Switcher -->
-  <aside class="theme-toggle-wrapper" aria-label="Personalizacja wyglądu" data-i18n-aria="controls.aria">
-    <button id="lang-toggle" class="lang-toggle-btn" type="button"
+  <!-- Top-Right Controls: M3 Expressive Connected Button Group (Language, Material You Palette & Theme) -->
+  <aside class="theme-toggle-wrapper m3-connected-button-group" role="group" aria-label="Personalizacja wyglądu" data-i18n-aria="controls.aria">
+    <button id="lang-toggle" class="lang-toggle-btn m3-connected-btn" type="button"
       aria-label="Zmień język na angielski" title="Przełącz język (PL / EN)">
       <span class="material-symbols-outlined lang-icon" aria-hidden="true">translate</span>
       <span id="lang-text" class="lang-code mono-label">PL</span>
     </button>
 
     <div class="palette-picker" id="palette-picker">
-      <button id="palette-toggle-btn" class="icon-control-btn" aria-label="Zmień akcent kolorystyczny Material You"
+      <button id="palette-toggle-btn" class="icon-control-btn m3-connected-btn" aria-label="Zmień akcent kolorystyczny Material You"
         aria-expanded="false" title="Kolory Material You"
         data-i18n-aria="controls.paletteAria" data-i18n-title="controls.paletteTitle">
         <span class="material-symbols-rounded" aria-hidden="true">palette</span>
@@ -168,7 +168,7 @@
       </div>
     </div>
 
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Przełącz motyw (Ciemny / Jasny)"
+    <button id="theme-toggle" class="theme-toggle-btn m3-connected-btn" aria-label="Przełącz motyw (Ciemny / Jasny)"
       title="Zmień motyw jasny / ciemny" data-i18n-title="controls.themeTitle">
       <div class="theme-icon-container" aria-hidden="true">
         <span class="material-symbols-outlined theme-icon sun-icon">light_mode</span>
@@ -213,19 +213,19 @@
               sprzęt i konfiguruję sieci, a po godzinach testuję nowe wersje Androida na Pixelu.
             </p>
 
-            <!-- Material 3 Action Hierarchy: 1 Filled Primary + 1 Tonal Secondary -->
-            <div class="hero-actions">
-              <a href="#contact" class="m3-btn m3-btn-filled">
+            <!-- Material 3 Expressive Button Group: 1 Filled Primary + 1 Tonal Secondary (Medium 56dp height) -->
+            <div class="hero-actions m3-button-group" role="group">
+              <a href="#contact" class="m3-btn m3-btn-m m3-btn-filled">
                 <span data-i18n="hero.ctaContact">Napisz do mnie</span>
                 <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
               </a>
-              <a href="#about" class="m3-btn m3-btn-tonal">
+              <a href="#about" class="m3-btn m3-btn-m m3-btn-tonal">
                 <span data-i18n="hero.ctaAbout">Więcej o mnie</span>
                 <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
               </a>
             </div>
 
-            <!-- Live Last.fm Now Playing Media Card -->
+            <!-- Live Last.fm Now Playing Media Card with M3 Expressive Wavy Waveform Indicator -->
             <div id="lastfm-container" class="lastfm-container" aria-live="polite">
               <a href="https://www.last.fm/user/M1chiii" target="_blank" rel="noopener noreferrer"
                 id="lastfm-now-playing" class="m3-card lastfm-card" style="display: none;"
@@ -251,6 +251,13 @@
                   </div>
                   <span id="lastfm-track-title" class="lastfm-title">Ładowanie utworu...</span>
                   <span id="lastfm-artist-name" class="lastfm-artist">Last.fm</span>
+                  <!-- M3 Expressive Wavy Linear Progress / Waveform Indicator (Active Playback Only) -->
+                  <div class="lastfm-wavy-progress" aria-hidden="true">
+                    <svg class="lastfm-wave-svg" viewBox="0 0 240 8" preserveAspectRatio="none">
+                      <path class="lastfm-wave-path"
+                        d="M 0 4 Q 7.5 0.5, 15 4 T 30 4 T 45 4 T 60 4 T 75 4 T 90 4 T 105 4 T 120 4 T 135 4 T 150 4 T 165 4 T 180 4 T 195 4 T 210 4 T 225 4 T 240 4" />
+                    </svg>
+                  </div>
                 </div>
 
                 <div class="m3-card-arrow" aria-hidden="true">
@@ -274,7 +281,8 @@
                   data-i18n-alt="hero.avatarAlt" class="avatar-img avatar-art" width="400" height="400" loading="eager">
               </div>
 
-              <button type="button" class="avatar-hover-hint" id="avatar-hover-hint"
+              <button type="button" class="avatar-hover-hint m3-toggle-btn" id="avatar-hover-hint"
+                aria-pressed="false"
                 aria-label="Przełącz między zdjęciem a awatarem 3D" data-i18n-aria="hero.avatarHintAria">
                 <span class="material-symbols-outlined hint-icon" aria-hidden="true">swap_horiz</span>
                 <span class="hint-desktop-text" data-i18n="hero.avatarHintDesktop">Zdjęcie / Awatar 3D</span>
@@ -1057,7 +1065,7 @@
   </aside>
 
   <!-- Main JavaScript Logic -->
-  <script src="scripts/main.js?v=7"></script>
+  <script src="scripts/main.js?v=8"></script>
 </body>
 
 </html>
