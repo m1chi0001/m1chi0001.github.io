@@ -39,7 +39,7 @@
     rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles/main.css?v=8">
+  <link rel="stylesheet" href="styles/main.css?v=9">
 </head>
 
 <body>
@@ -151,19 +151,27 @@
         data-i18n-aria="controls.paletteMenuAria">
         <button class="palette-swatch active" data-palette-choice="blue" role="radio" aria-checked="true"
           aria-label="Ocean Blue" title="Ocean Blue">
-          <span class="swatch-circle swatch-blue"></span>
+          <span class="swatch-circle swatch-blue">
+            <span class="material-symbols-outlined swatch-check" aria-hidden="true">check</span>
+          </span>
         </button>
         <button class="palette-swatch" data-palette-choice="mint" role="radio" aria-checked="false"
           aria-label="Pixel Mint" title="Pixel Mint">
-          <span class="swatch-circle swatch-mint"></span>
+          <span class="swatch-circle swatch-mint">
+            <span class="material-symbols-outlined swatch-check" aria-hidden="true">check</span>
+          </span>
         </button>
         <button class="palette-swatch" data-palette-choice="peach" role="radio" aria-checked="false"
           aria-label="Sunset Peach" title="Sunset Peach">
-          <span class="swatch-circle swatch-peach"></span>
+          <span class="swatch-circle swatch-peach">
+            <span class="material-symbols-outlined swatch-check" aria-hidden="true">check</span>
+          </span>
         </button>
         <button class="palette-swatch" data-palette-choice="purple" role="radio" aria-checked="false"
           aria-label="Cyber Purple" title="Cyber Purple">
-          <span class="swatch-circle swatch-purple"></span>
+          <span class="swatch-circle swatch-purple">
+            <span class="material-symbols-outlined swatch-check" aria-hidden="true">check</span>
+          </span>
         </button>
       </div>
     </div>
@@ -251,16 +259,20 @@
                   </div>
                   <span id="lastfm-track-title" class="lastfm-title">Ładowanie utworu...</span>
                   <span id="lastfm-artist-name" class="lastfm-artist">Last.fm</span>
-                  <!-- M3 Expressive Wavy Linear Progress / Waveform Indicator (Active Playback Only) -->
+                  <!-- M3 Expressive Wavy Scrubber (Wave + Vertical Pill Thumb + Straight Track, "Serafina" Concept) -->
                   <div class="lastfm-wavy-progress" aria-hidden="true">
-                    <svg class="lastfm-wave-svg" viewBox="0 0 240 8" preserveAspectRatio="none">
-                      <path class="lastfm-wave-path"
-                        d="M 0 4 Q 7.5 0.5, 15 4 T 30 4 T 45 4 T 60 4 T 75 4 T 90 4 T 105 4 T 120 4 T 135 4 T 150 4 T 165 4 T 180 4 T 195 4 T 210 4 T 225 4 T 240 4" />
-                    </svg>
+                    <div class="lastfm-wavy-played">
+                      <svg class="lastfm-wave-svg" viewBox="0 0 180 10" preserveAspectRatio="none">
+                        <path class="lastfm-wave-path"
+                          d="M 0 5 Q 6 1, 12 5 T 24 5 T 36 5 T 48 5 T 60 5 T 72 5 T 84 5 T 96 5 T 108 5 T 120 5 T 132 5 T 144 5 T 156 5 T 168 5 T 180 5" />
+                      </svg>
+                    </div>
+                    <span class="lastfm-scrubber-thumb"></span>
+                    <span class="lastfm-scrubber-track"></span>
                   </div>
                 </div>
 
-                <div class="m3-card-arrow" aria-hidden="true">
+                <div class="m3-card-arrow lastfm-action-pill" aria-hidden="true">
                   <span class="material-symbols-outlined">north_east</span>
                 </div>
               </a>
@@ -268,11 +280,27 @@
 
           </div>
 
-          <!-- Right Column: Interactive Portrait / 3D Avatar Squircle -->
+          <!-- Right Column: Interactive Portrait / 3D Avatar Squircle with M3 Expressive Cookie Halo & Badge -->
           <div class="hero-visual">
             <div class="avatar-interactive-wrapper" id="hero-avatar-wrapper"
               aria-label="Portret Michała Dzido. Najedź lub kliknij, aby przełączyć widok na ilustrację 3D"
               data-i18n-aria="hero.avatarWrapperAria">
+
+              <!-- Decorative M3 Expressive 12-Sided Scalloped Cookie Halo -->
+              <svg class="avatar-m3x-halo" viewBox="0 0 200 200" aria-hidden="true">
+                <path
+                  d="M100,4 C109,4 116,13 125,15 C134,18 144,12 152,17 C160,22 161,33 167,40 C174,47 185,48 189,56 C194,64 188,74 191,83 C193,92 202,99 202,108 C202,117 193,124 191,133 C188,142 194,152 189,160 C185,168 174,169 167,176 C161,183 160,194 152,199 C144,204 134,198 125,201 C116,203 109,212 100,212 C91,212 84,203 75,201 C66,198 56,204 48,199 C40,194 39,183 33,176 C26,169 15,168 11,160 C6,152 12,142 9,133 C7,124 -2,117 -2,108 C-2,99 7,92 9,83 C12,74 6,64 11,56 C15,48 26,47 33,40 C39,33 40,22 48,17 C56,12 66,18 75,15 C84,13 91,4 100,4 Z"
+                  transform="translate(0, -8)" />
+              </svg>
+
+              <!-- Floating M3 Expressive Clover / Sunny Badge -->
+              <div class="avatar-m3x-badge" aria-hidden="true">
+                <svg class="m3x-badge-bg" viewBox="0 0 64 64">
+                  <path
+                    d="M32 2 C37 2 40 8 45 10 C50 12 56 10 59 15 C62 20 58 25 59 30 C60 35 64 40 61 45 C58 50 52 49 48 53 C44 57 43 62 38 63 C33 64 29 59 24 58 C19 57 14 61 9 57 C5 53 8 47 6 42 C4 37 0 33 2 28 C4 23 10 22 13 17 C16 12 15 6 20 4 C25 2 27 2 32 2 Z" />
+                </svg>
+                <span class="material-symbols-rounded m3x-badge-icon">auto_awesome</span>
+              </div>
 
               <div class="avatar-squircle">
                 <img src="assets/michal.jpg" alt="Michał Dzido, zdjęcie portretowe" data-i18n-alt="hero.photoAlt"
@@ -337,10 +365,10 @@
             </div>
           </article>
 
-          <!-- Card 2: Wiek, automatyczny licznik (span 5) -->
-          <article class="m3-card bento-span-5 accent-sky m3-card-age">
+          <!-- Card 2: Wiek, automatyczny licznik (span 5) - Tonal Expressive Container -->
+          <article class="m3-card m3-card-tonal bento-span-5 accent-sky m3-card-age">
             <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
+              <div class="m3-icon-box m3-icon-cookie" aria-hidden="true">
                 <span class="material-symbols-outlined">cake</span>
               </div>
               <span class="m3-card-meta" data-i18n="about.age.meta">Wiek</span>
@@ -372,17 +400,19 @@
               </p>
             </div>
             <div class="m3-card-footer m3-card-footer-split">
-              <span class="meta-inline">
-                <span class="material-symbols-outlined meta-inline-icon" aria-hidden="true">schedule</span>
-                <span><span data-i18n="about.loc.timeLabel">Czas lokalny:</span> <strong id="live-warsaw-time"
-                    class="mono-num">--:--:--</strong></span>
-              </span>
+              <div class="m3x-clock-badge">
+                <span class="m3x-clock-label">
+                  <span class="m3x-clock-dot" aria-hidden="true"></span>
+                  <span data-i18n="about.loc.timeLabel">Czas lokalny:</span>
+                </span>
+                <strong id="live-warsaw-time" class="m3x-clock-value">--:--:--</strong>
+              </div>
               <span class="m3-chip" data-i18n="about.loc.chip">Strefa CET</span>
             </div>
           </article>
 
-          <!-- Card 4: Edukacja (span 4) - Granatowy kolor uczelni WSEI -->
-          <article class="m3-card bento-span-4 accent-navy">
+          <!-- Card 4: Edukacja (span 4) - Granatowy kolor uczelni WSEI (Tonal Expressive Container) -->
+          <article class="m3-card m3-card-tonal bento-span-4 accent-navy">
             <div class="m3-card-header">
               <div class="m3-icon-box" aria-hidden="true">
                 <span class="material-symbols-outlined">school</span>
@@ -573,17 +603,36 @@
     <section id="devices" class="snap-section reveal-section" aria-labelledby="devices-heading">
       <div class="section-container">
 
-        <header class="section-header">
-          <h2 id="devices-heading" class="section-title" data-i18n="devices.heading">Moje urządzenia</h2>
-          <p class="section-subtitle" data-i18n="devices.subtitle">
-            Sprzęt, z którego korzystam na co dzień w pracy, na studiach i w domu.
-          </p>
+        <header class="section-header section-header-row">
+          <div class="section-header-text">
+            <h2 id="devices-heading" class="section-title" data-i18n="devices.heading">Moje urządzenia</h2>
+            <p class="section-subtitle" data-i18n="devices.subtitle">
+              Sprzęt, z którego korzystam na co dzień w pracy, na studiach i w domu.
+            </p>
+          </div>
+
+          <!-- M3 Expressive Connected Filter Group (Inspired by Google M3X Concept Segmented Toggle) -->
+          <div class="m3x-filter-group" id="devices-filter-group" role="group" aria-label="Filtruj urządzenia"
+            data-i18n-aria="devices.filterAria">
+            <button type="button" class="m3x-filter-btn is-selected" data-device-filter="all" aria-pressed="true">
+              <span class="material-symbols-outlined filter-check-icon" aria-hidden="true">check</span>
+              <span data-i18n="devices.filterAll">Wszystkie</span>
+            </button>
+            <button type="button" class="m3x-filter-btn" data-device-filter="pixel" aria-pressed="false">
+              <span class="material-symbols-outlined filter-check-icon" aria-hidden="true">smartphone</span>
+              <span data-i18n="devices.filterPixel">Ekosystem Pixel</span>
+            </button>
+            <button type="button" class="m3x-filter-btn" data-device-filter="pc" aria-pressed="false">
+              <span class="material-symbols-outlined filter-check-icon" aria-hidden="true">computer</span>
+              <span data-i18n="devices.filterPc">Komputery</span>
+            </button>
+          </div>
         </header>
 
         <div class="devices-layout">
 
           <!-- Tier 1: Google Pixel Ecosystem (3 cards) -->
-          <div class="m3-grid m3-grid-3">
+          <div class="m3-grid m3-grid-3" data-device-tier="pixel">
 
             <!-- Device 1: Google Pixel 8 Pro -->
             <article class="m3-card m3-card-interactive device-card accent-pixel-mint" id="card-pixel-8-pro"
@@ -720,7 +769,7 @@
           </div>
 
           <!-- Tier 2: Computers (2 cards) -->
-          <div class="m3-grid m3-grid-2">
+          <div class="m3-grid m3-grid-2" data-device-tier="pc">
 
             <!-- Device 4: Microsoft Surface Pro 11 -->
             <article class="m3-card m3-card-interactive device-card accent-platinum" id="card-surface-pro"
@@ -1065,7 +1114,7 @@
   </aside>
 
   <!-- Main JavaScript Logic -->
-  <script src="scripts/main.js?v=8"></script>
+  <script src="scripts/main.js?v=9"></script>
 </body>
 
 </html>

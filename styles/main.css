@@ -21,34 +21,34 @@
 
   /* -------------------------------------------------------------------
      1A. MOTION PHYSICS SYSTEM (Spring-to-Curve Web Approximations)
-     Spatial springs (overshoot < 1.0 damping) -> position, size, radius, shape morph
-     Effects springs (damping = 1.0, NO overshoot) -> color, opacity, shadow
+     Spatial springs (overshoot < 1.0 damping, y2 = 1.00 for clean settle without backward dip)
+     Effects springs (damping = 1.0, NO overshoot) -> color, opacity, shadow, font axes
      ------------------------------------------------------------------- */
-  --md-sys-motion-spring-fast-spatial: cubic-bezier(0.42, 1.67, 0.21, 0.90);
-  --md-sys-motion-spring-fast-spatial-duration: 350ms;
+  --md-sys-motion-spring-fast-spatial: cubic-bezier(0.22, 1.15, 0.36, 1.00);
+  --md-sys-motion-spring-fast-spatial-duration: 320ms;
 
-  --md-sys-motion-spring-default-spatial: cubic-bezier(0.38, 1.21, 0.22, 1.00);
-  --md-sys-motion-spring-default-spatial-duration: 500ms;
+  --md-sys-motion-spring-default-spatial: cubic-bezier(0.22, 1.12, 0.32, 1.00);
+  --md-sys-motion-spring-default-spatial-duration: 450ms;
 
-  --md-sys-motion-spring-slow-spatial: cubic-bezier(0.39, 1.29, 0.35, 0.98);
-  --md-sys-motion-spring-slow-spatial-duration: 650ms;
+  --md-sys-motion-spring-slow-spatial: cubic-bezier(0.24, 1.08, 0.32, 1.00);
+  --md-sys-motion-spring-slow-spatial-duration: 580ms;
 
   --md-sys-motion-spring-fast-effects: cubic-bezier(0.31, 0.94, 0.34, 1.00);
-  --md-sys-motion-spring-fast-effects-duration: 150ms;
+  --md-sys-motion-spring-fast-effects-duration: 160ms;
 
   --md-sys-motion-spring-default-effects: cubic-bezier(0.34, 0.80, 0.34, 1.00);
-  --md-sys-motion-spring-default-effects-duration: 200ms;
+  --md-sys-motion-spring-default-effects-duration: 220ms;
 
   --md-sys-motion-spring-slow-effects: cubic-bezier(0.34, 0.88, 0.34, 1.00);
   --md-sys-motion-spring-slow-effects-duration: 300ms;
 
   /* Standard Scheme — Spatial (Functional fallback) */
   --md-sys-motion-standard-fast-spatial: cubic-bezier(0.27, 1.06, 0.18, 1.00);
-  --md-sys-motion-standard-fast-spatial-duration: 350ms;
+  --md-sys-motion-standard-fast-spatial-duration: 320ms;
   --md-sys-motion-standard-default-spatial: cubic-bezier(0.27, 1.06, 0.18, 1.00);
-  --md-sys-motion-standard-default-spatial-duration: 500ms;
+  --md-sys-motion-standard-default-spatial-duration: 450ms;
   --md-sys-motion-standard-slow-spatial: cubic-bezier(0.27, 1.06, 0.18, 1.00);
-  --md-sys-motion-standard-slow-spatial-duration: 750ms;
+  --md-sys-motion-standard-slow-spatial-duration: 650ms;
 
   /* Composite spring timing shorthands */
   --md-spring-fast-spatial: var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial);
@@ -80,7 +80,7 @@
   --md-transition-fast: var(--md-spring-fast-effects);
   --md-transition-medium: var(--md-spring-default-effects);
   --md-transition-expressive: var(--md-spring-default-spatial);
-  --md-type-morph: font-variation-settings var(--md-spring-fast-spatial);
+  --md-type-morph: font-variation-settings var(--md-spring-default-effects);
 
   /* -------------------------------------------------------------------
      1B. EXPANDED SHAPE CORNER RADIUS SCALE (M3 Expressive)
@@ -491,7 +491,7 @@ button {
   align-items: center;
   height: var(--md-comp-button-height-s);
   padding: 0 12px;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 20px;
   font-size: var(--md-sys-typescale-label-large-size);
   color: var(--md-sys-color-on-surface-variant);
   font-variation-settings: 'wght' 500, 'wdth' 100, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 14, 'slnt' 0;
@@ -507,7 +507,7 @@ button {
 
 /* Pressed state shape morph inside Floating Toolbar */
 .nav-link:active {
-  border-radius: var(--md-sys-shape-corner-medium);
+  border-radius: 13px;
   transform: scale(0.96);
 }
 
@@ -516,7 +516,7 @@ button {
   transition: font-variation-settings var(--md-spring-fast-effects);
 }
 
-/* Inactive tabs show only the icon; label collapses to zero width */
+/* Inactive tabs show only the icon; label collapses to zero width without overshoot bounce */
 .nav-link .nav-label {
   display: inline-block;
   max-width: 0;
@@ -524,8 +524,8 @@ button {
   opacity: 0;
   overflow: hidden;
   transition:
-    max-width var(--md-spring-fast-spatial),
-    margin-left var(--md-spring-fast-spatial),
+    max-width var(--md-spring-default-effects),
+    margin-left var(--md-spring-default-effects),
     opacity var(--md-spring-fast-effects);
 }
 
@@ -539,7 +539,7 @@ button {
 .nav-link:hover .nav-label,
 .nav-link:focus-visible .nav-label,
 .nav-link.active .nav-label {
-  max-width: 160px;
+  max-width: 140px;
   margin-left: 8px;
   opacity: 1;
 }
@@ -573,7 +573,7 @@ button {
   padding: 4px 16px 4px 8px;
   background-color: var(--md-sys-color-surface-container-high);
   border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 24px;
   cursor: pointer;
   opacity: 0;
   transform: translateY(-16px) scale(0.95);
@@ -595,11 +595,11 @@ button {
 .docked-avatar-chip:hover {
   background-color: var(--md-sys-color-surface-container-highest);
   border-color: var(--md-sys-color-outline-hover);
-  border-radius: var(--md-sys-shape-corner-large-increased);
+  border-radius: 18px;
 }
 
 .docked-avatar-chip:active {
-  border-radius: var(--md-sys-shape-corner-medium);
+  border-radius: 14px;
   transform: scale(0.97);
 }
 
@@ -673,7 +673,7 @@ button {
   display: inline-flex;
 }
 
-/* Connected segment geometry: outer ends are Full (9999px), inner seams are Small (8px) */
+/* Connected segment geometry: outer ends are 20px (exact half of 40px height), inner seams are 8px */
 .m3-connected-btn {
   height: var(--md-comp-button-height-s);
   background-color: var(--md-sys-color-surface-container);
@@ -688,6 +688,7 @@ button {
     border-color var(--md-spring-fast-effects),
     border-radius var(--md-spring-fast-spatial),
     padding var(--md-spring-fast-spatial),
+    width var(--md-spring-fast-spatial),
     transform var(--md-spring-fast-spatial),
     var(--md-type-morph);
 }
@@ -695,34 +696,34 @@ button {
 .lang-toggle-btn.m3-connected-btn {
   gap: 6px;
   padding: 0 14px 0 16px;
-  border-radius: var(--md-sys-shape-corner-full) var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-full);
+  border-radius: 20px 8px 8px 20px;
   font-size: 0.8125rem;
 }
 
 .icon-control-btn.m3-connected-btn {
   width: 42px;
   padding: 0;
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 8px;
   color: var(--md-sys-color-on-surface-variant);
 }
 
 .theme-toggle-btn.m3-connected-btn {
   gap: 8px;
   padding: 0 16px 0 14px;
-  border-radius: var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-full) var(--md-sys-shape-corner-full) var(--md-sys-shape-corner-small);
+  border-radius: 8px 20px 20px 8px;
   font-size: 0.875rem;
   font-variation-settings: 'wght' 550, 'wdth' 98, 'ROND' 80, 'GRAD' var(--font-grad), 'opsz' 14;
 }
 
-/* Connected Button Group Hover Bump & Shape Morph */
+/* Connected Button Group Hover Bump & Proportional Shape Morph */
 .m3-connected-btn:hover {
   background-color: var(--md-sys-color-surface-container-highest);
   color: var(--md-sys-color-primary);
-  border-radius: var(--md-sys-shape-corner-large-increased);
 }
 
 .lang-toggle-btn.m3-connected-btn:hover {
-  padding: 0 17px 0 18px;
+  padding: 0 16px 0 18px;
+  border-radius: 20px 14px 14px 20px;
 }
 
 .icon-control-btn.m3-connected-btn:hover,
@@ -730,18 +731,19 @@ button {
   width: 46px;
   background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
-  border-radius: var(--md-sys-shape-corner-medium);
+  border-radius: 16px;
 }
 
 .theme-toggle-btn.m3-connected-btn:hover {
-  padding: 0 18px 0 17px;
+  padding: 0 18px 0 16px;
+  border-radius: 14px 20px 20px 14px;
   font-variation-settings: 'wght' 650, 'wdth' 100, 'ROND' 100, 'GRAD' var(--font-grad-hover), 'opsz' 14;
 }
 
-/* Pressed state: morph to squarer 12px radius */
+/* Pressed state: smooth proportional cushion to 12px radius */
 .m3-connected-btn:active {
-  border-radius: var(--md-sys-shape-corner-medium) !important;
-  transform: scale(0.95);
+  border-radius: 12px !important;
+  transform: scale(0.96);
 }
 
 .palette-menu {
@@ -754,7 +756,7 @@ button {
   padding: 8px 10px;
   background-color: var(--md-sys-color-surface-container-highest);
   border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 24px;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
   opacity: 0;
   pointer-events: none;
@@ -771,9 +773,9 @@ button {
 }
 
 .palette-swatch {
-  width: 28px;
-  height: 28px;
-  border-radius: var(--md-sys-shape-corner-full);
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
   padding: 3px;
   border: 2px solid transparent;
   display: flex;
@@ -786,25 +788,44 @@ button {
 }
 
 .palette-swatch:hover {
-  transform: scale(1.12);
+  transform: scale(1.08);
+  border-radius: 12px;
 }
 
-/* Selected swatch morphs from Circle to Squircle (M3 Expressive Toggle Morph) */
+/* Selected swatch morphs from Squircle (9px) to Circle (15px) with checkmark ("Verbena" M3X Concept) */
 .palette-swatch.active {
   border-color: var(--md-sys-color-on-surface);
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 15px;
 }
 
 .palette-swatch.active .swatch-circle {
-  border-radius: 5px;
+  border-radius: 11px;
 }
 
 .swatch-circle {
   width: 100%;
   height: 100%;
-  border-radius: var(--md-sys-shape-corner-full);
-  display: block;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: border-radius var(--md-spring-fast-spatial);
+}
+
+.swatch-check {
+  font-size: 14px;
+  color: #0B121E;
+  font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 20;
+  opacity: 0;
+  transform: scale(0.4);
+  transition:
+    opacity var(--md-spring-fast-effects),
+    transform var(--md-spring-fast-spatial);
+}
+
+.palette-swatch.active .swatch-check {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .swatch-blue { background-color: #6EA8FE; }
@@ -968,7 +989,7 @@ html[data-theme="light"] .moon-icon {
   gap: 8px;
   height: 34px;
   padding: 0 13px;
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 9px;
   background-color: var(--md-sys-color-surface-container-low);
   border: 1px solid var(--md-sys-color-outline-variant);
   font-size: 0.8125rem;
@@ -989,11 +1010,11 @@ html[data-theme="light"] .moon-icon {
   background-color: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface);
   border-color: var(--md-sys-color-outline-hover);
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 17px;
 }
 
 .status-chip-action:active {
-  border-radius: var(--md-sys-shape-corner-extra-small);
+  border-radius: 7px;
   transform: scale(0.96);
 }
 
@@ -1030,7 +1051,7 @@ html[data-theme="light"] .moon-icon {
   font-variation-settings: 'wght' 600, 'wdth' 100, 'ROND' 40, 'GRAD' var(--font-grad), 'opsz' 16;
 }
 
-/* M3 Expressive Standard Button Group: Dynamic width bump & shape morphing */
+/* M3 Expressive Standard Button Group: Dynamic width bump & proportional shape morphing */
 .hero-actions {
   display: flex;
   align-items: center;
@@ -1046,7 +1067,7 @@ html[data-theme="light"] .moon-icon {
   gap: 10px;
   height: var(--md-comp-button-height-m);
   padding: 0 24px;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 28px;
   font-size: 0.96875rem;
   font-variation-settings: 'wght' var(--md-sys-typescale-label-large-weight-emphasized), 'wdth' 102, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 16, 'slnt' 0;
   transition:
@@ -1061,17 +1082,17 @@ html[data-theme="light"] .moon-icon {
   user-select: none;
 }
 
-/* Hover bump effect in M3 Expressive Button Group + shape morph */
+/* Hover bump effect in M3 Expressive Button Group + proportional squircle morph (28px -> 18px) */
 .m3-btn:hover {
   padding: 0 28px;
-  border-radius: var(--md-sys-shape-corner-large-increased);
-  font-variation-settings: 'wght' 780, 'wdth' 104, 'ROND' 100, 'GRAD' 80, 'opsz' 16, 'slnt' -6;
+  border-radius: 18px;
+  font-variation-settings: 'wght' 760, 'wdth' 103, 'ROND' 100, 'GRAD' 70, 'opsz' 16, 'slnt' -4;
 }
 
-/* Pressed state: morph to squarer 12px radius (M3 Expressive Button Press Morph) */
+/* Pressed state: morph to squarer 13px radius */
 .m3-btn:active {
   transform: scale(0.96);
-  border-radius: var(--md-sys-shape-corner-medium);
+  border-radius: 13px;
 }
 
 .m3-btn-filled {
@@ -1096,9 +1117,9 @@ html[data-theme="light"] .moon-icon {
   border-color: var(--md-sys-color-outline-hover);
 }
 
-/* Hero Visual: Interactive Portrait & 3D Avatar Squircle
-   Outer resting radius: 32px (--md-sys-shape-corner-extra-large-increased), padding: 8px -> Inner: 24px
-   Active/Hover outer radius: 48px (--md-sys-shape-corner-extra-extra-large), padding: 8px -> Inner: 40px */
+/* Hero Visual: Interactive Portrait & 3D Avatar Squircle with M3 Expressive Cookie Halo & Badge
+   Outer resting radius: 36px, padding: 8px -> Inner: 28px
+   Active/Hover outer radius: 64px, padding: 8px -> Inner: 56px */
 .hero-visual {
   display: flex;
   justify-content: center;
@@ -1113,14 +1134,73 @@ html[data-theme="light"] .moon-icon {
   cursor: pointer;
 }
 
-.avatar-squircle {
-  position: relative;
+/* M3 Expressive 12-Sided Scalloped Cookie Halo behind portrait */
+.avatar-m3x-halo {
+  position: absolute;
+  inset: -18px;
+  width: calc(100% + 36px);
+  height: calc(100% + 36px);
+  z-index: 0;
+  pointer-events: none;
+  fill: color-mix(in srgb, var(--md-sys-color-primary) 7%, transparent);
+  stroke: color-mix(in srgb, var(--md-sys-color-primary) 24%, transparent);
+  stroke-width: 1.25;
+  transform: rotate(0deg) scale(0.96);
+  transition:
+    transform var(--md-spring-slow-spatial),
+    fill var(--md-spring-default-effects),
+    stroke var(--md-spring-default-effects);
+}
+
+/* Floating M3 Expressive 8-Leaf Clover / Sunny Badge (Top-Right Corner) */
+.avatar-m3x-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 54px;
+  height: 54px;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
+  transition: transform var(--md-spring-default-spatial);
+}
+
+.m3x-badge-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: var(--md-sys-shape-corner-extra-large-increased);
+  fill: var(--md-sys-color-primary-container);
+  stroke: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
+  stroke-width: 1.5;
+  transition:
+    transform var(--md-spring-slow-spatial),
+    fill var(--md-spring-fast-effects);
+}
+
+.m3x-badge-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 22px;
+  color: var(--md-sys-color-on-primary-container);
+  font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+  transition:
+    transform var(--md-spring-default-spatial),
+    color var(--md-spring-fast-effects);
+}
+
+.avatar-squircle {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
   padding: 8px;
   background-color: var(--md-sys-color-surface-container-low);
-  border: 1px solid var(--md-sys-color-outline-variant);
+  border: 1.5px solid var(--md-sys-color-outline-variant);
   overflow: hidden;
   transition:
     border-color var(--md-spring-default-effects),
@@ -1135,7 +1215,7 @@ html[data-theme="light"] .moon-icon {
   width: calc(100% - 16px);
   height: calc(100% - 16px);
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 28px;
   display: block;
   transition:
     opacity var(--md-spring-slow-effects),
@@ -1153,15 +1233,15 @@ html[data-theme="light"] .moon-icon {
   z-index: 2;
 }
 
-/* Explicit toggled state (tap / click) morphs to Extra Extra Large (48px outer / 40px inner) */
+/* Explicit toggled state (tap / click) morphs smoothly to Medallion Squircle (64px outer / 56px inner) */
 .avatar-interactive-wrapper.is-avatar-active .avatar-squircle {
   border-color: var(--md-sys-color-primary);
-  border-radius: var(--md-sys-shape-corner-extra-extra-large);
-  box-shadow: 0 16px 40px -12px color-mix(in srgb, var(--md-sys-color-primary) 34%, transparent);
+  border-radius: 64px;
+  box-shadow: 0 18px 42px -12px color-mix(in srgb, var(--md-sys-color-primary) 36%, transparent);
 }
 
 .avatar-interactive-wrapper.is-avatar-active .avatar-img {
-  border-radius: 40px;
+  border-radius: 56px;
 }
 
 .avatar-interactive-wrapper.is-avatar-active .avatar-photo {
@@ -1172,16 +1252,34 @@ html[data-theme="light"] .moon-icon {
   opacity: 1;
 }
 
+.avatar-interactive-wrapper.is-avatar-active .avatar-m3x-halo {
+  transform: rotate(15deg) scale(1.02);
+  fill: color-mix(in srgb, var(--md-sys-color-primary) 13%, transparent);
+  stroke: color-mix(in srgb, var(--md-sys-color-primary) 42%, transparent);
+}
+
+.avatar-interactive-wrapper.is-avatar-active .avatar-m3x-badge {
+  transform: scale(1.08) rotate(12deg);
+}
+
+.avatar-interactive-wrapper.is-avatar-active .m3x-badge-bg {
+  fill: var(--md-sys-color-primary);
+}
+
+.avatar-interactive-wrapper.is-avatar-active .m3x-badge-icon {
+  color: var(--md-sys-color-on-primary);
+}
+
 /* Hover preview only on real pointers, so touch browsers never get stuck in :hover */
 @media (hover: hover) and (pointer: fine) {
   .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-squircle {
     border-color: var(--md-sys-color-primary);
-    border-radius: var(--md-sys-shape-corner-extra-extra-large);
-    box-shadow: 0 16px 40px -12px color-mix(in srgb, var(--md-sys-color-primary) 34%, transparent);
+    border-radius: 64px;
+    box-shadow: 0 18px 42px -12px color-mix(in srgb, var(--md-sys-color-primary) 36%, transparent);
   }
 
   .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-img {
-    border-radius: 40px;
+    border-radius: 56px;
   }
 
   .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-photo {
@@ -1191,10 +1289,20 @@ html[data-theme="light"] .moon-icon {
   .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-art {
     opacity: 1;
   }
+
+  .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-m3x-halo {
+    transform: rotate(15deg) scale(1.02);
+    fill: color-mix(in srgb, var(--md-sys-color-primary) 13%, transparent);
+    stroke: color-mix(in srgb, var(--md-sys-color-primary) 42%, transparent);
+  }
+
+  .avatar-interactive-wrapper:hover:not(.hover-suppressed) .avatar-m3x-badge {
+    transform: scale(1.08) rotate(12deg);
+  }
 }
 
 /* M3 Expressive Toggle Button inside Avatar:
-   Rests as Round (Full pill), morphs to Square (12px) when selected (aria-pressed="true") */
+   Rests as Pill (18px = half of 36px height), morphs to Squircle (11px) when selected */
 .avatar-hover-hint {
   position: absolute;
   bottom: 16px;
@@ -1205,14 +1313,15 @@ html[data-theme="light"] .moon-icon {
   align-items: center;
   gap: 6px;
   height: 36px;
-  padding: 0 14px;
-  border-radius: var(--md-sys-shape-corner-full);
+  padding: 0 15px;
+  border-radius: 18px;
   background-color: var(--md-sys-color-surface-container-highest);
   border: 1px solid var(--md-sys-color-outline-variant);
   color: var(--md-sys-color-on-surface);
   font-size: 0.75rem;
   font-variation-settings: 'wght' 600, 'wdth' 98, 'ROND' 90, 'GRAD' var(--font-grad), 'opsz' 12;
   white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
   transition:
     background-color var(--md-spring-fast-effects),
     color var(--md-spring-fast-effects),
@@ -1228,15 +1337,15 @@ html[data-theme="light"] .moon-icon {
   border-color: var(--md-sys-color-primary);
 }
 
-/* Selected Toggle Button Morph: Full (9999px) -> Medium Square (12px) */
+/* Selected Toggle Button Morph: Pill (18px) -> Squircle (11px) */
 .avatar-hover-hint[aria-pressed="true"],
 .avatar-interactive-wrapper.is-avatar-active .avatar-hover-hint {
-  border-radius: var(--md-sys-shape-corner-medium);
+  border-radius: 11px;
   font-variation-settings: 'wght' 700, 'wdth' 102, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 12;
 }
 
 .avatar-hover-hint:active {
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 9px;
   transform: translateX(-50%) scale(0.95);
 }
 
@@ -1314,14 +1423,14 @@ html[data-theme="light"] .moon-icon {
 .accent-github     { --accent-dark: #F0F6FC; --accent-light: #24292F; }
 .accent-x          { --accent-dark: #E7E9EA; --accent-light: #0F1419; }
 
-/* Base Unified Card: 28px squircle that morphs to 36px on hover */
+/* Base Unified Card: 28px squircle that morphs smoothly to 36px on hover */
 .m3-card {
   --card-accent: var(--accent-dark, var(--md-sys-color-primary));
   --card-glow: color-mix(in srgb, var(--card-accent) 38%, transparent);
   position: relative;
   background-color: var(--md-sys-color-surface-container-low);
   border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--md-sys-shape-corner-extra-large);
+  border-radius: 28px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -1335,9 +1444,24 @@ html[data-theme="light"] .moon-icon {
     transform var(--md-spring-fast-spatial);
 }
 
+/* M3 Expressive Tonal Container Card (Bento surface contrast inspired by Google M3X showcase) */
+.m3-card.m3-card-tonal {
+  background:
+    radial-gradient(125% 125% at 100% 0%, color-mix(in srgb, var(--card-accent) 16%, transparent) 0%, transparent 72%),
+    color-mix(in srgb, var(--card-accent) 7%, var(--md-sys-color-surface-container));
+  border-color: color-mix(in srgb, var(--card-accent) 26%, var(--md-sys-color-outline-variant));
+}
+
 html[data-theme="light"] .m3-card {
   --card-accent: var(--accent-light, var(--md-sys-color-primary));
   --card-glow: color-mix(in srgb, var(--card-accent) 24%, transparent);
+}
+
+html[data-theme="light"] .m3-card.m3-card-tonal {
+  background:
+    radial-gradient(125% 125% at 100% 0%, color-mix(in srgb, var(--card-accent) 14%, transparent) 0%, transparent 72%),
+    color-mix(in srgb, var(--card-accent) 6%, var(--md-sys-color-surface-container-low));
+  border-color: color-mix(in srgb, var(--card-accent) 24%, var(--md-sys-color-outline-variant));
 }
 
 .m3-card:hover {
@@ -1345,6 +1469,12 @@ html[data-theme="light"] .m3-card {
   border-color: var(--card-accent);
   border-radius: 36px;
   box-shadow: 0 12px 32px -8px var(--card-glow);
+}
+
+.m3-card.m3-card-tonal:hover {
+  background:
+    radial-gradient(130% 130% at 100% 0%, color-mix(in srgb, var(--card-accent) 22%, transparent) 0%, transparent 76%),
+    color-mix(in srgb, var(--card-accent) 10%, var(--md-sys-color-surface-container-high));
 }
 
 /* Interactive Cards (Links / Easter Egg Cards) */
@@ -1362,12 +1492,12 @@ html[data-theme="light"] .m3-card {
 
 /* GRAD + slant morph: no width change, so the card never reflows on hover */
 .m3-card:hover .m3-card-title {
-  font-variation-settings: 'wght' 700, 'wdth' 102, 'slnt' -6, 'ROND' 100, 'GRAD' 80, 'opsz' 20;
+  font-variation-settings: 'wght' 700, 'wdth' 102, 'slnt' -5, 'ROND' 100, 'GRAD' 75, 'opsz' 20;
 }
 
 .m3-card:active {
   transform: scale(0.99);
-  border-radius: var(--md-sys-shape-corner-large-increased);
+  border-radius: 22px;
 }
 
 /* Card Header */
@@ -1378,7 +1508,7 @@ html[data-theme="light"] .m3-card {
   gap: 12px;
 }
 
-/* Tinted icon box: accent at 16% over the card, morphs from squircle to circle */
+/* Tinted icon box: 44x44px, morphs smoothly from squircle (14px) to circle (22px) */
 .m3-icon-box {
   width: 44px;
   height: 44px;
@@ -1395,6 +1525,10 @@ html[data-theme="light"] .m3-card {
     transform var(--md-spring-fast-spatial);
 }
 
+.m3-icon-box.m3-icon-cookie {
+  border-radius: 22px;
+}
+
 html[data-theme="light"] .accent-graphite .m3-icon-box,
 html[data-theme="light"] .accent-navy .m3-icon-box {
   --icon-bg: color-mix(in srgb, var(--card-accent) 16%, transparent);
@@ -1406,9 +1540,14 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 }
 
 .m3-card:hover .m3-icon-box {
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 22px;
   transform: rotate(-6deg);
   background-color: var(--icon-bg, color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 26%, transparent));
+}
+
+.m3-card:hover .m3-icon-box.m3-icon-cookie {
+  border-radius: 14px;
+  transform: rotate(6deg);
 }
 
 .m3-card:hover .m3-icon-box .material-symbols-outlined {
@@ -1428,9 +1567,9 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 }
 
 .m3-card-arrow {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--md-sys-shape-corner-full);
+  width: 38px;
+  height: 38px;
+  border-radius: 19px;
   background-color: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface-variant);
   display: flex;
@@ -1452,7 +1591,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .lastfm-card:hover .m3-card-arrow {
   background-color: color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 22%, transparent);
   color: var(--card-accent, var(--md-sys-color-primary));
-  border-radius: var(--md-sys-shape-corner-medium);
+  border-radius: 12px;
   transform: rotate(45deg) scale(1.06);
 }
 
@@ -1477,15 +1616,15 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
   margin-top: 2px;
 }
 
-/* Age counter card: large expressive numeral */
+/* Age counter card: Tall Condensed Expressive Numeral (inspired by Google M3X "07:30" Clock Concept) */
 .age-value {
   display: inline-block;
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-size: clamp(3.5rem, 6.8vw, 5.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
   color: var(--card-accent);
   font-variant-numeric: tabular-nums;
-  font-variation-settings: 'wght' 800, 'wdth' 112, 'ROND' 100, 'opsz' 120, 'GRAD' var(--font-grad, 0), 'slnt' 0;
+  font-variation-settings: 'wght' 820, 'wdth' 84, 'ROND' 100, 'opsz' 144, 'GRAD' var(--font-grad, 0), 'slnt' 0;
   transition: var(--md-type-morph);
 }
 
@@ -1494,7 +1633,44 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 }
 
 .m3-card-age:hover .age-value {
-  font-variation-settings: 'wght' 900, 'wdth' 112, 'ROND' 100, 'opsz' 120, 'GRAD' 80, 'slnt' -6;
+  font-variation-settings: 'wght' 900, 'wdth' 92, 'ROND' 100, 'opsz' 144, 'GRAD' 80, 'slnt' -6;
+}
+
+/* Expressive Live Warsaw Clock Badge in Location Card */
+.m3x-clock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 10px;
+  border-radius: 14px;
+  background-color: color-mix(in srgb, var(--card-accent) 12%, var(--md-sys-color-surface-container-high));
+  border: 1px solid color-mix(in srgb, var(--card-accent) 24%, transparent);
+}
+
+.m3x-clock-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.m3x-clock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--card-accent);
+  box-shadow: 0 0 8px var(--card-accent);
+}
+
+.m3x-clock-value {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1;
+  color: var(--card-accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'wght' 780, 'wdth' 86, 'ROND' 100, 'opsz' 28, 'GRAD' var(--font-grad, 0);
 }
 
 /* Card Footer & Unified Chips */
@@ -1540,13 +1716,13 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
   margin-top: 10px;
 }
 
-/* Pill chips tinted with the card accent */
+/* Pill chips tinted with the card accent (16px = exact half of 32px height) */
 .m3-chip {
   display: inline-flex;
   align-items: center;
   min-height: var(--md-comp-button-height-xs);
   padding: 4px 12px;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 16px;
   background-color: color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 10%, var(--md-sys-color-surface-container-high));
   color: var(--md-sys-color-on-surface-variant);
   font-size: var(--md-sys-typescale-label-medium-size);
@@ -1574,24 +1750,108 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
     var(--md-type-morph);
 }
 
-/* M3 Expressive Interactive Chip Morph: Full pill -> Medium square (10px) + bump expansion */
+/* M3 Expressive Interactive Chip Morph: Pill (16px) -> Squircle (10px) + bump expansion */
 .m3-chip-action:hover {
   background-color: color-mix(in srgb, var(--card-accent, var(--md-sys-color-primary)) 24%, transparent);
   color: var(--card-accent, var(--md-sys-color-primary));
   border-color: transparent;
   border-radius: 10px;
   padding: 4px 15px;
-  font-variation-settings: 'wght' 750, 'wdth' 105, 'ROND' 100, 'opsz' 18, 'GRAD' 80, 'slnt' -6;
+  font-variation-settings: 'wght' 740, 'wdth' 104, 'ROND' 100, 'opsz' 18, 'GRAD' 70, 'slnt' -4;
 }
 
 .m3-chip-action:active {
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 8px;
   transform: scale(0.95);
 }
 
 /* -------------------------------------------------------------------
-   8B. EXPRESSIVE HARDWARE SPEC TILES (#devices)
+   8B. EXPRESSIVE HARDWARE SPEC TILES & CONNECTED FILTER GROUP (#devices)
    ------------------------------------------------------------------- */
+.section-header-row {
+  max-width: 100%;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section-header-text {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* M3 Expressive Connected Filter Group (Inspired by "[ Going | Not Going | Maybe ]" in Google M3X Showcase) */
+.m3x-filter-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  background-color: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 24px;
+}
+
+.m3x-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.84375rem;
+  font-variation-settings: 'wght' 600, 'wdth' 100, 'ROND' 90, 'GRAD' var(--font-grad), 'opsz' 14;
+  transition:
+    background-color var(--md-spring-fast-effects),
+    color var(--md-spring-fast-effects),
+    border-radius var(--md-spring-fast-spatial),
+    padding var(--md-spring-fast-spatial),
+    transform var(--md-spring-fast-spatial),
+    var(--md-type-morph);
+}
+
+.m3x-filter-btn:first-child {
+  border-radius: 20px 8px 8px 20px;
+}
+
+.m3x-filter-btn:last-child {
+  border-radius: 8px 20px 20px 8px;
+}
+
+.m3x-filter-btn .filter-check-icon {
+  font-size: 17px;
+  transition: transform var(--md-spring-fast-spatial);
+}
+
+.m3x-filter-btn:hover:not(.is-selected) {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+  padding: 0 18px;
+}
+
+/* Selected Filter Button Morphs into a Full Pill (20px on all 4 corners) with Primary Container Fill */
+.m3x-filter-btn.is-selected {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-radius: 20px;
+  padding: 0 20px;
+  font-variation-settings: 'wght' 720, 'wdth' 102, 'ROND' 100, 'GRAD' var(--font-grad), 'opsz' 14;
+}
+
+.m3x-filter-btn:active {
+  border-radius: 12px;
+  transform: scale(0.96);
+}
+
+.is-tier-hidden {
+  display: none !important;
+}
+
 .device-card .m3-card-body {
   gap: 14px;
 }
@@ -1610,7 +1870,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
   gap: 6px;
   height: 26px;
   padding: 0 10px;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 13px;
   background-color: color-mix(in srgb, var(--card-accent) 12%, var(--md-sys-color-surface-container-high));
   color: var(--md-sys-color-on-surface);
   font-size: 0.75rem;
@@ -1663,7 +1923,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .device-card:hover .spec-item {
   background-color: color-mix(in srgb, var(--card-accent) 10%, var(--md-sys-color-surface-container-high));
   border-color: color-mix(in srgb, var(--card-accent) 28%, transparent);
-  border-radius: var(--md-sys-shape-corner-large-increased);
+  border-radius: 18px;
 }
 
 .spec-icon {
@@ -1700,7 +1960,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 }
 
 /* -------------------------------------------------------------------
-   9. LIVE LAST.FM MEDIA CARD (M3 Expressive & Wavy Waveform Indicator)
+   9. LIVE LAST.FM MEDIA CARD ("Serafina" M3 Expressive Concept)
    ------------------------------------------------------------------- */
 .lastfm-container {
   width: 100%;
@@ -1708,7 +1968,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
   margin-top: 4px;
 }
 
-/* Outer radius: 20px (--md-sys-shape-corner-large-increased), padding: 12px -> Inner album art: 10px */
+/* Outer radius: 24px, padding: 14px -> Inner album art: 14px */
 .lastfm-card {
   --lastfm-accent: var(--md-status-online);
   --lastfm-container: color-mix(in srgb, var(--lastfm-accent) 16%, var(--md-sys-color-surface-container-low));
@@ -1720,26 +1980,41 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
-  padding: 12px 16px;
-  border-radius: var(--md-sys-shape-corner-large-increased);
+  padding: 14px 16px;
+  border-radius: 24px;
 }
 
 /* Only emit colored album glow when a track is actively playing */
 .lastfm-card.has-dynamic-palette:not(.is-offline) {
   background:
-    radial-gradient(120% 140% at 0% 50%, color-mix(in srgb, var(--lastfm-accent) 18%, transparent) 0%, transparent 72%),
+    radial-gradient(125% 145% at 0% 50%, color-mix(in srgb, var(--lastfm-accent) 22%, transparent) 0%, transparent 74%),
     var(--md-sys-color-surface-container-low);
-  border-color: color-mix(in srgb, var(--lastfm-accent) 44%, var(--md-sys-color-outline-variant));
+  border-color: color-mix(in srgb, var(--lastfm-accent) 46%, var(--md-sys-color-outline-variant));
   box-shadow: 0 10px 28px -10px var(--lastfm-glow);
 }
 
 .lastfm-card.has-dynamic-palette:not(.is-offline):hover {
   background:
-    radial-gradient(130% 150% at 0% 50%, color-mix(in srgb, var(--lastfm-accent) 26%, transparent) 0%, transparent 78%),
+    radial-gradient(135% 155% at 0% 50%, color-mix(in srgb, var(--lastfm-accent) 30%, transparent) 0%, transparent 78%),
     var(--md-sys-color-surface-container);
   border-color: var(--lastfm-accent);
-  border-radius: var(--md-sys-shape-corner-extra-large-increased);
+  border-radius: 32px;
   box-shadow: 0 14px 36px -8px var(--lastfm-glow);
+}
+
+/* Vibrant Filled Action Pill when actively streaming ("Serafina" Play Button Concept) */
+.lastfm-card.has-dynamic-palette:not(.is-offline) .lastfm-action-pill {
+  width: 42px;
+  height: 42px;
+  border-radius: 21px;
+  background-color: var(--lastfm-accent);
+  color: #0D1117;
+  box-shadow: 0 6px 16px -4px var(--lastfm-glow);
+}
+
+.lastfm-card.has-dynamic-palette:not(.is-offline):hover .lastfm-action-pill {
+  border-radius: 14px;
+  transform: rotate(45deg) scale(1.06);
 }
 
 /* Calm, glow-free state when offline / showing recently played */
@@ -1754,14 +2029,14 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .lastfm-card.is-offline:hover {
   background-color: var(--md-sys-color-surface-container);
   border-color: var(--md-sys-color-outline-hover);
-  border-radius: var(--md-sys-shape-corner-extra-large);
+  border-radius: 28px;
   box-shadow: none;
 }
 
 .lastfm-cover-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
   overflow: hidden;
   flex-shrink: 0;
   background-color: var(--md-sys-color-surface-container-high);
@@ -1778,7 +2053,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 
 .lastfm-card:hover .lastfm-cover-wrap {
   transform: scale(1.05);
-  border-radius: 14px;
+  border-radius: 20px;
 }
 
 .lastfm-art {
@@ -1860,18 +2135,22 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 
 .lastfm-title {
   font-family: var(--font-sans);
-  font-size: 0.96875rem;
-  line-height: 1.28;
+  font-size: 1rem;
+  line-height: 1.26;
   color: var(--md-sys-color-on-surface);
-  font-variation-settings: 'wght' 720, 'wdth' 104, 'ROND' 100, 'GRAD' var(--font-grad, 0), 'opsz' 20, 'slnt' 0;
+  font-variation-settings: 'wght' 740, 'wdth' 104, 'ROND' 100, 'GRAD' var(--font-grad, 0), 'opsz' 20, 'slnt' 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: var(--md-type-morph), color var(--md-spring-fast-effects);
 }
 
+.lastfm-card:not(.is-offline) .lastfm-title {
+  font-variation-settings: 'wght' 780, 'wdth' 104, 'ROND' 100, 'GRAD' var(--font-grad, 0), 'opsz' 24, 'slnt' -3;
+}
+
 .lastfm-card:hover .lastfm-title {
-  font-variation-settings: 'wght' 800, 'wdth' 104, 'ROND' 100, 'GRAD' 80, 'opsz' 20, 'slnt' -6;
+  font-variation-settings: 'wght' 820, 'wdth' 105, 'ROND' 100, 'GRAD' 80, 'opsz' 24, 'slnt' -6;
 }
 
 .lastfm-artist {
@@ -1891,20 +2170,26 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
   font-variation-settings: 'wght' 600, 'wdth' 102, 'ROND' 90, 'GRAD' 40, 'opsz' 14, 'slnt' 0;
 }
 
-/* M3 Expressive Wavy Linear Progress / Waveform Indicator (Active Media Playback) */
+/* M3 Expressive Wavy Scrubber ("Serafina" Concept: Wave + Vertical Pill Thumb + Straight Track) */
 .lastfm-wavy-progress {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   width: 100%;
-  max-width: 180px;
-  height: 7px;
-  margin-top: 4px;
-  overflow: hidden;
-  opacity: 0.88;
-  mask-image: linear-gradient(90deg, #000 0%, #000 80%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 80%, transparent 100%);
+  max-width: 220px;
+  height: 14px;
+  margin-top: 5px;
 }
 
 .lastfm-card.is-offline .lastfm-wavy-progress {
   display: none;
+}
+
+.lastfm-wavy-played {
+  width: 58%;
+  height: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .lastfm-wave-svg {
@@ -1916,10 +2201,31 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .lastfm-wave-path {
   fill: none;
   stroke: var(--lastfm-accent, var(--md-status-online));
-  stroke-width: 1.8;
+  stroke-width: 2.1;
   stroke-linecap: round;
   animation: m3-wave-drift 2.4s var(--md-sys-motion-spring-default-effects) infinite alternate;
   transition: stroke var(--md-spring-fast-effects);
+}
+
+.lastfm-scrubber-thumb {
+  width: 3px;
+  height: 13px;
+  border-radius: 2px;
+  background-color: var(--lastfm-accent, var(--md-status-online));
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--lastfm-glow);
+  transition: background-color var(--md-spring-fast-effects), transform var(--md-spring-fast-spatial);
+}
+
+.lastfm-card:hover .lastfm-scrubber-thumb {
+  transform: scaleY(1.18);
+}
+
+.lastfm-scrubber-track {
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background-color: color-mix(in srgb, var(--lastfm-accent, var(--md-status-online)) 28%, var(--md-sys-color-surface-container-highest));
 }
 
 @keyframes m3-wave-drift {
@@ -1927,7 +2233,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-30px);
+    transform: translateX(-24px);
   }
 }
 
@@ -1972,7 +2278,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
   align-items: center;
   gap: 6px;
   padding: 5px 12px;
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 8px;
   background-color: var(--md-sys-color-surface-container-low);
   border: 1px solid var(--md-sys-color-outline-variant);
   color: var(--md-sys-color-on-surface-variant);
@@ -1990,7 +2296,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .footer-terminal-link:hover {
   background-color: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface);
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 15px;
 }
 
 .m3-kbd {
@@ -2087,7 +2393,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .terminal-close-btn {
   width: 36px;
   height: 36px;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 18px;
   background-color: var(--md-sys-color-surface-container);
   color: var(--md-sys-color-on-surface-variant);
   display: flex;
@@ -2103,7 +2409,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .terminal-close-btn:hover {
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
-  border-radius: var(--md-sys-shape-corner-medium);
+  border-radius: 11px;
 }
 
 .terminal-close-btn:active {
@@ -2153,7 +2459,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .term-chip {
   height: 30px;
   padding: 0 11px;
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 8px;
   background-color: var(--md-sys-color-surface-container-high);
   border: 1px solid var(--md-sys-color-outline-variant);
   color: var(--md-sys-color-primary);
@@ -2170,7 +2476,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .term-chip:hover {
   background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 15px;
 }
 
 .term-chip:active {
@@ -2211,7 +2517,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 .terminal-send-btn {
   width: 34px;
   height: 34px;
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 9px;
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
   display: flex;
@@ -2223,7 +2529,7 @@ html[data-theme="light"] .accent-navy .m3-icon-box {
 }
 
 .terminal-send-btn:hover {
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 17px;
 }
 
 .terminal-send-btn:active {
@@ -2325,7 +2631,7 @@ html[data-theme="light"] .m3-toast {
 .toast-close-btn {
   width: 32px;
   height: 32px;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: 16px;
   background-color: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface-variant);
   display: inline-flex;
@@ -2347,7 +2653,7 @@ html[data-theme="light"] .m3-toast {
 .toast-close-btn:hover {
   background-color: color-mix(in srgb, var(--toast-accent) 22%, transparent);
   color: var(--toast-accent);
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: 10px;
   transform: scale(1.06);
 }
 
@@ -2398,6 +2704,28 @@ html[data-theme="light"] .m3-toast {
     grid-column: span 12;
   }
 
+  .m3x-filter-group {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .m3x-filter-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .m3x-filter-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0 12px;
+    font-size: 0.78125rem;
+    white-space: nowrap;
+  }
+
+  .m3x-filter-btn.is-selected {
+    padding: 0 14px;
+  }
+
   .app-header,
   .docked-avatar-chip {
     display: none !important;
@@ -2413,7 +2741,7 @@ html[data-theme="light"] .m3-toast {
     z-index: 100;
     background-color: var(--md-sys-color-surface-container-high);
     border: 1px solid var(--md-sys-color-outline-variant);
-    border-radius: var(--md-sys-shape-corner-full);
+    border-radius: 26px;
     padding: 5px 8px;
     gap: 4px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
@@ -2429,7 +2757,7 @@ html[data-theme="light"] .m3-toast {
   .mobile-icon-box {
     width: 54px;
     height: 40px;
-    border-radius: var(--md-sys-shape-corner-full);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2442,7 +2770,7 @@ html[data-theme="light"] .m3-toast {
   }
 
   .mobile-nav-item:active .mobile-icon-box {
-    border-radius: var(--md-sys-shape-corner-medium);
+    border-radius: 12px;
     transform: scale(0.94);
   }
 

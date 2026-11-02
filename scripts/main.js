@@ -153,6 +153,10 @@ const I18N = {
 
     "devices.heading": "Moje urządzenia",
     "devices.subtitle": "Sprzęt, z którego korzystam na co dzień w pracy, na studiach i w domu.",
+    "devices.filterAria": "Filtruj urządzenia według kategorii",
+    "devices.filterAll": "Wszystkie",
+    "devices.filterPixel": "Ekosystem Pixel",
+    "devices.filterPc": "Komputery",
     "devices.specAria": "Specyfikacja",
     "devices.label.soc": "Układ SoC",
     "devices.label.memory": "Pamięć",
@@ -342,6 +346,10 @@ const I18N = {
 
     "devices.heading": "My devices",
     "devices.subtitle": "Hardware I use every day at work, at university, and at home.",
+    "devices.filterAria": "Filter devices by category",
+    "devices.filterAll": "All gear",
+    "devices.filterPixel": "Pixel ecosystem",
+    "devices.filterPc": "Computers",
     "devices.specAria": "Specifications",
     "devices.label.soc": "SoC chip",
     "devices.label.memory": "Memory",
@@ -512,6 +520,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 10. Real-time Warsaw, Poland Clock
   initWarsawClock();
+
+  // 11. M3 Expressive Connected Device Category Filter
+  initDevicesFilter();
 });
 
 /* ===================================================================
@@ -1527,6 +1538,35 @@ function initWarsawClock() {
 
   updateTime();
   setInterval(updateTime, 1000);
+}
+
+/* ===================================================================
+   11. M3 EXPRESSIVE CONNECTED DEVICE CATEGORY FILTER
+   =================================================================== */
+function initDevicesFilter() {
+  const group = document.getElementById('devices-filter-group');
+  if (!group) return;
+
+  const buttons = Array.from(group.querySelectorAll('.m3x-filter-btn'));
+  const tiers = Array.from(document.querySelectorAll('[data-device-tier]'));
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-device-filter') || 'all';
+
+      buttons.forEach((b) => {
+        const isSelected = b === btn;
+        b.classList.toggle('is-selected', isSelected);
+        b.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+      });
+
+      tiers.forEach((tier) => {
+        const tierName = tier.getAttribute('data-device-tier');
+        const shouldShow = filter === 'all' || filter === tierName;
+        tier.classList.toggle('is-tier-hidden', !shouldShow);
+      });
+    });
+  });
 }
 
 // Global engine exports for integration & test suites
