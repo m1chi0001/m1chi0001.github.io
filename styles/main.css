@@ -245,35 +245,64 @@ strong { font-weight: 600; color: var(--on-surface); }
   color: var(--on-surface-variant);
 }
 
-/* Reveal: one short fade and rise per section */
-.reveal-section {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 500ms cubic-bezier(0.2, 0, 0, 1), transform 500ms cubic-bezier(0.2, 0, 0, 1);
+/* Reveal: items rise in one after another when their section scrolls into view.
+   Uses an animation with fill-mode "backwards", so once it ends the element's own
+   hover and press transforms work without inherited delays. */
+@media (scripting: enabled) {
+  .reveal-section:not(.is-visible) [data-reveal] { opacity: 0; }
 }
-.reveal-section.is-visible { opacity: 1; transform: none; }
+.reveal-section.is-visible [data-reveal] {
+  animation:
+    rise-in 700ms cubic-bezier(0.38, 1.21, 0.22, 1.00) backwards,
+    fade-in 300ms cubic-bezier(0.34, 0.88, 0.34, 1.00) backwards;
+  animation-delay: calc(var(--reveal-i, 0) * 60ms);
+}
+
+@keyframes rise-in {
+  from { transform: translateY(32px) scale(0.97); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
 
 /* --------------------------------------------------------------------------
    4. Buttons
    -------------------------------------------------------------------------- */
+/* M3 Expressive common button, medium size (56dp), round shape.
+   Pressed: the corners morph to 16dp and the button widens a little while
+   its neighbour in the group gives way (button group "bump"). */
 .btn {
+  --pad: 24px;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   height: 56px;
-  padding: 0 24px;
+  padding: 0 var(--pad) 0 calc(var(--pad) - 4px);
   border-radius: var(--corner-full);
   font-size: 1rem;
   font-weight: 500;
+  letter-spacing: 0.01em;
   font-variation-settings: 'ROND' 100;
+  white-space: nowrap;
   isolation: isolate;
   overflow: hidden;
-  transition: border-radius var(--spring-fast-spatial), transform var(--spring-fast-spatial),
-    background-color var(--spring-fast-effects), color var(--spring-fast-effects);
+  -webkit-tap-highlight-color: transparent;
+  transition: border-radius var(--spring-fast-spatial), padding var(--spring-fast-spatial),
+    box-shadow var(--spring-default-effects), background-color var(--spring-fast-effects),
+    color var(--spring-fast-effects);
 }
-.btn .material-symbols-rounded { font-size: 22px; }
+.btn .material-symbols-rounded {
+  font-size: 22px;
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+  transition: font-variation-settings var(--spring-default-effects);
+}
+.btn:hover .material-symbols-rounded { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+.btn-filled:hover { box-shadow: 0 1px 2px rgb(0 0 0 / 0.24), 0 2px 6px rgb(0 0 0 / 0.12); }
+.btn:active { --pad: 30px; border-radius: var(--corner-l); box-shadow: none; }
+.hero-actions:has(.btn:active) .btn:not(:active) { --pad: 18px; }
+.btn:focus-visible { outline-offset: 2px; }
 .btn::after {
   content: '';
   position: absolute;
@@ -289,7 +318,6 @@ strong { font-weight: 600; color: var(--on-surface); }
 
 .btn-filled { background: var(--primary); color: var(--on-primary); }
 .btn-tonal { background: var(--secondary-container); color: var(--on-secondary-container); }
-.btn-tonal .kbd { margin-left: 2px; }
 
 /* --------------------------------------------------------------------------
    5. Appearance controls (connected button group)
@@ -424,6 +452,27 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
 }
 .nav-link.active .nav-icon { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20; }
 
+/* Sliding selection pill (added by initNavIndicator) */
+.nav-tabs { position: relative; }
+.nav-tabs li { position: relative; z-index: 1; }
+.nav-indicator {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: 40px;
+  width: var(--w, 0);
+  border-radius: var(--corner-full);
+  background: var(--secondary-container);
+  transform: translateX(var(--x, 0));
+  opacity: 0;
+}
+.nav-tabs.has-indicator .nav-indicator {
+  opacity: 1;
+  transition: transform var(--spring-default-spatial), width var(--spring-default-spatial);
+}
+.nav-tabs.has-indicator .nav-link.active { background: transparent; }
+.nav-tabs.has-indicator .nav-link.active:hover { background: transparent; }
+
 /* Narrower desktops: only the active tab keeps its label */
 @media (max-width: 1100px) {
   .nav-link:not(.active) .nav-label { display: none; }
@@ -493,14 +542,67 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
   margin-bottom: 12px;
 }
 
+/* The name: each letter is its own span so the width axis of Google Sans Flex
+   can stretch in a ripple from the first letter to the last on hover. */
 .hero-title {
+  --wdth: 112;
+  --wght: 640;
   font-size: clamp(3.25rem, 8.4vw, 7rem);
   line-height: 0.96;
   font-weight: 640;
   letter-spacing: -0.035em;
-  font-variation-settings: 'ROND' 100, 'wdth' 112, 'opsz' 144;
   color: var(--on-surface);
   margin-bottom: 28px;
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+}
+.hero-word { display: inline-block; white-space: nowrap; }
+.hero-title .ch {
+  display: inline-block;
+  font-variation-settings: 'ROND' 100, 'wdth' var(--wdth), 'wght' var(--wght), 'opsz' 144;
+  transition: font-variation-settings 650ms cubic-bezier(0.34, 1.2, 0.4, 1);
+  transition-delay: calc(var(--i) * 22ms);
+}
+@media (hover: hover) {
+  .hero-title:hover { --wdth: 128; --wght: 680; }
+}
+.hero-title.is-stretched { --wdth: 128; --wght: 680; }
+
+/* One entrance on load: letters unfold from a condensed width, the rest rises after */
+html.is-ready .hero-title .ch {
+  animation: letter-in 900ms cubic-bezier(0.38, 1.21, 0.22, 1.00) backwards;
+  animation-delay: calc(80ms + var(--i) * 35ms);
+}
+@keyframes letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+    font-variation-settings: 'ROND' 100, 'wdth' 60, 'wght' 400, 'opsz' 144;
+  }
+}
+@media (scripting: enabled) {
+  html:not(.is-ready) .hero-content,
+  html:not(.is-ready) .hero-visual { opacity: 0; }
+}
+html.is-ready .hero-kicker,
+html.is-ready .hero-lead,
+html.is-ready .hero-actions,
+html.is-ready .lastfm-container {
+  animation:
+    rise-in 800ms cubic-bezier(0.38, 1.21, 0.22, 1.00) backwards,
+    fade-in 400ms cubic-bezier(0.34, 0.88, 0.34, 1.00) backwards;
+}
+.hero-kicker { animation-delay: 0ms; }
+.hero-lead { animation-delay: 420ms; }
+.hero-actions { animation-delay: 500ms; }
+.lastfm-container { animation-delay: 580ms; }
+html.is-ready .avatar-interactive-wrapper {
+  animation:
+    avatar-in 1100ms cubic-bezier(0.39, 1.29, 0.35, 0.98) 150ms backwards,
+    fade-in 400ms cubic-bezier(0.34, 0.88, 0.34, 1.00) 150ms backwards;
+}
+@keyframes avatar-in {
+  from { transform: scale(0.82) rotate(-24deg); }
 }
 
 .hero-lead {
@@ -554,31 +656,55 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
 .avatar-interactive-wrapper.is-avatar-active .avatar-art { opacity: 1; }
 .avatar-interactive-wrapper.is-avatar-active .avatar-photo { opacity: 0; }
 
+/* Photo / 3D avatar: a two-option connected toggle with a sliding selection */
+.avatar-interactive-wrapper { margin-bottom: 28px; }
 .avatar-toggle {
   position: absolute;
-  left: 4%;
-  bottom: 6%;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 48px;
-  padding: 0 20px 0 16px;
+  left: 50%;
+  bottom: -24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
   border-radius: var(--corner-full);
   background: var(--surface-highest);
-  color: var(--on-surface);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.14), 0 8px 24px rgb(0 0 0 / 0.14);
+  transform: translateX(-50%);
+  -webkit-tap-highlight-color: transparent;
+}
+.avatar-toggle-indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: var(--corner-full);
+  background: var(--primary);
+  transition: transform var(--spring-default-spatial);
+}
+.avatar-toggle[aria-pressed="true"] .avatar-toggle-indicator { transform: translateX(100%); }
+.avatar-toggle:active .avatar-toggle-indicator { border-radius: var(--corner-m); }
+
+.avatar-seg {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 16px 0 12px;
   font-size: 0.875rem;
   font-weight: 500;
-  box-shadow: 0 4px 14px rgb(0 0 0 / 0.18);
-  transition: border-radius var(--spring-fast-spatial), background-color var(--spring-fast-effects),
-    color var(--spring-fast-effects);
+  white-space: nowrap;
+  color: var(--on-surface-variant);
+  transition: color var(--spring-default-effects);
 }
-.avatar-toggle:hover { background: var(--secondary-container); color: var(--on-secondary-container); }
-.avatar-toggle[aria-pressed="true"] {
-  border-radius: var(--corner-l);
-  background: var(--primary);
-  color: var(--on-primary);
-}
-.avatar-toggle[aria-pressed="true"] .material-symbols-rounded { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20; }
+.avatar-seg .material-symbols-rounded { font-size: 18px; transition: font-variation-settings var(--spring-default-effects); }
+.avatar-toggle:hover .avatar-seg { color: var(--on-surface); }
+.avatar-toggle[aria-pressed="false"] .seg-photo,
+.avatar-toggle[aria-pressed="true"] .seg-art { color: var(--on-primary); }
+.avatar-toggle[aria-pressed="false"] .seg-photo .material-symbols-rounded,
+.avatar-toggle[aria-pressed="true"] .seg-art .material-symbols-rounded { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20; }
 
 /* --------------------------------------------------------------------------
    8. Last.fm as an Android media notification
@@ -654,29 +780,36 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
 .lastfm-title { font-size: 1rem; font-weight: 600; line-height: 1.35; }
 .lastfm-artist { font-size: 0.875rem; color: var(--on-surface-variant); }
 
+/* Wavy progress indicator. The wave path, thumb and remaining track are
+   positioned every frame by initLastFmProgress() in main.js. */
 .lastfm-progress {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 8px;
+  position: relative;
+  display: block;
   height: 12px;
+  margin-top: 10px;
 }
-.lastfm-wave { width: 52%; height: 8px; overflow: visible; }
-.lastfm-wave path {
+.lastfm-wave { position: absolute; left: 0; top: 0; overflow: visible; }
+.lastfm-wave-path {
   fill: none;
   stroke: var(--lastfm-accent);
-  stroke-width: 2.5;
+  stroke-width: 3;
   stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  transition: stroke var(--spring-slow-effects);
 }
-.lastfm-card:has(.is-playing) .lastfm-wave path { animation: wave 1.6s linear infinite; }
-@keyframes wave {
-  from { transform: translateX(0); }
-  to { transform: translateX(-12px); }
+.lastfm-thumb {
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 4px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--lastfm-accent);
 }
-.lastfm-thumb { width: 4px; height: 14px; border-radius: 2px; background: var(--lastfm-accent); }
 .lastfm-rest {
-  flex: 1;
+  position: absolute;
+  top: 4px;
+  right: 0;
   height: 4px;
   border-radius: 2px;
   background: color-mix(in oklch, var(--lastfm-accent) 28%, transparent);
@@ -905,6 +1038,14 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
 .device-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .device-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .device-grid.is-tier-hidden { display: none; }
+/* After the filter changes, the cards that come back rise in again */
+.devices-layout.was-filtered .device-card {
+  animation:
+    rise-in 600ms cubic-bezier(0.38, 1.21, 0.22, 1.00) backwards,
+    fade-in 250ms cubic-bezier(0.34, 0.88, 0.34, 1.00) backwards;
+}
+.devices-layout.was-filtered .device-card:nth-child(2) { animation-delay: 50ms; }
+.devices-layout.was-filtered .device-card:nth-child(3) { animation-delay: 100ms; }
 
 .device-card {
   display: flex;
@@ -921,18 +1062,21 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
 .device-stage {
   display: grid;
   place-items: center;
-  height: 200px;
+  height: 216px;
   border-radius: var(--corner-li);
-  background: color-mix(in oklch, var(--device-tint) 16%, var(--surface-high));
+  background: color-mix(in srgb, var(--device-tint) 14%, var(--surface-high));
   overflow: hidden;
 }
 .device-art {
-  height: 152px;
+  height: 168px;
   width: auto;
+  max-width: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgb(0 0 0 / 0.22));
   transition: transform var(--spring-default-spatial);
 }
-.device-card-wide .device-art { height: 140px; }
-.device-card:hover .device-art { transform: translateY(-6px) rotate(-4deg); }
+.device-card-wide .device-art { height: 160px; }
+.device-card:hover .device-art { transform: translateY(-6px) rotate(-3deg) scale(1.03); }
 
 .device-body { padding: 16px 12px 12px; }
 
@@ -1069,6 +1213,7 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
   font-size: 0.875rem;
   color: var(--on-surface-variant);
 }
+.footer-credits { flex: 1; font-size: 0.8125rem; opacity: 0.8; }
 .footer-terminal-link {
   display: inline-flex;
   align-items: center;
@@ -1287,18 +1432,30 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
     -webkit-tap-highlight-color: transparent;
   }
   .mobile-icon-box {
+    position: relative;
     display: grid;
     place-items: center;
     width: 56px;
     height: 32px;
     border-radius: var(--corner-full);
-    transition: background-color var(--spring-fast-effects), width var(--spring-fast-spatial);
+    transition: color var(--spring-fast-effects);
   }
-  .mobile-nav-item.active { color: var(--on-surface); }
-  .mobile-nav-item.active .mobile-icon-box {
+  /* Active indicator grows out from the icon, as in the Android navigation bar */
+  .mobile-icon-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
     background: var(--secondary-container);
-    color: var(--on-secondary-container);
+    opacity: 0;
+    transform: scaleX(0.4);
+    transition: transform var(--spring-fast-spatial), opacity var(--spring-fast-effects);
   }
+  .mobile-icon-box .material-symbols-rounded { position: relative; }
+  .mobile-nav-item:active .mobile-icon-box::before { opacity: 0.5; transform: scaleX(0.9); }
+  .mobile-nav-item.active { color: var(--on-surface); }
+  .mobile-nav-item.active .mobile-icon-box { color: var(--on-secondary-container); }
+  .mobile-nav-item.active .mobile-icon-box::before { opacity: 1; transform: none; }
   .mobile-nav-item.active .material-symbols-rounded { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
   .mobile-nav-item .material-symbols-rounded { font-size: 24px; }
 
@@ -1311,12 +1468,11 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-visual { order: -1; justify-content: flex-start; }
   .avatar-interactive-wrapper { width: min(64vw, 260px); }
-  .avatar-toggle { left: auto; right: -12px; bottom: 4%; height: 44px; padding: 0 14px; }
-  .avatar-toggle-label { display: none; }
+  .avatar-interactive-wrapper { margin-bottom: 24px; }
+  .avatar-seg { padding: 0 12px 0 10px; font-size: 0.8125rem; }
   .hero-title { font-size: clamp(3rem, 15vw, 4.5rem); margin-bottom: 20px; }
   .hero-lead { font-size: 1.0625rem; }
   .hero-actions .btn { flex: 1 1 auto; }
-  .btn-tonal .kbd { display: none; }
   .lastfm-container { margin-top: 28px; }
 
   .section-header { margin-bottom: 28px; }
@@ -1328,7 +1484,8 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
 
   .device-grid-3,
   .device-grid-2 { grid-template-columns: 1fr; }
-  .device-stage { height: 176px; }
+  .device-stage { height: 192px; }
+  .device-art, .device-card-wide .device-art { height: 148px; }
   .m3x-filter-group { width: 100%; }
   .m3x-filter-btn { flex: 1; justify-content: center; padding: 0 8px; }
   .m3x-filter-btn.is-selected { padding: 0 10px; }
@@ -1351,5 +1508,5 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal-section { opacity: 1; transform: none; }
+  .reveal-section [data-reveal] { opacity: 1; }
 }

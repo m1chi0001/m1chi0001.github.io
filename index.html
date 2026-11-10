@@ -34,7 +34,16 @@
     href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:ROND,opsz,wdth,wght@0..100,8..144,25..151,100..1000&family=JetBrains+Mono:wght@400..600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="styles/main.css?v=20">
+  <link rel="stylesheet" href="styles/main.css?v=21">
+  <script>
+    // Hold the hero entrance until web fonts are ready, so letters don't swap fonts mid-animation
+    (function () {
+      var root = document.documentElement;
+      var ready = function () { root.classList.add('is-ready'); };
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(ready);
+      setTimeout(ready, 1800);
+    })();
+  </script>
 </head>
 
 <body>
@@ -171,7 +180,7 @@
         <div class="hero-content">
           <p class="hero-kicker" data-i18n="hero.kicker">Junior IT Specialist · Warszawa</p>
 
-          <h1 id="hero-title-h1" class="hero-title">Michał Dzido</h1>
+          <h1 id="hero-title-h1" class="hero-title" aria-label="Michał Dzido"><span class="hero-word" aria-hidden="true"><span class="ch" style="--i:0">M</span><span class="ch" style="--i:1">i</span><span class="ch" style="--i:2">c</span><span class="ch" style="--i:3">h</span><span class="ch" style="--i:4">a</span><span class="ch" style="--i:5">ł</span></span> <span class="hero-word" aria-hidden="true"><span class="ch" style="--i:6">D</span><span class="ch" style="--i:7">z</span><span class="ch" style="--i:8">i</span><span class="ch" style="--i:9">d</span><span class="ch" style="--i:10">o</span></span></h1>
 
           <p class="hero-lead" data-i18n-html="hero.leadHtml">
             Odbieram zgłoszenia w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję
@@ -181,14 +190,13 @@
 
           <div class="hero-actions">
             <a href="#contact" class="btn btn-filled">
+              <span class="material-symbols-rounded" aria-hidden="true">mail</span>
               <span data-i18n="hero.ctaContact">Napisz do mnie</span>
-              <span class="material-symbols-rounded" aria-hidden="true">arrow_downward</span>
             </a>
             <button type="button" class="btn btn-tonal" id="hero-terminal-trigger"
               title="Otwórz terminal (klawisz ~)" data-i18n-title="hero.terminalTitle">
               <span class="material-symbols-rounded" aria-hidden="true">terminal</span>
               <span data-i18n="hero.ctaTerminal">Terminal</span>
-              <kbd class="kbd">~</kbd>
             </button>
           </div>
 
@@ -210,10 +218,8 @@
                 </span>
                 <span id="lastfm-track-title" class="lastfm-title">Ładowanie…</span>
                 <span id="lastfm-artist-name" class="lastfm-artist">Last.fm</span>
-                <span class="lastfm-progress" aria-hidden="true">
-                  <svg class="lastfm-wave" viewBox="0 0 120 8" preserveAspectRatio="none">
-                    <path d="M0 4 Q 3 0, 6 4 T 12 4 T 18 4 T 24 4 T 30 4 T 36 4 T 42 4 T 48 4 T 54 4 T 60 4 T 66 4 T 72 4 T 78 4 T 84 4 T 90 4 T 96 4 T 102 4 T 108 4 T 114 4 T 120 4" />
-                  </svg>
+                <span class="lastfm-progress" id="lastfm-progress" aria-hidden="true">
+                  <svg class="lastfm-wave" focusable="false"><path class="lastfm-wave-path" /></svg>
                   <span class="lastfm-thumb"></span>
                   <span class="lastfm-rest"></span>
                 </span>
@@ -237,9 +243,16 @@
                 class="avatar-img avatar-art" width="400" height="400" loading="lazy">
             </div>
             <button type="button" class="avatar-toggle" id="avatar-hover-hint" aria-pressed="false"
-              aria-label="Przełącz między zdjęciem a awatarem 3D" data-i18n-aria="hero.avatarHintAria">
-              <span class="material-symbols-rounded" aria-hidden="true">view_in_ar</span>
-              <span class="avatar-toggle-label" data-i18n="hero.avatarHint">Wersja 3D</span>
+              aria-label="Pokaż awatar 3D zamiast zdjęcia" data-i18n-aria="hero.avatarHintAria">
+              <span class="avatar-toggle-indicator" aria-hidden="true"></span>
+              <span class="avatar-seg seg-photo">
+                <span class="material-symbols-rounded" aria-hidden="true">photo_camera</span>
+                <span data-i18n="hero.avatarPhoto">Zdjęcie</span>
+              </span>
+              <span class="avatar-seg seg-art">
+                <span class="material-symbols-rounded" aria-hidden="true">view_in_ar</span>
+                <span data-i18n="hero.avatar3d">Awatar 3D</span>
+              </span>
             </button>
           </div>
         </div>
@@ -251,7 +264,7 @@
     <section id="about" class="snap-section reveal-section" aria-labelledby="about-heading">
       <div class="section-container about-grid">
 
-        <div class="about-text">
+        <div data-reveal class="about-text">
           <h2 id="about-heading" class="section-title" data-i18n="about.heading">O mnie</h2>
           <p data-i18n="about.p1">
             W tygodniu siedzę w biurze w Warszawie i odbieram zgłoszenia: poczta, Office, uprawnienia, Windows,
@@ -293,27 +306,27 @@
 
         <!-- Facts as an Android "About phone" list -->
         <dl class="facts" aria-label="W skrócie" data-i18n-aria="about.factsAria">
-          <div class="fact fact-hero">
+          <div data-reveal class="fact fact-hero">
             <dt data-i18n="about.age.label">Wiek</dt>
             <dd><span id="user-age" class="fact-big">20 lat</span>
               <span class="fact-sub" data-i18n="about.age.sub">Urodzony 4 marca 2006</span></dd>
           </div>
-          <div class="fact">
+          <div data-reveal class="fact">
             <span class="fact-icon material-symbols-rounded" aria-hidden="true">badge</span>
             <dt data-i18n="about.job.label">Praca</dt>
             <dd>Junior IT Specialist <span class="fact-sub">IT Solution Factor Sp. z o.o.</span></dd>
           </div>
-          <div class="fact">
+          <div data-reveal class="fact">
             <span class="fact-icon material-symbols-rounded" aria-hidden="true">school</span>
             <dt data-i18n="about.edu.label">Studia</dt>
             <dd data-i18n-html="about.edu.valueHtml">Uniwersytet WSEI, Lublin <span class="fact-sub">Cyberbezpieczeństwo i technologie sieciowe, inż.</span></dd>
           </div>
-          <div class="fact">
+          <div data-reveal class="fact">
             <span class="fact-icon material-symbols-rounded" aria-hidden="true">history_edu</span>
             <dt data-i18n="about.school.label">Wcześniej</dt>
             <dd data-i18n-html="about.school.valueHtml">Technikum <span class="fact-sub">Technik informatyk</span></dd>
           </div>
-          <div class="fact">
+          <div data-reveal class="fact">
             <span class="fact-icon material-symbols-rounded" aria-hidden="true">location_on</span>
             <dt data-i18n="about.loc.label">Miejsce</dt>
             <dd><span data-i18n="about.loc.value">Warszawa i Adamów</span>
@@ -328,13 +341,13 @@
     <!-- ===================== DOŚWIADCZENIE ===================== -->
     <section id="experience" class="snap-section reveal-section" aria-labelledby="exp-heading">
       <div class="section-container">
-        <header class="section-header">
+        <header data-reveal class="section-header">
           <h2 id="exp-heading" class="section-title" data-i18n="exp.heading">Czym się zajmuję</h2>
           <p class="section-lead" data-i18n="exp.subtitle">W pracy, na laboratoriach i przy własnym biurku.</p>
         </header>
 
         <ol class="skill-list">
-          <li class="skill">
+          <li data-reveal class="skill">
             <span class="skill-shape shape-a" aria-hidden="true"><span class="material-symbols-rounded">support_agent</span></span>
             <div class="skill-head">
               <h3 class="skill-title" data-i18n="exp.helpdesk.title">Helpdesk</h3>
@@ -346,7 +359,7 @@
             </p>
             <p class="skill-tools" data-i18n="exp.helpdesk.tools">Pomoc zdalna · zgłoszenia · pakiet biurowy</p>
           </li>
-          <li class="skill">
+          <li data-reveal class="skill">
             <span class="skill-shape shape-b" aria-hidden="true"><span class="material-symbols-rounded">lan</span></span>
             <div class="skill-head">
               <h3 class="skill-title" data-i18n="exp.net.title">Sieci i systemy</h3>
@@ -358,7 +371,7 @@
             </p>
             <p class="skill-tools">Windows Server · AD · Linux · Bash · TCP/IP · VLAN</p>
           </li>
-          <li class="skill">
+          <li data-reveal class="skill">
             <span class="skill-shape shape-c" aria-hidden="true"><span class="material-symbols-rounded">memory</span></span>
             <div class="skill-head">
               <h3 class="skill-title" data-i18n="exp.hw.title">Sprzęt</h3>
@@ -370,7 +383,7 @@
             </p>
             <p class="skill-tools" data-i18n="exp.hw.tools">Diagnostyka · serwis · dobór części</p>
           </li>
-          <li class="skill">
+          <li data-reveal class="skill">
             <span class="skill-shape shape-d" aria-hidden="true"><span class="material-symbols-rounded">android</span></span>
             <div class="skill-head">
               <h3 class="skill-title" data-i18n="exp.mobile.title">Wersje testowe</h3>
@@ -389,7 +402,7 @@
     <!-- ===================== SPRZĘT ===================== -->
     <section id="devices" class="snap-section reveal-section" aria-labelledby="devices-heading">
       <div class="section-container">
-        <header class="section-header section-header-row">
+        <header data-reveal class="section-header section-header-row">
           <div>
             <h2 id="devices-heading" class="section-title" data-i18n="devices.heading">Na czym pracuję</h2>
             <p class="section-lead" data-i18n="devices.subtitle">Sprzęt, którego używam codziennie. Kliknij kartę, żeby dowiedzieć się więcej.</p>
@@ -414,20 +427,11 @@
         <div class="devices-layout">
           <div class="device-grid device-grid-3" data-device-tier="pixel">
 
-            <article class="device-card" id="card-pixel-8-pro" tabindex="0" role="button"
+            <article data-reveal class="device-card" id="card-pixel-8-pro" tabindex="0" role="button"
               data-i18n-easter="easter.pixel8pro" data-toast-icon="smartphone"
               data-easter-msg="Mój główny telefon. Siedzi na kanale Android Beta i robi świetne zdjęcia z 5-krotnym zbliżeniem.">
               <div class="device-stage" style="--device-tint: #B8E4CE;">
-                <svg class="device-art" viewBox="0 0 160 160" aria-hidden="true">
-                  <rect x="48" y="14" width="64" height="132" rx="14" fill="#B8E4CE" />
-                  <rect x="48" y="36" width="64" height="20" fill="#2B312E" />
-                  <rect x="56" y="40" width="30" height="12" rx="6" fill="#151816" />
-                  <circle cx="62" cy="46" r="4" fill="#3A4642" />
-                  <circle cx="74" cy="46" r="4" fill="#3A4642" />
-                  <circle cx="94" cy="46" r="4" fill="#151816" />
-                  <circle cx="104" cy="46" r="2" fill="#DCE6E1" />
-                  <path d="M73 112 a7 7 0 1 1 14 0 a7 7 0 1 1 -14 0 M80 108 v4 h4" fill="none" stroke="#8FB9A4" stroke-width="2" stroke-linecap="round" />
-                </svg>
+                <img class="device-art" src="assets/devices/pixel-8-pro-mint.webp" alt="" width="194" height="480" loading="lazy" decoding="async">
               </div>
               <div class="device-body">
                 <p class="device-kind"><span data-i18n="devices.p8p.meta">Telefon</span> · <span data-i18n="devices.p8p.color">Mint</span></p>
@@ -440,22 +444,11 @@
               </div>
             </article>
 
-            <article class="device-card" id="card-pixel-buds" tabindex="0" role="button"
+            <article data-reveal class="device-card" id="card-pixel-buds" tabindex="0" role="button"
               data-i18n-easter="easter.buds" data-toast-icon="earbuds"
               data-easter-msg="Słuchawki z układem Tensor A1. Małe, wygodne i dobrze wyciszają biuro oraz pociąg.">
-              <div class="device-stage" style="--device-tint: #C9D3E0;">
-                <svg class="device-art" viewBox="0 0 160 160" aria-hidden="true">
-                  <ellipse cx="80" cy="112" rx="44" ry="30" fill="#E7ECF2" />
-                  <path d="M36 112 a44 30 0 0 0 88 0" fill="#D5DCE5" />
-                  <line x1="36" y1="108" x2="124" y2="108" stroke="#AEB8C5" stroke-width="2" />
-                  <circle cx="80" cy="124" r="2.5" fill="#7E8A99" />
-                  <circle cx="56" cy="58" r="22" fill="#C9D3E0" />
-                  <circle cx="56" cy="58" r="11" fill="#E9EEF4" />
-                  <circle cx="104" cy="50" r="22" fill="#C9D3E0" />
-                  <circle cx="104" cy="50" r="11" fill="#E9EEF4" />
-                  <circle cx="104" cy="50" r="4" fill="#AEB8C5" />
-                  <circle cx="56" cy="58" r="4" fill="#AEB8C5" />
-                </svg>
+              <div class="device-stage" style="--device-tint: #8E9BB0;">
+                <img class="device-art" src="assets/devices/pixel-buds-pro-2-moonstone.webp" alt="" width="331" height="480" loading="lazy" decoding="async">
               </div>
               <div class="device-body">
                 <p class="device-kind"><span data-i18n="devices.buds.meta">Słuchawki</span> · Moonstone</p>
@@ -468,19 +461,11 @@
               </div>
             </article>
 
-            <article class="device-card" id="card-pixel-watch" tabindex="0" role="button"
+            <article data-reveal class="device-card" id="card-pixel-watch" tabindex="0" role="button"
               data-i18n-easter="easter.watch" data-toast-icon="watch"
               data-easter-msg="Zegarek 41 mm z Wear OS. Używam go do powiadomień, płatności zbliżeniowych i liczenia kroków.">
-              <div class="device-stage" style="--device-tint: #3B3D42;">
-                <svg class="device-art" viewBox="0 0 160 160" aria-hidden="true">
-                  <rect x="58" y="4" width="44" height="40" rx="10" fill="#2A2C30" />
-                  <rect x="58" y="116" width="44" height="40" rx="10" fill="#2A2C30" />
-                  <rect x="119" y="72" width="8" height="16" rx="4" fill="#55585F" />
-                  <circle cx="80" cy="80" r="42" fill="#55585F" />
-                  <circle cx="80" cy="80" r="37" fill="#0D0E10" />
-                  <text x="80" y="86" text-anchor="middle" fill="#E6E8EC" font-size="18" font-family="Google Sans Flex, sans-serif" font-weight="500" class="watch-time">10:08</text>
-                  <circle cx="80" cy="62" r="3" fill="#8AB4F8" />
-                </svg>
+              <div class="device-stage" style="--device-tint: #A7ADB6;">
+                <img class="device-art" src="assets/devices/pixel-watch-2-matte-black.webp" alt="" width="422" height="480" loading="lazy" decoding="async">
               </div>
               <div class="device-body">
                 <p class="device-kind"><span data-i18n="devices.watch.meta">Zegarek</span> · Matte Black</p>
@@ -495,18 +480,11 @@
           </div>
 
           <div class="device-grid device-grid-2" data-device-tier="pc">
-            <article class="device-card device-card-wide" id="card-surface-pro" tabindex="0" role="button"
+            <article data-reveal class="device-card device-card-wide" id="card-surface-pro" tabindex="0" role="button"
               data-i18n-easter="easter.surface" data-toast-icon="laptop_windows"
               data-easter-msg="Lekki komputer 2 w 1 ze Snapdragonem X Elite i ekranem OLED. Zabieram go na uczelnię i w podróż, bo długo trzyma na baterii.">
               <div class="device-stage" style="--device-tint: #DADDE2;">
-                <svg class="device-art" viewBox="0 0 200 140" aria-hidden="true">
-                  <path d="M150 28 L176 120" stroke="#B9BEC6" stroke-width="5" stroke-linecap="round" />
-                  <rect x="22" y="20" width="140" height="96" rx="8" fill="#DADDE2" />
-                  <rect x="28" y="26" width="128" height="84" rx="4" fill="#1A1C20" />
-                  <path d="M28 82 C 60 60, 96 100, 156 70 L156 110 L28 110 Z" fill="#2E4A7A" opacity=".85" />
-                  <path d="M28 92 C 70 78, 110 108, 156 88 L156 110 L28 110 Z" fill="#4D6FA8" opacity=".8" />
-                  <rect x="16" y="116" width="152" height="8" rx="4" fill="#4A4F57" />
-                </svg>
+                <img class="device-art" src="assets/devices/surface-pro-11-platinum.webp" alt="" width="706" height="480" loading="lazy" decoding="async">
               </div>
               <div class="device-body">
                 <p class="device-kind"><span data-i18n="devices.surface.meta">Komputer 2 w 1</span> · Platinum</p>
@@ -520,21 +498,11 @@
               </div>
             </article>
 
-            <article class="device-card device-card-wide" id="card-miska-ryzenu" tabindex="0" role="button"
+            <article data-reveal class="device-card device-card-wide" id="card-miska-ryzenu" tabindex="0" role="button"
               data-i18n-easter="easter.ryzen" data-toast-icon="desktop_windows"
               data-easter-msg="Domowy komputer z Ryzenem 5 5600G i RTX 4060. Stawiam na nim maszyny wirtualne, ćwiczę sieci i gram wieczorami.">
-              <div class="device-stage" style="--device-tint: #2A2B30;">
-                <svg class="device-art" viewBox="0 0 200 140" aria-hidden="true">
-                  <rect x="56" y="8" width="88" height="124" rx="6" fill="#1D1E22" />
-                  <rect x="62" y="14" width="56" height="112" rx="3" fill="#2C2E34" />
-                  <rect x="122" y="14" width="16" height="112" rx="3" fill="#25262B" />
-                  <circle cx="130" cy="28" r="3" fill="#E04A3F" />
-                  <rect x="68" y="72" width="44" height="12" rx="2" fill="#3C3F47" />
-                  <rect x="68" y="72" width="44" height="3" fill="#76B900" opacity=".9" />
-                  <circle cx="90" cy="40" r="15" fill="none" stroke="#E04A3F" stroke-width="2.5" />
-                  <circle cx="90" cy="40" r="5" fill="#E04A3F" opacity=".5" />
-                  <rect x="68" y="98" width="44" height="22" rx="2" fill="#26282D" />
-                </svg>
+              <div class="device-stage" style="--device-tint: #F08A3C;">
+                <img class="device-art" src="assets/devices/ryzen-5-box.webp" alt="" width="433" height="480" loading="lazy" decoding="async">
               </div>
               <div class="device-body">
                 <p class="device-kind"><span data-i18n="devices.pc.meta">Stacjonarny</span> · <span data-i18n="devices.pc.tag">składak</span></p>
@@ -556,7 +524,7 @@
     <section id="contact" class="snap-section reveal-section" aria-labelledby="contact-heading">
       <div class="section-container">
         <div class="contact-grid">
-          <a href="mailto:michaldzido2@gmail.com" class="mail-card" aria-label="Wyślij e-mail do michaldzido2@gmail.com"
+          <a data-reveal href="mailto:michaldzido2@gmail.com" class="mail-card" aria-label="Wyślij e-mail do michaldzido2@gmail.com"
             data-i18n-aria="contact.email.aria">
             <h2 id="contact-heading" class="mail-heading" data-i18n="contact.heading">Napisz do mnie</h2>
             <p class="mail-note" data-i18n="contact.email.desc">Najłatwiej złapać mnie mailowo.</p>
@@ -566,7 +534,7 @@
 
           <ul class="link-list">
             <li>
-              <a href="https://www.linkedin.com/in/micha%C5%82-dzido/" target="_blank" rel="noopener noreferrer" class="link-row">
+              <a data-reveal href="https://www.linkedin.com/in/micha%C5%82-dzido/" target="_blank" rel="noopener noreferrer" class="link-row">
                 <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.59 1.59 0 0 0 0-3.18 1.59 1.59 0 0 0 0 3.18m1.39 9.74v-8.37H5.07v8.37h2.78z" /></svg></span>
                 <span class="link-text"><span class="link-name">LinkedIn</span>
                   <span class="link-desc" data-i18n="contact.linkedin.desc">Przebieg pracy i certyfikaty</span></span>
@@ -574,7 +542,7 @@
               </a>
             </li>
             <li>
-              <a href="https://github.com/m1chi0001" target="_blank" rel="noopener noreferrer" class="link-row">
+              <a data-reveal href="https://github.com/m1chi0001" target="_blank" rel="noopener noreferrer" class="link-row">
                 <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" /></svg></span>
                 <span class="link-text"><span class="link-name">GitHub</span>
                   <span class="link-desc" data-i18n="contact.github.desc">Kod tej strony i projekty ze studiów</span></span>
@@ -582,7 +550,7 @@
               </a>
             </li>
             <li>
-              <a href="https://www.facebook.com/groups/googlepixelpolska" target="_blank" rel="noopener noreferrer" class="link-row">
+              <a data-reveal href="https://www.facebook.com/groups/googlepixelpolska" target="_blank" rel="noopener noreferrer" class="link-row">
                 <span class="link-icon" aria-hidden="true"><span class="material-symbols-rounded">groups</span></span>
                 <span class="link-text"><span class="link-name">Google Pixel Polska</span>
                   <span class="link-desc" data-i18n="contact.pixel.desc">Grupa na Facebooku, którą moderuję</span></span>
@@ -590,7 +558,7 @@
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/m1chi0001/" target="_blank" rel="noopener noreferrer" class="link-row">
+              <a data-reveal href="https://www.instagram.com/m1chi0001/" target="_blank" rel="noopener noreferrer" class="link-row">
                 <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" /></svg></span>
                 <span class="link-text"><span class="link-name">Instagram</span>
                   <span class="link-desc" data-i18n="contact.instagram.desc">Zdjęcia z wyjazdów robione Pixelem</span></span>
@@ -598,7 +566,7 @@
               </a>
             </li>
             <li>
-              <a href="https://x.com/M1chi0001" target="_blank" rel="noopener noreferrer" class="link-row">
+              <a data-reveal href="https://x.com/M1chi0001" target="_blank" rel="noopener noreferrer" class="link-row">
                 <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg></span>
                 <span class="link-text"><span class="link-name">X</span>
                   <span class="link-desc" data-i18n="contact.x.desc">Premiery sprzętu, Android, praca w IT</span></span>
@@ -610,6 +578,7 @@
 
         <footer class="app-footer">
           <span>&copy; <span id="current-year">2026</span> Michał Dzido</span>
+          <span class="footer-credits" data-i18n="footer.credits">Zdjęcia urządzeń: Google, Microsoft, AMD</span>
           <button type="button" id="open-terminal-btn" class="footer-terminal-link"
             title="Otwórz terminal (klawisz ~)" data-i18n-title="footer.terminalTitle">
             <span data-i18n="footer.terminalLabel">Otwórz terminal</span>
@@ -673,7 +642,7 @@
     </button>
   </aside>
 
-  <script src="scripts/main.js?v=20"></script>
+  <script src="scripts/main.js?v=21"></script>
 </body>
 
 </html>
