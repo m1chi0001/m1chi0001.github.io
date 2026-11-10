@@ -4,93 +4,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michał Dzido • IT, Cybersec & Team Pixel</title>
+  <title>Michał Dzido</title>
   <meta name="description" id="meta-description"
-    content="Wpadnij na moją interaktywną stronę w stylu Material 3 Expressive. Na co dzień ogarniam wsparcie IT i studiuję cyberbezpieczeństwo, a po godzinach testuję bety Androida na Pixelu, składam PC i słucham muzyki na żywo z Last.fm.">
-  <meta name="theme-color" content="#A8C7FA">
+    content="Michał Dzido. Pierwsza linia wsparcia IT w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI, moderator grupy Google Pixel Polska.">
+  <meta name="theme-color" content="#121317">
 
-  <!-- Open Graph / Discord & Messenger Link Embed -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://m1chi0001.github.io/">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:site_name" content="m1chi@pixel-os:~$ whoami">
-  <meta property="og:title" content="Michał Dzido • IT, Cybersec & Team Pixel">
+  <meta property="og:site_name" content="Michał Dzido">
+  <meta property="og:title" content="Michał Dzido">
   <meta property="og:description"
-    content="Wpadnij na moją interaktywną stronę w stylu Material 3 Expressive. Na co dzień ogarniam wsparcie IT i studiuję cyberbezpieczeństwo, a po godzinach testuję bety Androida na Pixelu, składam PC i słucham muzyki na żywo z Last.fm.">
+    content="Pierwsza linia wsparcia IT w IT Solution Factor, cyberbezpieczeństwo na WSEI, Pixel i składanie komputerów po godzinach.">
   <meta property="og:image" content="https://m1chi0001.github.io/assets/michal.jpg">
   <meta property="og:image:alt" content="Michał Dzido">
 
-  <!-- Twitter / X & Discord Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Michał Dzido • IT, Cybersec & Team Pixel">
+  <meta name="twitter:title" content="Michał Dzido">
   <meta name="twitter:description"
-    content="Wpadnij na moją interaktywną stronę w stylu Material 3 Expressive. Wsparcie IT, cyberbezpieczeństwo, sprzęt z rodziny Google Pixel, Miska Ryżenu i muzyka na żywo z Last.fm.">
+    content="Pierwsza linia wsparcia IT w IT Solution Factor, cyberbezpieczeństwo na WSEI, Pixel i składanie komputerów po godzinach.">
   <meta name="twitter:image" content="https://m1chi0001.github.io/assets/michal.jpg">
 
-  <!-- Favicon / Touch Icon (Material 3 Expressive Squircle Monogram) -->
   <link id="site-favicon" rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='18' fill='%2310141C'/><rect x='2' y='2' width='60' height='60' rx='16' fill='none' stroke='%23A8C7FA' stroke-width='2.5' stroke-opacity='0.45'/><path d='M16 44V20h6.5l9.5 13.5L41.5 20H48v24h-6.5V30.5L32 43.5l-9.5-13V44H16z' fill='%23A8C7FA'/><circle cx='50' cy='16' r='5' fill='%2381C995'/></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='20' fill='%23D7E3FF'/><path d='M16 44V20h6.5l9.5 13.5L41.5 20H48v24h-6.5V30.5L32 43.5l-9.5-13V44H16z' fill='%23123A82'/></svg>">
 
-  <!-- Google Fonts: Google Sans Flex (all 6 axes), JetBrains Mono (for terminal & tabular figures), Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:GRAD,ROND,opsz,slnt,wdth,wght@0..100,0..100,8..144,-10..0,25..151,100..1000&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:ROND,opsz,wdth,wght@0..100,8..144,25..151,100..1000&family=JetBrains+Mono:wght@400..600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap"
     rel="stylesheet">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles/main.css?v=10">
+  <link rel="stylesheet" href="styles/main.css?v=20">
 </head>
 
 <body>
 
-  <!-- Docked Mini-Avatar Chip (Scroll Pin past Hero) -->
+  <!-- SVG definitions: M3 shape library "Cookie 9" used to crop the portrait -->
+  <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <clipPath id="shape-cookie" clipPathUnits="objectBoundingBox">
+      <path class="cookie-path" d="M0.5000 0.0000 L0.5145 0.0011 L0.5289 0.0042 L0.5429 0.0092 L0.5566 0.0158 L0.5698 0.0236 L0.5825 0.0322 L0.5947 0.0412 L0.6067 0.0500 L0.6184 0.0583 L0.6300 0.0657 L0.6418 0.0720 L0.6539 0.0771 L0.6665 0.0810 L0.6796 0.0837 L0.6933 0.0855 L0.7076 0.0867 L0.7224 0.0876 L0.7375 0.0886 L0.7528 0.0902 L0.7679 0.0927 L0.7826 0.0964 L0.7966 0.1016 L0.8096 0.1085 L0.8214 0.1170 L0.8318 0.1271 L0.8408 0.1387 L0.8484 0.1516 L0.8546 0.1655 L0.8597 0.1799 L0.8639 0.1947 L0.8675 0.2094 L0.8710 0.2238 L0.8746 0.2377 L0.8788 0.2509 L0.8837 0.2633 L0.8897 0.2750 L0.8968 0.2860 L0.9051 0.2965 L0.9145 0.3067 L0.9247 0.3168 L0.9354 0.3270 L0.9464 0.3375 L0.9570 0.3486 L0.9670 0.3602 L0.9759 0.3725 L0.9833 0.3855 L0.9888 0.3991 L0.9924 0.4132 L0.9939 0.4277 L0.9933 0.4423 L0.9908 0.4571 L0.9867 0.4717 L0.9813 0.4860 L0.9750 0.5000 L0.9683 0.5136 L0.9617 0.5269 L0.9556 0.5399 L0.9503 0.5526 L0.9461 0.5653 L0.9432 0.5781 L0.9415 0.5912 L0.9411 0.6045 L0.9417 0.6184 L0.9431 0.6326 L0.9447 0.6474 L0.9464 0.6625 L0.9475 0.6778 L0.9476 0.6931 L0.9465 0.7082 L0.9438 0.7229 L0.9394 0.7369 L0.9330 0.7500 L0.9248 0.7620 L0.9149 0.7729 L0.9036 0.7826 L0.8910 0.7911 L0.8777 0.7986 L0.8639 0.8053 L0.8500 0.8115 L0.8364 0.8174 L0.8234 0.8234 L0.8111 0.8298 L0.7997 0.8368 L0.7893 0.8447 L0.7796 0.8537 L0.7707 0.8636 L0.7623 0.8746 L0.7541 0.8864 L0.7460 0.8988 L0.7375 0.9114 L0.7285 0.9238 L0.7188 0.9356 L0.7082 0.9465 L0.6967 0.9560 L0.6843 0.9639 L0.6710 0.9698 L0.6570 0.9738 L0.6424 0.9758 L0.6275 0.9759 L0.6124 0.9744 L0.5974 0.9715 L0.5825 0.9678 L0.5679 0.9636 L0.5537 0.9594 L0.5399 0.9556 L0.5264 0.9526 L0.5131 0.9507 L0.5000 0.9500 L0.4869 0.9507 L0.4736 0.9526 L0.4601 0.9556 L0.4463 0.9594 L0.4321 0.9636 L0.4175 0.9678 L0.4026 0.9715 L0.3876 0.9744 L0.3725 0.9759 L0.3576 0.9758 L0.3430 0.9738 L0.3290 0.9698 L0.3157 0.9639 L0.3033 0.9560 L0.2918 0.9465 L0.2812 0.9356 L0.2715 0.9238 L0.2625 0.9114 L0.2540 0.8988 L0.2459 0.8864 L0.2377 0.8746 L0.2293 0.8636 L0.2204 0.8537 L0.2107 0.8447 L0.2003 0.8368 L0.1889 0.8298 L0.1766 0.8234 L0.1636 0.8174 L0.1500 0.8115 L0.1361 0.8053 L0.1223 0.7986 L0.1090 0.7911 L0.0964 0.7826 L0.0851 0.7729 L0.0752 0.7620 L0.0670 0.7500 L0.0606 0.7369 L0.0562 0.7229 L0.0535 0.7082 L0.0524 0.6931 L0.0525 0.6778 L0.0536 0.6625 L0.0553 0.6474 L0.0569 0.6326 L0.0583 0.6184 L0.0589 0.6045 L0.0585 0.5912 L0.0568 0.5781 L0.0539 0.5653 L0.0497 0.5526 L0.0444 0.5399 L0.0383 0.5269 L0.0317 0.5136 L0.0250 0.5000 L0.0187 0.4860 L0.0133 0.4717 L0.0092 0.4571 L0.0067 0.4423 L0.0061 0.4277 L0.0076 0.4132 L0.0112 0.3991 L0.0167 0.3855 L0.0241 0.3725 L0.0330 0.3602 L0.0430 0.3486 L0.0536 0.3375 L0.0646 0.3270 L0.0753 0.3168 L0.0855 0.3067 L0.0949 0.2965 L0.1032 0.2860 L0.1103 0.2750 L0.1163 0.2633 L0.1212 0.2509 L0.1254 0.2377 L0.1290 0.2238 L0.1325 0.2094 L0.1361 0.1947 L0.1403 0.1799 L0.1454 0.1655 L0.1516 0.1516 L0.1592 0.1387 L0.1682 0.1271 L0.1786 0.1170 L0.1904 0.1085 L0.2034 0.1016 L0.2174 0.0964 L0.2321 0.0927 L0.2472 0.0902 L0.2625 0.0886 L0.2776 0.0876 L0.2924 0.0867 L0.3067 0.0855 L0.3204 0.0837 L0.3335 0.0810 L0.3461 0.0771 L0.3582 0.0720 L0.3700 0.0657 L0.3816 0.0583 L0.3933 0.0500 L0.4053 0.0412 L0.4175 0.0322 L0.4302 0.0236 L0.4434 0.0158 L0.4571 0.0092 L0.4711 0.0042 L0.4855 0.0011Z" />
+    </clipPath>
+  </svg>
+
+  <a class="skip-link" href="#main-content" data-i18n="nav.skip">Przejdź do treści</a>
+
+  <!-- Docked identity chip, appears after scrolling past the hero -->
   <aside id="docked-avatar-chip" class="docked-avatar-chip" role="button" tabindex="0"
     aria-label="Przewiń do góry strony" title="Wróć na górę strony"
     data-i18n-aria="docked.aria" data-i18n-title="docked.title">
-    <div class="docked-avatar-media">
-      <img src="assets/michal.jpg" alt="Michał Dzido" class="docked-avatar-photo" width="32" height="32" loading="lazy">
-      <span class="docked-status-indicator" title="Aktywny zawodowo" data-i18n-title="docked.status"></span>
-    </div>
-    <div class="docked-avatar-meta">
-      <span class="docked-title">Michał Dzido</span>
-      <span class="docked-sub">Junior IT Specialist</span>
-    </div>
-    <span class="material-symbols-outlined docked-icon" aria-hidden="true">arrow_upward</span>
+    <img src="assets/michal.jpg" alt="" class="docked-avatar-photo" width="32" height="32" loading="lazy">
+    <span class="docked-title">Michał Dzido</span>
+    <span class="material-symbols-rounded docked-icon" aria-hidden="true">arrow_upward</span>
   </aside>
 
-  <!-- Desktop Navigation Header (Viewport >= 768px) — M3 Expressive Floating Toolbar -->
-  <header class="app-header" role="banner" id="desktop-header">
-    <nav class="nav-container m3-floating-toolbar" aria-label="Główna nawigacja strony" data-i18n-aria="nav.desktopAria">
-      <ul class="nav-tabs m3-button-group" role="tablist">
-        <li class="nav-item" role="presentation">
+  <!-- Desktop navigation: floating toolbar -->
+  <header class="app-header" id="desktop-header">
+    <nav class="nav-container" aria-label="Główna nawigacja strony" data-i18n-aria="nav.desktopAria">
+      <ul class="nav-tabs" role="tablist">
+        <li role="presentation">
           <a href="#hero" class="nav-link active" role="tab" id="tab-hero" aria-selected="true" aria-controls="hero">
-            <span class="material-symbols-outlined nav-icon" aria-hidden="true">home</span>
+            <span class="material-symbols-rounded nav-icon" aria-hidden="true">home</span>
             <span class="nav-label" data-i18n="nav.home">Start</span>
           </a>
         </li>
-        <li class="nav-item" role="presentation">
+        <li role="presentation">
           <a href="#about" class="nav-link" role="tab" id="tab-about" aria-selected="false" aria-controls="about">
-            <span class="material-symbols-outlined nav-icon" aria-hidden="true">person</span>
+            <span class="material-symbols-rounded nav-icon" aria-hidden="true">person</span>
             <span class="nav-label" data-i18n="nav.about">O mnie</span>
           </a>
         </li>
-        <li class="nav-item" role="presentation">
+        <li role="presentation">
           <a href="#experience" class="nav-link" role="tab" id="tab-experience" aria-selected="false"
             aria-controls="experience">
-            <span class="material-symbols-outlined nav-icon" aria-hidden="true">work</span>
+            <span class="material-symbols-rounded nav-icon" aria-hidden="true">work</span>
             <span class="nav-label" data-i18n="nav.experience">Doświadczenie</span>
           </a>
         </li>
-        <li class="nav-item" role="presentation">
+        <li role="presentation">
           <a href="#devices" class="nav-link" role="tab" id="tab-devices" aria-selected="false" aria-controls="devices">
-            <span class="material-symbols-outlined nav-icon" aria-hidden="true">devices</span>
-            <span class="nav-label" data-i18n="nav.devices">Urządzenia</span>
+            <span class="material-symbols-rounded nav-icon" aria-hidden="true">devices</span>
+            <span class="nav-label" data-i18n="nav.devices">Sprzęt</span>
           </a>
         </li>
-        <li class="nav-item" role="presentation">
+        <li role="presentation">
           <a href="#contact" class="nav-link" role="tab" id="tab-contact" aria-selected="false" aria-controls="contact">
-            <span class="material-symbols-outlined nav-icon" aria-hidden="true">mail</span>
+            <span class="material-symbols-rounded nav-icon" aria-hidden="true">mail</span>
             <span class="nav-label" data-i18n="nav.contact">Kontakt</span>
           </a>
         </li>
@@ -98,980 +96,547 @@
     </nav>
   </header>
 
-  <!-- Mobile Bottom Navigation Bar (Viewport < 768px) — M3 Expressive Floating Toolbar -->
-  <nav class="mobile-bottom-nav m3-floating-toolbar" aria-label="Nawigacja mobilna dolna" id="mobile-nav" data-i18n-aria="nav.mobileAria">
-    <a href="#hero" class="mobile-nav-item active" id="mob-hero" aria-label="Start" data-i18n-aria="nav.home">
-      <div class="mobile-icon-box">
-        <span class="material-symbols-outlined" aria-hidden="true">home</span>
-      </div>
+  <!-- Mobile navigation bar -->
+  <nav class="mobile-bottom-nav" aria-label="Nawigacja mobilna" id="mobile-nav" data-i18n-aria="nav.mobileAria">
+    <a href="#hero" class="mobile-nav-item active" id="mob-hero">
+      <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">home</span></span>
       <span class="mobile-nav-label" data-i18n="nav.home">Start</span>
     </a>
-    <a href="#about" class="mobile-nav-item" id="mob-about" aria-label="O mnie" data-i18n-aria="nav.about">
-      <div class="mobile-icon-box">
-        <span class="material-symbols-outlined" aria-hidden="true">person</span>
-      </div>
+    <a href="#about" class="mobile-nav-item" id="mob-about">
+      <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">person</span></span>
       <span class="mobile-nav-label" data-i18n="nav.about">O mnie</span>
     </a>
-    <a href="#experience" class="mobile-nav-item" id="mob-experience" aria-label="Doświadczenie"
-      data-i18n-aria="nav.experience">
-      <div class="mobile-icon-box">
-        <span class="material-symbols-outlined" aria-hidden="true">work</span>
-      </div>
-      <span class="mobile-nav-label" data-i18n="nav.experienceShort">Ścieżka</span>
+    <a href="#experience" class="mobile-nav-item" id="mob-experience">
+      <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">work</span></span>
+      <span class="mobile-nav-label" data-i18n="nav.experienceShort">Praca</span>
     </a>
-    <a href="#devices" class="mobile-nav-item" id="mob-devices" aria-label="Urządzenia" data-i18n-aria="nav.devices">
-      <div class="mobile-icon-box">
-        <span class="material-symbols-outlined" aria-hidden="true">devices</span>
-      </div>
-      <span class="mobile-nav-label" data-i18n="nav.devicesShort">Sprzęt</span>
+    <a href="#devices" class="mobile-nav-item" id="mob-devices">
+      <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">devices</span></span>
+      <span class="mobile-nav-label" data-i18n="nav.devices">Sprzęt</span>
     </a>
-    <a href="#contact" class="mobile-nav-item" id="mob-contact" aria-label="Kontakt" data-i18n-aria="nav.contact">
-      <div class="mobile-icon-box">
-        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
-      </div>
+    <a href="#contact" class="mobile-nav-item" id="mob-contact">
+      <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">mail</span></span>
       <span class="mobile-nav-label" data-i18n="nav.contact">Kontakt</span>
     </a>
   </nav>
 
-  <!-- Top-Right Controls: M3 Expressive Connected Button Group (Language, Material You Palette & Theme) -->
-  <aside class="theme-toggle-wrapper m3-connected-button-group" role="group" aria-label="Personalizacja wyglądu" data-i18n-aria="controls.aria">
-    <button id="lang-toggle" class="lang-toggle-btn m3-connected-btn" type="button"
-      aria-label="Zmień język na angielski" title="Przełącz język (PL / EN)">
-      <span class="material-symbols-outlined lang-icon" aria-hidden="true">translate</span>
-      <span id="lang-text" class="lang-code mono-label">PL</span>
+  <!-- Appearance controls: connected button group -->
+  <div class="controls" role="group" aria-label="Język i wygląd" data-i18n-aria="controls.aria">
+    <button id="lang-toggle" class="control-btn" type="button" aria-label="Zmień język na angielski"
+      title="Przełącz język (PL / EN)">
+      <span id="lang-text" class="lang-code">PL</span>
     </button>
 
     <div class="palette-picker" id="palette-picker">
-      <button id="palette-toggle-btn" class="icon-control-btn m3-connected-btn" aria-label="Zmień akcent kolorystyczny Material You"
-        aria-expanded="false" title="Kolory Material You"
+      <button id="palette-toggle-btn" class="control-btn" type="button" aria-label="Zmień kolor akcentu"
+        aria-expanded="false" title="Kolor akcentu"
         data-i18n-aria="controls.paletteAria" data-i18n-title="controls.paletteTitle">
         <span class="material-symbols-rounded" aria-hidden="true">palette</span>
       </button>
-      <div class="palette-menu" id="palette-menu" role="radiogroup" aria-label="Wybierz motyw kolorystyczny"
+      <div class="palette-menu" id="palette-menu" role="radiogroup" aria-label="Kolor akcentu"
         data-i18n-aria="controls.paletteMenuAria">
-        <button class="palette-swatch active" data-palette-choice="blue" role="radio" aria-checked="true"
-          aria-label="Ocean Blue" title="Ocean Blue">
-          <span class="swatch-circle swatch-blue">
-            <span class="material-symbols-outlined swatch-check" aria-hidden="true">check</span>
-          </span>
+        <button type="button" class="palette-swatch active" data-palette-choice="blue" role="radio"
+          aria-checked="true" aria-label="Niebieski" title="Niebieski" data-i18n-aria="palette.blue" data-i18n-title="palette.blue">
+          <span class="swatch-circle swatch-blue"></span>
         </button>
-        <button class="palette-swatch" data-palette-choice="mint" role="radio" aria-checked="false"
-          aria-label="Pixel Mint" title="Pixel Mint">
-          <span class="swatch-circle swatch-mint">
-            <span class="material-symbols-outlined swatch-check" aria-hidden="true">check</span>
-          </span>
+        <button type="button" class="palette-swatch" data-palette-choice="mint" role="radio" aria-checked="false"
+          aria-label="Miętowy" title="Miętowy" data-i18n-aria="palette.mint" data-i18n-title="palette.mint">
+          <span class="swatch-circle swatch-mint"></span>
         </button>
-        <button class="palette-swatch" data-palette-choice="peach" role="radio" aria-checked="false"
-          aria-label="Sunset Peach" title="Sunset Peach">
-          <span class="swatch-circle swatch-peach">
-            <span class="material-symbols-outlined swatch-check" aria-hidden="true">check</span>
-          </span>
+        <button type="button" class="palette-swatch" data-palette-choice="peach" role="radio" aria-checked="false"
+          aria-label="Brzoskwiniowy" title="Brzoskwiniowy" data-i18n-aria="palette.peach" data-i18n-title="palette.peach">
+          <span class="swatch-circle swatch-peach"></span>
         </button>
-        <button class="palette-swatch" data-palette-choice="purple" role="radio" aria-checked="false"
-          aria-label="Cyber Purple" title="Cyber Purple">
-          <span class="swatch-circle swatch-purple">
-            <span class="material-symbols-outlined swatch-check" aria-hidden="true">check</span>
-          </span>
+        <button type="button" class="palette-swatch" data-palette-choice="purple" role="radio" aria-checked="false"
+          aria-label="Fioletowy" title="Fioletowy" data-i18n-aria="palette.purple" data-i18n-title="palette.purple">
+          <span class="swatch-circle swatch-purple"></span>
         </button>
       </div>
     </div>
 
-    <button id="theme-toggle" class="theme-toggle-btn m3-connected-btn" aria-label="Przełącz motyw (Ciemny / Jasny)"
-      title="Zmień motyw jasny / ciemny" data-i18n-title="controls.themeTitle">
-      <div class="theme-icon-container" aria-hidden="true">
-        <span class="material-symbols-outlined theme-icon sun-icon">light_mode</span>
-        <span class="material-symbols-outlined theme-icon moon-icon">dark_mode</span>
-      </div>
-      <span id="theme-text" class="theme-text">Ciemny</span>
+    <button id="theme-toggle" class="control-btn" type="button" aria-label="Przełącz na tryb jasny"
+      title="Motyw jasny / ciemny" data-i18n-title="controls.themeTitle">
+      <span class="material-symbols-rounded theme-icon sun-icon" aria-hidden="true">light_mode</span>
+      <span class="material-symbols-rounded theme-icon moon-icon" aria-hidden="true">dark_mode</span>
+      <span id="theme-text" class="visually-hidden">Ciemny</span>
     </button>
-  </aside>
+  </div>
 
-  <!-- Main Content -->
   <main class="main-wrapper" id="main-content">
 
-    <!-- ===================================================================
-         SECTION 1: HERO
-         =================================================================== -->
+    <!-- ===================== HERO ===================== -->
     <section id="hero" class="snap-section hero-section" aria-labelledby="hero-title-h1">
-      <div class="section-container">
-        <div class="hero-grid">
+      <div class="section-container hero-grid">
 
-          <!-- Left Column: Identity, Bio, Primary Actions & Live Last.fm -->
-          <div class="hero-content">
+        <div class="hero-content">
+          <p class="hero-kicker" data-i18n="hero.kicker">Junior IT Specialist · Warszawa</p>
 
-            <div class="badge-group">
-              <div class="status-chip">
-                <span class="status-dot" aria-hidden="true"></span>
-                <span data-i18n="hero.badgeRole">Junior IT Specialist w IT Solution Factor</span>
-              </div>
-              <button type="button" class="status-chip status-chip-action" id="hero-terminal-trigger"
-                title="Uruchom terminal (klawisz ~)" data-i18n-title="hero.terminalTitle">
-                <span class="material-symbols-outlined chip-icon" aria-hidden="true">terminal</span>
-                <span class="mono-label">m1chi@pixel-os</span>
-              </button>
-            </div>
+          <h1 id="hero-title-h1" class="hero-title">Michał Dzido</h1>
 
-            <h1 id="hero-title-h1" class="hero-title" data-i18n-html="hero.titleHtml">
-              Cześć, jestem <span class="hero-name-accent expressive-accent">Michał Dzido</span>
-            </h1>
-
-            <p class="hero-subtitle" data-i18n-html="hero.subtitleHtml">
-              Pracuję w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję
-              cyberbezpieczeństwo na <strong>Uniwersytecie WSEI</strong>. Na co dzień pomagam użytkownikom, diagnozuję
-              sprzęt i konfiguruję sieci, a po godzinach testuję nowe wersje Androida na Pixelu.
-            </p>
-
-            <!-- Material 3 Expressive Button Group: 1 Filled Primary + 1 Tonal Secondary (Medium 56dp height) -->
-            <div class="hero-actions m3-button-group" role="group">
-              <a href="#contact" class="m3-btn m3-btn-m m3-btn-filled">
-                <span data-i18n="hero.ctaContact">Napisz do mnie</span>
-                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-              </a>
-              <a href="#about" class="m3-btn m3-btn-m m3-btn-tonal">
-                <span data-i18n="hero.ctaAbout">Więcej o mnie</span>
-                <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
-              </a>
-            </div>
-
-            <!-- Live Last.fm Now Playing Media Card with M3 Expressive Wavy Waveform Indicator -->
-            <div id="lastfm-container" class="lastfm-container" aria-live="polite">
-              <a href="https://www.last.fm/user/M1chiii" target="_blank" rel="noopener noreferrer"
-                id="lastfm-now-playing" class="m3-card lastfm-card" style="display: none;"
-                title="Otwórz profil Last.fm" data-i18n-title="lastfm.openProfile">
-                <div class="lastfm-cover-wrap">
-                  <img id="lastfm-album-art"
-                    src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='%231E2025'><rect width='48' height='48' rx='10'/><circle cx='24' cy='24' r='8' fill='%23A8C7FA'/></svg>"
-                    alt="Okładka albumu" data-i18n-alt="lastfm.albumAlt" class="lastfm-art" width="52" height="52"
-                    loading="lazy">
-                </div>
-
-                <div class="lastfm-track-info">
-                  <div class="lastfm-badge-row">
-                    <span id="lastfm-status-badge" class="lastfm-live-badge">
-                      <span id="lastfm-status-dot" class="live-dot"></span>
-                      <span class="lastfm-eq" aria-hidden="true">
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                      </span>
-                      <span id="lastfm-status-text">Teraz odtwarzane</span>
-                    </span>
-                  </div>
-                  <span id="lastfm-track-title" class="lastfm-title">Ładowanie utworu...</span>
-                  <span id="lastfm-artist-name" class="lastfm-artist">Last.fm</span>
-                  <!-- M3 Expressive Wavy Scrubber (Wave + Vertical Pill Thumb + Straight Track, "Serafina" Concept) -->
-                  <div class="lastfm-wavy-progress" aria-hidden="true">
-                    <div class="lastfm-wavy-played">
-                      <svg class="lastfm-wave-svg" viewBox="0 0 180 10" preserveAspectRatio="none">
-                        <path class="lastfm-wave-path"
-                          d="M 0 5 Q 6 1, 12 5 T 24 5 T 36 5 T 48 5 T 60 5 T 72 5 T 84 5 T 96 5 T 108 5 T 120 5 T 132 5 T 144 5 T 156 5 T 168 5 T 180 5" />
-                      </svg>
-                    </div>
-                    <span class="lastfm-scrubber-thumb"></span>
-                    <span class="lastfm-scrubber-track"></span>
-                  </div>
-                </div>
-
-                <div class="m3-card-arrow lastfm-action-pill" aria-hidden="true">
-                  <span class="material-symbols-outlined">north_east</span>
-                </div>
-              </a>
-            </div>
-
-          </div>
-
-          <!-- Right Column: Interactive Portrait / 3D Avatar Squircle with M3 Expressive Cookie Halo & Badge -->
-          <div class="hero-visual">
-            <div class="avatar-interactive-wrapper" id="hero-avatar-wrapper"
-              aria-label="Portret Michała Dzido. Najedź lub kliknij, aby przełączyć widok na ilustrację 3D"
-              data-i18n-aria="hero.avatarWrapperAria">
-
-              <!-- Decorative M3 Expressive Concentric Scalloped Squircle Halo (Full 240x240 Clearance) -->
-              <svg class="avatar-m3x-halo" viewBox="0 0 240 240" aria-hidden="true">
-                <path
-                  d="M 228.8,46.0 C 229.0,48.4 228.3,49.8 227.7,51.7 C 227.1,53.5 225.9,55.4 225.0,57.3 C 224.1,59.2 222.9,61.1 222.3,63.0 C 221.7,64.9 221.2,66.7 221.2,68.6 C 221.2,70.5 221.7,72.4 222.3,74.3 C 222.9,76.2 224.1,78.0 225.0,79.9 C 225.9,81.8 227.1,83.7 227.7,85.6 C 228.3,87.5 228.8,89.4 228.8,91.2 C 228.8,93.1 228.3,95.0 227.7,96.9 C 227.1,98.8 225.9,100.7 225.0,102.6 C 224.1,104.4 222.9,106.3 222.3,108.2 C 221.7,110.1 221.2,112.0 221.2,113.9 C 221.2,115.8 221.7,117.6 222.3,119.5 C 222.9,121.4 224.1,123.3 225.0,125.2 C 225.9,127.1 227.1,129.0 227.7,130.8 C 228.3,132.7 228.8,134.6 228.8,136.5 C 228.8,138.4 228.3,140.3 227.7,142.1 C 227.1,144.0 225.9,145.9 225.0,147.8 C 224.1,149.7 222.9,151.6 222.3,153.5 C 221.7,155.3 221.2,157.2 221.2,159.1 C 221.2,161.0 221.7,162.9 222.3,164.8 C 222.9,166.7 224.1,168.5 225.0,170.4 C 225.9,172.3 227.1,174.2 227.7,176.1 C 228.3,178.0 228.8,179.9 228.8,181.7 C 228.8,183.6 228.3,185.5 227.7,187.4 C 227.1,189.3 226.0,190.9 225.0,193.1 C 224.0,195.2 222.8,198.0 221.6,200.3 C 220.4,202.6 219.1,204.7 218.0,206.9 C 216.8,209.1 215.8,211.3 214.5,213.6 C 213.1,215.9 211.8,218.5 209.9,220.6 C 208.0,222.8 205.6,225.1 203.0,226.5 C 200.3,227.8 196.4,228.6 194.0,228.8 C 191.6,229.0 190.2,228.3 188.3,227.7 C 186.5,227.1 184.6,225.9 182.7,225.0 C 180.8,224.1 178.9,222.9 177.0,222.3 C 175.1,221.7 173.3,221.2 171.4,221.2 C 169.5,221.2 167.6,221.7 165.7,222.3 C 163.8,222.9 162.0,224.1 160.1,225.0 C 158.2,225.9 156.3,227.1 154.4,227.7 C 152.5,228.3 150.6,228.8 148.8,228.8 C 146.9,228.8 145.0,228.3 143.1,227.7 C 141.2,227.1 139.3,225.9 137.4,225.0 C 135.6,224.1 133.7,222.9 131.8,222.3 C 129.9,221.7 128.0,221.2 126.1,221.2 C 124.2,221.2 122.4,221.7 120.5,222.3 C 118.6,222.9 116.7,224.1 114.8,225.0 C 112.9,225.9 111.0,227.1 109.2,227.7 C 107.3,228.3 105.4,228.8 103.5,228.8 C 101.6,228.8 99.7,228.3 97.9,227.7 C 96.0,227.1 94.1,225.9 92.2,225.0 C 90.3,224.1 88.4,222.9 86.5,222.3 C 84.7,221.7 82.8,221.2 80.9,221.2 C 79.0,221.2 77.1,221.7 75.2,222.3 C 73.3,222.9 71.5,224.1 69.6,225.0 C 67.7,225.9 65.8,227.1 63.9,227.7 C 62.0,228.3 60.1,228.8 58.3,228.8 C 56.4,228.8 54.5,228.3 52.6,227.7 C 50.7,227.1 49.1,226.0 46.9,225.0 C 44.8,224.0 42.0,222.8 39.7,221.6 C 37.4,220.4 35.3,219.1 33.1,218.0 C 30.9,216.8 28.7,215.8 26.4,214.5 C 24.1,213.1 21.5,211.8 19.4,209.9 C 17.2,208.0 14.9,205.6 13.5,203.0 C 12.2,200.3 11.4,196.4 11.2,194.0 C 11.0,191.6 11.7,190.2 12.3,188.3 C 12.9,186.5 14.1,184.6 15.0,182.7 C 15.9,180.8 17.1,178.9 17.7,177.0 C 18.3,175.1 18.8,173.3 18.8,171.4 C 18.8,169.5 18.3,167.6 17.7,165.7 C 17.1,163.8 15.9,162.0 15.0,160.1 C 14.1,158.2 12.9,156.3 12.3,154.4 C 11.7,152.5 11.2,150.6 11.2,148.8 C 11.2,146.9 11.7,145.0 12.3,143.1 C 12.9,141.2 14.1,139.3 15.0,137.4 C 15.9,135.6 17.1,133.7 17.7,131.8 C 18.3,129.9 18.8,128.0 18.8,126.1 C 18.8,124.2 18.3,122.4 17.7,120.5 C 17.1,118.6 15.9,116.7 15.0,114.8 C 14.1,112.9 12.9,111.0 12.3,109.2 C 11.7,107.3 11.2,105.4 11.2,103.5 C 11.2,101.6 11.7,99.7 12.3,97.9 C 12.9,96.0 14.1,94.1 15.0,92.2 C 15.9,90.3 17.1,88.4 17.7,86.5 C 18.3,84.7 18.8,82.8 18.8,80.9 C 18.8,79.0 18.3,77.1 17.7,75.2 C 17.1,73.3 15.9,71.5 15.0,69.6 C 14.1,67.7 12.9,65.8 12.3,63.9 C 11.7,62.0 11.2,60.1 11.2,58.3 C 11.2,56.4 11.7,54.5 12.3,52.6 C 12.9,50.7 14.0,49.1 15.0,46.9 C 16.0,44.8 17.2,42.0 18.4,39.7 C 19.6,37.4 20.9,35.3 22.0,33.1 C 23.2,30.9 24.2,28.7 25.5,26.4 C 26.9,24.1 28.2,21.5 30.1,19.4 C 32.0,17.2 34.4,14.9 37.0,13.5 C 39.7,12.2 43.6,11.4 46.0,11.2 C 48.4,11.0 49.8,11.7 51.7,12.3 C 53.5,12.9 55.4,14.1 57.3,15.0 C 59.2,15.9 61.1,17.1 63.0,17.7 C 64.9,18.3 66.7,18.8 68.6,18.8 C 70.5,18.8 72.4,18.3 74.3,17.7 C 76.2,17.1 78.0,15.9 79.9,15.0 C 81.8,14.1 83.7,12.9 85.6,12.3 C 87.5,11.7 89.4,11.2 91.2,11.2 C 93.1,11.2 95.0,11.7 96.9,12.3 C 98.8,12.9 100.7,14.1 102.6,15.0 C 104.4,15.9 106.3,17.1 108.2,17.7 C 110.1,18.3 112.0,18.8 113.9,18.8 C 115.8,18.8 117.6,18.3 119.5,17.7 C 121.4,17.1 123.3,15.9 125.2,15.0 C 127.1,14.1 129.0,12.9 130.8,12.3 C 132.7,11.7 134.6,11.2 136.5,11.2 C 138.4,11.2 140.3,11.7 142.1,12.3 C 144.0,12.9 145.9,14.1 147.8,15.0 C 149.7,15.9 151.6,17.1 153.5,17.7 C 155.3,18.3 157.2,18.8 159.1,18.8 C 161.0,18.8 162.9,18.3 164.8,17.7 C 166.7,17.1 168.5,15.9 170.4,15.0 C 172.3,14.1 174.2,12.9 176.1,12.3 C 178.0,11.7 179.9,11.2 181.7,11.2 C 183.6,11.2 185.5,11.7 187.4,12.3 C 189.3,12.9 190.9,14.0 193.1,15.0 C 195.2,16.0 198.0,17.2 200.3,18.4 C 202.6,19.6 204.7,20.9 206.9,22.0 C 209.1,23.2 211.3,24.2 213.6,25.5 C 215.9,26.9 218.5,28.2 220.6,30.1 C 222.8,32.0 225.1,34.4 226.5,37.0 C 227.8,39.7 228.6,43.6 228.8,46.0 Z" />
-              </svg>
-
-              <!-- Floating M3 Expressive Symmetrical 8-Lobe Sunny Badge -->
-              <div class="avatar-m3x-badge" aria-hidden="true">
-                <svg class="m3x-badge-bg" viewBox="0 0 64 64">
-                  <path
-                    d="M 60.7,32.0 C 60.7,32.9 60.2,33.9 59.6,34.7 C 59.0,35.6 57.9,36.3 57.0,37.0 C 56.1,37.6 55.0,38.2 54.2,38.7 C 53.5,39.3 52.9,39.8 52.6,40.5 C 52.3,41.2 52.4,42.0 52.5,43.0 C 52.6,43.9 53.0,45.1 53.2,46.2 C 53.4,47.3 53.6,48.6 53.5,49.6 C 53.3,50.6 52.9,51.7 52.3,52.3 C 51.7,52.9 50.6,53.3 49.6,53.5 C 48.6,53.6 47.3,53.4 46.2,53.2 C 45.1,53.0 43.9,52.6 43.0,52.5 C 42.0,52.4 41.2,52.3 40.5,52.6 C 39.8,52.9 39.3,53.5 38.7,54.2 C 38.2,55.0 37.6,56.1 37.0,57.0 C 36.3,57.9 35.6,59.0 34.7,59.6 C 33.9,60.2 32.9,60.7 32.0,60.7 C 31.1,60.7 30.1,60.2 29.3,59.6 C 28.4,59.0 27.7,57.9 27.0,57.0 C 26.4,56.1 25.8,55.0 25.3,54.2 C 24.7,53.5 24.2,52.9 23.5,52.6 C 22.8,52.3 22.0,52.4 21.0,52.5 C 20.1,52.6 18.9,53.0 17.8,53.2 C 16.7,53.4 15.4,53.6 14.4,53.5 C 13.4,53.3 12.3,52.9 11.7,52.3 C 11.1,51.7 10.7,50.6 10.5,49.6 C 10.4,48.6 10.6,47.3 10.8,46.2 C 11.0,45.1 11.4,43.9 11.5,43.0 C 11.6,42.0 11.7,41.2 11.4,40.5 C 11.1,39.8 10.5,39.3 9.8,38.7 C 9.0,38.2 7.9,37.6 7.0,37.0 C 6.1,36.3 5.0,35.6 4.4,34.7 C 3.8,33.9 3.3,32.9 3.3,32.0 C 3.3,31.1 3.8,30.1 4.4,29.3 C 5.0,28.4 6.1,27.7 7.0,27.0 C 7.9,26.4 9.0,25.8 9.8,25.3 C 10.5,24.7 11.1,24.2 11.4,23.5 C 11.7,22.8 11.6,22.0 11.5,21.0 C 11.4,20.1 11.0,18.9 10.8,17.8 C 10.6,16.7 10.4,15.4 10.5,14.4 C 10.7,13.4 11.1,12.3 11.7,11.7 C 12.3,11.1 13.4,10.7 14.4,10.5 C 15.4,10.4 16.7,10.6 17.8,10.8 C 18.9,11.0 20.1,11.4 21.0,11.5 C 22.0,11.6 22.8,11.7 23.5,11.4 C 24.2,11.1 24.7,10.5 25.3,9.8 C 25.8,9.0 26.4,7.9 27.0,7.0 C 27.7,6.1 28.4,5.0 29.3,4.4 C 30.1,3.8 31.1,3.3 32.0,3.3 C 32.9,3.3 33.9,3.8 34.7,4.4 C 35.6,5.0 36.3,6.1 37.0,7.0 C 37.6,7.9 38.2,9.0 38.7,9.8 C 39.3,10.5 39.8,11.1 40.5,11.4 C 41.2,11.7 42.0,11.6 43.0,11.5 C 43.9,11.4 45.1,11.0 46.2,10.8 C 47.3,10.6 48.6,10.4 49.6,10.5 C 50.6,10.7 51.7,11.1 52.3,11.7 C 52.9,12.3 53.3,13.4 53.5,14.4 C 53.6,15.4 53.4,16.7 53.2,17.8 C 53.0,18.9 52.6,20.1 52.5,21.0 C 52.4,22.0 52.3,22.8 52.6,23.5 C 52.9,24.2 53.5,24.7 54.2,25.3 C 55.0,25.8 56.1,26.4 57.0,27.0 C 57.9,27.7 59.0,28.4 59.6,29.3 C 60.2,30.1 60.7,31.1 60.7,32.0 Z" />
-                </svg>
-                <span class="material-symbols-rounded m3x-badge-icon">auto_awesome</span>
-              </div>
-
-              <div class="avatar-squircle">
-                <img src="assets/michal.jpg" alt="Michał Dzido, zdjęcie portretowe" data-i18n-alt="hero.photoAlt"
-                  class="avatar-img avatar-photo" width="400" height="400" fetchpriority="high">
-                <img src="assets/michal-avatar.jpg" alt="Michał Dzido, ilustrowany awatar 3D"
-                  data-i18n-alt="hero.avatarAlt" class="avatar-img avatar-art" width="400" height="400" loading="eager">
-              </div>
-
-              <button type="button" class="avatar-hover-hint m3-toggle-btn" id="avatar-hover-hint"
-                aria-pressed="false"
-                aria-label="Przełącz między zdjęciem a awatarem 3D" data-i18n-aria="hero.avatarHintAria">
-                <span class="material-symbols-outlined hint-icon" aria-hidden="true">swap_horiz</span>
-                <span class="hint-desktop-text" data-i18n="hero.avatarHintDesktop">Zdjęcie / Awatar 3D</span>
-                <span class="hint-touch-text" data-i18n="hero.avatarHintTouch">Przełącz widok</span>
-              </button>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================================
-         SECTION 2: O MNIE
-         =================================================================== -->
-    <section id="about" class="snap-section reveal-section" aria-labelledby="about-heading">
-      <div class="section-container">
-
-        <header class="section-header">
-          <h2 id="about-heading" class="section-title" data-i18n="about.heading">O mnie</h2>
-          <p class="section-subtitle" data-i18n="about.subtitle">
-            Czym zajmuję się w pracy, czego uczę się na studiach i co robię po godzinach.
+          <p class="hero-lead" data-i18n-html="hero.leadHtml">
+            Odbieram zgłoszenia w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję
+            cyberbezpieczeństwo na <strong>Uniwersytecie WSEI</strong>. Po pracy siedzę na betach Androida
+            i składam komputery.
           </p>
-        </header>
 
-        <div class="m3-grid m3-grid-bento">
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-filled">
+              <span data-i18n="hero.ctaContact">Napisz do mnie</span>
+              <span class="material-symbols-rounded" aria-hidden="true">arrow_downward</span>
+            </a>
+            <button type="button" class="btn btn-tonal" id="hero-terminal-trigger"
+              title="Otwórz terminal (klawisz ~)" data-i18n-title="hero.terminalTitle">
+              <span class="material-symbols-rounded" aria-hidden="true">terminal</span>
+              <span data-i18n="hero.ctaTerminal">Terminal</span>
+              <kbd class="kbd">~</kbd>
+            </button>
+          </div>
 
-          <!-- Card 1: Praca zawodowa (span 7) -->
-          <article class="m3-card bento-span-7 accent-mint">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">support_agent</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="about.job.meta">Praca zawodowa</span>
-            </div>
-            <div class="m3-card-body">
-              <h3 class="m3-card-title" data-i18n="about.job.title">Junior IT Specialist</h3>
-              <p class="m3-card-subtitle">IT Solution Factor Sp. z o.o.</p>
-              <p class="m3-card-desc" data-i18n="about.job.desc">
-                Pierwsza linia wsparcia IT. Przez telefon i zdalnie pomagam użytkownikom z pocztą, pakietem biurowym,
-                uprawnieniami, systemem oraz sprzętem, tłumacząc techniczne sprawy prostym językiem. Diagnozuję
-                problemy, a większe awarie przekazuję dalej do odpowiedzialnych grup.
-              </p>
-            </div>
-            <div class="m3-card-footer">
-              <div class="m3-chip-group">
-                <span class="m3-chip" data-i18n="about.job.chip1">Wsparcie użytkowników</span>
-                <span class="m3-chip" data-i18n="about.job.chip2">Diagnostyka sprzętu</span>
-                <span class="m3-chip" data-i18n="about.job.chip3">Obsługa incydentów</span>
-              </div>
-            </div>
-          </article>
+          <!-- Last.fm: styled like an Android media notification -->
+          <div id="lastfm-container" class="lastfm-container" aria-live="polite">
+            <a href="https://www.last.fm/user/M1chiii" target="_blank" rel="noopener noreferrer"
+              id="lastfm-now-playing" class="lastfm-card" style="display: none;"
+              title="Otwórz profil Last.fm" data-i18n-title="lastfm.openProfile">
+              <img id="lastfm-album-art"
+                src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' fill='%232A2C33'/><circle cx='24' cy='24' r='9' fill='none' stroke='%238C909C' stroke-width='3'/></svg>"
+                alt="Okładka albumu" data-i18n-alt="lastfm.albumAlt" class="lastfm-art" width="64" height="64"
+                loading="lazy">
 
-          <!-- Card 2: Wiek, automatyczny licznik (span 5) - Tonal Expressive Container -->
-          <article class="m3-card m3-card-tonal bento-span-5 accent-sky m3-card-age">
-            <div class="m3-card-header">
-              <div class="m3-icon-box m3-icon-cookie" aria-hidden="true">
-                <span class="material-symbols-outlined">cake</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="about.age.meta">Wiek</span>
-            </div>
-            <div class="m3-card-body">
-              <span id="user-age" class="age-value">20 lat</span>
-            </div>
-            <div class="m3-card-footer">
-              <div class="m3-chip-group">
-                <span class="m3-chip" data-i18n="about.age.chip1">Urodziny 4 marca</span>
-                <span class="m3-chip" data-i18n="about.age.chip2">Rocznik '06</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3: Lokalizacja (span 4) -->
-          <article class="m3-card bento-span-4 accent-amber">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">location_on</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="about.loc.meta">Lokalizacja</span>
-            </div>
-            <div class="m3-card-body">
-              <h3 class="m3-card-title" data-i18n="about.loc.title">Warszawa i Adamów</h3>
-              <p class="m3-card-desc" data-i18n="about.loc.desc">
-                Od poniedziałku do piątku pracuję w biurze w Warszawie. Na weekendy jadę na zjazdy na uczelni albo
-                wracam do rodzinnego Adamowa.
-              </p>
-            </div>
-            <div class="m3-card-footer m3-card-footer-split">
-              <div class="m3x-clock-badge">
-                <span class="m3x-clock-label">
-                  <span class="m3x-clock-dot" aria-hidden="true"></span>
-                  <span data-i18n="about.loc.timeLabel">Czas lokalny:</span>
+              <span class="lastfm-track-info">
+                <span id="lastfm-status-badge" class="lastfm-live-badge">
+                  <span class="lastfm-eq" aria-hidden="true"><span></span><span></span><span></span></span>
+                  <span id="lastfm-status-text">Teraz odtwarzane</span>
+                  <span class="lastfm-source">Last.fm</span>
                 </span>
-                <strong id="live-warsaw-time" class="m3x-clock-value">--:--:--</strong>
-              </div>
-              <span class="m3-chip" data-i18n="about.loc.chip">Strefa CET</span>
-            </div>
-          </article>
+                <span id="lastfm-track-title" class="lastfm-title">Ładowanie…</span>
+                <span id="lastfm-artist-name" class="lastfm-artist">Last.fm</span>
+                <span class="lastfm-progress" aria-hidden="true">
+                  <svg class="lastfm-wave" viewBox="0 0 120 8" preserveAspectRatio="none">
+                    <path d="M0 4 Q 3 0, 6 4 T 12 4 T 18 4 T 24 4 T 30 4 T 36 4 T 42 4 T 48 4 T 54 4 T 60 4 T 66 4 T 72 4 T 78 4 T 84 4 T 90 4 T 96 4 T 102 4 T 108 4 T 114 4 T 120 4" />
+                  </svg>
+                  <span class="lastfm-thumb"></span>
+                  <span class="lastfm-rest"></span>
+                </span>
+              </span>
 
-          <!-- Card 4: Edukacja (span 4) - Granatowy kolor uczelni WSEI (Tonal Expressive Container) -->
-          <article class="m3-card m3-card-tonal bento-span-4 accent-navy">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">school</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="about.edu.meta">Edukacja</span>
-            </div>
-            <div class="m3-card-body">
-              <h3 class="m3-card-title" data-i18n="about.edu.title">Uniwersytet WSEI</h3>
-              <p class="m3-card-subtitle" data-i18n="about.edu.subtitle">Cyberbezpieczeństwo i technologie sieciowe</p>
-              <p class="m3-card-desc" data-i18n="about.edu.desc">
-                Po technikum informatycznym poszedłem na studia inżynierskie w Lublinie. Najwięcej czasu poświęcam
-                sieciom komputerowym, analizie ruchu i zabezpieczaniu systemów.
-              </p>
-            </div>
-            <div class="m3-card-footer">
-              <div class="m3-chip-group">
-                <span class="m3-chip" data-i18n="about.edu.chip1">Technik Informatyk</span>
-                <span class="m3-chip" data-i18n="about.edu.chip2">Studia inżynierskie</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 5: Zainteresowania po godzinach (span 4) -->
-          <article class="m3-card bento-span-4 accent-peach">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">interests</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="about.hobbies.meta">Po godzinach</span>
-            </div>
-            <div class="m3-card-body">
-              <h3 class="m3-card-title" data-i18n="about.hobbies.title">Zajawki poza pracą</h3>
-              <p class="m3-card-subtitle" data-i18n="about.hobbies.subtitle">Społeczność, muzyka i sprzęt</p>
-              <p class="m3-card-desc" data-i18n="about.hobbies.desc">
-                Prowadzę grupę Google Pixel Polska, instaluję testowe wersje Androida i Windowsa oraz składam komputery.
-                Wieczorami słucham muzyki albo gram na PC.
-              </p>
-            </div>
-            <div class="m3-card-footer">
-              <div class="m3-chip-group">
-                <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.music"
-                  data-toast-icon="music_note" data-toast-accent="#FFB786"
-                  data-easter-msg="Słuchawki mam na uszach przez większość dnia. Kafelek na górze strony pokazuje na żywo to, czego aktualnie słucham na Last.fm.">
-                  <span data-i18n="about.hobbies.chip1">Muzyka</span>
-                </button>
-                <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.pixel"
-                  data-toast-icon="groups" data-toast-accent="#81C995"
-                  data-easter-msg="Razem z innymi moderatorami prowadzę na Facebooku polską społeczność użytkowników telefonów Google Pixel.">
-                  <span data-i18n="about.hobbies.chip2">Google Pixel Polska</span>
-                </button>
-                <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.beta"
-                  data-toast-icon="science" data-toast-accent="#78D9EC"
-                  data-easter-msg="Lubię sprawdzać nowości przed oficjalną premierą, dlatego na co dzień korzystam z Android Beta i Windows Insider.">
-                  <span data-i18n="about.hobbies.chip3">Testy Beta OS</span>
-                </button>
-                <button type="button" class="m3-chip m3-chip-action" data-i18n-easter="easter.pc"
-                  data-toast-icon="memory" data-toast-accent="#A8C7FA"
-                  data-easter-msg="Dobieram części, składam komputery od zera, wymieniam pasty termoprzewodzące i szukam przyczyn dziwnych awarii.">
-                  <span data-i18n="about.hobbies.chip4">Składanie PC</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
+              <span class="lastfm-open" aria-hidden="true">
+                <span class="material-symbols-rounded">open_in_new</span>
+              </span>
+            </a>
+          </div>
         </div>
+
+        <div class="hero-visual">
+          <div class="avatar-interactive-wrapper" id="hero-avatar-wrapper"
+            aria-label="Portret Michała Dzido. Kliknij, aby przełączyć na awatar 3D"
+            data-i18n-aria="hero.avatarWrapperAria">
+            <div class="avatar-shape">
+              <img src="assets/michal.jpg" alt="Michał Dzido, zdjęcie portretowe" data-i18n-alt="hero.photoAlt"
+                class="avatar-img avatar-photo" width="400" height="400" fetchpriority="high">
+              <img src="assets/michal-avatar.jpg" alt="Michał Dzido, awatar 3D" data-i18n-alt="hero.avatarAlt"
+                class="avatar-img avatar-art" width="400" height="400" loading="lazy">
+            </div>
+            <button type="button" class="avatar-toggle" id="avatar-hover-hint" aria-pressed="false"
+              aria-label="Przełącz między zdjęciem a awatarem 3D" data-i18n-aria="hero.avatarHintAria">
+              <span class="material-symbols-rounded" aria-hidden="true">view_in_ar</span>
+              <span class="avatar-toggle-label" data-i18n="hero.avatarHint">Wersja 3D</span>
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ===================================================================
-         SECTION 3: DOŚWIADCZENIE I KOMPETENCJE
-         =================================================================== -->
+    <!-- ===================== O MNIE ===================== -->
+    <section id="about" class="snap-section reveal-section" aria-labelledby="about-heading">
+      <div class="section-container about-grid">
+
+        <div class="about-text">
+          <h2 id="about-heading" class="section-title" data-i18n="about.heading">O mnie</h2>
+          <p data-i18n="about.p1">
+            W tygodniu siedzę w biurze w Warszawie i odbieram zgłoszenia: poczta, Office, uprawnienia, Windows,
+            sprzęt. Tłumaczę ludziom techniczne sprawy bez żargonu, a to, czego nie da się naprawić od ręki,
+            przekazuję do właściwej grupy.
+          </p>
+          <p data-i18n="about.p2">
+            Weekendy spędzam na zjazdach na WSEI albo w rodzinnym Adamowie. Na studiach najwięcej czasu zabierają
+            mi sieci, analiza ruchu i zabezpieczanie systemów.
+          </p>
+          <p data-i18n="about.p3">
+            Po godzinach moderuję grupę Google Pixel Polska, instaluję testowe wersje Androida i Windowsa, a wieczorami
+            słucham muzyki albo gram na PC.
+          </p>
+
+          <div class="chip-row" aria-label="Po godzinach" data-i18n-aria="about.hobbiesAria">
+            <button type="button" class="chip" data-i18n-easter="easter.music" data-toast-icon="headphones"
+              data-easter-msg="Słuchawki mam na uszach przez większość dnia. Karta na górze strony pokazuje na żywo, czego słucham na Last.fm.">
+              <span class="material-symbols-rounded" aria-hidden="true">headphones</span>
+              <span data-i18n="about.chip.music">Muzyka</span>
+            </button>
+            <button type="button" class="chip" data-i18n-easter="easter.pixel" data-toast-icon="groups"
+              data-easter-msg="Razem z innymi moderatorami prowadzę na Facebooku polską grupę użytkowników telefonów Google Pixel.">
+              <span class="material-symbols-rounded" aria-hidden="true">groups</span>
+              <span>Google Pixel Polska</span>
+            </button>
+            <button type="button" class="chip" data-i18n-easter="easter.beta" data-toast-icon="science"
+              data-easter-msg="Lubię sprawdzać nowości przed premierą, dlatego na co dzień siedzę na Android Beta i Windows Insider.">
+              <span class="material-symbols-rounded" aria-hidden="true">science</span>
+              <span data-i18n="about.chip.beta">Bety systemów</span>
+            </button>
+            <button type="button" class="chip" data-i18n-easter="easter.pc" data-toast-icon="build"
+              data-easter-msg="Dobieram części, składam komputery od zera, wymieniam pasty termoprzewodzące i szukam przyczyn dziwnych awarii.">
+              <span class="material-symbols-rounded" aria-hidden="true">build</span>
+              <span data-i18n="about.chip.pc">Składanie PC</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Facts as an Android "About phone" list -->
+        <dl class="facts" aria-label="W skrócie" data-i18n-aria="about.factsAria">
+          <div class="fact fact-hero">
+            <dt data-i18n="about.age.label">Wiek</dt>
+            <dd><span id="user-age" class="fact-big">20 lat</span>
+              <span class="fact-sub" data-i18n="about.age.sub">Urodzony 4 marca 2006</span></dd>
+          </div>
+          <div class="fact">
+            <span class="fact-icon material-symbols-rounded" aria-hidden="true">badge</span>
+            <dt data-i18n="about.job.label">Praca</dt>
+            <dd>Junior IT Specialist <span class="fact-sub">IT Solution Factor Sp. z o.o.</span></dd>
+          </div>
+          <div class="fact">
+            <span class="fact-icon material-symbols-rounded" aria-hidden="true">school</span>
+            <dt data-i18n="about.edu.label">Studia</dt>
+            <dd data-i18n-html="about.edu.valueHtml">Uniwersytet WSEI, Lublin <span class="fact-sub">Cyberbezpieczeństwo i technologie sieciowe, inż.</span></dd>
+          </div>
+          <div class="fact">
+            <span class="fact-icon material-symbols-rounded" aria-hidden="true">history_edu</span>
+            <dt data-i18n="about.school.label">Wcześniej</dt>
+            <dd data-i18n-html="about.school.valueHtml">Technikum <span class="fact-sub">Technik informatyk</span></dd>
+          </div>
+          <div class="fact">
+            <span class="fact-icon material-symbols-rounded" aria-hidden="true">location_on</span>
+            <dt data-i18n="about.loc.label">Miejsce</dt>
+            <dd><span data-i18n="about.loc.value">Warszawa i Adamów</span>
+              <span class="fact-sub"><span data-i18n="about.loc.timeLabel">U mnie jest</span>
+                <time id="live-warsaw-time" class="tabular">--:--</time></span></dd>
+          </div>
+        </dl>
+
+      </div>
+    </section>
+
+    <!-- ===================== DOŚWIADCZENIE ===================== -->
     <section id="experience" class="snap-section reveal-section" aria-labelledby="exp-heading">
       <div class="section-container">
-
         <header class="section-header">
-          <h2 id="exp-heading" class="section-title" data-i18n="exp.heading">Doświadczenie i umiejętności</h2>
-          <p class="section-subtitle" data-i18n="exp.subtitle">
-            Rzeczy, z którymi mam do czynienia w codziennej pracy i na laboratoriach.
-          </p>
+          <h2 id="exp-heading" class="section-title" data-i18n="exp.heading">Czym się zajmuję</h2>
+          <p class="section-lead" data-i18n="exp.subtitle">W pracy, na laboratoriach i przy własnym biurku.</p>
         </header>
 
-        <div class="m3-grid m3-grid-2">
-
-          <!-- Card 1: Sprzęt -->
-          <article class="m3-card accent-cobalt">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">memory</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="exp.hw.meta">Sprzęt komputerowy</span>
+        <ol class="skill-list">
+          <li class="skill">
+            <span class="skill-shape shape-a" aria-hidden="true"><span class="material-symbols-rounded">support_agent</span></span>
+            <div class="skill-head">
+              <h3 class="skill-title" data-i18n="exp.helpdesk.title">Helpdesk</h3>
+              <p class="skill-where">IT Solution Factor</p>
             </div>
-            <div class="m3-card-body">
-              <h3 class="m3-card-title" data-i18n="exp.hw.title">Diagnostyka i serwis PC</h3>
-              <p class="m3-card-desc" data-i18n="exp.hw.desc">
-                Składam komputery stacjonarne, wymieniam podzespoły w laptopach i szukam przyczyn usterek sprzętowych, od
-                pamięci RAM po zasilacze i płyty główne.
-              </p>
+            <p class="skill-desc" data-i18n="exp.helpdesk.desc">
+              Codziennie obsługuję zgłoszenia przez telefon i zdalnie. Odblokowuję konta, konfiguruję stanowiska,
+              rozwiązuję błędy Windowsa i aplikacji firmowych, a większe awarie eskaluję do odpowiednich zespołów.
+            </p>
+            <p class="skill-tools" data-i18n="exp.helpdesk.tools">Pomoc zdalna · zgłoszenia · pakiet biurowy</p>
+          </li>
+          <li class="skill">
+            <span class="skill-shape shape-b" aria-hidden="true"><span class="material-symbols-rounded">lan</span></span>
+            <div class="skill-head">
+              <h3 class="skill-title" data-i18n="exp.net.title">Sieci i systemy</h3>
+              <p class="skill-where" data-i18n="exp.net.where">Studia i laboratoria</p>
             </div>
-            <div class="m3-card-footer">
-              <div class="m3-chip-group">
-                <span class="m3-chip" data-i18n="exp.hw.chip1">Technik Informatyk</span>
-                <span class="m3-chip" data-i18n="exp.hw.chip2">Diagnostyka hardware</span>
-                <span class="m3-chip" data-i18n="exp.hw.chip3">Serwis PC</span>
-              </div>
+            <p class="skill-desc" data-i18n="exp.net.desc">
+              Zakładam konta i nadaję uprawnienia w Active Directory, pracuję w Linuksie, ustawiam adresację,
+              VLAN-y, routing i reguły firewalli.
+            </p>
+            <p class="skill-tools">Windows Server · AD · Linux · Bash · TCP/IP · VLAN</p>
+          </li>
+          <li class="skill">
+            <span class="skill-shape shape-c" aria-hidden="true"><span class="material-symbols-rounded">memory</span></span>
+            <div class="skill-head">
+              <h3 class="skill-title" data-i18n="exp.hw.title">Sprzęt</h3>
+              <p class="skill-where" data-i18n="exp.hw.where">Technik informatyk</p>
             </div>
-          </article>
-
-          <!-- Card 2: Wsparcie IT -->
-          <article class="m3-card accent-community">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">headset_mic</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="exp.helpdesk.meta">Helpdesk</span>
+            <p class="skill-desc" data-i18n="exp.hw.desc">
+              Składam komputery stacjonarne, wymieniam podzespoły w laptopach i szukam przyczyn usterek, od pamięci RAM
+              po zasilacze i płyty główne.
+            </p>
+            <p class="skill-tools" data-i18n="exp.hw.tools">Diagnostyka · serwis · dobór części</p>
+          </li>
+          <li class="skill">
+            <span class="skill-shape shape-d" aria-hidden="true"><span class="material-symbols-rounded">android</span></span>
+            <div class="skill-head">
+              <h3 class="skill-title" data-i18n="exp.mobile.title">Wersje testowe</h3>
+              <p class="skill-where">Android Beta · Windows Insider</p>
             </div>
-            <div class="m3-card-body">
-              <h3 class="m3-card-title" data-i18n="exp.helpdesk.title">Wsparcie techniczne w IT Solution Factor</h3>
-              <p class="m3-card-desc" data-i18n="exp.helpdesk.desc">
-                Codzienna obsługa zgłoszeń użytkowników. Odblokowuję konta, konfiguruję stanowiska pracy, rozwiązuję
-                błędy w systemie Windows i aplikacjach firmowych oraz pilnuję, by każde zgłoszenie trafiło we właściwe
-                ręce.
-              </p>
-            </div>
-            <div class="m3-card-footer">
-              <div class="m3-chip-group">
-                <span class="m3-chip">IT Solution Factor</span>
-                <span class="m3-chip" data-i18n="exp.helpdesk.chip2">Pomoc zdalna</span>
-                <span class="m3-chip" data-i18n="exp.helpdesk.chip3">Obsługa zgłoszeń</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3: Sieci i systemy -->
-          <article class="m3-card accent-cyan">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">lan</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="exp.net.meta">Infrastruktura i sieci</span>
-            </div>
-            <div class="m3-card-body">
-              <h3 class="m3-card-title" data-i18n="exp.net.title">Systemy operacyjne i bezpieczeństwo</h3>
-              <p class="m3-card-desc" data-i18n="exp.net.desc">
-                Konfiguruję konta i uprawnienia w Windows Server (Active Directory), pracuję w Linuksie oraz ustawiam
-                adresację TCP/IP, sieci VLAN, routing i reguły firewalli.
-              </p>
-            </div>
-            <div class="m3-card-footer">
-              <div class="m3-chip-group">
-                <span class="m3-chip">Windows Server & AD</span>
-                <span class="m3-chip">Linux & Bash</span>
-                <span class="m3-chip">TCP/IP & VLAN</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 4: Ekosystem mobilny -->
-          <article class="m3-card accent-android">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">phone_android</span>
-              </div>
-              <span class="m3-card-meta" data-i18n="exp.mobile.meta">Systemy mobilne</span>
-            </div>
-            <div class="m3-card-body">
-              <h3 class="m3-card-title" data-i18n="exp.mobile.title">Kanały Beta i ekosystem Google Pixel</h3>
-              <p class="m3-card-desc" data-i18n="exp.mobile.desc">
-                Korzystam z programów Android Beta i Windows Insider. Testuję nowe funkcje systemowe oraz poprawki
-                bezpieczeństwa na urządzeniach z serii Google Pixel.
-              </p>
-            </div>
-            <div class="m3-card-footer">
-              <div class="m3-chip-group">
-                <span class="m3-chip">Android Beta</span>
-                <span class="m3-chip">Windows Insider</span>
-                <span class="m3-chip">Google Pixel</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
+            <p class="skill-desc" data-i18n="exp.mobile.desc">
+              Na co dzień używam wersji beta Androida i Windowsa. Sprawdzam nowe funkcje i poprawki bezpieczeństwa,
+              zanim trafią do wszystkich, i zgłaszam błędy.
+            </p>
+            <p class="skill-tools">Pixel · Android 16 Beta · Windows 11 Insider</p>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- ===================================================================
-         SECTION 4: MOJE URZĄDZENIA
-         =================================================================== -->
+    <!-- ===================== SPRZĘT ===================== -->
     <section id="devices" class="snap-section reveal-section" aria-labelledby="devices-heading">
       <div class="section-container">
-
         <header class="section-header section-header-row">
-          <div class="section-header-text">
-            <h2 id="devices-heading" class="section-title" data-i18n="devices.heading">Moje urządzenia</h2>
-            <p class="section-subtitle" data-i18n="devices.subtitle">
-              Sprzęt, z którego korzystam na co dzień w pracy, na studiach i w domu.
-            </p>
+          <div>
+            <h2 id="devices-heading" class="section-title" data-i18n="devices.heading">Na czym pracuję</h2>
+            <p class="section-lead" data-i18n="devices.subtitle">Sprzęt, którego używam codziennie. Kliknij kartę, żeby dowiedzieć się więcej.</p>
           </div>
-
-          <!-- M3 Expressive Connected Filter Group (Inspired by Google M3X Concept Segmented Toggle) -->
           <div class="m3x-filter-group" id="devices-filter-group" role="group" aria-label="Filtruj urządzenia"
             data-i18n-aria="devices.filterAria">
             <button type="button" class="m3x-filter-btn is-selected" data-device-filter="all" aria-pressed="true">
-              <span class="material-symbols-outlined filter-check-icon" aria-hidden="true">check</span>
-              <span data-i18n="devices.filterAll">Wszystkie</span>
+              <span class="material-symbols-rounded filter-check" aria-hidden="true">check</span>
+              <span data-i18n="devices.filterAll">Wszystko</span>
             </button>
             <button type="button" class="m3x-filter-btn" data-device-filter="pixel" aria-pressed="false">
-              <span class="material-symbols-outlined filter-check-icon" aria-hidden="true">smartphone</span>
-              <span data-i18n="devices.filterPixel">Ekosystem Pixel</span>
+              <span class="material-symbols-rounded filter-check" aria-hidden="true">check</span>
+              <span>Pixel</span>
             </button>
             <button type="button" class="m3x-filter-btn" data-device-filter="pc" aria-pressed="false">
-              <span class="material-symbols-outlined filter-check-icon" aria-hidden="true">computer</span>
+              <span class="material-symbols-rounded filter-check" aria-hidden="true">check</span>
               <span data-i18n="devices.filterPc">Komputery</span>
             </button>
           </div>
         </header>
 
         <div class="devices-layout">
+          <div class="device-grid device-grid-3" data-device-tier="pixel">
 
-          <!-- Tier 1: Google Pixel Ecosystem (3 cards) -->
-          <div class="m3-grid m3-grid-3" data-device-tier="pixel">
-
-            <!-- Device 1: Google Pixel 8 Pro -->
-            <article class="m3-card m3-card-interactive device-card accent-pixel-mint" id="card-pixel-8-pro"
-              data-i18n-easter="easter.pixel8pro" data-toast-icon="smartphone" data-toast-accent="#A8E6CF"
-              data-easter-msg="Mój główny telefon w kolorze Mint. Działa na testowym kanale Android Beta i robi świetne zdjęcia z 5-krotnego zbliżenia.">
-              <div class="m3-card-header">
-                <div class="m3-icon-box" aria-hidden="true">
-                  <span class="material-symbols-outlined">smartphone</span>
-                </div>
-                <div class="device-header-meta">
-                  <span class="m3-card-meta" data-i18n="devices.p8p.meta">Smartfon</span>
-                  <span class="device-color-pill">
-                    <span class="spec-color-dot" style="background-color: #A8E6CF;"></span>
-                    <span data-i18n="devices.p8p.color">Mint</span>
-                  </span>
-                </div>
+            <article class="device-card" id="card-pixel-8-pro" tabindex="0" role="button"
+              data-i18n-easter="easter.pixel8pro" data-toast-icon="smartphone"
+              data-easter-msg="Mój główny telefon. Siedzi na kanale Android Beta i robi świetne zdjęcia z 5-krotnym zbliżeniem.">
+              <div class="device-stage" style="--device-tint: #B8E4CE;">
+                <svg class="device-art" viewBox="0 0 160 160" aria-hidden="true">
+                  <rect x="48" y="14" width="64" height="132" rx="14" fill="#B8E4CE" />
+                  <rect x="48" y="36" width="64" height="20" fill="#2B312E" />
+                  <rect x="56" y="40" width="30" height="12" rx="6" fill="#151816" />
+                  <circle cx="62" cy="46" r="4" fill="#3A4642" />
+                  <circle cx="74" cy="46" r="4" fill="#3A4642" />
+                  <circle cx="94" cy="46" r="4" fill="#151816" />
+                  <circle cx="104" cy="46" r="2" fill="#DCE6E1" />
+                  <path d="M73 112 a7 7 0 1 1 14 0 a7 7 0 1 1 -14 0 M80 108 v4 h4" fill="none" stroke="#8FB9A4" stroke-width="2" stroke-linecap="round" />
+                </svg>
               </div>
-              <div class="m3-card-body">
-                <h3 class="m3-card-title">Google Pixel 8 Pro</h3>
-                <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
-                  <div class="spec-item spec-item-wide">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.soc">Układ SoC</dt>
-                      <dd class="spec-value">Google Tensor G3 + Titan M2</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">developer_board</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.memory">Pamięć</dt>
-                      <dd class="spec-value">12 GB RAM • 128 GB UFS 3.1</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">fit_screen</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.display">Ekran</dt>
-                      <dd class="spec-value" data-i18n="devices.p8p.display">6,7" LTPO OLED 120 Hz</dd>
-                    </div>
-                  </div>
+              <div class="device-body">
+                <p class="device-kind"><span data-i18n="devices.p8p.meta">Telefon</span> · <span data-i18n="devices.p8p.color">Mint</span></p>
+                <h3 class="device-title m3-card-title">Google Pixel 8 Pro</h3>
+                <dl class="spec-list" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
+                  <div><dt data-i18n="devices.label.soc">Układ</dt><dd>Tensor G3 + Titan M2</dd></div>
+                  <div><dt data-i18n="devices.label.memory">Pamięć</dt><dd>12 GB · 128 GB</dd></div>
+                  <div><dt data-i18n="devices.label.display">Ekran</dt><dd data-i18n="devices.p8p.display">6,7" LTPO OLED, 120 Hz</dd></div>
                 </dl>
               </div>
             </article>
 
-            <!-- Device 2: Google Pixel Buds Pro 2 -->
-            <article class="m3-card m3-card-interactive device-card accent-moonstone" id="card-pixel-buds"
-              data-i18n-easter="easter.buds" data-toast-icon="headphones" data-toast-accent="#B8C5D6"
-              data-easter-msg="Słuchawki w kolorze Moonstone z układem Tensor A1. Małe, wygodne i dobrze wyciszają biuro oraz pociąg.">
-              <div class="m3-card-header">
-                <div class="m3-icon-box" aria-hidden="true">
-                  <span class="material-symbols-outlined">headphones</span>
-                </div>
-                <div class="device-header-meta">
-                  <span class="m3-card-meta" data-i18n="devices.buds.meta">Słuchawki</span>
-                  <span class="device-color-pill">
-                    <span class="spec-color-dot" style="background-color: #B8C5D6;"></span>
-                    <span data-i18n="devices.buds.color">Moonstone</span>
-                  </span>
-                </div>
+            <article class="device-card" id="card-pixel-buds" tabindex="0" role="button"
+              data-i18n-easter="easter.buds" data-toast-icon="earbuds"
+              data-easter-msg="Słuchawki z układem Tensor A1. Małe, wygodne i dobrze wyciszają biuro oraz pociąg.">
+              <div class="device-stage" style="--device-tint: #C9D3E0;">
+                <svg class="device-art" viewBox="0 0 160 160" aria-hidden="true">
+                  <ellipse cx="80" cy="112" rx="44" ry="30" fill="#E7ECF2" />
+                  <path d="M36 112 a44 30 0 0 0 88 0" fill="#D5DCE5" />
+                  <line x1="36" y1="108" x2="124" y2="108" stroke="#AEB8C5" stroke-width="2" />
+                  <circle cx="80" cy="124" r="2.5" fill="#7E8A99" />
+                  <circle cx="56" cy="58" r="22" fill="#C9D3E0" />
+                  <circle cx="56" cy="58" r="11" fill="#E9EEF4" />
+                  <circle cx="104" cy="50" r="22" fill="#C9D3E0" />
+                  <circle cx="104" cy="50" r="11" fill="#E9EEF4" />
+                  <circle cx="104" cy="50" r="4" fill="#AEB8C5" />
+                  <circle cx="56" cy="58" r="4" fill="#AEB8C5" />
+                </svg>
               </div>
-              <div class="m3-card-body">
-                <h3 class="m3-card-title">Google Pixel Buds Pro 2</h3>
-                <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
-                  <div class="spec-item spec-item-wide">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.audioChip">Układ audio</dt>
-                      <dd class="spec-value" data-i18n="devices.buds.chip1">Google Tensor A1</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">graphic_eq</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.anc">Redukcja hałasu</dt>
-                      <dd class="spec-value">ANC Silent Seal 2.0</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">speaker</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.drivers">Przetworniki</dt>
-                      <dd class="spec-value" data-i18n="devices.buds.drivers">11 mm • Dźwięk przestrzenny</dd>
-                    </div>
-                  </div>
+              <div class="device-body">
+                <p class="device-kind"><span data-i18n="devices.buds.meta">Słuchawki</span> · Moonstone</p>
+                <h3 class="device-title m3-card-title">Google Pixel Buds Pro 2</h3>
+                <dl class="spec-list" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
+                  <div><dt data-i18n="devices.label.soc">Układ</dt><dd>Tensor A1</dd></div>
+                  <div><dt data-i18n="devices.label.anc">ANC</dt><dd>Silent Seal 2.0</dd></div>
+                  <div><dt data-i18n="devices.label.drivers">Przetworniki</dt><dd>11 mm</dd></div>
                 </dl>
               </div>
             </article>
 
-            <!-- Device 3: Google Pixel Watch 2 -->
-            <article class="m3-card m3-card-interactive device-card accent-graphite" id="card-pixel-watch"
-              data-i18n-easter="easter.watch" data-toast-icon="watch" data-toast-accent="#9E9EA4"
-              data-easter-msg="Zegarek w wersji 41 mm Matte Black z Wear OS. Używam go głównie do powiadomień, płatności zbliżeniowych i mierzenia kroków.">
-              <div class="m3-card-header">
-                <div class="m3-icon-box" aria-hidden="true">
-                  <span class="material-symbols-outlined">watch</span>
-                </div>
-                <div class="device-header-meta">
-                  <span class="m3-card-meta" data-i18n="devices.watch.meta">Smartwatch</span>
-                  <span class="device-color-pill">
-                    <span class="spec-color-dot" style="background-color: #6B6B73;"></span>
-                    <span data-i18n="devices.watch.color">Matte Black</span>
-                  </span>
-                </div>
+            <article class="device-card" id="card-pixel-watch" tabindex="0" role="button"
+              data-i18n-easter="easter.watch" data-toast-icon="watch"
+              data-easter-msg="Zegarek 41 mm z Wear OS. Używam go do powiadomień, płatności zbliżeniowych i liczenia kroków.">
+              <div class="device-stage" style="--device-tint: #3B3D42;">
+                <svg class="device-art" viewBox="0 0 160 160" aria-hidden="true">
+                  <rect x="58" y="4" width="44" height="40" rx="10" fill="#2A2C30" />
+                  <rect x="58" y="116" width="44" height="40" rx="10" fill="#2A2C30" />
+                  <rect x="119" y="72" width="8" height="16" rx="4" fill="#55585F" />
+                  <circle cx="80" cy="80" r="42" fill="#55585F" />
+                  <circle cx="80" cy="80" r="37" fill="#0D0E10" />
+                  <text x="80" y="86" text-anchor="middle" fill="#E6E8EC" font-size="18" font-family="Google Sans Flex, sans-serif" font-weight="500" class="watch-time">10:08</text>
+                  <circle cx="80" cy="62" r="3" fill="#8AB4F8" />
+                </svg>
               </div>
-              <div class="m3-card-body">
-                <h3 class="m3-card-title">Google Pixel Watch 2</h3>
-                <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
-                  <div class="spec-item spec-item-wide">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.soc">Układ SoC</dt>
-                      <dd class="spec-value">Qualcomm SW5100 + Cortex-M33</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">developer_board</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.memory">Pamięć</dt>
-                      <dd class="spec-value">2 GB RAM • 32 GB eMMC</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">watch</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.case">Koperta</dt>
-                      <dd class="spec-value" data-i18n="devices.watch.case">41 mm Wi-Fi • Wear OS</dd>
-                    </div>
-                  </div>
+              <div class="device-body">
+                <p class="device-kind"><span data-i18n="devices.watch.meta">Zegarek</span> · Matte Black</p>
+                <h3 class="device-title m3-card-title">Google Pixel Watch 2</h3>
+                <dl class="spec-list" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
+                  <div><dt data-i18n="devices.label.soc">Układ</dt><dd>Snapdragon W5 Gen 1</dd></div>
+                  <div><dt data-i18n="devices.label.memory">Pamięć</dt><dd>2 GB · 32 GB</dd></div>
+                  <div><dt data-i18n="devices.label.case">Koperta</dt><dd>41 mm, Wi-Fi</dd></div>
                 </dl>
               </div>
             </article>
-
           </div>
 
-          <!-- Tier 2: Computers (2 cards) -->
-          <div class="m3-grid m3-grid-2" data-device-tier="pc">
-
-            <!-- Device 4: Microsoft Surface Pro 11 -->
-            <article class="m3-card m3-card-interactive device-card accent-platinum" id="card-surface-pro"
-              data-i18n-easter="easter.surface" data-toast-icon="laptop_chromebook" data-toast-accent="#E3E5E8"
-              data-easter-msg="Lekki laptop 2 w 1 z procesorem Snapdragon X Elite i ekranem OLED 120 Hz. Zabieram go na uczelnię i w podróż, bo długo trzyma na baterii.">
-              <div class="m3-card-header">
-                <div class="m3-icon-box" aria-hidden="true">
-                  <span class="material-symbols-outlined">laptop_chromebook</span>
-                </div>
-                <div class="device-header-meta">
-                  <span class="m3-card-meta" data-i18n="devices.surface.meta">Komputer 2 w 1</span>
-                  <span class="device-color-pill">
-                    <span class="spec-color-dot" style="background-color: #D8DCE2;"></span>
-                    <span>Platinum</span>
-                  </span>
-                </div>
+          <div class="device-grid device-grid-2" data-device-tier="pc">
+            <article class="device-card device-card-wide" id="card-surface-pro" tabindex="0" role="button"
+              data-i18n-easter="easter.surface" data-toast-icon="laptop_windows"
+              data-easter-msg="Lekki komputer 2 w 1 ze Snapdragonem X Elite i ekranem OLED. Zabieram go na uczelnię i w podróż, bo długo trzyma na baterii.">
+              <div class="device-stage" style="--device-tint: #DADDE2;">
+                <svg class="device-art" viewBox="0 0 200 140" aria-hidden="true">
+                  <path d="M150 28 L176 120" stroke="#B9BEC6" stroke-width="5" stroke-linecap="round" />
+                  <rect x="22" y="20" width="140" height="96" rx="8" fill="#DADDE2" />
+                  <rect x="28" y="26" width="128" height="84" rx="4" fill="#1A1C20" />
+                  <path d="M28 82 C 60 60, 96 100, 156 70 L156 110 L28 110 Z" fill="#2E4A7A" opacity=".85" />
+                  <path d="M28 92 C 70 78, 110 108, 156 88 L156 110 L28 110 Z" fill="#4D6FA8" opacity=".8" />
+                  <rect x="16" y="116" width="152" height="8" rx="4" fill="#4A4F57" />
+                </svg>
               </div>
-              <div class="m3-card-body">
-                <h3 class="m3-card-title">Microsoft Surface Pro, 11th Edition</h3>
-                <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.cpu">Procesor</dt>
-                      <dd class="spec-value" data-i18n="devices.surface.cpu">Snapdragon X Elite (12 rdzeni)</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">neurology</span>
-                    <div class="spec-text">
-                      <dt class="spec-label">NPU</dt>
-                      <dd class="spec-value">Qualcomm Hexagon (45 TOPS)</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">developer_board</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.memoryStorage">RAM i dysk</dt>
-                      <dd class="spec-value">16 GB LPDDR5x • 1 TB SSD</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">fit_screen</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.display">Ekran</dt>
-                      <dd class="spec-value">13" PixelSense OLED 120 Hz</dd>
-                    </div>
-                  </div>
+              <div class="device-body">
+                <p class="device-kind"><span data-i18n="devices.surface.meta">Komputer 2 w 1</span> · Platinum</p>
+                <h3 class="device-title m3-card-title">Surface Pro, 11th Edition</h3>
+                <dl class="spec-list" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
+                  <div><dt data-i18n="devices.label.cpu">Procesor</dt><dd data-i18n="devices.surface.cpu">Snapdragon X Elite, 12 rdzeni</dd></div>
+                  <div><dt>NPU</dt><dd>Hexagon, 45 TOPS</dd></div>
+                  <div><dt data-i18n="devices.label.memoryStorage">RAM i dysk</dt><dd>16 GB · 1 TB</dd></div>
+                  <div><dt data-i18n="devices.label.display">Ekran</dt><dd>13" OLED, 120 Hz</dd></div>
                 </dl>
               </div>
             </article>
 
-            <!-- Device 5: Miska Ryżenu -->
-            <article class="m3-card m3-card-interactive device-card accent-crimson" id="card-miska-ryzenu"
-              data-i18n-easter="easter.ryzen" data-toast-icon="desktop_windows" data-toast-accent="#EF4444"
-              data-easter-msg="Mój domowy komputer z Ryzenem 5 5600G i grafiką RTX 4060. Stawiam na nim wirtualne maszyny, uczę się sieci i gram wieczorami.">
-              <div class="m3-card-header">
-                <div class="m3-icon-box" aria-hidden="true">
-                  <span class="material-symbols-outlined">desktop_windows</span>
-                </div>
-                <div class="device-header-meta">
-                  <span class="m3-card-meta" data-i18n="devices.pc.meta">Komputer stacjonarny</span>
-                  <span class="device-color-pill">
-                    <span class="spec-color-dot" style="background-color: #EF4444;"></span>
-                    <span data-i18n="devices.pc.tag">Custom Build</span>
-                  </span>
-                </div>
+            <article class="device-card device-card-wide" id="card-miska-ryzenu" tabindex="0" role="button"
+              data-i18n-easter="easter.ryzen" data-toast-icon="desktop_windows"
+              data-easter-msg="Domowy komputer z Ryzenem 5 5600G i RTX 4060. Stawiam na nim maszyny wirtualne, ćwiczę sieci i gram wieczorami.">
+              <div class="device-stage" style="--device-tint: #2A2B30;">
+                <svg class="device-art" viewBox="0 0 200 140" aria-hidden="true">
+                  <rect x="56" y="8" width="88" height="124" rx="6" fill="#1D1E22" />
+                  <rect x="62" y="14" width="56" height="112" rx="3" fill="#2C2E34" />
+                  <rect x="122" y="14" width="16" height="112" rx="3" fill="#25262B" />
+                  <circle cx="130" cy="28" r="3" fill="#E04A3F" />
+                  <rect x="68" y="72" width="44" height="12" rx="2" fill="#3C3F47" />
+                  <rect x="68" y="72" width="44" height="3" fill="#76B900" opacity=".9" />
+                  <circle cx="90" cy="40" r="15" fill="none" stroke="#E04A3F" stroke-width="2.5" />
+                  <circle cx="90" cy="40" r="5" fill="#E04A3F" opacity=".5" />
+                  <rect x="68" y="98" width="44" height="22" rx="2" fill="#26282D" />
+                </svg>
               </div>
-              <div class="m3-card-body">
-                <h3 class="m3-card-title">Miska Ryżenu (PC Desktop)</h3>
-                <dl class="device-specs-grid" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">memory</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.cpu">Procesor</dt>
-                      <dd class="spec-value">AMD Ryzen 5 5600G</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">videogame_asset</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.gpu">Grafika</dt>
-                      <dd class="spec-value">GeForce RTX 4060 8 GB</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">developer_board</span>
-                    <div class="spec-text">
-                      <dt class="spec-label">RAM</dt>
-                      <dd class="spec-value">16 GB DDR4 Dual Channel</dd>
-                    </div>
-                  </div>
-                  <div class="spec-item">
-                    <span class="material-symbols-outlined spec-icon" aria-hidden="true">hard_drive</span>
-                    <div class="spec-text">
-                      <dt class="spec-label" data-i18n="devices.label.storage">Dyski</dt>
-                      <dd class="spec-value">1 TB NVMe + 512 GB HDD</dd>
-                    </div>
-                  </div>
+              <div class="device-body">
+                <p class="device-kind"><span data-i18n="devices.pc.meta">Stacjonarny</span> · <span data-i18n="devices.pc.tag">składak</span></p>
+                <h3 class="device-title m3-card-title">Miska Ryżenu</h3>
+                <dl class="spec-list" aria-label="Specyfikacja" data-i18n-aria="devices.specAria">
+                  <div><dt data-i18n="devices.label.cpu">Procesor</dt><dd>Ryzen 5 5600G</dd></div>
+                  <div><dt data-i18n="devices.label.gpu">Grafika</dt><dd>GeForce RTX 4060, 8 GB</dd></div>
+                  <div><dt>RAM</dt><dd>16 GB DDR4</dd></div>
+                  <div><dt data-i18n="devices.label.storage">Dyski</dt><dd>1 TB NVMe + 512 GB HDD</dd></div>
                 </dl>
               </div>
             </article>
-
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ===================================================================
-         SECTION 5: KONTAKT
-         =================================================================== -->
+    <!-- ===================== KONTAKT ===================== -->
     <section id="contact" class="snap-section reveal-section" aria-labelledby="contact-heading">
       <div class="section-container">
-
-        <header class="section-header">
-          <h2 id="contact-heading" class="section-title" data-i18n="contact.heading">Kontakt</h2>
-          <p class="section-subtitle" data-i18n="contact.subtitle">
-            Najłatwiej złapać mnie mailowo albo przez jedną z poniższych platform.
-          </p>
-        </header>
-
-        <div class="m3-grid m3-grid-3 socials-grid">
-
-          <!-- 1. LinkedIn -->
-          <a href="https://www.linkedin.com/in/micha%C5%82-dzido/" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive accent-linkedin" aria-label="Odwiedź profil LinkedIn Michał Dzido"
-            data-i18n-aria="contact.linkedin.aria">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="m3-svg-icon">
-                  <path
-                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.59 1.59 0 0 0 0-3.18 1.59 1.59 0 0 0 0 3.18m1.39 9.74v-8.37H5.07v8.37h2.78z" />
-                </svg>
-              </div>
-              <span class="m3-card-arrow" aria-hidden="true">
-                <span class="material-symbols-outlined">north_east</span>
-              </span>
-            </div>
-            <div class="m3-card-body">
-              <span class="m3-card-meta">LinkedIn</span>
-              <h3 class="m3-card-title">Michał Dzido</h3>
-              <p class="m3-card-desc" data-i18n="contact.linkedin.desc">Doświadczenie zawodowe, certyfikaty i kontakt biznesowy</p>
-            </div>
+        <div class="contact-grid">
+          <a href="mailto:michaldzido2@gmail.com" class="mail-card" aria-label="Wyślij e-mail do michaldzido2@gmail.com"
+            data-i18n-aria="contact.email.aria">
+            <h2 id="contact-heading" class="mail-heading" data-i18n="contact.heading">Napisz do mnie</h2>
+            <p class="mail-note" data-i18n="contact.email.desc">Najłatwiej złapać mnie mailowo.</p>
+            <span class="mail-address">michaldzido2<wbr>@gmail.com</span>
+            <span class="mail-fab" aria-hidden="true"><span class="material-symbols-rounded">arrow_outward</span></span>
           </a>
 
-          <!-- 2. GitHub -->
-          <a href="https://github.com/m1chi0001" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive accent-github" aria-label="Odwiedź profil GitHub m1chi0001"
-            data-i18n-aria="contact.github.aria">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="m3-svg-icon">
-                  <path
-                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
-                </svg>
-              </div>
-              <span class="m3-card-arrow" aria-hidden="true">
-                <span class="material-symbols-outlined">north_east</span>
-              </span>
-            </div>
-            <div class="m3-card-body">
-              <span class="m3-card-meta">GitHub</span>
-              <h3 class="m3-card-title">m1chi0001</h3>
-              <p class="m3-card-desc" data-i18n="contact.github.desc">Kod źródłowy tej strony i projekty ze studiów</p>
-            </div>
-          </a>
-
-          <!-- 3. Instagram -->
-          <a href="https://www.instagram.com/m1chi0001/" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive accent-instagram" aria-label="Odwiedź profil Instagram m1chi0001"
-            data-i18n-aria="contact.instagram.aria">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="m3-svg-icon">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-                </svg>
-              </div>
-              <span class="m3-card-arrow" aria-hidden="true">
-                <span class="material-symbols-outlined">north_east</span>
-              </span>
-            </div>
-            <div class="m3-card-body">
-              <span class="m3-card-meta">Instagram</span>
-              <h3 class="m3-card-title">@m1chi0001</h3>
-              <p class="m3-card-desc" data-i18n="contact.instagram.desc">Zdjęcia z wyjazdów i kadry robione Pixelem</p>
-            </div>
-          </a>
-
-          <!-- 4. X (Twitter) -->
-          <a href="https://x.com/M1chi0001" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive accent-x" aria-label="Odwiedź profil X M1chi0001"
-            data-i18n-aria="contact.x.aria">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="m3-svg-icon">
-                  <path
-                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </div>
-              <span class="m3-card-arrow" aria-hidden="true">
-                <span class="material-symbols-outlined">north_east</span>
-              </span>
-            </div>
-            <div class="m3-card-body">
-              <span class="m3-card-meta">X (Twitter)</span>
-              <h3 class="m3-card-title">@M1chi0001</h3>
-              <p class="m3-card-desc" data-i18n="contact.x.desc">Krótkie wpisy o premierach sprzętu, Androidzie i pracy w IT</p>
-            </div>
-          </a>
-
-          <!-- 5. Google Pixel Polska -->
-          <a href="https://www.facebook.com/groups/googlepixelpolska" target="_blank" rel="noopener noreferrer"
-            class="m3-card m3-card-interactive accent-community" aria-label="Grupa Facebook Google Pixel Polska"
-            data-i18n-aria="contact.pixel.aria">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">groups</span>
-              </div>
-              <span class="m3-card-arrow" aria-hidden="true">
-                <span class="material-symbols-outlined">north_east</span>
-              </span>
-            </div>
-            <div class="m3-card-body">
-              <span class="m3-card-meta" data-i18n="contact.pixel.meta">Społeczność</span>
-              <h3 class="m3-card-title">Google Pixel Polska</h3>
-              <p class="m3-card-desc" data-i18n="contact.pixel.desc">Polska społeczność użytkowników telefonów i akcesoriów Google Pixel</p>
-            </div>
-          </a>
-
-          <!-- 6. Direct E-mail Card -->
-          <a href="mailto:michaldzido2@gmail.com" class="m3-card m3-card-interactive accent-sky"
-            aria-label="Wyślij e-mail do michaldzido2@gmail.com" data-i18n-aria="contact.email.aria">
-            <div class="m3-card-header">
-              <div class="m3-icon-box" aria-hidden="true">
-                <span class="material-symbols-outlined">mail</span>
-              </div>
-              <span class="m3-card-arrow" aria-hidden="true">
-                <span class="material-symbols-outlined">send</span>
-              </span>
-            </div>
-            <div class="m3-card-body">
-              <span class="m3-card-meta" data-i18n="contact.email.meta">Poczta e-mail</span>
-              <h3 class="m3-card-title">michaldzido2@gmail.com</h3>
-              <p class="m3-card-desc" data-i18n="contact.email.desc">Napisz bezpośrednio na moją skrzynkę pocztową</p>
-            </div>
-          </a>
-
+          <ul class="link-list">
+            <li>
+              <a href="https://www.linkedin.com/in/micha%C5%82-dzido/" target="_blank" rel="noopener noreferrer" class="link-row">
+                <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.59 1.59 0 0 0 0-3.18 1.59 1.59 0 0 0 0 3.18m1.39 9.74v-8.37H5.07v8.37h2.78z" /></svg></span>
+                <span class="link-text"><span class="link-name">LinkedIn</span>
+                  <span class="link-desc" data-i18n="contact.linkedin.desc">Przebieg pracy i certyfikaty</span></span>
+                <span class="material-symbols-rounded link-arrow" aria-hidden="true">arrow_outward</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/m1chi0001" target="_blank" rel="noopener noreferrer" class="link-row">
+                <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" /></svg></span>
+                <span class="link-text"><span class="link-name">GitHub</span>
+                  <span class="link-desc" data-i18n="contact.github.desc">Kod tej strony i projekty ze studiów</span></span>
+                <span class="material-symbols-rounded link-arrow" aria-hidden="true">arrow_outward</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/groups/googlepixelpolska" target="_blank" rel="noopener noreferrer" class="link-row">
+                <span class="link-icon" aria-hidden="true"><span class="material-symbols-rounded">groups</span></span>
+                <span class="link-text"><span class="link-name">Google Pixel Polska</span>
+                  <span class="link-desc" data-i18n="contact.pixel.desc">Grupa na Facebooku, którą moderuję</span></span>
+                <span class="material-symbols-rounded link-arrow" aria-hidden="true">arrow_outward</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/m1chi0001/" target="_blank" rel="noopener noreferrer" class="link-row">
+                <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" /></svg></span>
+                <span class="link-text"><span class="link-name">Instagram</span>
+                  <span class="link-desc" data-i18n="contact.instagram.desc">Zdjęcia z wyjazdów robione Pixelem</span></span>
+                <span class="material-symbols-rounded link-arrow" aria-hidden="true">arrow_outward</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/M1chi0001" target="_blank" rel="noopener noreferrer" class="link-row">
+                <span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg></span>
+                <span class="link-text"><span class="link-name">X</span>
+                  <span class="link-desc" data-i18n="contact.x.desc">Premiery sprzętu, Android, praca w IT</span></span>
+                <span class="material-symbols-rounded link-arrow" aria-hidden="true">arrow_outward</span>
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <!-- Minimalist Material 3 Footer -->
         <footer class="app-footer">
-          <div class="footer-content">
-            <div class="footer-meta-row">
-              <p class="footer-copyright">
-                <span>&copy; <span id="current-year">2026</span> Michał Dzido</span>
-              </p>
-              <span class="footer-divider" aria-hidden="true">•</span>
-              <span class="footer-tech-note">Material 3 Expressive &amp; Google Sans Flex</span>
-              <span class="footer-divider" aria-hidden="true">•</span>
-              <button type="button" id="open-terminal-btn" class="footer-terminal-link"
-                title="Otwórz interaktywny terminal (klawisz ~)" data-i18n-title="footer.terminalTitle">
-                <span class="material-symbols-outlined" aria-hidden="true">terminal</span>
-                <span data-i18n="footer.terminalLabel">Terminal</span>
-                <kbd class="m3-kbd">~</kbd>
-              </button>
-            </div>
-          </div>
+          <span>&copy; <span id="current-year">2026</span> Michał Dzido</span>
+          <button type="button" id="open-terminal-btn" class="footer-terminal-link"
+            title="Otwórz terminal (klawisz ~)" data-i18n-title="footer.terminalTitle">
+            <span data-i18n="footer.terminalLabel">Otwórz terminal</span>
+            <kbd class="kbd">~</kbd>
+          </button>
         </footer>
-
       </div>
     </section>
-
   </main>
 
-  <!-- ===================================================================
-       EASTER EGG: MINI-TERMINAL MODAL (JETBRAINS MONO)
-       =================================================================== -->
+  <!-- Terminal easter egg -->
   <div id="terminal-backdrop" class="terminal-backdrop" aria-hidden="true">
     <aside id="m3-terminal-modal" class="m3-terminal-modal" role="dialog" aria-modal="true"
       aria-labelledby="terminal-title">
       <header class="terminal-header">
-        <div class="terminal-title-group">
-          <span class="material-symbols-outlined terminal-badge-icon" aria-hidden="true">terminal</span>
-          <div>
-            <h3 id="terminal-title" class="terminal-title">m1chi@pixel-os: ~</h3>
-            <span class="terminal-subtitle" data-i18n="terminal.subtitle">JetBrains Mono • powłoka interaktywna</span>
-          </div>
-        </div>
+        <h3 id="terminal-title" class="terminal-title">m1chi@pixel-os: ~</h3>
         <button type="button" id="close-terminal-btn" class="terminal-close-btn" aria-label="Zamknij terminal"
           data-i18n-aria="terminal.closeAria">
-          <span class="material-symbols-outlined" aria-hidden="true">close</span>
+          <span class="material-symbols-rounded" aria-hidden="true">close</span>
         </button>
       </header>
-
       <div id="terminal-output" class="terminal-output" aria-live="polite">
         <div class="term-line term-welcome" data-i18n-html="terminal.welcomeHtml">
-          Sesja uruchomiona. Wybierz polecenie poniżej lub wpisz komendę (np. <strong>help</strong>):
+          Wpisz <strong>help</strong> albo kliknij jedno z poleceń poniżej.
         </div>
       </div>
-
-      <div class="terminal-chips" aria-label="Szybkie komendy terminala" data-i18n-aria="terminal.chipsAria">
+      <div class="terminal-chips" aria-label="Szybkie komendy" data-i18n-aria="terminal.chipsAria">
         <button type="button" class="term-chip" data-cmd="help">help</button>
         <button type="button" class="term-chip" data-cmd="whoami">whoami</button>
         <button type="button" class="term-chip" data-cmd="neofetch">neofetch</button>
@@ -1082,38 +647,33 @@
         <button type="button" class="term-chip" data-cmd="contact">contact</button>
         <button type="button" class="term-chip" data-cmd="clear">clear</button>
       </div>
-
       <form id="terminal-form" class="terminal-input-row" autocomplete="off">
-        <span class="terminal-prompt" aria-hidden="true"><span class="prompt-host">m1chi@pixel-os:</span>~$</span>
+        <span class="terminal-prompt" aria-hidden="true">~$</span>
         <input type="text" id="terminal-input" class="terminal-input" inputmode="text" autocapitalize="none"
-          autocorrect="off" spellcheck="false" enterkeyhint="send"
-          placeholder="Wpisz komendę (help, neofetch, skills)..." aria-label="Wpisz komendę terminala"
-          data-i18n-placeholder="terminal.placeholder" data-i18n-aria="terminal.inputAria">
+          autocorrect="off" spellcheck="false" enterkeyhint="send" placeholder="help"
+          aria-label="Wpisz komendę terminala" data-i18n-aria="terminal.inputAria">
         <button type="submit" class="terminal-send-btn" aria-label="Wykonaj komendę"
           data-i18n-aria="terminal.sendAria">
-          <span class="material-symbols-outlined" aria-hidden="true">subdirectory_arrow_left</span>
+          <span class="material-symbols-rounded" aria-hidden="true">keyboard_return</span>
         </button>
       </form>
     </aside>
   </div>
 
-  <!-- M3 Expressive Snackbar Notification -->
+  <!-- Snackbar -->
   <aside id="m3-toast" class="m3-toast" role="status" aria-live="polite">
-    <div class="toast-icon-box" aria-hidden="true">
-      <span id="toast-icon" class="material-symbols-outlined toast-icon">info</span>
-    </div>
-    <div class="toast-content">
+    <span id="toast-icon" class="material-symbols-rounded toast-icon" aria-hidden="true">info</span>
+    <span class="toast-content">
       <span id="toast-title" class="toast-title">Status</span>
       <span id="toast-msg" class="toast-msg">Komunikat</span>
-    </div>
+    </span>
     <button type="button" id="toast-close-btn" class="toast-close-btn" aria-label="Zamknij powiadomienie"
       data-i18n-aria="toast.closeAria">
-      <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      <span class="material-symbols-rounded" aria-hidden="true">close</span>
     </button>
   </aside>
 
-  <!-- Main JavaScript Logic -->
-  <script src="scripts/main.js?v=9"></script>
+  <script src="scripts/main.js?v=20"></script>
 </body>
 
 </html>
