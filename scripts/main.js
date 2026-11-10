@@ -71,8 +71,9 @@ const I18N = {
     "hero.avatarWrapperAria": "Portret Michała Dzido. Kliknij, aby przełączyć na awatar 3D",
     "hero.photoAlt": "Michał Dzido, zdjęcie portretowe",
     "hero.avatarAlt": "Michał Dzido, awatar 3D",
-    "hero.avatarHintAria": "Przełącz między zdjęciem a awatarem 3D",
-    "hero.avatarHint": "Wersja 3D",
+    "hero.avatarHintAria": "Pokaż awatar 3D zamiast zdjęcia",
+    "hero.avatarPhoto": "Zdjęcie",
+    "hero.avatar3d": "Awatar 3D",
 
     "lastfm.openProfile": "Otwórz profil Last.fm",
     "lastfm.albumAlt": "Okładka albumu",
@@ -164,6 +165,7 @@ const I18N = {
 
     "footer.terminalTitle": "Otwórz terminal (klawisz ~)",
     "footer.terminalLabel": "Otwórz terminal",
+    "footer.credits": "Zdjęcia urządzeń: Google, Microsoft, AMD",
 
     "terminal.closeAria": "Zamknij terminal",
     "terminal.welcomeHtml": "Wpisz <strong>help</strong> albo kliknij jedno z poleceń poniżej.",
@@ -224,8 +226,9 @@ const I18N = {
     "hero.avatarWrapperAria": "Portrait of Michał Dzido. Click to switch to the 3D avatar",
     "hero.photoAlt": "Michał Dzido, portrait photo",
     "hero.avatarAlt": "Michał Dzido, 3D avatar",
-    "hero.avatarHintAria": "Switch between the photo and the 3D avatar",
-    "hero.avatarHint": "3D version",
+    "hero.avatarHintAria": "Show the 3D avatar instead of the photo",
+    "hero.avatarPhoto": "Photo",
+    "hero.avatar3d": "3D avatar",
 
     "lastfm.openProfile": "Open Last.fm profile",
     "lastfm.albumAlt": "Album cover",
@@ -317,6 +320,7 @@ const I18N = {
 
     "footer.terminalTitle": "Open terminal (~ key)",
     "footer.terminalLabel": "Open terminal",
+    "footer.credits": "Device photos: Google, Microsoft, AMD",
 
     "terminal.closeAria": "Close terminal",
     "terminal.welcomeHtml": "Type <strong>help</strong> or click one of the commands below.",
@@ -442,6 +446,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 11. M3 Expressive Connected Device Category Filter
   initDevicesFilter();
+
+  // 12. Motion: hero entrance, name stretch on touch, sliding nav indicator, wavy progress
+  initHeroName();
+  initNavIndicator();
+  initLastFmProgress();
 });
 
 /* ===================================================================
@@ -638,7 +647,23 @@ function initThemeManager() {
     themeToggleBtn.addEventListener('click', () => {
       const currentTheme = htmlRoot.getAttribute('data-theme') || 'dark';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      applyTheme(newTheme);
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (document.startViewTransition && !reduceMotion) {
+        // Circular reveal growing from the toggle, like the Android dark theme switch
+        const rect = themeToggleBtn.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+        const transition = document.startViewTransition(() => applyTheme(newTheme));
+        transition.ready.then(() => {
+          document.documentElement.animate(
+            { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+            { duration: 560, easing: 'cubic-bezier(0.2, 0, 0, 1)', pseudoElement: '::view-transition-new(root)' }
+          );
+        }).catch(() => {});
+      } else {
+        applyTheme(newTheme);
+      }
       localStorage.setItem('m3_portfolio_theme', newTheme);
       showToast({
         title: t('controls.themeToastTitle'),
@@ -848,13 +873,20 @@ function initScrollReveal() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
 
-  revealSections.forEach((sec) => revealObserver.observe(sec));
+  // Items inside a section rise in one after another
+  revealSections.forEach((sec) => {
+    sec.querySelectorAll('[data-reveal]').forEach((item, index) => {
+      item.style.setProperty('--reveal-i', index);
+    });
+    revealObserver.observe(sec);
+  });
 }
 
 /* ===================================================================
@@ -1220,6 +1252,7 @@ async function updateLastFmStatus() {
       : (track.artist || t("lastfm.unknownArtist"));
 
     if (titleEl) titleEl.textContent = trackName;
+    syncLastFmProgressTrack(trackName, trackArtist, isPlaying);
     if (artistEl) artistEl.textContent = trackArtist;
 
     const albumImg = track.image?.find(img => img.size === "large")?.["#text"]
@@ -1488,6 +1521,14 @@ function initDevicesFilter() {
         b.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
       });
 
+      const layout = group.closest('section')?.querySelector('.devices-layout');
+      if (layout) {
+        // Restart the entrance animation for the cards that stay visible
+        layout.classList.remove('was-filtered');
+        void layout.offsetWidth;
+        layout.classList.add('was-filtered');
+      }
+
       tiers.forEach((tier) => {
         const tierName = tier.getAttribute('data-device-tier');
         const shouldShow = filter === 'all' || filter === tierName;
@@ -1495,6 +1536,174 @@ function initDevicesFilter() {
       });
     });
   });
+}
+
+/* ===================================================================
+   12. MOTION
+   =================================================================== */
+
+// Name in the hero: letters stretch on hover (CSS). On touch screens a tap does the same.
+function initHeroName() {
+  const title = document.getElementById('hero-title-h1');
+  if (!title) return;
+  title.addEventListener('click', () => {
+    if (window.matchMedia('(hover: hover)').matches) return;
+    title.classList.add('is-stretched');
+    clearTimeout(title._stretchTimer);
+    title._stretchTimer = setTimeout(() => title.classList.remove('is-stretched'), 1400);
+  });
+}
+
+// Desktop toolbar: one pill that slides to the active tab instead of jumping
+function initNavIndicator() {
+  const list = document.querySelector('.nav-tabs');
+  if (!list) return;
+  const indicator = document.createElement('span');
+  indicator.className = 'nav-indicator';
+  indicator.setAttribute('aria-hidden', 'true');
+  list.prepend(indicator);
+
+  const place = () => {
+    const active = list.querySelector('.nav-link.active');
+    if (!active) return;
+    const listRect = list.getBoundingClientRect();
+    const rect = active.getBoundingClientRect();
+    indicator.style.setProperty('--x', `${rect.left - listRect.left}px`);
+    indicator.style.setProperty('--w', `${rect.width}px`);
+  };
+
+  // Labels of inactive tabs collapse on narrower screens, so re-measure after every change
+  new MutationObserver(() => requestAnimationFrame(place))
+    .observe(list, { subtree: true, attributes: true, attributeFilter: ['class'] });
+  if ('ResizeObserver' in window) new ResizeObserver(place).observe(list);
+  window.addEventListener('resize', place, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  place();
+  requestAnimationFrame(() => list.classList.add('has-indicator'));
+}
+
+/* Wavy progress indicator for the Last.fm card (M3 Expressive "wavy" style).
+   The wave is drawn every frame: its phase keeps moving while music plays, and the
+   amplitude eases down to a flat line when nothing is playing. Last.fm does not report
+   the playback position, so the bar starts when the page first sees the track and
+   advances against the track length from track.getInfo. */
+const lastFmProgress = {
+  key: '',
+  startedAt: 0,
+  durationMs: 0,
+  playing: false,
+  wake: () => {}
+};
+
+function syncLastFmProgressTrack(trackName, trackArtist, isPlaying) {
+  const key = `${trackArtist}\u0000${trackName}`;
+  lastFmProgress.playing = isPlaying;
+  lastFmProgress.wake();
+  if (key === lastFmProgress.key) return;
+
+  lastFmProgress.key = key;
+  lastFmProgress.startedAt = Date.now();
+  lastFmProgress.durationMs = 0;
+  if (!isPlaying || !LASTFM_CONFIG.apiKey || LASTFM_CONFIG.proxyUrl) return;
+
+  const url = `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&artist=${encodeURIComponent(trackArtist)}`
+    + `&track=${encodeURIComponent(trackName)}&api_key=${encodeURIComponent(LASTFM_CONFIG.apiKey)}&format=json`;
+  fetch(url)
+    .then((res) => (res.ok ? res.json() : null))
+    .then((data) => {
+      const ms = Number(data?.track?.duration) || 0;
+      if (lastFmProgress.key === key && ms > 0) lastFmProgress.durationMs = ms;
+    })
+    .catch(() => {});
+}
+
+function initLastFmProgress() {
+  const bar = document.getElementById('lastfm-progress');
+  if (!bar) return;
+  const svg = bar.querySelector('.lastfm-wave');
+  const path = bar.querySelector('.lastfm-wave-path');
+  const thumb = bar.querySelector('.lastfm-thumb');
+  const rest = bar.querySelector('.lastfm-rest');
+  if (!svg || !path || !thumb || !rest) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const HEIGHT = 12;
+  const WAVELENGTH = 20;
+  const MAX_AMPLITUDE = 3;
+  const SPEED = 18; // px per second
+  const GAP = 4;
+  const THUMB = 4;
+
+  let width = 0;
+  let phase = 0;
+  let amplitude = 0;
+  let fraction = 0;
+  let last = performance.now();
+  let visible = true;
+  let frame = 0;
+
+  const measure = () => { width = bar.clientWidth; };
+  measure();
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) lastFmProgress.wake();
+    }).observe(bar);
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) lastFmProgress.wake();
+  });
+
+  function targetFraction() {
+    if (!lastFmProgress.playing) return 1;
+    if (!lastFmProgress.durationMs) return 0.35;
+    const elapsed = Date.now() - lastFmProgress.startedAt;
+    return Math.min(0.98, Math.max(0.02, elapsed / lastFmProgress.durationMs));
+  }
+
+  function draw() {
+    const played = Math.max(0, (width - THUMB - GAP * 2) * fraction);
+    const amp = amplitude;
+    let d = `M 0 ${HEIGHT / 2}`;
+    for (let x = 2; x <= played; x += 2) {
+      const y = HEIGHT / 2 + amp * Math.sin(((x - phase) / WAVELENGTH) * Math.PI * 2);
+      d += ` L ${x} ${y.toFixed(2)}`;
+    }
+    path.setAttribute('d', d);
+    svg.setAttribute('width', Math.max(1, played));
+    svg.setAttribute('height', HEIGHT);
+    svg.setAttribute('viewBox', `0 0 ${Math.max(1, played)} ${HEIGHT}`);
+    thumb.style.transform = `translateX(${played + GAP}px)`;
+    rest.style.left = `${played + GAP * 2 + THUMB}px`;
+  }
+
+  function tick(now) {
+    frame = 0;
+    const dt = Math.min(0.1, (now - last) / 1000);
+    last = now;
+
+    const playing = lastFmProgress.playing && !reduceMotion.matches;
+    const targetAmp = playing ? MAX_AMPLITUDE : 0;
+    // Critically damped easing: no overshoot on amplitude or position
+    amplitude += (targetAmp - amplitude) * Math.min(1, dt * 6);
+    fraction += (targetFraction() - fraction) * Math.min(1, dt * 3);
+    if (playing) phase = (phase + SPEED * dt) % WAVELENGTH;
+
+    draw();
+    // Stop drawing once a paused bar has settled; syncLastFmProgressTrack wakes it again
+    const settled = !playing && amplitude < 0.01 && Math.abs(targetFraction() - fraction) < 0.001;
+    if (visible && !document.hidden && !settled) frame = requestAnimationFrame(tick);
+  }
+
+  lastFmProgress.wake = () => {
+    if (!frame) {
+      last = performance.now();
+      frame = requestAnimationFrame(tick);
+    }
+  };
+  if ('ResizeObserver' in window) new ResizeObserver(() => { measure(); draw(); }).observe(bar);
+  frame = requestAnimationFrame(tick);
 }
 
 // Global engine exports for integration & test suites
