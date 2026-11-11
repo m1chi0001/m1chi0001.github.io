@@ -71,7 +71,7 @@ const I18N = {
     "hero.avatarWrapperAria": "Portret Michała Dzido. Kliknij, aby przełączyć na awatar 3D",
     "hero.photoAlt": "Michał Dzido, zdjęcie portretowe",
     "hero.avatarAlt": "Michał Dzido, awatar 3D",
-    "hero.avatarHintAria": "Pokaż awatar 3D zamiast zdjęcia",
+    "hero.avatarHintAria": "Awatar 3D",
     "hero.avatarPhoto": "Zdjęcie",
     "hero.avatar3d": "Awatar 3D",
 
@@ -165,7 +165,7 @@ const I18N = {
 
     "footer.terminalTitle": "Otwórz terminal (klawisz ~)",
     "footer.terminalLabel": "Otwórz terminal",
-    "footer.credits": "Zdjęcia urządzeń: Google, Microsoft, AMD",
+    "footer.credits": "Zdjęcia urządzeń: Google, Microsoft",
 
     "terminal.closeAria": "Zamknij terminal",
     "terminal.welcomeHtml": "Wpisz <strong>help</strong> albo kliknij jedno z poleceń poniżej.",
@@ -226,7 +226,7 @@ const I18N = {
     "hero.avatarWrapperAria": "Portrait of Michał Dzido. Click to switch to the 3D avatar",
     "hero.photoAlt": "Michał Dzido, portrait photo",
     "hero.avatarAlt": "Michał Dzido, 3D avatar",
-    "hero.avatarHintAria": "Show the 3D avatar instead of the photo",
+    "hero.avatarHintAria": "3D avatar",
     "hero.avatarPhoto": "Photo",
     "hero.avatar3d": "3D avatar",
 
@@ -320,7 +320,7 @@ const I18N = {
 
     "footer.terminalTitle": "Open terminal (~ key)",
     "footer.terminalLabel": "Open terminal",
-    "footer.credits": "Device photos: Google, Microsoft, AMD",
+    "footer.credits": "Device photos: Google, Microsoft",
 
     "terminal.closeAria": "Close terminal",
     "terminal.welcomeHtml": "Type <strong>help</strong> or click one of the commands below.",
@@ -450,6 +450,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 12. Motion: hero entrance, name stretch on touch, sliding nav indicator, wavy progress
   initHeroName();
   initNavIndicator();
+  initRipples();
+  initDeviceTilt();
   initLastFmProgress();
 });
 
@@ -897,6 +899,22 @@ function initAvatarInteractive() {
   if (!avatarWrapper) return;
 
   const hintBtn = document.getElementById('avatar-hover-hint');
+  const art = avatarWrapper.querySelector('.avatar-art');
+
+  // The 3D avatar is not needed for the first paint: load it on intent or when the page is idle
+  const loadArt = () => {
+    if (!art || !art.dataset.src) return;
+    if (art.dataset.srcset) art.srcset = art.dataset.srcset;
+    art.src = art.dataset.src;
+    delete art.dataset.src;
+    delete art.dataset.srcset;
+  };
+  avatarWrapper.addEventListener('pointerenter', loadArt, { once: true });
+  avatarWrapper.addEventListener('focusin', loadArt, { once: true });
+  window.addEventListener('load', () => {
+    const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 2500));
+    idle(loadArt, { timeout: 5000 });
+  });
 
   const syncAria = () => {
     const isActive = avatarWrapper.classList.contains('is-avatar-active');
@@ -908,6 +926,7 @@ function initAvatarInteractive() {
   avatarWrapper.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
+    loadArt();
     avatarWrapper.classList.toggle('is-avatar-active');
     // Suppress the desktop :hover preview until the pointer leaves, so the
     // toggle is visible right away instead of being masked by the hover state.
@@ -1554,32 +1573,137 @@ function initHeroName() {
   });
 }
 
-// Desktop toolbar: one pill that slides to the active tab instead of jumping
+// Toolbars (desktop and mobile): one pill slides to the active item instead of jumping
 function initNavIndicator() {
-  const list = document.querySelector('.nav-tabs');
-  if (!list) return;
+  setupNavIndicator(document.querySelector('.nav-tabs'), '.nav-link', null);
+  setupNavIndicator(document.getElementById('mobile-nav'), '.mobile-nav-item', mobileItemWidth);
+  initMobileToolbarAutoHide();
+}
+
+// The mobile items animate their width (the active one opens up with its label),
+// so the pill is placed on the final layout computed up front, not on the live one.
+function mobileItemWidth(item, isActive) {
+  if (!isActive) return 52;
+  const label = item.querySelector('.mobile-nav-label');
+  return 16 + 24 + 8 + (label ? label.scrollWidth : 0) + 18;
+}
+
+function setupNavIndicator(container, itemSelector, finalWidth) {
+  if (!container) return;
   const indicator = document.createElement('span');
   indicator.className = 'nav-indicator';
   indicator.setAttribute('aria-hidden', 'true');
-  list.prepend(indicator);
+  container.prepend(indicator);
 
   const place = () => {
-    const active = list.querySelector('.nav-link.active');
-    if (!active) return;
-    const listRect = list.getBoundingClientRect();
+    const items = Array.from(container.querySelectorAll(itemSelector));
+    const active = items.find((item) => item.classList.contains('active'));
+    if (!active || !container.offsetParent) return;
+
+    if (finalWidth) {
+      const style = getComputedStyle(container);
+      const gap = parseFloat(style.columnGap) || 0;
+      let x = parseFloat(style.paddingLeft) || 0;
+      for (const item of items) {
+        const w = finalWidth(item, item === active);
+        if (item === active) {
+          indicator.style.setProperty('--x', `${x}px`);
+          indicator.style.setProperty('--w', `${w}px`);
+          break;
+        }
+        x += w + gap;
+      }
+      return;
+    }
+
+    const box = container.getBoundingClientRect();
     const rect = active.getBoundingClientRect();
-    indicator.style.setProperty('--x', `${rect.left - listRect.left}px`);
+    indicator.style.setProperty('--x', `${rect.left - box.left}px`);
     indicator.style.setProperty('--w', `${rect.width}px`);
   };
 
-  // Labels of inactive tabs collapse on narrower screens, so re-measure after every change
   new MutationObserver(() => requestAnimationFrame(place))
-    .observe(list, { subtree: true, attributes: true, attributeFilter: ['class'] });
-  if ('ResizeObserver' in window) new ResizeObserver(place).observe(list);
+    .observe(container, { subtree: true, attributes: true, attributeFilter: ['class'] });
   window.addEventListener('resize', place, { passive: true });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
   place();
-  requestAnimationFrame(() => list.classList.add('has-indicator'));
+  requestAnimationFrame(() => container.classList.add('has-indicator'));
+}
+
+// Floating toolbar on phones hides while scrolling down and returns on the way up
+function initMobileToolbarAutoHide() {
+  const bar = document.getElementById('mobile-nav');
+  if (!bar) return;
+  let lastY = window.scrollY;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      const delta = y - lastY;
+      const nearBottom = window.innerHeight + y >= document.documentElement.scrollHeight - 80;
+      if (y < 120 || nearBottom || delta < -8) bar.classList.remove('is-hidden');
+      else if (delta > 8) bar.classList.add('is-hidden');
+      if (Math.abs(delta) > 8) lastY = y;
+      ticking = false;
+    });
+  }, { passive: true });
+  // Keyboard users: never leave a focused item off screen
+  bar.addEventListener('focusin', () => bar.classList.remove('is-hidden'));
+}
+
+// M3 ripple: a circle grows from the point you touched and fades on release
+function initRipples() {
+  const selector = '.btn, .chip, .control-btn, .m3x-filter-btn, .link-row, .device-card, .nav-link, '
+    + '.mobile-nav-item, .avatar-toggle, .footer-terminal-link, .term-chip, .lastfm-card, .mail-card, .docked-avatar-chip';
+  document.querySelectorAll(selector).forEach((el) => el.classList.add('has-ripple'));
+
+  document.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    const host = e.target.closest('.has-ripple');
+    if (!host || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const rect = host.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const radius = Math.hypot(Math.max(x, rect.width - x), Math.max(y, rect.height - y));
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.width = ripple.style.height = `${radius * 2}px`;
+    ripple.style.left = `${x - radius}px`;
+    ripple.style.top = `${y - radius}px`;
+    host.appendChild(ripple);
+
+    const release = () => {
+      ripple.classList.add('is-out');
+      setTimeout(() => ripple.remove(), 700);
+      window.removeEventListener('pointerup', release);
+      window.removeEventListener('pointercancel', release);
+    };
+    window.addEventListener('pointerup', release);
+    window.addEventListener('pointercancel', release);
+  });
+}
+
+// Device cards lean a few degrees towards the mouse pointer
+function initDeviceTilt() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.device-card').forEach((card) => {
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      card.classList.add('is-tilting');
+      card.style.setProperty('--ry', `${(px * 6).toFixed(2)}deg`);
+      card.style.setProperty('--rx', `${(-py * 6).toFixed(2)}deg`);
+    });
+    card.addEventListener('pointerleave', () => {
+      card.classList.remove('is-tilting');
+      card.style.setProperty('--rx', '0deg');
+      card.style.setProperty('--ry', '0deg');
+    });
+  });
 }
 
 /* Wavy progress indicator for the Last.fm card (M3 Expressive "wavy" style).
