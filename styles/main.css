@@ -34,6 +34,9 @@
   --spring-fast-effects: 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
   --spring-default-effects: 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
   --spring-slow-effects: 300ms cubic-bezier(0.34, 0.88, 0.34, 1.00);
+  /* Corner morphs get their own spring with a very small overshoot. A large
+     overshoot on border-radius dips below the target and flashes sharp corners. */
+  --spring-shape: 420ms cubic-bezier(0.30, 1.12, 0.40, 1.00);
 
   /* Layout */
   --page-max: 1120px;
@@ -280,7 +283,7 @@ strong { font-weight: 600; color: var(--on-surface); }
   gap: 8px;
   height: 56px;
   padding: 0 var(--pad) 0 calc(var(--pad) - 4px);
-  border-radius: var(--corner-full);
+  border-radius: 28px;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -289,7 +292,7 @@ strong { font-weight: 600; color: var(--on-surface); }
   isolation: isolate;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
-  transition: border-radius var(--spring-fast-spatial), padding var(--spring-fast-spatial),
+  transition: border-radius var(--spring-shape), padding var(--spring-default-spatial),
     box-shadow var(--spring-default-effects), background-color var(--spring-fast-effects),
     color var(--spring-fast-effects);
 }
@@ -313,7 +316,6 @@ strong { font-weight: 600; color: var(--on-surface); }
   transition: opacity var(--spring-fast-effects);
 }
 .btn:hover::after { opacity: var(--state-hover); }
-.btn:active { border-radius: var(--corner-l); }
 .btn:active::after { opacity: var(--state-press); }
 
 .btn-filled { background: var(--primary); color: var(--on-primary); }
@@ -343,15 +345,15 @@ strong { font-weight: 600; color: var(--on-surface); }
   border-radius: var(--corner-s);
   color: var(--on-surface-variant);
   isolation: isolate;
-  transition: border-radius var(--spring-fast-spatial), background-color var(--spring-fast-effects),
+  transition: border-radius var(--spring-shape), background-color var(--spring-fast-effects),
     color var(--spring-fast-effects);
 }
-.controls > .control-btn:first-child { border-radius: var(--corner-full) var(--corner-s) var(--corner-s) var(--corner-full); }
-.controls > .control-btn:last-child { border-radius: var(--corner-s) var(--corner-full) var(--corner-full) var(--corner-s); }
+.controls > .control-btn:first-child { border-radius: 20px var(--corner-s) var(--corner-s) 20px; }
+.controls > .control-btn:last-child { border-radius: var(--corner-s) 20px 20px var(--corner-s); }
 .control-btn:hover { background: var(--surface-highest); color: var(--on-surface); }
 .control-btn:active,
-.controls > .control-btn:active { border-radius: var(--corner-full); }
-.control-btn[aria-expanded="true"] { background: var(--secondary-container); color: var(--on-secondary-container); border-radius: var(--corner-full); }
+.controls > .control-btn:active { border-radius: 20px; }
+.control-btn[aria-expanded="true"] { background: var(--secondary-container); color: var(--on-secondary-container); border-radius: 20px; }
 
 .lang-code {
   font-size: 0.8125rem;
@@ -398,8 +400,8 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
 .swatch-circle {
   width: 32px;
   height: 32px;
-  border-radius: var(--corner-full);
-  transition: border-radius var(--spring-fast-spatial), transform var(--spring-fast-spatial);
+  border-radius: 16px;
+  transition: border-radius var(--spring-shape), transform var(--spring-fast-spatial);
 }
 .palette-swatch:hover .swatch-circle { transform: scale(1.08); }
 .palette-swatch.active .swatch-circle {
@@ -442,7 +444,7 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
   font-weight: 500;
   white-space: nowrap;
   transition: background-color var(--spring-fast-effects), color var(--spring-fast-effects),
-    padding var(--spring-fast-spatial);
+    padding var(--spring-default-spatial);
 }
 .nav-link:hover { color: var(--on-surface); background: color-mix(in oklch, var(--on-surface) 8%, transparent); }
 .nav-link.active {
@@ -466,7 +468,8 @@ html[data-theme="light"] .sun-icon { opacity: 0; transform: rotate(-90deg) scale
   transform: translateX(var(--x, 0));
   opacity: 0;
 }
-.nav-tabs.has-indicator .nav-indicator {
+.nav-tabs.has-indicator .nav-indicator,
+.mobile-bottom-nav.has-indicator .nav-indicator {
   opacity: 1;
   transition: transform var(--spring-default-spatial), width var(--spring-default-spatial);
 }
@@ -656,55 +659,60 @@ html.is-ready .avatar-interactive-wrapper {
 .avatar-interactive-wrapper.is-avatar-active .avatar-art { opacity: 1; }
 .avatar-interactive-wrapper.is-avatar-active .avatar-photo { opacity: 0; }
 
-/* Photo / 3D avatar: a two-option connected toggle with a sliding selection */
+/* Photo / 3D avatar: one M3 Expressive toggle button. The label names the view
+   you switch to and rolls to the other name; the icon turns half a circle.
+   Selected (avatar shown) the round button morphs to a squarer shape. */
 .avatar-interactive-wrapper { margin-bottom: 28px; }
 .avatar-toggle {
   position: absolute;
   left: 50%;
   bottom: -24px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 4px;
-  border-radius: var(--corner-full);
-  background: var(--surface-highest);
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.14), 0 8px 24px rgb(0 0 0 / 0.14);
-  transform: translateX(-50%);
-  -webkit-tap-highlight-color: transparent;
-}
-.avatar-toggle-indicator {
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  left: 4px;
-  width: calc(50% - 4px);
-  border-radius: var(--corner-full);
-  background: var(--primary);
-  transition: transform var(--spring-default-spatial);
-}
-.avatar-toggle[aria-pressed="true"] .avatar-toggle-indicator { transform: translateX(100%); }
-.avatar-toggle:active .avatar-toggle-indicator { border-radius: var(--corner-m); }
-
-.avatar-seg {
-  position: relative;
-  z-index: 1;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 40px;
-  padding: 0 16px 0 12px;
-  font-size: 0.875rem;
+  gap: 8px;
+  height: 48px;
+  padding: 0 20px 0 16px;
+  border-radius: 24px;
+  background: var(--surface-highest);
+  color: var(--on-surface);
+  font-size: 0.9375rem;
   font-weight: 500;
-  white-space: nowrap;
-  color: var(--on-surface-variant);
-  transition: color var(--spring-default-effects);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.14), 0 8px 24px rgb(0 0 0 / 0.16);
+  transform: translateX(-50%);
+  isolation: isolate;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-radius var(--spring-shape), background-color var(--spring-default-effects),
+    color var(--spring-default-effects), transform var(--spring-fast-spatial);
 }
-.avatar-seg .material-symbols-rounded { font-size: 18px; transition: font-variation-settings var(--spring-default-effects); }
-.avatar-toggle:hover .avatar-seg { color: var(--on-surface); }
-.avatar-toggle[aria-pressed="false"] .seg-photo,
-.avatar-toggle[aria-pressed="true"] .seg-art { color: var(--on-primary); }
-.avatar-toggle[aria-pressed="false"] .seg-photo .material-symbols-rounded,
-.avatar-toggle[aria-pressed="true"] .seg-art .material-symbols-rounded { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20; }
+.avatar-toggle:hover { background: var(--secondary-container); color: var(--on-secondary-container); }
+.avatar-toggle:active { transform: translateX(-50%) scale(0.95); }
+.avatar-toggle[aria-pressed="true"] {
+  border-radius: 16px;
+  background: var(--primary);
+  color: var(--on-primary);
+}
+.avatar-toggle-icon {
+  font-size: 20px;
+  transition: transform var(--spring-default-spatial);
+}
+.avatar-toggle[aria-pressed="true"] .avatar-toggle-icon { transform: rotate(180deg); }
+
+.avatar-toggle-labels {
+  display: grid;
+  justify-items: center;
+  overflow: hidden;
+  height: 1.4em;
+  line-height: 1.4em;
+}
+.avatar-toggle-labels > span {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  transition: transform var(--spring-default-spatial), opacity var(--spring-default-effects);
+}
+.lbl-to-photo { transform: translateY(110%); opacity: 0; }
+.avatar-toggle[aria-pressed="true"] .lbl-to-art { transform: translateY(-110%); opacity: 0; }
+.avatar-toggle[aria-pressed="true"] .lbl-to-photo { transform: none; opacity: 1; }
 
 /* --------------------------------------------------------------------------
    8. Last.fm as an Android media notification
@@ -721,7 +729,7 @@ html.is-ready .avatar-interactive-wrapper {
   border-radius: var(--corner-xl);
   background: var(--lastfm-container);
   color: var(--on-surface);
-  transition: background-color var(--spring-slow-effects), border-radius var(--spring-default-spatial);
+  transition: background-color var(--spring-slow-effects), border-radius var(--spring-shape);
 }
 .lastfm-card:hover { border-radius: var(--corner-l); }
 
@@ -866,7 +874,7 @@ html.is-ready .avatar-interactive-wrapper {
   font-weight: 500;
   isolation: isolate;
   overflow: hidden;
-  transition: border-radius var(--spring-fast-spatial), background-color var(--spring-fast-effects),
+  transition: border-radius var(--spring-shape), background-color var(--spring-fast-effects),
     border-color var(--spring-fast-effects);
 }
 .chip .material-symbols-rounded { font-size: 18px; color: var(--primary); }
@@ -961,10 +969,10 @@ html.is-ready .avatar-interactive-wrapper {
   height: 56px;
   background: var(--secondary-container);
   color: var(--on-secondary-container);
-  transition: border-radius var(--spring-default-spatial), transform var(--spring-default-spatial);
+  transition: border-radius var(--spring-shape), transform var(--spring-default-spatial);
 }
 .skill-shape .material-symbols-rounded { font-size: 24px; }
-.shape-a { border-radius: var(--corner-full); }
+.shape-a { border-radius: 28px; }
 .shape-b { border-radius: var(--corner-l); background: var(--tertiary-container); color: var(--on-tertiary-container); }
 .shape-c { border-radius: 28px 28px 28px 8px; }
 .shape-d { border-radius: 8px 28px; background: var(--tertiary-container); color: var(--on-tertiary-container); }
@@ -1011,14 +1019,14 @@ html.is-ready .avatar-interactive-wrapper {
   color: var(--on-surface);
   font-size: 0.875rem;
   font-weight: 500;
-  transition: border-radius var(--spring-fast-spatial), background-color var(--spring-fast-effects),
-    color var(--spring-fast-effects), padding var(--spring-fast-spatial);
+  transition: border-radius var(--spring-shape), background-color var(--spring-fast-effects),
+    color var(--spring-fast-effects), padding var(--spring-default-spatial);
 }
-.m3x-filter-btn:first-child { border-radius: var(--corner-full) var(--corner-s) var(--corner-s) var(--corner-full); }
-.m3x-filter-btn:last-child { border-radius: var(--corner-s) var(--corner-full) var(--corner-full) var(--corner-s); }
+.m3x-filter-btn:first-child { border-radius: 20px var(--corner-s) var(--corner-s) 20px; }
+.m3x-filter-btn:last-child { border-radius: var(--corner-s) 20px 20px var(--corner-s); }
 .m3x-filter-btn:hover { background: var(--surface-highest); }
 .m3x-filter-btn.is-selected {
-  border-radius: var(--corner-full);
+  border-radius: 20px;
   background: var(--secondary-container);
   color: var(--on-secondary-container);
   padding: 0 18px 0 14px;
@@ -1078,6 +1086,73 @@ html.is-ready .avatar-interactive-wrapper {
 .device-card-wide .device-art { height: 160px; }
 .device-card:hover .device-art { transform: translateY(-6px) rotate(-3deg) scale(1.03); }
 
+/* Miska Ryżenu: the Ryzen 5 5600G drawn in CSS, seen at an angle like a product
+   render. Green substrate with gold contacts, brushed nickel lid, engraved text. */
+.cpu-render {
+  --cpu: 150px;
+  width: var(--cpu);
+  height: var(--cpu);
+  perspective: 700px;
+}
+.cpu-pcb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 7px, rgb(214 178 96 / 0.85) 7px 9px) top / 100% 6px no-repeat,
+    repeating-linear-gradient(90deg, transparent 0 7px, rgb(214 178 96 / 0.85) 7px 9px) bottom / 100% 6px no-repeat,
+    linear-gradient(135deg, #2f7d57, #1d5a3d 60%, #174a33);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.08),
+    0 1px 0 #10301f, 0 2px 0 #0d2a1b, 0 3px 0 #0b2417,
+    0 24px 30px -8px rgb(0 0 0 / 0.45);
+  transform: rotateX(48deg) rotateZ(-32deg);
+  transform-style: preserve-3d;
+  transition: transform var(--spring-slow-spatial);
+}
+.cpu-pcb::before {
+  /* small capacitors on the substrate */
+  content: '';
+  position: absolute;
+  inset: 10px;
+  background:
+    linear-gradient(#c9a35a, #9c7a3a) 4px 50% / 6px 3px no-repeat,
+    linear-gradient(#c9a35a, #9c7a3a) calc(100% - 4px) 40% / 6px 3px no-repeat,
+    linear-gradient(#c9a35a, #9c7a3a) calc(100% - 4px) 60% / 6px 3px no-repeat;
+}
+.cpu-pcb::after {
+  /* pin 1 marker */
+  content: '';
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid #e0bd6e;
+  border-top: 9px solid transparent;
+}
+.cpu-ihs {
+  position: absolute;
+  inset: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 12px;
+  /* notched corners of the AM4 heat spreader */
+  clip-path: polygon(10% 0, 90% 0, 90% 6%, 100% 6%, 100% 94%, 90% 94%, 90% 100%, 10% 100%, 10% 94%, 0 94%, 0 6%, 10% 6%);
+  background:
+    repeating-linear-gradient(115deg, rgb(255 255 255 / 0.06) 0 1px, transparent 1px 3px),
+    linear-gradient(140deg, #f3f4f6 0%, #c3c8cf 35%, #eef0f2 52%, #a9afb8 78%, #d9dce0 100%);
+  color: rgb(40 44 52 / 0.62);
+  text-shadow: 0 1px 0 rgb(255 255 255 / 0.55);
+  transform: translateZ(4px);
+}
+.cpu-brand { font-size: 1.125rem; font-weight: 700; letter-spacing: 0.08em; font-variation-settings: 'wdth' 120; }
+.cpu-model { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; }
+.cpu-code { margin-top: 10px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.02em; }
+.device-card:hover .cpu-pcb { transform: rotateX(38deg) rotateZ(-20deg) translateZ(16px); }
+
 .device-body { padding: 16px 12px 12px; }
 
 .device-kind { font-size: 0.8125rem; color: var(--on-surface-variant); }
@@ -1125,7 +1200,7 @@ html.is-ready .avatar-interactive-wrapper {
   background: var(--primary-container);
   color: var(--on-primary-container);
   overflow: hidden;
-  transition: border-radius var(--spring-default-spatial);
+  transition: border-radius var(--spring-shape);
 }
 .mail-card:hover { border-radius: var(--corner-xl); }
 
@@ -1162,10 +1237,10 @@ html.is-ready .avatar-interactive-wrapper {
   border-radius: var(--corner-li);
   background: var(--primary);
   color: var(--on-primary);
-  transition: border-radius var(--spring-default-spatial), transform var(--spring-default-spatial);
+  transition: border-radius var(--spring-shape), transform var(--spring-default-spatial);
 }
 .mail-fab .material-symbols-rounded { font-size: 28px; }
-.mail-card:hover .mail-fab { border-radius: var(--corner-full); transform: rotate(45deg); }
+.mail-card:hover .mail-fab { border-radius: 32px; transform: rotate(45deg); }
 
 .link-list { display: flex; flex-direction: column; gap: 2px; }
 .link-list li:first-child .link-row { border-radius: var(--corner-xl) var(--corner-xl) var(--corner-xs) var(--corner-xs); }
@@ -1179,7 +1254,7 @@ html.is-ready .avatar-interactive-wrapper {
   padding: 12px 16px 12px 20px;
   border-radius: var(--corner-xs);
   background: var(--surface-low);
-  transition: background-color var(--spring-fast-effects), border-radius var(--spring-fast-spatial);
+  transition: background-color var(--spring-fast-effects), border-radius var(--spring-shape);
 }
 .link-row:hover { background: var(--surface-high); }
 
@@ -1335,9 +1410,75 @@ html.is-ready .avatar-interactive-wrapper {
   border-radius: var(--corner-m);
   background: oklch(0.85 0.09 var(--h));
   color: oklch(0.25 0.08 var(--h));
-  transition: border-radius var(--spring-fast-spatial);
+  transition: border-radius var(--spring-shape);
 }
-.terminal-send-btn:active { border-radius: var(--corner-full); }
+.terminal-send-btn:active { border-radius: 22px; }
+
+/* --------------------------------------------------------------------------
+   13b. Interaction feedback
+   -------------------------------------------------------------------------- */
+/* Ripple from the touch point (added by initRipples in main.js) */
+:where(.has-ripple) { position: relative; }
+.has-ripple { isolation: isolate; overflow: hidden; }
+.ripple {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.14;
+  pointer-events: none;
+  transform: scale(0);
+  animation: ripple-grow 520ms cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+.ripple.is-out { animation: ripple-grow 520ms cubic-bezier(0.2, 0, 0, 1) forwards, ripple-fade 360ms linear 120ms forwards; }
+@keyframes ripple-grow { to { transform: scale(1); } }
+@keyframes ripple-fade { to { opacity: 0; } }
+
+/* Device cards lean towards the pointer */
+.device-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: background-color var(--spring-fast-effects), transform var(--spring-default-spatial);
+}
+.device-card.is-tilting { transition: background-color var(--spring-fast-effects), transform 120ms linear; }
+.device-card:active { transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) scale(0.98); }
+
+/* Grouped lists: icons change shape on hover */
+.fact,
+.link-row { transition: background-color var(--spring-fast-effects), border-radius var(--spring-shape); }
+.fact:not(.fact-hero):hover { background: var(--surface-container); }
+.fact-icon,
+.link-icon { transition: border-radius var(--spring-shape), transform var(--spring-default-spatial), background-color var(--spring-default-effects); }
+.fact:hover .fact-icon,
+.link-row:hover .link-icon { border-radius: 12px; transform: rotate(-10deg) scale(1.06); }
+.link-row:hover .link-icon { background: var(--primary); color: var(--on-primary); }
+.fact-hero { transition: border-radius var(--spring-shape); }
+.fact-hero:hover { border-radius: 40px 40px 12px 12px; }
+
+/* Chips: the icon nudges, the chip squares off on press */
+.chip .material-symbols-rounded { transition: transform var(--spring-fast-spatial); }
+.chip:hover .material-symbols-rounded { transform: rotate(-12deg) scale(1.12); }
+
+/* Last.fm card and the mail card give a little on press */
+.lastfm-card { transition: background-color var(--spring-slow-effects), border-radius var(--spring-shape), transform var(--spring-fast-spatial); }
+.lastfm-card:active,
+.mail-card:active { transform: scale(0.98); }
+.mail-card { transition: border-radius var(--spring-shape), transform var(--spring-fast-spatial); }
+.lastfm-art { transition: border-radius var(--spring-shape), transform var(--spring-default-spatial); }
+.lastfm-card:hover .lastfm-art { border-radius: 36px; transform: rotate(-6deg); }
+
+/* Section titles: a short width stretch on hover, like the name in the hero */
+.section-title,
+.mail-heading { transition: font-variation-settings 600ms cubic-bezier(0.34, 1.2, 0.4, 1); }
+@media (hover: hover) {
+  .section-title:hover { font-variation-settings: 'ROND' 100, 'wdth' 118; }
+  .mail-card:hover .mail-heading { font-variation-settings: 'ROND' 100, 'wdth' 122; }
+}
+
+/* Docked chip arrow bounces up on hover */
+.docked-icon { transition: transform var(--spring-fast-spatial); }
+.docked-avatar-chip:hover .docked-icon { transform: translateY(-3px); }
 
 /* --------------------------------------------------------------------------
    14. Snackbar
@@ -1410,54 +1551,66 @@ html.is-ready .avatar-interactive-wrapper {
 
   .app-header { display: none; }
 
+  /* M3 Expressive floating toolbar, same language as the desktop one: icon-only
+     items, the active one opens up with its label, one pill slides between them.
+     It slides away while you scroll down and comes back when you scroll up. */
   .mobile-bottom-nav {
     position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 50%;
+    bottom: calc(16px + env(safe-area-inset-bottom));
     z-index: 50;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    padding: 12px 8px calc(12px + env(safe-area-inset-bottom));
-    background: var(--surface-container);
-  }
-  .mobile-nav-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 4px;
-    color: var(--on-surface-variant);
-    font-size: 0.75rem;
-    font-weight: 500;
-    -webkit-tap-highlight-color: transparent;
+    gap: 2px;
+    padding: 6px;
+    border-radius: 32px;
+    background: var(--surface-high);
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.16), 0 10px 28px rgb(0 0 0 / 0.22);
+    transform: translateX(-50%);
+    transition: transform var(--spring-default-spatial), opacity var(--spring-default-effects);
   }
-  .mobile-icon-box {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 56px;
-    height: 32px;
-    border-radius: var(--corner-full);
-    transition: color var(--spring-fast-effects);
-  }
-  /* Active indicator grows out from the icon, as in the Android navigation bar */
-  .mobile-icon-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: var(--secondary-container);
+  .mobile-bottom-nav.is-hidden {
+    transform: translate(-50%, calc(100% + 32px));
     opacity: 0;
-    transform: scaleX(0.4);
-    transition: transform var(--spring-fast-spatial), opacity var(--spring-fast-effects);
   }
-  .mobile-icon-box .material-symbols-rounded { position: relative; }
-  .mobile-nav-item:active .mobile-icon-box::before { opacity: 0.5; transform: scaleX(0.9); }
-  .mobile-nav-item.active { color: var(--on-surface); }
-  .mobile-nav-item.active .mobile-icon-box { color: var(--on-secondary-container); }
-  .mobile-nav-item.active .mobile-icon-box::before { opacity: 1; transform: none; }
+  .mobile-bottom-nav .nav-indicator { top: 6px; height: 52px; }
+  .mobile-nav-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 52px;
+    padding: 0 14px;
+    border-radius: 26px;
+    color: var(--on-surface-variant);
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: color var(--spring-fast-effects), padding var(--spring-default-spatial),
+      background-color var(--spring-fast-effects);
+  }
+  .mobile-nav-item:active { background: color-mix(in oklch, var(--on-surface) 10%, transparent); }
+  .mobile-icon-box { display: grid; place-items: center; width: 24px; height: 24px; }
+  .mobile-icon-box .material-symbols-rounded {
+    font-size: 24px;
+    transition: font-variation-settings var(--spring-default-effects), transform var(--spring-fast-spatial);
+  }
+  .mobile-nav-item:active .mobile-icon-box .material-symbols-rounded { transform: scale(0.88); }
+  .mobile-nav-label {
+    display: inline-block;
+    max-width: 0;
+    margin-left: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width var(--spring-default-spatial), margin var(--spring-default-spatial),
+      opacity var(--spring-fast-effects);
+  }
+  .mobile-nav-item.active { color: var(--on-secondary-container); padding: 0 18px 0 16px; }
+  .mobile-nav-item.active .mobile-nav-label { max-width: 7em; margin-left: 8px; opacity: 1; }
   .mobile-nav-item.active .material-symbols-rounded { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
-  .mobile-nav-item .material-symbols-rounded { font-size: 24px; }
+  /* Before the sliding pill is ready, the active item draws its own background */
+  .mobile-bottom-nav:not(.has-indicator) .mobile-nav-item.active { background: var(--secondary-container); }
 
   .controls { top: 12px; right: 12px; }
   .docked-avatar-chip { top: 12px; left: 12px; height: 48px; padding-right: 10px; }
@@ -1469,7 +1622,7 @@ html.is-ready .avatar-interactive-wrapper {
   .hero-visual { order: -1; justify-content: flex-start; }
   .avatar-interactive-wrapper { width: min(64vw, 260px); }
   .avatar-interactive-wrapper { margin-bottom: 24px; }
-  .avatar-seg { padding: 0 12px 0 10px; font-size: 0.8125rem; }
+  .avatar-toggle { height: 44px; padding: 0 16px 0 14px; font-size: 0.875rem; }
   .hero-title { font-size: clamp(3rem, 15vw, 4.5rem); margin-bottom: 20px; }
   .hero-lead { font-size: 1.0625rem; }
   .hero-actions .btn { flex: 1 1 auto; }
