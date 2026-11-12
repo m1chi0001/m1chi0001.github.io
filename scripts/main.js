@@ -24,7 +24,7 @@ const LASTFM_CONFIG = {
 const I18N = {
   pl: {
     "meta.title": "Michał Dzido",
-    "meta.description": "Michał Dzido. Pierwsza linia wsparcia IT w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI, moderator grupy Google Pixel Polska.",
+    "meta.description": "Michał Dzido. Pierwsza linia wsparcia IT w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI w Lublinie, moderator grupy Google Pixel Polska.",
 
     "nav.skip": "Przejdź do treści",
     "docked.aria": "Przewiń do góry strony",
@@ -64,7 +64,7 @@ const I18N = {
     "toast.closeAria": "Zamknij powiadomienie",
 
     "hero.kicker": "Junior IT Specialist · Warszawa",
-    "hero.leadHtml": "Odbieram zgłoszenia w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję cyberbezpieczeństwo na <strong>Uniwersytecie WSEI</strong>. Po pracy siedzę na betach Androida i składam komputery.",
+    "hero.leadHtml": "Odbieram zgłoszenia w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję cyberbezpieczeństwo na <strong>Uniwersytecie WSEI w Lublinie</strong>. Po pracy siedzę na betach Androida i składam komputery.",
     "hero.ctaContact": "Napisz do mnie",
     "hero.ctaTerminal": "Terminal",
     "hero.terminalTitle": "Otwórz terminal (klawisz ~)",
@@ -85,7 +85,7 @@ const I18N = {
 
     "about.heading": "O mnie",
     "about.p1": "W tygodniu siedzę w biurze w Warszawie i odbieram zgłoszenia: poczta, Office, uprawnienia, Windows, sprzęt. Tłumaczę ludziom techniczne sprawy bez żargonu, a to, czego nie da się naprawić od ręki, przekazuję do właściwej grupy.",
-    "about.p2": "Weekendy spędzam na zjazdach na WSEI albo w rodzinnym Adamowie. Na studiach najwięcej czasu zabierają mi sieci, analiza ruchu i zabezpieczanie systemów.",
+    "about.p2": "Weekendy spędzam na zjazdach na Uniwersytecie WSEI w Lublinie albo w rodzinnym Adamowie. Na studiach rozwijam wiedzę, którą zdobyłem w technikum, głównie z sieci, analizy ruchu i zabezpieczania systemów.",
     "about.p3": "Po godzinach moderuję grupę Google Pixel Polska, instaluję testowe wersje Androida i Windowsa, a wieczorami słucham muzyki albo gram na PC.",
     "about.hobbiesAria": "Po godzinach",
     "about.chip.music": "Muzyka",
@@ -94,11 +94,22 @@ const I18N = {
     "about.factsAria": "W skrócie",
     "about.age.label": "Wiek",
     "about.age.sub": "Urodzony 4 marca 2006",
+    "about.age.hint": "Dotknij, żeby policzyć inaczej",
+    "about.age.daysLabel": "Na świecie",
+    "about.age.daysSub": "Tyle dni minęło od 4 marca 2006",
+    "about.age.nextLabel": "Urodziny",
+    "about.age.nextSub": "Zostało do 4 marca",
+    "about.age.today": "Dziś",
+    "about.age.todaySub": "Dziś są moje urodziny",
+    "about.age.days1": "dzień",
+    "about.age.days2": "dni",
+    "birthday.title": "4 marca",
+    "birthday.msg": "Dziś kończę {age}. Dzięki za wizytę akurat dziś.",
     "about.job.label": "Praca",
     "about.edu.label": "Studia",
-    "about.edu.valueHtml": "Uniwersytet WSEI, Lublin <span class=\"fact-sub\">Cyberbezpieczeństwo i technologie sieciowe, inż.</span>",
-    "about.school.label": "Wcześniej",
-    "about.school.valueHtml": "Technikum <span class=\"fact-sub\">Technik informatyk</span>",
+    "about.edu.valueHtml": "Uniwersytet WSEI w Lublinie <span class=\"fact-sub\">Cyberbezpieczeństwo i technologie sieciowe, inż.</span>",
+    "about.school.label": "Technikum",
+    "about.school.valueHtml": "Zespół Szkół nr 3 im. Władysława Stanisława Reymonta w Łukowie <span class=\"fact-sub\">Technik informatyk</span>",
     "about.loc.label": "Miejsce",
     "about.loc.value": "Warszawa i Adamów",
     "about.loc.timeLabel": "U mnie jest",
@@ -156,6 +167,9 @@ const I18N = {
 
     "contact.heading": "Napisz do mnie",
     "contact.email.aria": "Wyślij e-mail do michaldzido2@gmail.com",
+    "contact.copyAria": "Kopiuj adres e-mail",
+    "contact.copyTitle": "Kopiuj adres",
+    "contact.copiedTitle": "Skopiowano adres",
     "contact.email.desc": "Najłatwiej złapać mnie mailowo.",
     "contact.linkedin.desc": "Przebieg pracy i certyfikaty",
     "contact.github.desc": "Kod tej strony i projekty ze studiów",
@@ -179,7 +193,7 @@ const I18N = {
 
   en: {
     "meta.title": "Michał Dzido",
-    "meta.description": "Michał Dzido. First-line IT support at IT Solution Factor, cybersecurity student at WSEI University, moderator of the Google Pixel Polska group.",
+    "meta.description": "Michał Dzido. First-line IT support at IT Solution Factor, cybersecurity student at WSEI University in Lublin, moderator of the Google Pixel Polska group.",
 
     "nav.skip": "Skip to content",
     "docked.aria": "Scroll to the top of the page",
@@ -219,7 +233,7 @@ const I18N = {
     "toast.closeAria": "Close notification",
 
     "hero.kicker": "Junior IT Specialist · Warsaw",
-    "hero.leadHtml": "I handle first-line IT support tickets at <strong>IT Solution Factor</strong> and study cybersecurity at <strong>WSEI University</strong>. After work I run Android betas and build PCs.",
+    "hero.leadHtml": "I handle first-line IT support tickets at <strong>IT Solution Factor</strong> and study cybersecurity at <strong>WSEI University in Lublin</strong>. After work I run Android betas and build PCs.",
     "hero.ctaContact": "Get in touch",
     "hero.ctaTerminal": "Terminal",
     "hero.terminalTitle": "Open terminal (~ key)",
@@ -240,7 +254,7 @@ const I18N = {
 
     "about.heading": "About",
     "about.p1": "On weekdays I work from the office in Warsaw and handle tickets: email, Office, permissions, Windows, hardware. I explain technical things without jargon, and whatever I can't fix on the spot goes to the right team.",
-    "about.p2": "Weekends are university sessions at WSEI or time back home in Adamów. At university, most of my time goes into networks, traffic analysis and securing systems.",
+    "about.p2": "Weekends are university sessions at WSEI University in Lublin or time back home in Adamów. At university I build on what I learned in technical school, mostly networks, traffic analysis and securing systems.",
     "about.p3": "After hours I moderate the Google Pixel Polska group, install test builds of Android and Windows, and in the evenings I listen to music or play games on my PC.",
     "about.hobbiesAria": "After hours",
     "about.chip.music": "Music",
@@ -249,11 +263,22 @@ const I18N = {
     "about.factsAria": "In short",
     "about.age.label": "Age",
     "about.age.sub": "Born 4 March 2006",
+    "about.age.hint": "Tap to count it another way",
+    "about.age.daysLabel": "Around for",
+    "about.age.daysSub": "Days since 4 March 2006",
+    "about.age.nextLabel": "Birthday",
+    "about.age.nextSub": "Left until 4 March",
+    "about.age.today": "Today",
+    "about.age.todaySub": "It's my birthday today",
+    "about.age.days1": "day",
+    "about.age.days2": "days",
+    "birthday.title": "4 March",
+    "birthday.msg": "I turn {age} today. Thanks for stopping by on the right day.",
     "about.job.label": "Work",
     "about.edu.label": "University",
-    "about.edu.valueHtml": "WSEI University, Lublin <span class=\"fact-sub\">Cybersecurity and network technologies, BEng</span>",
-    "about.school.label": "Before that",
-    "about.school.valueHtml": "Technical high school <span class=\"fact-sub\">IT technician</span>",
+    "about.edu.valueHtml": "WSEI University in Lublin <span class=\"fact-sub\">Cybersecurity and network technologies, BEng</span>",
+    "about.school.label": "Technical school",
+    "about.school.valueHtml": "Zespół Szkół nr 3 im. Władysława Stanisława Reymonta in Łuków <span class=\"fact-sub\">IT technician</span>",
     "about.loc.label": "Based in",
     "about.loc.value": "Warsaw and Adamów",
     "about.loc.timeLabel": "My local time is",
@@ -311,6 +336,9 @@ const I18N = {
 
     "contact.heading": "Get in touch",
     "contact.email.aria": "Send an email to michaldzido2@gmail.com",
+    "contact.copyAria": "Copy e-mail address",
+    "contact.copyTitle": "Copy address",
+    "contact.copiedTitle": "Address copied",
     "contact.email.desc": "Email is the easiest way to reach me.",
     "contact.linkedin.desc": "Work history and certificates",
     "contact.github.desc": "Source of this site and university projects",
@@ -448,6 +476,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initDevicesFilter();
 
   // 12. Motion: hero entrance, name stretch on touch, sliding nav indicator, wavy progress
+  initAgeCard();
+  initBirthdayEasterEgg();
+  initCopyEmail();
   initHeroName();
   initNavIndicator();
   initRipples();
@@ -574,36 +605,279 @@ function initLanguageManager() {
    1. DYNAMIC AGE ENGINE
    Birthdate: March 4, 2006 (2006-03-04)
    =================================================================== */
+// Date parts for "today" in Warsaw, so the birthday starts at midnight Polish time
+function warsawToday() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Warsaw', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).format(new Date());
+  const [y, m, d] = parts.split('-').map(Number);
+  return { y, m, d };
+}
+
+// ?urodziny (or ?birthday) previews the 4 March easter egg on any other day
+const BIRTHDAY_PREVIEW = /[?&](urodziny|birthday)\b/.test(location.search);
+
+function birthdayInfo() {
+  const { y, m, d } = warsawToday();
+  const today = Date.UTC(y, m - 1, d);
+  let age = y - 2006;
+  if (m < 3 || (m === 3 && d < 4)) age--;
+  let next = Date.UTC(y, 2, 4);
+  if (next < today) next = Date.UTC(y + 1, 2, 4);
+  return {
+    age,
+    isBirthday: (m === 3 && d === 4) || BIRTHDAY_PREVIEW,
+    daysAlive: Math.round((today - Date.UTC(2006, 2, 4)) / 86400000),
+    daysToNext: Math.round((next - today) / 86400000)
+  };
+}
+
+function formatAge(age) {
+  if (currentLang === 'en') return `${age} ${age === 1 ? 'year' : 'years'}`;
+  // Polish: 1 rok, 2-4 / 22-24 lata, 5-21 / 25+ lat (12-14 always "lat")
+  const last = age % 10;
+  const lastTwo = age % 100;
+  let suffix = 'lat';
+  if (age === 1) suffix = 'rok';
+  else if ((lastTwo < 12 || lastTwo > 14) && last >= 2 && last <= 4) suffix = 'lata';
+  return `${age} ${suffix}`;
+}
+
+function formatDays(n) {
+  const num = new Intl.NumberFormat(currentLang === 'en' ? 'en-GB' : 'pl-PL').format(n);
+  return `${num} ${n === 1 ? t('about.age.days1') : t('about.age.days2')}`;
+}
+
+let ageMode = 0;
+
+// What the age card shows in each mode: [label, big value, number to count up to, sub line]
+function ageView(mode) {
+  const info = birthdayInfo();
+  if (mode === 1) return [t('about.age.daysLabel'), formatDays(info.daysAlive), info.daysAlive, t('about.age.daysSub')];
+  if (mode === 2) {
+    if (info.isBirthday) return [t('about.age.nextLabel'), t('about.age.today'), null, t('about.age.todaySub')];
+    return [t('about.age.nextLabel'), formatDays(info.daysToNext), info.daysToNext, t('about.age.nextSub')];
+  }
+  return [t('about.age.label'), formatAge(info.age), null,
+    info.isBirthday ? t('about.age.todaySub') : t('about.age.sub')];
+}
+
+// Renders the current mode without animation (also called after a language change)
 function initAgeCalculator() {
-  const birthDate = new Date(2006, 2, 4); // March 4, 2006 (0-indexed month)
-  const today = new Date();
-
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const monthDiff = today.getMonth() - birthDate.getMonth();
-
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-
-  const ageEl = document.getElementById("user-age");
+  const ageEl = document.getElementById('user-age');
   if (!ageEl) return;
+  const [label, value, , sub] = ageView(ageMode);
+  ageEl.textContent = value;
+  const labelEl = document.getElementById('age-label');
+  const subEl = document.getElementById('age-sub');
+  if (labelEl) labelEl.textContent = label;
+  if (subEl) subEl.textContent = sub;
+  const card = document.getElementById('age-card');
+  if (card) {
+    card.dataset.mode = String(ageMode);
+    card.classList.toggle('is-birthday', birthdayInfo().isBirthday);
+  }
+}
 
-  if (currentLang === 'en') {
-    ageEl.textContent = `${age} years`;
-    return;
+// Tap the age card: age -> days since birth -> days to the next birthday.
+// The number rolls out and the new one rolls in and counts up.
+function initAgeCard() {
+  const card = document.getElementById('age-card');
+  const ageEl = document.getElementById('user-age');
+  if (!card || !ageEl) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let busy = false;
+
+  const countUp = (target, render) => {
+    const start = performance.now();
+    const duration = 700;
+    const step = (now) => {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      ageEl.textContent = render(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const advance = () => {
+    if (busy) return;
+    ageMode = (ageMode + 1) % 3;
+    const [label, value, countTo, sub] = ageView(ageMode);
+    card.dataset.mode = String(ageMode);
+    document.getElementById('age-label').textContent = label;
+    document.getElementById('age-sub').textContent = sub;
+
+    if (ageMode === 2 && birthdayInfo().isBirthday) launchConfetti(card);
+
+    if (reduce.matches || !ageEl.animate) {
+      ageEl.textContent = value;
+      return;
+    }
+    busy = true;
+    ageEl.animate(
+      [{ transform: 'none', opacity: 1 }, { transform: 'translateY(-70%)', opacity: 0 }],
+      { duration: 160, easing: 'cubic-bezier(0.3, 0, 1, 1)' }
+    ).finished.then(() => {
+      ageEl.textContent = countTo != null ? formatDays(0) : value;
+      ageEl.animate(
+        [{ transform: 'translateY(70%)', opacity: 0 }, { transform: 'none', opacity: 1 }],
+        { duration: 520, easing: 'cubic-bezier(0.38, 1.21, 0.22, 1.00)' }
+      );
+      if (countTo != null) countUp(countTo, formatDays);
+      busy = false;
+    });
+  };
+
+  card.addEventListener('click', advance);
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      advance();
+    }
+  });
+}
+
+// 4 March only: streamers and confetti fall once after the page has settled
+function initBirthdayEasterEgg() {
+  const info = birthdayInfo();
+  if (!info.isBirthday) return;
+  const card = document.getElementById('age-card');
+  const start = () => setTimeout(() => {
+    launchConfetti(null);
+    showToast({
+      title: t('birthday.title'),
+      message: t('birthday.msg').replace('{age}', formatAge(info.age)),
+      icon: 'cake'
+    });
+  }, 1400);
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start, { once: true });
+  if (card) card.classList.add('is-birthday');
+}
+
+/* Streamers (serpentyna) and confetti on one canvas. Pieces use M3 shapes: circles,
+   pills and rounded squares, coloured from the page's own tonal palette. The canvas
+   is removed as soon as the last piece has left the screen. */
+function launchConfetti(origin) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.createElement('canvas');
+  canvas.className = 'confetti-canvas';
+  canvas.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const W = window.innerWidth;
+  const H = window.innerHeight;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  ctx.scale(dpr, dpr);
+
+  const css = getComputedStyle(document.documentElement);
+  const tokens = ['--primary', '--tertiary-container', '--primary-container', '--secondary-container']
+    .map((name) => css.getPropertyValue(name).trim()).filter(Boolean);
+  const colors = tokens.concat(['#F2B8B5', '#FFD8A8', '#B6E3C6', '#D0BCFF', '#A8C7FA', '#FFE08A']);
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const rand = (a, b) => a + Math.random() * (b - a);
+
+  // Burst from the age card when it was tapped, otherwise rain from the top edge
+  let ox = null;
+  let oy = null;
+  if (origin) {
+    const r = origin.getBoundingClientRect();
+    ox = r.left + r.width / 2;
+    oy = r.top + r.height / 2;
+  }
+  const mobile = W < 768;
+  const pieces = [];
+  const confettiCount = mobile ? 70 : 120;
+  for (let i = 0; i < confettiCount; i++) {
+    const burst = ox !== null;
+    const angle = rand(-Math.PI * 0.95, -Math.PI * 0.05);
+    const speed = rand(380, 820);
+    pieces.push({
+      kind: pick(['circle', 'pill', 'square']),
+      x: burst ? ox : rand(0, W),
+      y: burst ? oy : rand(-H * 0.6, -20),
+      vx: burst ? Math.cos(angle) * speed : rand(-40, 40),
+      vy: burst ? Math.sin(angle) * speed : rand(80, 220),
+      size: rand(7, 13),
+      rot: rand(0, Math.PI * 2),
+      vr: rand(-6, 6),
+      wobble: rand(0, Math.PI * 2),
+      color: pick(colors)
+    });
+  }
+  const streamerCount = ox !== null ? 0 : (mobile ? 7 : 12);
+  for (let i = 0; i < streamerCount; i++) {
+    pieces.push({
+      kind: 'streamer',
+      x: rand(0, W),
+      y: rand(-H * 0.5, -60),
+      vx: rand(-20, 20),
+      vy: rand(110, 190),
+      len: rand(70, 130),
+      phase: rand(0, Math.PI * 2),
+      vr: rand(2, 4),
+      color: pick(colors)
+    });
   }
 
-  // Polish pluralization: 1 rok, 2-4 / 22-24 lata, 5-21 / 25+ lat (12-14 always "lat")
-  const lastDigit = age % 10;
-  const lastTwoDigits = age % 100;
-  let suffix = "lat";
-  if (age === 1) {
-    suffix = "rok";
-  } else if ((lastTwoDigits < 12 || lastTwoDigits > 14) && lastDigit >= 2 && lastDigit <= 4) {
-    suffix = "lata";
-  }
+  const gravity = 520;
+  const drag = 0.985;
+  let last = performance.now();
+  const started = last;
 
-  ageEl.textContent = `${age} ${suffix}`;
+  const frame = (now) => {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    ctx.clearRect(0, 0, W, H);
+    let alive = 0;
+    for (const p of pieces) {
+      if (p.kind === 'streamer') {
+        p.y += p.vy * dt;
+        p.x += p.vx * dt + Math.sin(now / 600 + p.phase) * 0.6;
+        p.phase += p.vr * dt;
+        if (p.y - p.len > H) continue;
+        alive++;
+        // a curly ribbon: a short sine wave along its length
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        for (let s = 0; s <= p.len; s += 4) {
+          const px = p.x + Math.sin(s / 9 + p.phase) * 7;
+          const py = p.y - s;
+          if (s === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+        continue;
+      }
+      p.vy += gravity * dt * 0.35;
+      p.vx *= drag;
+      p.vy = Math.min(p.vy, 420);
+      p.x += p.vx * dt + Math.sin(now / 300 + p.wobble) * 0.5;
+      p.y += p.vy * dt;
+      p.rot += p.vr * dt;
+      if (p.y > H + 20) continue;
+      alive++;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      // tilt in 3D by squashing one axis, so the piece seems to flip as it falls
+      ctx.scale(1, Math.abs(Math.cos(p.rot * 1.3)) * 0.8 + 0.2);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      if (p.kind === 'circle' || !ctx.roundRect) ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+      else if (p.kind === 'pill') ctx.roundRect(-p.size, -p.size / 4, p.size * 2, p.size / 2, p.size / 4);
+      else ctx.roundRect(-p.size / 2, -p.size / 2, p.size, p.size, p.size / 4);
+      ctx.fill();
+      ctx.restore();
+    }
+    if (alive > 0 && now - started < 9000) requestAnimationFrame(frame);
+    else canvas.remove();
+  };
+  requestAnimationFrame(frame);
 }
 
 // Backwards compatibility alias
@@ -678,6 +952,8 @@ function initThemeManager() {
 
   function applyTheme(theme) {
     htmlRoot.setAttribute('data-theme', theme);
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#121317' : '#F8F9FF');
     syncThemeLabels();
     if (typeof applyLastFmExpressiveColors === 'function') {
       applyLastFmExpressiveColors();
@@ -1385,7 +1661,7 @@ function initMiniTerminal() {
   const commandsByLang = {
     pl: {
       help: 'Dostępne polecenia: <strong>whoami</strong>, <strong>neofetch</strong>, <strong>skills</strong>, <strong>pixel</strong>, <strong>ryzen</strong>, <strong>uptime</strong>, <strong>contact</strong>, <strong>clear</strong>',
-      whoami: '<strong>Michał Dzido</strong> • Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI oraz moderator społeczności Google Pixel Polska.',
+      whoami: '<strong>Michał Dzido</strong> • Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI w Lublinie oraz moderator społeczności Google Pixel Polska.',
       neofetch: '<strong>OS</strong>: Android 16 Beta / Windows 11 Insider<br><strong>Host</strong>: Google Pixel 8 Pro (Mint) &amp; Surface Pro 11<br><strong>Workstation</strong>: Miska Ryżenu (Ryzen 5 5600G + RTX 4060)<br><strong>Font</strong>: Google Sans Flex + JetBrains Mono<br><strong>UI</strong>: Material 3 Expressive',
       skills: '<strong>Obszary techniczne</strong>: Windows Server, Active Directory, Linux/Bash, sieci TCP/IP &amp; VLAN, diagnostyka sprzętu PC, pierwsza linia wsparcia IT.',
       pixel: '<strong>Ekosystem Google Pixel</strong>: Pixel 8 Pro (Mint, Tensor G3), Pixel Buds Pro 2 (Moonstone, Tensor A1) oraz Pixel Watch 2. Prowadzę również moderację grupy Google Pixel Polska.',
@@ -1400,7 +1676,7 @@ function initMiniTerminal() {
     },
     en: {
       help: 'Available commands: <strong>whoami</strong>, <strong>neofetch</strong>, <strong>skills</strong>, <strong>pixel</strong>, <strong>ryzen</strong>, <strong>uptime</strong>, <strong>contact</strong>, <strong>clear</strong>',
-      whoami: '<strong>Michał Dzido</strong> • Junior IT Specialist at IT Solution Factor, Cybersecurity student at WSEI University, and Google Pixel Polska community moderator.',
+      whoami: '<strong>Michał Dzido</strong> • Junior IT Specialist at IT Solution Factor, Cybersecurity student at WSEI University in Lublin, and Google Pixel Polska community moderator.',
       neofetch: '<strong>OS</strong>: Android 16 Beta / Windows 11 Insider<br><strong>Host</strong>: Google Pixel 8 Pro (Mint) &amp; Surface Pro 11<br><strong>Workstation</strong>: Miska Ryżenu (Ryzen 5 5600G + RTX 4060)<br><strong>Font</strong>: Google Sans Flex + JetBrains Mono<br><strong>UI</strong>: Material 3 Expressive',
       skills: '<strong>Technical areas</strong>: Windows Server, Active Directory, Linux/Bash, TCP/IP &amp; VLAN networking, PC hardware diagnostics, first-line IT support.',
       pixel: '<strong>Google Pixel ecosystem</strong>: Pixel 8 Pro (Mint, Tensor G3), Pixel Buds Pro 2 (Moonstone, Tensor A1), and Pixel Watch 2. I also moderate the Google Pixel Polska group.',
@@ -1573,89 +1849,83 @@ function initHeroName() {
   });
 }
 
-// Toolbars (desktop and mobile): one pill slides to the active item instead of jumping
+// Toolbars: one pill slides to the active item instead of jumping
 function initNavIndicator() {
-  setupNavIndicator(document.querySelector('.nav-tabs'), '.nav-link', null);
-  setupNavIndicator(document.getElementById('mobile-nav'), '.mobile-nav-item', mobileItemWidth);
-  initMobileToolbarAutoHide();
+  initDesktopIndicator(document.querySelector('.nav-tabs'));
+  initMobileIndicator(document.getElementById('mobile-nav'));
 }
 
-// The mobile items animate their width (the active one opens up with its label),
-// so the pill is placed on the final layout computed up front, not on the live one.
-function mobileItemWidth(item, isActive) {
-  if (!isActive) return 52;
-  const label = item.querySelector('.mobile-nav-label');
-  return 16 + 24 + 8 + (label ? label.scrollWidth : 0) + 18;
-}
-
-function setupNavIndicator(container, itemSelector, finalWidth) {
-  if (!container) return;
+// Desktop: tabs keep a constant size, so the pill is measured from the final layout
+function initDesktopIndicator(list) {
+  if (!list) return;
   const indicator = document.createElement('span');
   indicator.className = 'nav-indicator';
   indicator.setAttribute('aria-hidden', 'true');
-  container.prepend(indicator);
+  list.prepend(indicator);
 
   const place = () => {
-    const items = Array.from(container.querySelectorAll(itemSelector));
-    const active = items.find((item) => item.classList.contains('active'));
-    if (!active || !container.offsetParent) return;
-
-    if (finalWidth) {
-      const style = getComputedStyle(container);
-      const gap = parseFloat(style.columnGap) || 0;
-      let x = parseFloat(style.paddingLeft) || 0;
-      for (const item of items) {
-        const w = finalWidth(item, item === active);
-        if (item === active) {
-          indicator.style.setProperty('--x', `${x}px`);
-          indicator.style.setProperty('--w', `${w}px`);
-          break;
-        }
-        x += w + gap;
-      }
-      return;
-    }
-
-    const box = container.getBoundingClientRect();
+    const active = list.querySelector('.nav-link.active');
+    if (!active || !list.offsetParent) return;
+    const box = list.getBoundingClientRect();
     const rect = active.getBoundingClientRect();
-    indicator.style.setProperty('--x', `${rect.left - box.left}px`);
-    indicator.style.setProperty('--w', `${rect.width}px`);
+    indicator.style.setProperty('--x', `${Math.round(rect.left - box.left)}px`);
+    indicator.style.setProperty('--w', `${Math.round(rect.width)}px`);
   };
 
-  new MutationObserver(() => requestAnimationFrame(place))
-    .observe(container, { subtree: true, attributes: true, attributeFilter: ['class'] });
+  new MutationObserver(place).observe(list, { subtree: true, attributes: true, attributeFilter: ['class'] });
   window.addEventListener('resize', place, { passive: true });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
   place();
-  requestAnimationFrame(() => container.classList.add('has-indicator'));
+  requestAnimationFrame(() => list.classList.add('has-indicator'));
 }
 
-// Floating toolbar on phones hides while scrolling down and returns on the way up
-function initMobileToolbarAutoHide() {
-  const bar = document.getElementById('mobile-nav');
+// Mobile: five equal slots, the pill moves by slot index (transform only)
+function initMobileIndicator(bar) {
   if (!bar) return;
-  let lastY = window.scrollY;
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      const y = window.scrollY;
-      const delta = y - lastY;
-      const nearBottom = window.innerHeight + y >= document.documentElement.scrollHeight - 80;
-      if (y < 120 || nearBottom || delta < -8) bar.classList.remove('is-hidden');
-      else if (delta > 8) bar.classList.add('is-hidden');
-      if (Math.abs(delta) > 8) lastY = y;
-      ticking = false;
-    });
-  }, { passive: true });
-  // Keyboard users: never leave a focused item off screen
-  bar.addEventListener('focusin', () => bar.classList.remove('is-hidden'));
+  const slot = document.createElement('span');
+  slot.className = 'mobile-nav-slot';
+  slot.setAttribute('aria-hidden', 'true');
+  bar.prepend(slot);
+  const items = Array.from(bar.querySelectorAll('.mobile-nav-item'));
+
+  const sync = () => {
+    const index = Math.max(0, items.findIndex((item) => item.classList.contains('active')));
+    bar.style.setProperty('--active', index);
+  };
+  new MutationObserver(sync).observe(bar, { subtree: true, attributes: true, attributeFilter: ['class'] });
+  sync();
+
+  bar.addEventListener('pointerdown', () => bar.classList.add('is-pressing'));
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach((type) =>
+    bar.addEventListener(type, () => bar.classList.remove('is-pressing')));
+}
+
+// Copy the e-mail address and confirm with a snackbar
+function initCopyEmail() {
+  const btn = document.getElementById('copy-email');
+  if (!btn) return;
+  btn.addEventListener('click', async () => {
+    const email = btn.dataset.email;
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      const tmp = document.createElement('textarea');
+      tmp.value = email;
+      document.body.appendChild(tmp);
+      tmp.select();
+      document.execCommand('copy');
+      tmp.remove();
+    }
+    btn.classList.add('is-done');
+    clearTimeout(btn._timer);
+    btn._timer = setTimeout(() => btn.classList.remove('is-done'), 2000);
+    showToast({ title: t('contact.copiedTitle'), message: email, icon: 'content_copy' });
+  });
 }
 
 // M3 ripple: a circle grows from the point you touched and fades on release
 function initRipples() {
-  const selector = '.btn, .chip, .control-btn, .m3x-filter-btn, .link-row, .device-card, .nav-link, '
+  const selector = '.btn, .chip, .fact-hero, .mail-copy, .control-btn, .m3x-filter-btn, .link-row, .device-card, .nav-link, '
     + '.mobile-nav-item, .avatar-toggle, .footer-terminal-link, .term-chip, .lastfm-card, .mail-card, .docked-avatar-chip';
   document.querySelectorAll(selector).forEach((el) => el.classList.add('has-ripple'));
 
@@ -1802,8 +2072,17 @@ function initLastFmProgress() {
     rest.style.left = `${played + GAP * 2 + THUMB}px`;
   }
 
+  // Phones: the wave is drawn at ~30 fps, which looks the same at this size and
+  // halves the work; nothing is drawn until the hero entrance has finished.
+  const minFrameMs = window.matchMedia('(pointer: coarse)').matches ? 32 : 0;
+  let startAfter = performance.now() + 1600;
+
   function tick(now) {
     frame = 0;
+    if (now < startAfter || (minFrameMs && now - last < minFrameMs)) {
+      if (visible && !document.hidden) frame = requestAnimationFrame(tick);
+      return;
+    }
     const dt = Math.min(0.1, (now - last) / 1000);
     last = now;
 
@@ -1822,7 +2101,7 @@ function initLastFmProgress() {
 
   lastFmProgress.wake = () => {
     if (!frame) {
-      last = performance.now();
+      last = Math.max(performance.now(), startAfter);
       frame = requestAnimationFrame(tick);
     }
   };
