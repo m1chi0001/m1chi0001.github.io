@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Michał Dzido</title>
   <meta name="description" id="meta-description"
-    content="Michał Dzido. Pierwsza linia wsparcia IT w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI, moderator grupy Google Pixel Polska.">
+    content="Michał Dzido. Pierwsza linia wsparcia IT w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI w Lublinie, moderator grupy Google Pixel Polska.">
   <meta name="theme-color" content="#121317">
 
   <meta property="og:type" content="website">
@@ -15,14 +15,14 @@
   <meta property="og:site_name" content="Michał Dzido">
   <meta property="og:title" content="Michał Dzido">
   <meta property="og:description"
-    content="Pierwsza linia wsparcia IT w IT Solution Factor, cyberbezpieczeństwo na WSEI, Pixel i składanie komputerów po godzinach.">
+    content="Pierwsza linia wsparcia IT w IT Solution Factor, cyberbezpieczeństwo na Uniwersytecie WSEI w Lublinie, Pixel i składanie komputerów po godzinach.">
   <meta property="og:image" content="https://m1chi0001.github.io/assets/michal.jpg">
   <meta property="og:image:alt" content="Michał Dzido">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Michał Dzido">
   <meta name="twitter:description"
-    content="Pierwsza linia wsparcia IT w IT Solution Factor, cyberbezpieczeństwo na WSEI, Pixel i składanie komputerów po godzinach.">
+    content="Pierwsza linia wsparcia IT w IT Solution Factor, cyberbezpieczeństwo na Uniwersytecie WSEI w Lublinie, Pixel i składanie komputerów po godzinach.">
   <meta name="twitter:image" content="https://m1chi0001.github.io/assets/michal.jpg">
 
   <link id="site-favicon" rel="icon" type="image/svg+xml"
@@ -35,19 +35,31 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:ROND,wdth,wght@40..100,60..130,400..700&family=JetBrains+Mono:wght@400..600&display=swap">
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..500,0..1,0&icon_names=android,arrow_outward,arrow_upward,badge,build,check,close,dark_mode,desktop_windows,devices,earbuds,groups,headphones,history_edu,home,info,keyboard_return,lan,laptop_windows,light_mode,location_on,mail,memory,open_in_new,palette,person,school,science,smartphone,support_agent,sync,terminal,translate,watch,work&display=block">
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,400..500,0..1,0&icon_names=android,arrow_outward,arrow_upward,badge,build,cake,check,close,content_copy,dark_mode,desktop_windows,devices,earbuds,groups,headphones,history_edu,home,info,keyboard_return,lan,laptop_windows,light_mode,location_on,mail,memory,open_in_new,palette,person,school,science,smartphone,support_agent,sync,terminal,translate,watch,work&display=block">
 
   <link rel="preload" as="image" href="assets/michal-880.webp" type="image/webp"
     imagesrcset="assets/michal-480.webp 480w, assets/michal-880.webp 880w"
     imagesizes="(max-width: 767px) 260px, 440px" fetchpriority="high">
 
-  <link rel="stylesheet" href="styles/main.css?v=22">
+  <link rel="stylesheet" href="styles/main.css?v=23">
   <script>
     // Hold the hero entrance until web fonts are ready, so letters don't swap fonts mid-animation
     (function () {
       var root = document.documentElement;
-      var ready = function () { root.classList.add('is-ready'); };
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(ready);
+      var done = false;
+      // Wait one more frame after fonts arrive, so the text re-layout and the first
+      // animation frame don't land in the same frame
+      var ready = function () {
+        if (done) return; done = true;
+        requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('is-ready'); }); });
+      };
+      // fonts.ready resolves before any font has been requested, so ask for the face itself
+      if (document.fonts && document.fonts.load) {
+        Promise.all([
+          document.fonts.load('640 1em "Google Sans Flex"'),
+          document.fonts.load('400 1em "Google Sans Flex"')
+        ]).then(ready, ready);
+      }
       setTimeout(ready, 1800);
     })();
   </script>
@@ -55,12 +67,6 @@
 
 <body>
 
-  <!-- SVG definitions: M3 shape library "Cookie 9" used to crop the portrait -->
-  <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
-    <clipPath id="shape-cookie" clipPathUnits="objectBoundingBox">
-      <path class="cookie-path" d="M0.5000 0.0000 L0.5145 0.0011 L0.5289 0.0042 L0.5429 0.0092 L0.5566 0.0158 L0.5698 0.0236 L0.5825 0.0322 L0.5947 0.0412 L0.6067 0.0500 L0.6184 0.0583 L0.6300 0.0657 L0.6418 0.0720 L0.6539 0.0771 L0.6665 0.0810 L0.6796 0.0837 L0.6933 0.0855 L0.7076 0.0867 L0.7224 0.0876 L0.7375 0.0886 L0.7528 0.0902 L0.7679 0.0927 L0.7826 0.0964 L0.7966 0.1016 L0.8096 0.1085 L0.8214 0.1170 L0.8318 0.1271 L0.8408 0.1387 L0.8484 0.1516 L0.8546 0.1655 L0.8597 0.1799 L0.8639 0.1947 L0.8675 0.2094 L0.8710 0.2238 L0.8746 0.2377 L0.8788 0.2509 L0.8837 0.2633 L0.8897 0.2750 L0.8968 0.2860 L0.9051 0.2965 L0.9145 0.3067 L0.9247 0.3168 L0.9354 0.3270 L0.9464 0.3375 L0.9570 0.3486 L0.9670 0.3602 L0.9759 0.3725 L0.9833 0.3855 L0.9888 0.3991 L0.9924 0.4132 L0.9939 0.4277 L0.9933 0.4423 L0.9908 0.4571 L0.9867 0.4717 L0.9813 0.4860 L0.9750 0.5000 L0.9683 0.5136 L0.9617 0.5269 L0.9556 0.5399 L0.9503 0.5526 L0.9461 0.5653 L0.9432 0.5781 L0.9415 0.5912 L0.9411 0.6045 L0.9417 0.6184 L0.9431 0.6326 L0.9447 0.6474 L0.9464 0.6625 L0.9475 0.6778 L0.9476 0.6931 L0.9465 0.7082 L0.9438 0.7229 L0.9394 0.7369 L0.9330 0.7500 L0.9248 0.7620 L0.9149 0.7729 L0.9036 0.7826 L0.8910 0.7911 L0.8777 0.7986 L0.8639 0.8053 L0.8500 0.8115 L0.8364 0.8174 L0.8234 0.8234 L0.8111 0.8298 L0.7997 0.8368 L0.7893 0.8447 L0.7796 0.8537 L0.7707 0.8636 L0.7623 0.8746 L0.7541 0.8864 L0.7460 0.8988 L0.7375 0.9114 L0.7285 0.9238 L0.7188 0.9356 L0.7082 0.9465 L0.6967 0.9560 L0.6843 0.9639 L0.6710 0.9698 L0.6570 0.9738 L0.6424 0.9758 L0.6275 0.9759 L0.6124 0.9744 L0.5974 0.9715 L0.5825 0.9678 L0.5679 0.9636 L0.5537 0.9594 L0.5399 0.9556 L0.5264 0.9526 L0.5131 0.9507 L0.5000 0.9500 L0.4869 0.9507 L0.4736 0.9526 L0.4601 0.9556 L0.4463 0.9594 L0.4321 0.9636 L0.4175 0.9678 L0.4026 0.9715 L0.3876 0.9744 L0.3725 0.9759 L0.3576 0.9758 L0.3430 0.9738 L0.3290 0.9698 L0.3157 0.9639 L0.3033 0.9560 L0.2918 0.9465 L0.2812 0.9356 L0.2715 0.9238 L0.2625 0.9114 L0.2540 0.8988 L0.2459 0.8864 L0.2377 0.8746 L0.2293 0.8636 L0.2204 0.8537 L0.2107 0.8447 L0.2003 0.8368 L0.1889 0.8298 L0.1766 0.8234 L0.1636 0.8174 L0.1500 0.8115 L0.1361 0.8053 L0.1223 0.7986 L0.1090 0.7911 L0.0964 0.7826 L0.0851 0.7729 L0.0752 0.7620 L0.0670 0.7500 L0.0606 0.7369 L0.0562 0.7229 L0.0535 0.7082 L0.0524 0.6931 L0.0525 0.6778 L0.0536 0.6625 L0.0553 0.6474 L0.0569 0.6326 L0.0583 0.6184 L0.0589 0.6045 L0.0585 0.5912 L0.0568 0.5781 L0.0539 0.5653 L0.0497 0.5526 L0.0444 0.5399 L0.0383 0.5269 L0.0317 0.5136 L0.0250 0.5000 L0.0187 0.4860 L0.0133 0.4717 L0.0092 0.4571 L0.0067 0.4423 L0.0061 0.4277 L0.0076 0.4132 L0.0112 0.3991 L0.0167 0.3855 L0.0241 0.3725 L0.0330 0.3602 L0.0430 0.3486 L0.0536 0.3375 L0.0646 0.3270 L0.0753 0.3168 L0.0855 0.3067 L0.0949 0.2965 L0.1032 0.2860 L0.1103 0.2750 L0.1163 0.2633 L0.1212 0.2509 L0.1254 0.2377 L0.1290 0.2238 L0.1325 0.2094 L0.1361 0.1947 L0.1403 0.1799 L0.1454 0.1655 L0.1516 0.1516 L0.1592 0.1387 L0.1682 0.1271 L0.1786 0.1170 L0.1904 0.1085 L0.2034 0.1016 L0.2174 0.0964 L0.2321 0.0927 L0.2472 0.0902 L0.2625 0.0886 L0.2776 0.0876 L0.2924 0.0867 L0.3067 0.0855 L0.3204 0.0837 L0.3335 0.0810 L0.3461 0.0771 L0.3582 0.0720 L0.3700 0.0657 L0.3816 0.0583 L0.3933 0.0500 L0.4053 0.0412 L0.4175 0.0322 L0.4302 0.0236 L0.4434 0.0158 L0.4571 0.0092 L0.4711 0.0042 L0.4855 0.0011Z" />
-    </clipPath>
-  </svg>
 
   <a class="skip-link" href="#main-content" data-i18n="nav.skip">Przejdź do treści</a>
 
@@ -191,8 +197,8 @@
 
           <p class="hero-lead" data-i18n-html="hero.leadHtml">
             Odbieram zgłoszenia w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję
-            cyberbezpieczeństwo na <strong>Uniwersytecie WSEI</strong>. Po pracy siedzę na betach Androida
-            i składam komputery.
+            cyberbezpieczeństwo na <strong>Uniwersytecie WSEI w Lublinie</strong>. Po pracy siedzę na betach
+            Androida i składam komputery.
           </p>
 
           <div class="hero-actions">
@@ -278,8 +284,8 @@
             przekazuję do właściwej grupy.
           </p>
           <p data-i18n="about.p2">
-            Weekendy spędzam na zjazdach na WSEI albo w rodzinnym Adamowie. Na studiach najwięcej czasu zabierają
-            mi sieci, analiza ruchu i zabezpieczanie systemów.
+            Weekendy spędzam na zjazdach na Uniwersytecie WSEI w Lublinie albo w rodzinnym Adamowie. Na studiach
+            rozwijam wiedzę, którą zdobyłem w technikum, głównie z sieci, analizy ruchu i zabezpieczania systemów.
           </p>
           <p data-i18n="about.p3">
             Po godzinach moderuję grupę Google Pixel Polska, instaluję testowe wersje Androida i Windowsa, a wieczorami
@@ -312,10 +318,16 @@
 
         <!-- Facts as an Android "About phone" list -->
         <dl class="facts" aria-label="W skrócie" data-i18n-aria="about.factsAria">
-          <div data-reveal class="fact fact-hero">
-            <dt data-i18n="about.age.label">Wiek</dt>
-            <dd><span id="user-age" class="fact-big">20 lat</span>
-              <span class="fact-sub" data-i18n="about.age.sub">Urodzony 4 marca 2006</span></dd>
+          <div data-reveal class="fact fact-hero" id="age-card" role="button" tabindex="0"
+            aria-describedby="age-hint">
+            <dt><span id="age-label" data-i18n="about.age.label">Wiek</span>
+              <span class="age-dots" aria-hidden="true"><i></i><i></i><i></i></span></dt>
+            <dd aria-live="polite">
+              <span class="age-roll"><span id="user-age" class="fact-big">20 lat</span></span>
+              <span class="fact-sub" id="age-sub" data-i18n="about.age.sub">Urodzony 4 marca 2006</span>
+              <span class="age-hint" id="age-hint" data-i18n="about.age.hint">Dotknij, żeby policzyć inaczej</span>
+            </dd>
+            <span class="material-symbols-rounded age-cake" aria-hidden="true">cake</span>
           </div>
           <div data-reveal class="fact">
             <span class="fact-icon material-symbols-rounded" aria-hidden="true">badge</span>
@@ -325,12 +337,12 @@
           <div data-reveal class="fact">
             <span class="fact-icon material-symbols-rounded" aria-hidden="true">school</span>
             <dt data-i18n="about.edu.label">Studia</dt>
-            <dd data-i18n-html="about.edu.valueHtml">Uniwersytet WSEI, Lublin <span class="fact-sub">Cyberbezpieczeństwo i technologie sieciowe, inż.</span></dd>
+            <dd data-i18n-html="about.edu.valueHtml">Uniwersytet WSEI w Lublinie <span class="fact-sub">Cyberbezpieczeństwo i technologie sieciowe, inż.</span></dd>
           </div>
           <div data-reveal class="fact">
             <span class="fact-icon material-symbols-rounded" aria-hidden="true">history_edu</span>
-            <dt data-i18n="about.school.label">Wcześniej</dt>
-            <dd data-i18n-html="about.school.valueHtml">Technikum <span class="fact-sub">Technik informatyk</span></dd>
+            <dt data-i18n="about.school.label">Technikum</dt>
+            <dd data-i18n-html="about.school.valueHtml">Zespół Szkół nr 3 im. Władysława Stanisława Reymonta w Łukowie <span class="fact-sub">Technik informatyk</span></dd>
           </div>
           <div data-reveal class="fact">
             <span class="fact-icon material-symbols-rounded" aria-hidden="true">location_on</span>
@@ -538,13 +550,20 @@
     <section id="contact" class="snap-section reveal-section" aria-labelledby="contact-heading">
       <div class="section-container">
         <div class="contact-grid">
-          <a data-reveal href="mailto:michaldzido2@gmail.com" class="mail-card" aria-label="Wyślij e-mail do michaldzido2@gmail.com"
-            data-i18n-aria="contact.email.aria">
-            <h2 id="contact-heading" class="mail-heading" data-i18n="contact.heading">Napisz do mnie</h2>
-            <p class="mail-note" data-i18n="contact.email.desc">Najłatwiej złapać mnie mailowo.</p>
-            <span class="mail-address">michaldzido2<wbr>@gmail.com</span>
-            <span class="mail-fab" aria-hidden="true"><span class="material-symbols-rounded">arrow_outward</span></span>
-          </a>
+          <div data-reveal class="mail-wrap">
+            <a href="mailto:michaldzido2@gmail.com" class="mail-card" aria-label="Wyślij e-mail do michaldzido2@gmail.com"
+              data-i18n-aria="contact.email.aria">
+              <h2 id="contact-heading" class="mail-heading" data-i18n="contact.heading">Napisz do mnie</h2>
+              <p class="mail-note" data-i18n="contact.email.desc">Najłatwiej złapać mnie mailowo.</p>
+              <span class="mail-address">michaldzido2<wbr>@gmail.com</span>
+              <span class="mail-fab" aria-hidden="true"><span class="material-symbols-rounded">arrow_outward</span></span>
+            </a>
+            <button type="button" class="mail-copy" id="copy-email" data-email="michaldzido2@gmail.com"
+              aria-label="Kopiuj adres e-mail" title="Kopiuj adres" data-i18n-aria="contact.copyAria" data-i18n-title="contact.copyTitle">
+              <span class="material-symbols-rounded icon-copy" aria-hidden="true">content_copy</span>
+              <span class="material-symbols-rounded icon-done" aria-hidden="true">check</span>
+            </button>
+          </div>
 
           <ul class="link-list">
             <li>
@@ -656,7 +675,7 @@
     </button>
   </aside>
 
-  <script src="scripts/main.js?v=22"></script>
+  <script src="scripts/main.js?v=23"></script>
 </body>
 
 </html>
