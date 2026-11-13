@@ -64,7 +64,7 @@ const I18N = {
     "toast.closeAria": "Zamknij powiadomienie",
 
     "hero.kicker": "Junior IT Specialist · Warszawa",
-    "hero.leadHtml": "Odbieram zgłoszenia w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję cyberbezpieczeństwo na <strong>Uniwersytecie WSEI w Lublinie</strong>. Po pracy siedzę na betach Androida i składam komputery.",
+    "hero.leadHtml": "Pracuję na pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję cyberbezpieczeństwo na <strong>Uniwersytecie WSEI w Lublinie</strong>. Po godzinach testuję bety Androida i składam komputery.",
     "hero.ctaContact": "Napisz do mnie",
     "hero.ctaTerminal": "Terminal",
     "hero.terminalTitle": "Otwórz terminal (klawisz ~)",
@@ -72,6 +72,8 @@ const I18N = {
     "hero.photoAlt": "Michał Dzido, zdjęcie portretowe",
     "hero.avatarAlt": "Michał Dzido, awatar 3D",
     "hero.avatarHintAria": "Awatar 3D",
+    "hero.avatarToggleTo3d": "Przełącz na awatar 3D",
+    "hero.avatarToggleToPhoto": "Przełącz na zdjęcie",
     "hero.avatarPhoto": "Zdjęcie",
     "hero.avatar3d": "Awatar 3D",
 
@@ -84,9 +86,9 @@ const I18N = {
     "lastfm.unknownArtist": "Nieznany wykonawca",
 
     "about.heading": "O mnie",
-    "about.p1": "W tygodniu siedzę w biurze w Warszawie i odbieram zgłoszenia: poczta, Office, uprawnienia, Windows, sprzęt. Tłumaczę ludziom techniczne sprawy bez żargonu, a to, czego nie da się naprawić od ręki, przekazuję do właściwej grupy.",
-    "about.p2": "Weekendy spędzam na zjazdach na Uniwersytecie WSEI w Lublinie albo w rodzinnym Adamowie. Na studiach rozwijam wiedzę, którą zdobyłem w technikum, głównie z sieci, analizy ruchu i zabezpieczania systemów.",
-    "about.p3": "Po godzinach moderuję grupę Google Pixel Polska, instaluję testowe wersje Androida i Windowsa, a wieczorami słucham muzyki albo gram na PC.",
+    "about.p1": "Od poniedziałku do piątku pracuję z biura w Warszawie. Pomagam pracownikom z pocztą, pakietem Office, uprawnieniami i sprzętem, tłumacząc techniczne kwestie prostym językiem. Poważniejsze awarie diagnozuję i kieruję do odpowiednich zespołów.",
+    "about.p2": "W weekendy jeżdżę na zjazdy na Uniwersytet WSEI w Lublinie albo wracam do rodzinnego Adamowa. Na studiach poszerzam podstawy wyniesione z technikum: sieci komputerowe, analizę ruchu i zabezpieczanie systemów.",
+    "about.p3": "Po pracy moderuję grupę Google Pixel Polska i testuję rozwojowe wersje Androida oraz Windowsa. Wieczory spędzam przy muzyce albo grach na PC.",
     "about.hobbiesAria": "Po godzinach",
     "about.chip.music": "Muzyka",
     "about.chip.beta": "Bety systemów",
@@ -96,9 +98,9 @@ const I18N = {
     "about.age.sub": "Urodzony 4 marca 2006",
     "about.age.hint": "Dotknij, żeby policzyć inaczej",
     "about.age.daysLabel": "Na świecie",
-    "about.age.daysSub": "Tyle dni minęło od 4 marca 2006",
+    "about.age.daysSub": "Od 4 marca 2006",
     "about.age.nextLabel": "Urodziny",
-    "about.age.nextSub": "Zostało do 4 marca",
+    "about.age.nextSub": "Do 4 marca",
     "about.age.today": "Dziś",
     "about.age.todaySub": "Dziś są moje urodziny",
     "about.age.days1": "dzień",
@@ -114,33 +116,33 @@ const I18N = {
     "about.loc.value": "Warszawa i Adamów",
     "about.loc.timeLabel": "U mnie jest",
 
-    "easter.music": "Słuchawki mam na uszach przez większość dnia. Karta na górze strony pokazuje na żywo, czego słucham na Last.fm.",
-    "easter.pixel": "Razem z innymi moderatorami prowadzę na Facebooku polską grupę użytkowników telefonów Google Pixel.",
-    "easter.beta": "Lubię sprawdzać nowości przed premierą, dlatego na co dzień siedzę na Android Beta i Windows Insider.",
-    "easter.pc": "Dobieram części, składam komputery od zera, wymieniam pasty termoprzewodzące i szukam przyczyn dziwnych awarii.",
-    "easter.pixel8pro": "Mój główny telefon. Siedzi na kanale Android Beta i robi świetne zdjęcia z 5-krotnym zbliżeniem.",
-    "easter.buds": "Słuchawki z układem Tensor A1. Małe, wygodne i dobrze wyciszają biuro oraz pociąg.",
-    "easter.watch": "Zegarek 41 mm z Wear OS. Używam go do powiadomień, płatności zbliżeniowych i liczenia kroków.",
+    "easter.music": "Słucham muzyki przez większość dnia. Karta na górze strony pokazuje na żywo mój aktualny odsłuch z Last.fm.",
+    "easter.pixel": "Razem z innymi moderatorami prowadzę na Facebooku polską społeczność użytkowników telefonów Google Pixel.",
+    "easter.beta": "Lubię sprawdzać nowości przed premierą, dlatego na co dzień testuję Android Beta i Windows Insider.",
+    "easter.pc": "Dobieram podzespoły, składam komputery od zera, wymieniam pasty i diagnozuję nietypowe usterki.",
+    "easter.pixel8pro": "Mój główny telefon. Działa na kanale Android Beta i świetnie radzi sobie z 5-krotnym zbliżeniem.",
+    "easter.buds": "Słuchawki z układem Tensor A1. Małe, wygodne i skutecznie wyciszają biuro oraz pociąg.",
+    "easter.watch": "Zegarek 41 mm z Wear OS do powiadomień, płatności zbliżeniowych i codziennego śledzenia kroków.",
     "easter.surface": "Lekki komputer 2 w 1 ze Snapdragonem X Elite i ekranem OLED. Zabieram go na uczelnię i w podróż, bo długo trzyma na baterii.",
-    "easter.ryzen": "Domowy komputer z Ryzenem 5 5600G i RTX 4060. Stawiam na nim maszyny wirtualne, ćwiczę sieci i gram wieczorami.",
+    "easter.ryzen": "Domowy komputer z Ryzenem 5 5600G i RTX 4060. Uruchamiam na nim maszyny wirtualne, ćwiczę konfigurację sieci i gram po godzinach.",
 
     "exp.heading": "Czym się zajmuję",
-    "exp.subtitle": "W pracy, na laboratoriach i przy własnym biurku.",
+    "exp.subtitle": "W pracy, na laboratoriach i przy własnym biurku",
     "exp.helpdesk.title": "Helpdesk",
-    "exp.helpdesk.desc": "Codziennie obsługuję zgłoszenia przez telefon i zdalnie. Odblokowuję konta, konfiguruję stanowiska, rozwiązuję błędy Windowsa i aplikacji firmowych, a większe awarie eskaluję do odpowiednich zespołów.",
+    "exp.helpdesk.desc": "Na co dzień obsługuję zgłoszenia telefonicznie i zdalnie. Konfiguruję stanowiska, zarządzam dostępami, usuwam błędy Windowsa i aplikacji biurowych, a złożone awarie przekazuję dalej.",
     "exp.helpdesk.tools": "Pomoc zdalna · zgłoszenia · pakiet biurowy",
     "exp.net.title": "Sieci i systemy",
     "exp.net.where": "Studia i laboratoria",
-    "exp.net.desc": "Zakładam konta i nadaję uprawnienia w Active Directory, pracuję w Linuksie, ustawiam adresację, VLAN-y, routing i reguły firewalli.",
+    "exp.net.desc": "Zarządzam kontami i uprawnieniami w Active Directory, pracuję w Linuksie oraz konfiguruję adresację, sieci VLAN, routing i reguły zapory.",
     "exp.hw.title": "Sprzęt",
     "exp.hw.where": "Technik informatyk",
-    "exp.hw.desc": "Składam komputery stacjonarne, wymieniam podzespoły w laptopach i szukam przyczyn usterek, od pamięci RAM po zasilacze i płyty główne.",
+    "exp.hw.desc": "Składam stacje robocze, wymieniam podzespoły w laptopach i diagnozuję awarie sprzętu: od pamięci RAM po zasilacze oraz płyty główne.",
     "exp.hw.tools": "Diagnostyka · serwis · dobór części",
     "exp.mobile.title": "Wersje testowe",
-    "exp.mobile.desc": "Na co dzień używam wersji beta Androida i Windowsa. Sprawdzam nowe funkcje i poprawki bezpieczeństwa, zanim trafią do wszystkich.",
+    "exp.mobile.desc": "Na moich urządzeniach działają testowe kompilacje Androida oraz Windowsa. Sprawdzam nowe funkcje i poprawki bezpieczeństwa przed oficjalną premierą.",
 
     "devices.heading": "Na czym pracuję",
-    "devices.subtitle": "Sprzęt, którego używam codziennie. Kliknij kartę, żeby dowiedzieć się więcej.",
+    "devices.subtitle": "Sprzęt, z którego korzystam na co dzień. Kliknij kartę po szczegóły",
     "devices.filterAria": "Filtruj urządzenia",
     "devices.filterAll": "Wszystko",
     "devices.filterPc": "Komputery",
@@ -170,7 +172,7 @@ const I18N = {
     "contact.copyAria": "Kopiuj adres e-mail",
     "contact.copyTitle": "Kopiuj adres",
     "contact.copiedTitle": "Skopiowano adres",
-    "contact.email.desc": "Najłatwiej złapać mnie mailowo.",
+    "contact.email.desc": "Najłatwiej złapać mnie mailowo",
     "contact.linkedin.desc": "Przebieg pracy i certyfikaty",
     "contact.github.desc": "Kod tej strony i projekty ze studiów",
     "contact.pixel.desc": "Grupa na Facebooku, którą moderuję",
@@ -188,7 +190,7 @@ const I18N = {
     "terminal.inputAria": "Wpisz komendę terminala",
     "terminal.sendAria": "Wykonaj komendę",
     "terminal.unknownPrefix": "Nie znam komendy",
-    "terminal.unknownSuffix": "Wpisz <strong>help</strong>, żeby zobaczyć dostępne."
+    "terminal.unknownSuffix": "Wpisz <strong>help</strong>, żeby zobaczyć listę poleceń."
   },
 
   en: {
@@ -233,7 +235,7 @@ const I18N = {
     "toast.closeAria": "Close notification",
 
     "hero.kicker": "Junior IT Specialist · Warsaw",
-    "hero.leadHtml": "I handle first-line IT support tickets at <strong>IT Solution Factor</strong> and study cybersecurity at <strong>WSEI University in Lublin</strong>. After work I run Android betas and build PCs.",
+    "hero.leadHtml": "I handle first-line IT support at <strong>IT Solution Factor</strong> and study cybersecurity at <strong>WSEI University in Lublin</strong>. After hours I test Android betas and build PCs.",
     "hero.ctaContact": "Get in touch",
     "hero.ctaTerminal": "Terminal",
     "hero.terminalTitle": "Open terminal (~ key)",
@@ -241,6 +243,8 @@ const I18N = {
     "hero.photoAlt": "Michał Dzido, portrait photo",
     "hero.avatarAlt": "Michał Dzido, 3D avatar",
     "hero.avatarHintAria": "3D avatar",
+    "hero.avatarToggleTo3d": "Switch to 3D avatar",
+    "hero.avatarToggleToPhoto": "Switch to photo",
     "hero.avatarPhoto": "Photo",
     "hero.avatar3d": "3D avatar",
 
@@ -253,9 +257,9 @@ const I18N = {
     "lastfm.unknownArtist": "Unknown artist",
 
     "about.heading": "About",
-    "about.p1": "On weekdays I work from the office in Warsaw and handle tickets: email, Office, permissions, Windows, hardware. I explain technical things without jargon, and whatever I can't fix on the spot goes to the right team.",
-    "about.p2": "Weekends are university sessions at WSEI University in Lublin or time back home in Adamów. At university I build on what I learned in technical school, mostly networks, traffic analysis and securing systems.",
-    "about.p3": "After hours I moderate the Google Pixel Polska group, install test builds of Android and Windows, and in the evenings I listen to music or play games on my PC.",
+    "about.p1": "On weekdays I work from the Warsaw office handling tickets: email, Microsoft 365, permissions, Windows and hardware. I explain technical issues without jargon and route complex incidents to the right teams.",
+    "about.p2": "Weekends are for classes at WSEI University in Lublin or time back home in Adamów. My degree builds on what I learned in technical school, focusing on networking, traffic analysis and system security.",
+    "about.p3": "After work I moderate the Google Pixel Polska group on Facebook, test preview builds of Android and Windows, and spend evenings listening to music or gaming on PC.",
     "about.hobbiesAria": "After hours",
     "about.chip.music": "Music",
     "about.chip.beta": "OS betas",
@@ -265,9 +269,9 @@ const I18N = {
     "about.age.sub": "Born 4 March 2006",
     "about.age.hint": "Tap to count it another way",
     "about.age.daysLabel": "Around for",
-    "about.age.daysSub": "Days since 4 March 2006",
+    "about.age.daysSub": "Since 4 March 2006",
     "about.age.nextLabel": "Birthday",
-    "about.age.nextSub": "Left until 4 March",
+    "about.age.nextSub": "Until 4 March",
     "about.age.today": "Today",
     "about.age.todaySub": "It's my birthday today",
     "about.age.days1": "day",
@@ -283,33 +287,33 @@ const I18N = {
     "about.loc.value": "Warsaw and Adamów",
     "about.loc.timeLabel": "My local time is",
 
-    "easter.music": "I have headphones on for most of the day. The card at the top shows what I'm listening to on Last.fm, live.",
-    "easter.pixel": "Together with other moderators I run the Polish Facebook group for Google Pixel users.",
-    "easter.beta": "I like seeing new features before release, so my devices run Android Beta and Windows Insider builds.",
-    "easter.pc": "I pick parts, build PCs from scratch, repaste coolers and track down odd hardware faults.",
-    "easter.pixel8pro": "My main phone. It runs the Android Beta channel and takes great shots with the 5x telephoto.",
-    "easter.buds": "Earbuds with the Tensor A1 chip. Small, comfortable and good at muting the office and the train.",
-    "easter.watch": "41 mm watch on Wear OS. I use it for notifications, contactless payments and step counting.",
+    "easter.music": "I listen to music for most of the day. The card at the top shows what I'm playing on Last.fm live.",
+    "easter.pixel": "Together with other moderators I run the Polish Facebook community for Google Pixel users.",
+    "easter.beta": "I like testing features early, so my daily devices run Android Beta and Windows Insider builds.",
+    "easter.pc": "I pick components, build PCs from scratch, repaste coolers and track down stubborn hardware faults.",
+    "easter.pixel8pro": "My daily phone. Runs Android Beta and captures sharp shots with its 5x telephoto.",
+    "easter.buds": "Earbuds with the Tensor A1 chip. Compact, comfortable and good at muting the office and the train.",
+    "easter.watch": "41 mm Wear OS watch for notifications, contactless payments and daily step tracking.",
     "easter.surface": "A light 2-in-1 with Snapdragon X Elite and an OLED screen. It comes with me to university and on trips because the battery lasts.",
-    "easter.ryzen": "My home desktop with a Ryzen 5 5600G and RTX 4060. I run virtual machines on it, practise networking and play in the evenings.",
+    "easter.ryzen": "My home desktop with a Ryzen 5 5600G and RTX 4060. Used for lab virtual machines, networking practice and evening gaming.",
 
     "exp.heading": "What I do",
-    "exp.subtitle": "At work, in university labs and at my own desk.",
+    "exp.subtitle": "At work, in university labs and at my desk",
     "exp.helpdesk.title": "Helpdesk",
-    "exp.helpdesk.desc": "I handle user tickets by phone and remotely every day. I unlock accounts, set up workstations, fix Windows and business app errors, and escalate bigger outages to the right teams.",
+    "exp.helpdesk.desc": "I handle user tickets by phone and remotely. I unlock accounts, configure workstations, fix Windows and business app errors, and escalate larger incidents to specialist teams.",
     "exp.helpdesk.tools": "Remote support · ticketing · office suite",
     "exp.net.title": "Networks and systems",
     "exp.net.where": "University and labs",
-    "exp.net.desc": "I create accounts and manage permissions in Active Directory, work in Linux, and configure addressing, VLANs, routing and firewall rules.",
+    "exp.net.desc": "I manage accounts and permissions in Active Directory, work in Linux, and configure addressing, VLANs, routing and firewall rules.",
     "exp.hw.title": "Hardware",
     "exp.hw.where": "IT technician",
-    "exp.hw.desc": "I build desktops, swap parts in laptops and track down faults, from RAM to power supplies and motherboards.",
+    "exp.hw.desc": "I assemble desktops, replace laptop components and pinpoint faults across RAM, power supplies and motherboards.",
     "exp.hw.tools": "Diagnostics · repair · picking parts",
     "exp.mobile.title": "Test builds",
-    "exp.mobile.desc": "I use beta versions of Android and Windows day to day, so I see new features and security patches before they reach everyone.",
+    "exp.mobile.desc": "I run beta builds of Android and Windows daily, checking new features and security fixes ahead of stable releases.",
 
     "devices.heading": "What I use",
-    "devices.subtitle": "Hardware I use every day. Click a card to read more.",
+    "devices.subtitle": "Hardware I use daily. Click a card for details",
     "devices.filterAria": "Filter devices",
     "devices.filterAll": "All",
     "devices.filterPc": "Computers",
@@ -339,7 +343,7 @@ const I18N = {
     "contact.copyAria": "Copy e-mail address",
     "contact.copyTitle": "Copy address",
     "contact.copiedTitle": "Address copied",
-    "contact.email.desc": "Email is the easiest way to reach me.",
+    "contact.email.desc": "Email is the fastest way to reach me",
     "contact.linkedin.desc": "Work history and certificates",
     "contact.github.desc": "Source of this site and university projects",
     "contact.pixel.desc": "The Facebook group I moderate",
@@ -402,7 +406,7 @@ function showToast(input) {
   const message = isObj ? (input.message || '') : String(input || '');
   const title = isObj ? (input.title || '') : '';
   const icon = isObj ? (input.icon || 'info') : 'info';
-  const accent = isObj ? (input.accent || 'var(--md-sys-color-primary)') : 'var(--md-sys-color-primary)';
+  const accent = isObj ? (input.accent || 'var(--primary)') : 'var(--primary)';
 
   const titleEl = toast.querySelector('#toast-title, .toast-title');
   const msgEl = toast.querySelector('#toast-msg, .toast-msg');
@@ -445,8 +449,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Dynamic Footer Current Year
   initFooterYear();
 
-  // 3. Live Last.fm Scrobbler Status & Polling
-  updateLastFmStatus();
+  // 3. Live Last.fm Scrobbler Status & Polling (slightly deferred so mobile entrance stays smooth)
+  setTimeout(updateLastFmStatus, 750);
   setInterval(updateLastFmStatus, LASTFM_CONFIG.pollIntervalMs);
 
   // 4. Material 3 Theme & Dynamic Color Palette Manager
@@ -576,13 +580,15 @@ function applyLanguage(lang, notify = false) {
   initAgeCalculator();
   syncThemeLabels();
   syncLastFmLabels();
+  if (typeof window.syncAvatarAria === 'function') window.syncAvatarAria();
+  if (typeof window.refreshNavIndicators === 'function') window.refreshNavIndicators();
 
   if (notify) {
     showToast({
       title: t('controls.langToastTitle'),
       message: t('controls.langToast'),
       icon: 'translate',
-      accent: 'var(--md-sys-color-primary)'
+      accent: 'var(--primary)'
     });
   }
 }
@@ -930,13 +936,17 @@ function initThemeManager() {
         const x = rect.left + rect.width / 2;
         const y = rect.top + rect.height / 2;
         const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+        htmlRoot.classList.add('is-theme-switching');
         const transition = document.startViewTransition(() => applyTheme(newTheme));
         transition.ready.then(() => {
           document.documentElement.animate(
             { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
-            { duration: 560, easing: 'cubic-bezier(0.2, 0, 0, 1)', pseudoElement: '::view-transition-new(root)' }
+            { duration: 520, easing: 'cubic-bezier(0.2, 0, 0, 1)', pseudoElement: '::view-transition-new(root)' }
           );
         }).catch(() => {});
+        transition.finished.catch(() => {}).finally(() => {
+          htmlRoot.classList.remove('is-theme-switching');
+        });
       } else {
         applyTheme(newTheme);
       }
@@ -945,7 +955,7 @@ function initThemeManager() {
         title: t('controls.themeToastTitle'),
         message: newTheme === 'dark' ? t('controls.themeToastDark') : t('controls.themeToastLight'),
         icon: newTheme === 'dark' ? 'dark_mode' : 'light_mode',
-        accent: 'var(--md-sys-color-primary)'
+        accent: 'var(--primary)'
       });
     });
   }
@@ -1026,7 +1036,7 @@ function initPaletteManager() {
         title: t('controls.paletteToastTitle'),
         message: `${t('controls.palettePrefix')}: ${paletteName}`,
         icon: 'palette',
-        accent: paletteAccents[palette] || 'var(--md-sys-color-primary)'
+        accent: paletteAccents[palette] || 'var(--primary)'
       });
     }
   }
@@ -1109,6 +1119,13 @@ function initNavigationScrollSpy() {
     }
   };
 
+  const releaseLock = () => {
+    if (!lockedTargetId) return;
+    lockedTargetId = null;
+    clearTimeout(lockReleaseTimer);
+    setActiveSection(detectActiveSection());
+  };
+
   const handleNavClick = (e, link) => {
     e.preventDefault();
     const targetId = link.getAttribute('href').substring(1);
@@ -1122,7 +1139,7 @@ function initNavigationScrollSpy() {
     // Fallback release in case the page is already at the target and no scroll event fires
     clearTimeout(lockReleaseTimer);
     lockReleaseTimer = setTimeout(() => {
-      lockedTargetId = null;
+      releaseLock();
     }, 1200);
   };
 
@@ -1131,6 +1148,22 @@ function initNavigationScrollSpy() {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
+  window.addEventListener('wheel', releaseLock, { passive: true });
+  window.addEventListener('touchstart', releaseLock, { passive: true });
+  window.addEventListener('keydown', (e) => {
+    if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(e.key)) {
+      releaseLock();
+    }
+  });
+  window.addEventListener('hashchange', () => {
+    const hashId = window.location.hash.replace(/^#/, '');
+    if (hashId && document.getElementById(hashId)) {
+      lockedTargetId = hashId;
+      setActiveSection(hashId);
+      clearTimeout(lockReleaseTimer);
+      lockReleaseTimer = setTimeout(releaseLock, 1200);
+    }
+  });
   setActiveSection(detectActiveSection());
 }
 
@@ -1194,8 +1227,12 @@ function initAvatarInteractive() {
 
   const syncAria = () => {
     const isActive = avatarWrapper.classList.contains('is-avatar-active');
-    if (hintBtn) hintBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    if (hintBtn) {
+      hintBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      hintBtn.setAttribute('aria-label', isActive ? t('hero.avatarToggleToPhoto') : t('hero.avatarToggleTo3d'));
+    }
   };
+  window.syncAvatarAria = syncAria;
 
   // A single click handler serves mouse, touch and keyboard (Enter/Space on the hint
   // button fire a native click that bubbles here). Every tap flips photo <-> avatar.
@@ -1428,20 +1465,18 @@ function applyLastFmExpressiveColors() {
 
   const isLight = document.documentElement.getAttribute("data-theme") === "light";
   const { h, s } = lastFmSeedHsl;
+  const chromaScale = Math.max(0.45, Math.min(1, (s || 40) / 70));
 
-  // Material 3 Expressive uses boosted chroma and distinct tonal roles for dark vs light surfaces
-  const expressiveSat = isLight
-    ? Math.max(66, Math.min(88, s + 8))
-    : Math.max(74, Math.min(95, s + 12));
-
-  const accentLightness = isLight ? 36 : 70;
-  const containerLightness = isLight ? 92 : 20;
-  const glowAlpha = isLight ? 0.28 : 0.44;
-  const glowLightness = isLight ? 46 : 64;
-
-  const accentColor = `hsl(${h} ${expressiveSat}% ${accentLightness}%)`;
-  const containerColor = `hsl(${h} ${Math.max(45, expressiveSat - 18)}% ${containerLightness}%)`;
-  const glowColor = `hsl(${h} ${expressiveSat}% ${glowLightness}% / ${glowAlpha})`;
+  // Perceptual OKLCH tonal roles preserve WCAG contrast even on yellow/lime/cyan covers
+  const accentColor = isLight
+    ? `oklch(0.42 ${(0.145 * chromaScale).toFixed(3)} ${h})`
+    : `oklch(0.83 ${(0.125 * chromaScale).toFixed(3)} ${h})`;
+  const containerColor = isLight
+    ? `oklch(0.92 ${(0.042 * chromaScale).toFixed(3)} ${h})`
+    : `oklch(0.24 ${(0.052 * chromaScale).toFixed(3)} ${h})`;
+  const glowColor = isLight
+    ? `oklch(0.54 ${(0.15 * chromaScale).toFixed(3)} ${h} / 0.24)`
+    : `oklch(0.68 ${(0.16 * chromaScale).toFixed(3)} ${h} / 0.36)`;
 
   card.classList.remove("is-offline");
   card.style.setProperty("--lastfm-accent", accentColor);
@@ -1620,7 +1655,7 @@ function initEasterEggs() {
 
       const accent = item.getAttribute('data-toast-accent')
         || getComputedStyle(item).getPropertyValue('--card-accent').trim()
-        || 'var(--md-sys-color-primary)';
+        || 'var(--primary)';
 
       showToast({
         title,
@@ -1661,11 +1696,11 @@ function initMiniTerminal() {
   const commandsByLang = {
     pl: {
       help: 'Dostępne polecenia: <strong>whoami</strong>, <strong>neofetch</strong>, <strong>skills</strong>, <strong>pixel</strong>, <strong>ryzen</strong>, <strong>uptime</strong>, <strong>contact</strong>, <strong>clear</strong>',
-      whoami: '<strong>Michał Dzido</strong> • Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI w Lublinie oraz moderator społeczności Google Pixel Polska.',
+      whoami: '<strong>Michał Dzido</strong> • Junior IT Specialist w IT Solution Factor, student cyberbezpieczeństwa na Uniwersytecie WSEI w Lublinie oraz moderator grupy Google Pixel Polska.',
       neofetch: '<strong>OS</strong>: Android 16 Beta / Windows 11 Insider<br><strong>Host</strong>: Google Pixel 8 Pro (Mint) &amp; Surface Pro 11<br><strong>Workstation</strong>: Miska Ryżenu (Ryzen 5 5600G + RTX 4060)<br><strong>Font</strong>: Google Sans Flex + JetBrains Mono<br><strong>UI</strong>: Material 3 Expressive',
       skills: '<strong>Obszary techniczne</strong>: Windows Server, Active Directory, Linux/Bash, sieci TCP/IP &amp; VLAN, diagnostyka sprzętu PC, pierwsza linia wsparcia IT.',
       pixel: '<strong>Ekosystem Google Pixel</strong>: Pixel 8 Pro (Mint, Tensor G3), Pixel Buds Pro 2 (Moonstone, Tensor A1) oraz Pixel Watch 2. Prowadzę również moderację grupy Google Pixel Polska.',
-      ryzen: '<strong>Miska Ryżenu (PC)</strong>: AMD Ryzen 5 5600G, GeForce RTX 4060, 16 GB RAM DDR4. Stacja robocza do wirtualnych maszyn laboratoryjnych, nauki sieci i gier.',
+      ryzen: '<strong>Miska Ryżenu (PC)</strong>: AMD Ryzen 5 5600G, GeForce RTX 4060, 16 GB RAM DDR4. Stacja robocza do maszyn wirtualnych, ćwiczeń sieciowych i gier.',
       uptime: () => {
         const elapsedSec = Math.max(1, Math.floor((Date.now() - sessionStart) / 1000));
         const mins = Math.floor(elapsedSec / 60);
@@ -1808,6 +1843,7 @@ function initDevicesFilter() {
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
+      if (btn.classList.contains('is-selected')) return;
       const filter = btn.getAttribute('data-device-filter') || 'all';
 
       buttons.forEach((b) => {
@@ -1837,27 +1873,36 @@ function initDevicesFilter() {
    12. MOTION
    =================================================================== */
 
-// Name in the hero: letters stretch on hover (CSS). On touch screens a tap does the same.
+// Name in the hero: letters stretch on fine desktop pointers (CSS); on mobile/touch screens
+// a pure compositor transform wave avoids main-thread font shaping jank.
 function initHeroName() {
   const title = document.getElementById('hero-title-h1');
   if (!title) return;
+  const isFineDesktop = () =>
+    window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1024px)').matches;
   title.addEventListener('click', () => {
-    if (window.matchMedia('(hover: hover)').matches) return;
-    title.classList.add('is-stretched');
+    if (isFineDesktop()) return;
+    title.classList.remove('is-tap-wave');
+    void title.offsetWidth;
+    title.classList.add('is-tap-wave');
     clearTimeout(title._stretchTimer);
-    title._stretchTimer = setTimeout(() => title.classList.remove('is-stretched'), 1400);
+    title._stretchTimer = setTimeout(() => title.classList.remove('is-tap-wave'), 920);
   });
 }
 
 // Toolbars: one pill slides to the active item instead of jumping
 function initNavIndicator() {
-  initDesktopIndicator(document.querySelector('.nav-tabs'));
-  initMobileIndicator(document.getElementById('mobile-nav'));
+  const syncDesktop = initDesktopIndicator(document.querySelector('.nav-tabs'));
+  const syncMobile = initMobileIndicator(document.getElementById('mobile-nav'));
+  window.refreshNavIndicators = () => {
+    if (typeof syncDesktop === 'function') syncDesktop();
+    if (typeof syncMobile === 'function') syncMobile(true);
+  };
 }
 
 // Desktop: tabs keep a constant size, so the pill is measured from the final layout
 function initDesktopIndicator(list) {
-  if (!list) return;
+  if (!list) return null;
   const indicator = document.createElement('span');
   indicator.className = 'nav-indicator';
   indicator.setAttribute('aria-hidden', 'true');
@@ -1877,27 +1922,93 @@ function initDesktopIndicator(list) {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
   place();
   requestAnimationFrame(() => list.classList.add('has-indicator'));
+  return place;
 }
 
-// Mobile: five equal slots, the pill moves by slot index (transform only)
+// Mobile: M3 Expressive expandable floating navigation bar — only active tab shows label,
+// inactive tabs are icon-only targets; pill tracks analytical item positions.
 function initMobileIndicator(bar) {
-  if (!bar) return;
-  const slot = document.createElement('span');
-  slot.className = 'mobile-nav-slot';
-  slot.setAttribute('aria-hidden', 'true');
-  bar.prepend(slot);
-  const items = Array.from(bar.querySelectorAll('.mobile-nav-item'));
+  if (!bar) return null;
+  const indicator = document.createElement('span');
+  indicator.className = 'mobile-nav-indicator';
+  indicator.setAttribute('aria-hidden', 'true');
+  bar.prepend(indicator);
 
-  const sync = () => {
-    const index = Math.max(0, items.findIndex((item) => item.classList.contains('active')));
-    bar.style.setProperty('--active', index);
+  const items = Array.from(bar.querySelectorAll('.mobile-nav-item'));
+  let labelWidths = new Array(items.length).fill(0);
+  let measured = false;
+  let lastWindowWidth = window.innerWidth;
+
+  const measureLabels = () => {
+    if (getComputedStyle(bar).display === 'none' || bar.offsetWidth === 0) return false;
+    labelWidths = items.map((item) => {
+      const inner = item.querySelector('.mobile-nav-label-inner');
+      if (!inner) return 0;
+      const w = Math.ceil(Math.max(inner.getBoundingClientRect().width, inner.scrollWidth));
+      item.style.setProperty('--label-w', `${w}px`);
+      return w;
+    });
+    measured = true;
+    lastWindowWidth = window.innerWidth;
+    return true;
   };
-  new MutationObserver(sync).observe(bar, { subtree: true, attributes: true, attributeFilter: ['class'] });
-  sync();
+
+  const sync = (forceRemeasure = false) => {
+    if (getComputedStyle(bar).display === 'none' || bar.offsetWidth === 0) return;
+    if (forceRemeasure || !measured) measureLabels();
+
+    const cs = getComputedStyle(bar);
+    const pad = parseFloat(cs.getPropertyValue('--mob-pad')) || 6;
+    const gap = parseFloat(cs.getPropertyValue('--mob-gap')) || 4;
+    const iconW = parseFloat(cs.getPropertyValue('--mob-icon-w')) || 48;
+    const activeBase = parseFloat(cs.getPropertyValue('--mob-active-base')) || 58;
+
+    const index = Math.max(0, items.findIndex((item) => item.classList.contains('active')));
+    const x = Math.round(pad + index * (iconW + gap));
+    const w = Math.round(activeBase + (labelWidths[index] || 0));
+
+    bar.style.setProperty('--x', `${x}px`);
+    bar.style.setProperty('--w', `${w}px`);
+
+    if (!bar.classList.contains('has-indicator')) {
+      bar.classList.add('has-indicator');
+      void bar.offsetWidth;
+      requestAnimationFrame(() => bar.classList.add('is-ready'));
+    }
+  };
+
+  new MutationObserver(() => sync(false)).observe(bar, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['class']
+  });
+
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(() => {
+      const visible = getComputedStyle(bar).display !== 'none' && bar.offsetWidth > 0;
+      if (!visible) {
+        measured = false;
+        return;
+      }
+      if (!measured || window.innerWidth !== lastWindowWidth) {
+        sync(true);
+      }
+    });
+    ro.observe(bar);
+  }
+
+  window.addEventListener('resize', () => sync(true), { passive: true });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => sync(true));
+  }
+  sync(true);
 
   bar.addEventListener('pointerdown', () => bar.classList.add('is-pressing'));
   ['pointerup', 'pointercancel', 'pointerleave'].forEach((type) =>
-    bar.addEventListener(type, () => bar.classList.remove('is-pressing')));
+    bar.addEventListener(type, () => bar.classList.remove('is-pressing'))
+  );
+
+  return sync;
 }
 
 // Copy the e-mail address and confirm with a snackbar
