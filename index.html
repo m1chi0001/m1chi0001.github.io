@@ -41,26 +41,32 @@
     imagesrcset="assets/michal-480.webp 480w, assets/michal-880.webp 880w"
     imagesizes="(max-width: 767px) 260px, 440px" fetchpriority="high">
 
-  <link rel="stylesheet" href="styles/main.css?v=23">
+  <link rel="stylesheet" href="styles/main.css?v=24">
   <script>
-    // Hold the hero entrance until web fonts are ready, so letters don't swap fonts mid-animation
+    // Hold the hero entrance until web fonts (including Polish latin-ext glyphs like 'ł')
+    // are ready, so letters don't swap fonts or re-layout mid-animation.
     (function () {
       var root = document.documentElement;
       var done = false;
-      // Wait one more frame after fonts arrive, so the text re-layout and the first
-      // animation frame don't land in the same frame
       var ready = function () {
         if (done) return; done = true;
-        requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('is-ready'); }); });
+        root.classList.add('is-hero-entering');
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            root.classList.add('is-ready');
+            setTimeout(function () {
+              root.classList.remove('is-hero-entering');
+            }, 1350);
+          });
+        });
       };
-      // fonts.ready resolves before any font has been requested, so ask for the face itself
       if (document.fonts && document.fonts.load) {
         Promise.all([
-          document.fonts.load('640 1em "Google Sans Flex"'),
-          document.fonts.load('400 1em "Google Sans Flex"')
+          document.fonts.load('640 1em "Google Sans Flex"', 'Michał Dzido'),
+          document.fonts.load('400 1em "Google Sans Flex"', 'AaBbĆćŁłŃńÓóŚśŹźŻż')
         ]).then(ready, ready);
       }
-      setTimeout(ready, 1800);
+      setTimeout(ready, 1400);
     })();
   </script>
 </head>
@@ -72,7 +78,7 @@
 
   <!-- Docked identity chip, appears after scrolling past the hero -->
   <aside id="docked-avatar-chip" class="docked-avatar-chip" role="button" tabindex="0"
-    aria-label="Przewiń do góry strony" title="Wróć na górę strony"
+    aria-label="Przewiń do góry strony" title="Wróć na górę"
     data-i18n-aria="docked.aria" data-i18n-title="docked.title">
     <img src="assets/michal-96.webp" alt="" class="docked-avatar-photo" width="40" height="40" loading="lazy" decoding="async">
     <span class="docked-title">Michał Dzido</span>
@@ -118,27 +124,27 @@
     </nav>
   </header>
 
-  <!-- Mobile navigation bar -->
+  <!-- Mobile navigation bar (M3 Expressive: active tab shows label, inactive show icons only) -->
   <nav class="mobile-bottom-nav" aria-label="Nawigacja mobilna" id="mobile-nav" data-i18n-aria="nav.mobileAria">
-    <a href="#hero" class="mobile-nav-item active" id="mob-hero">
+    <a href="#hero" class="mobile-nav-item active" id="mob-hero" aria-current="location" title="Start" data-i18n-title="nav.home">
       <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">home</span></span>
-      <span class="mobile-nav-label" data-i18n="nav.home">Start</span>
+      <span class="mobile-nav-label"><span class="mobile-nav-label-inner" data-i18n="nav.home">Start</span></span>
     </a>
-    <a href="#about" class="mobile-nav-item" id="mob-about">
+    <a href="#about" class="mobile-nav-item" id="mob-about" title="O mnie" data-i18n-title="nav.about">
       <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">person</span></span>
-      <span class="mobile-nav-label" data-i18n="nav.about">O mnie</span>
+      <span class="mobile-nav-label"><span class="mobile-nav-label-inner" data-i18n="nav.about">O mnie</span></span>
     </a>
-    <a href="#experience" class="mobile-nav-item" id="mob-experience">
+    <a href="#experience" class="mobile-nav-item" id="mob-experience" title="Praca" data-i18n-title="nav.experienceShort">
       <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">work</span></span>
-      <span class="mobile-nav-label" data-i18n="nav.experienceShort">Praca</span>
+      <span class="mobile-nav-label"><span class="mobile-nav-label-inner" data-i18n="nav.experienceShort">Praca</span></span>
     </a>
-    <a href="#devices" class="mobile-nav-item" id="mob-devices">
+    <a href="#devices" class="mobile-nav-item" id="mob-devices" title="Sprzęt" data-i18n-title="nav.devices">
       <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">devices</span></span>
-      <span class="mobile-nav-label" data-i18n="nav.devices">Sprzęt</span>
+      <span class="mobile-nav-label"><span class="mobile-nav-label-inner" data-i18n="nav.devices">Sprzęt</span></span>
     </a>
-    <a href="#contact" class="mobile-nav-item" id="mob-contact">
+    <a href="#contact" class="mobile-nav-item" id="mob-contact" title="Kontakt" data-i18n-title="nav.contact">
       <span class="mobile-icon-box"><span class="material-symbols-rounded" aria-hidden="true">mail</span></span>
-      <span class="mobile-nav-label" data-i18n="nav.contact">Kontakt</span>
+      <span class="mobile-nav-label"><span class="mobile-nav-label-inner" data-i18n="nav.contact">Kontakt</span></span>
     </a>
   </nav>
 
@@ -196,8 +202,8 @@
           <h1 id="hero-title-h1" class="hero-title" aria-label="Michał Dzido"><span class="hero-word" aria-hidden="true"><span class="ch" style="--i:0">M</span><span class="ch" style="--i:1">i</span><span class="ch" style="--i:2">c</span><span class="ch" style="--i:3">h</span><span class="ch" style="--i:4">a</span><span class="ch" style="--i:5">ł</span></span> <span class="hero-word" aria-hidden="true"><span class="ch" style="--i:6">D</span><span class="ch" style="--i:7">z</span><span class="ch" style="--i:8">i</span><span class="ch" style="--i:9">d</span><span class="ch" style="--i:10">o</span></span></h1>
 
           <p class="hero-lead" data-i18n-html="hero.leadHtml">
-            Odbieram zgłoszenia w pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję
-            cyberbezpieczeństwo na <strong>Uniwersytecie WSEI w Lublinie</strong>. Po pracy siedzę na betach
+            Pracuję na pierwszej linii wsparcia IT w <strong>IT Solution Factor</strong> i studiuję
+            cyberbezpieczeństwo na <strong>Uniwersytecie WSEI w Lublinie</strong>. Po godzinach testuję bety
             Androida i składam komputery.
           </p>
 
@@ -226,7 +232,7 @@
               <span class="lastfm-track-info">
                 <span id="lastfm-status-badge" class="lastfm-live-badge">
                   <span class="lastfm-eq" aria-hidden="true"><span></span><span></span><span></span></span>
-                  <span id="lastfm-status-text">Teraz odtwarzane</span>
+                  <span id="lastfm-status-text">Teraz gra</span>
                   <span class="lastfm-source">Last.fm</span>
                 </span>
                 <span id="lastfm-track-title" class="lastfm-title">Ładowanie…</span>
@@ -246,20 +252,18 @@
         </div>
 
         <div class="hero-visual">
-          <div class="avatar-interactive-wrapper" id="hero-avatar-wrapper"
-            aria-label="Portret Michała Dzido. Kliknij, aby przełączyć na awatar 3D"
-            data-i18n-aria="hero.avatarWrapperAria">
+          <div class="avatar-interactive-wrapper" id="hero-avatar-wrapper">
             <div class="avatar-shape">
               <img src="assets/michal-880.webp" srcset="assets/michal-480.webp 480w, assets/michal-880.webp 880w"
-                sizes="(max-width: 767px) 260px, 440px" alt="Michał Dzido, zdjęcie portretowe" data-i18n-alt="hero.photoAlt"
+                sizes="(max-width: 767px) 220px, 440px" alt="Michał Dzido, zdjęcie portretowe" data-i18n-alt="hero.photoAlt"
                 class="avatar-img avatar-photo" width="440" height="440" fetchpriority="high" decoding="async">
               <!-- The 3D avatar loads only when it is about to be shown (see initAvatarInteractive) -->
               <img data-src="assets/michal-avatar-880.webp" data-srcset="assets/michal-avatar-480.webp 480w, assets/michal-avatar-880.webp 880w"
-                sizes="(max-width: 767px) 260px, 440px" alt="Michał Dzido, awatar 3D" data-i18n-alt="hero.avatarAlt"
+                sizes="(max-width: 767px) 220px, 440px" alt="Michał Dzido, awatar 3D" data-i18n-alt="hero.avatarAlt"
                 class="avatar-img avatar-art" width="440" height="440" decoding="async">
             </div>
             <button type="button" class="avatar-toggle" id="avatar-hover-hint" aria-pressed="false"
-              aria-label="Awatar 3D" data-i18n-aria="hero.avatarHintAria">
+              aria-label="Przełącz na awatar 3D">
               <span class="material-symbols-rounded avatar-toggle-icon" aria-hidden="true">sync</span>
               <span class="avatar-toggle-labels" aria-hidden="true">
                 <span class="lbl-to-art" data-i18n="hero.avatar3d">Awatar 3D</span>
@@ -279,37 +283,38 @@
         <div data-reveal class="about-text">
           <h2 id="about-heading" class="section-title" data-i18n="about.heading">O mnie</h2>
           <p data-i18n="about.p1">
-            W tygodniu siedzę w biurze w Warszawie i odbieram zgłoszenia: poczta, Office, uprawnienia, Windows,
-            sprzęt. Tłumaczę ludziom techniczne sprawy bez żargonu, a to, czego nie da się naprawić od ręki,
-            przekazuję do właściwej grupy.
+            Od poniedziałku do piątku pracuję z biura w Warszawie. Pomagam pracownikom z pocztą, pakietem
+            Office, uprawnieniami i sprzętem, tłumacząc techniczne kwestie prostym językiem. Poważniejsze awarie
+            diagnozuję i kieruję do odpowiednich zespołów.
           </p>
           <p data-i18n="about.p2">
-            Weekendy spędzam na zjazdach na Uniwersytecie WSEI w Lublinie albo w rodzinnym Adamowie. Na studiach
-            rozwijam wiedzę, którą zdobyłem w technikum, głównie z sieci, analizy ruchu i zabezpieczania systemów.
+            W weekendy jeżdżę na zjazdy na Uniwersytet WSEI w Lublinie albo wracam do rodzinnego Adamowa. Na
+            studiach poszerzam podstawy wyniesione z technikum: sieci komputerowe, analizę ruchu i zabezpieczanie
+            systemów.
           </p>
           <p data-i18n="about.p3">
-            Po godzinach moderuję grupę Google Pixel Polska, instaluję testowe wersje Androida i Windowsa, a wieczorami
-            słucham muzyki albo gram na PC.
+            Po pracy moderuję grupę Google Pixel Polska i testuję rozwojowe wersje Androida oraz Windowsa. Wieczory
+            spędzam przy muzyce albo grach na PC.
           </p>
 
           <div class="chip-row" aria-label="Po godzinach" data-i18n-aria="about.hobbiesAria">
             <button type="button" class="chip" data-i18n-easter="easter.music" data-toast-icon="headphones"
-              data-easter-msg="Słuchawki mam na uszach przez większość dnia. Karta na górze strony pokazuje na żywo, czego słucham na Last.fm.">
+              data-easter-msg="Przez większość dnia towarzyszy mi muzyka. Karta na górze strony pokazuje na żywo, czego słucham na Last.fm.">
               <span class="material-symbols-rounded" aria-hidden="true">headphones</span>
               <span data-i18n="about.chip.music">Muzyka</span>
             </button>
             <button type="button" class="chip" data-i18n-easter="easter.pixel" data-toast-icon="groups"
-              data-easter-msg="Razem z innymi moderatorami prowadzę na Facebooku polską grupę użytkowników telefonów Google Pixel.">
+              data-easter-msg="Razem z kilkoma osobami moderuję polską grupę użytkowników Google Pixel na Facebooku.">
               <span class="material-symbols-rounded" aria-hidden="true">groups</span>
               <span>Google Pixel Polska</span>
             </button>
             <button type="button" class="chip" data-i18n-easter="easter.beta" data-toast-icon="science"
-              data-easter-msg="Lubię sprawdzać nowości przed premierą, dlatego na co dzień siedzę na Android Beta i Windows Insider.">
+              data-easter-msg="Chętnie sprawdzam nowości przed premierą, dlatego korzystam z Android Beta i Windows Insider.">
               <span class="material-symbols-rounded" aria-hidden="true">science</span>
               <span data-i18n="about.chip.beta">Bety systemów</span>
             </button>
             <button type="button" class="chip" data-i18n-easter="easter.pc" data-toast-icon="build"
-              data-easter-msg="Dobieram części, składam komputery od zera, wymieniam pasty termoprzewodzące i szukam przyczyn dziwnych awarii.">
+              data-easter-msg="Dobieram podzespoły, składam komputery od podstaw, wymieniam pasty i szukam przyczyn usterek.">
               <span class="material-symbols-rounded" aria-hidden="true">build</span>
               <span data-i18n="about.chip.pc">Składanie PC</span>
             </button>
@@ -361,7 +366,7 @@
       <div class="section-container">
         <header data-reveal class="section-header">
           <h2 id="exp-heading" class="section-title" data-i18n="exp.heading">Czym się zajmuję</h2>
-          <p class="section-lead" data-i18n="exp.subtitle">W pracy, na laboratoriach i przy własnym biurku.</p>
+          <p class="section-lead" data-i18n="exp.subtitle">W pracy, na laboratoriach i przy własnym biurku</p>
         </header>
 
         <ol class="skill-list">
@@ -372,8 +377,8 @@
               <p class="skill-where">IT Solution Factor</p>
             </div>
             <p class="skill-desc" data-i18n="exp.helpdesk.desc">
-              Codziennie obsługuję zgłoszenia przez telefon i zdalnie. Odblokowuję konta, konfiguruję stanowiska,
-              rozwiązuję błędy Windowsa i aplikacji firmowych, a większe awarie eskaluję do odpowiednich zespołów.
+              Na co dzień obsługuję zgłoszenia telefonicznie i zdalnie. Konfiguruję stanowiska, zarządzam dostępami,
+              usuwam błędy Windowsa i aplikacji biurowych, a złożone awarie przekazuję dalej.
             </p>
             <p class="skill-tools" data-i18n="exp.helpdesk.tools">Pomoc zdalna · zgłoszenia · pakiet biurowy</p>
           </li>
@@ -384,8 +389,8 @@
               <p class="skill-where" data-i18n="exp.net.where">Studia i laboratoria</p>
             </div>
             <p class="skill-desc" data-i18n="exp.net.desc">
-              Zakładam konta i nadaję uprawnienia w Active Directory, pracuję w Linuksie, ustawiam adresację,
-              VLAN-y, routing i reguły firewalli.
+              Zarządzam kontami i uprawnieniami w Active Directory, pracuję w Linuksie oraz konfiguruję adresację,
+              sieci VLAN, routing i reguły zapory.
             </p>
             <p class="skill-tools">Windows Server · AD · Linux · Bash · TCP/IP · VLAN</p>
           </li>
@@ -396,8 +401,8 @@
               <p class="skill-where" data-i18n="exp.hw.where">Technik informatyk</p>
             </div>
             <p class="skill-desc" data-i18n="exp.hw.desc">
-              Składam komputery stacjonarne, wymieniam podzespoły w laptopach i szukam przyczyn usterek, od pamięci RAM
-              po zasilacze i płyty główne.
+              Składam stacje robocze, wymieniam podzespoły w laptopach i diagnozuję awarie sprzętu: od pamięci RAM po
+              zasilacze oraz płyty główne.
             </p>
             <p class="skill-tools" data-i18n="exp.hw.tools">Diagnostyka · serwis · dobór części</p>
           </li>
@@ -408,8 +413,8 @@
               <p class="skill-where">Android Beta · Windows Insider</p>
             </div>
             <p class="skill-desc" data-i18n="exp.mobile.desc">
-              Na co dzień używam wersji beta Androida i Windowsa. Sprawdzam nowe funkcje i poprawki bezpieczeństwa,
-              zanim trafią do wszystkich, i zgłaszam błędy.
+              Na moich urządzeniach działają testowe kompilacje Androida oraz Windowsa. Sprawdzam nowe funkcje i
+              poprawki bezpieczeństwa przed oficjalną premierą.
             </p>
             <p class="skill-tools">Pixel · Android 16 Beta · Windows 11 Insider</p>
           </li>
@@ -423,7 +428,7 @@
         <header data-reveal class="section-header section-header-row">
           <div>
             <h2 id="devices-heading" class="section-title" data-i18n="devices.heading">Na czym pracuję</h2>
-            <p class="section-lead" data-i18n="devices.subtitle">Sprzęt, którego używam codziennie. Kliknij kartę, żeby dowiedzieć się więcej.</p>
+            <p class="section-lead" data-i18n="devices.subtitle">Sprzęt, z którego korzystam na co dzień. Kliknij kartę po szczegóły</p>
           </div>
           <div class="m3x-filter-group" id="devices-filter-group" role="group" aria-label="Filtruj urządzenia"
             data-i18n-aria="devices.filterAria">
@@ -447,7 +452,7 @@
 
             <article data-reveal class="device-card" id="card-pixel-8-pro" tabindex="0" role="button"
               data-i18n-easter="easter.pixel8pro" data-toast-icon="smartphone"
-              data-easter-msg="Mój główny telefon. Siedzi na kanale Android Beta i robi świetne zdjęcia z 5-krotnym zbliżeniem.">
+              data-easter-msg="Mój główny telefon. Działa na kanale Android Beta i świetnie sprawdza się przy zdjęciach z 5-krotnym zoomem.">
               <div class="device-stage" style="--device-tint: #B8E4CE;">
                 <img class="device-art" src="assets/devices/pixel-8-pro-mint.webp" alt="" width="194" height="480" loading="lazy" decoding="async">
               </div>
@@ -464,7 +469,7 @@
 
             <article data-reveal class="device-card" id="card-pixel-buds" tabindex="0" role="button"
               data-i18n-easter="easter.buds" data-toast-icon="earbuds"
-              data-easter-msg="Słuchawki z układem Tensor A1. Małe, wygodne i dobrze wyciszają biuro oraz pociąg.">
+              data-easter-msg="Słuchawki z układem Tensor A1. Lekkie, wygodne i dobrze wyciszają hałas w biurze czy pociągu.">
               <div class="device-stage" style="--device-tint: #8E9BB0;">
                 <img class="device-art" src="assets/devices/pixel-buds-pro-2-moonstone.webp" alt="" width="331" height="480" loading="lazy" decoding="async">
               </div>
@@ -481,7 +486,7 @@
 
             <article data-reveal class="device-card" id="card-pixel-watch" tabindex="0" role="button"
               data-i18n-easter="easter.watch" data-toast-icon="watch"
-              data-easter-msg="Zegarek 41 mm z Wear OS. Używam go do powiadomień, płatności zbliżeniowych i liczenia kroków.">
+              data-easter-msg="Zegarek 41 mm z Wear OS do powiadomień, płatności zbliżeniowych i śledzenia aktywności.">
               <div class="device-stage" style="--device-tint: #A7ADB6;">
                 <img class="device-art" src="assets/devices/pixel-watch-2-matte-black.webp" alt="" width="422" height="480" loading="lazy" decoding="async">
               </div>
@@ -500,7 +505,7 @@
           <div class="device-grid device-grid-2" data-device-tier="pc">
             <article data-reveal class="device-card device-card-wide" id="card-surface-pro" tabindex="0" role="button"
               data-i18n-easter="easter.surface" data-toast-icon="laptop_windows"
-              data-easter-msg="Lekki komputer 2 w 1 ze Snapdragonem X Elite i ekranem OLED. Zabieram go na uczelnię i w podróż, bo długo trzyma na baterii.">
+              data-easter-msg="Lekki sprzęt 2 w 1 ze Snapdragonem X Elite i ekranem OLED. Długi czas na baterii sprawia, że zabieram go na uczelnię i w podróże.">
               <div class="device-stage" style="--device-tint: #DADDE2;">
                 <img class="device-art" src="assets/devices/surface-pro-11-platinum.webp" alt="" width="706" height="480" loading="lazy" decoding="async">
               </div>
@@ -518,7 +523,7 @@
 
             <article data-reveal class="device-card device-card-wide" id="card-miska-ryzenu" tabindex="0" role="button"
               data-i18n-easter="easter.ryzen" data-toast-icon="desktop_windows"
-              data-easter-msg="Domowy komputer z Ryzenem 5 5600G i RTX 4060. Stawiam na nim maszyny wirtualne, ćwiczę sieci i gram wieczorami.">
+              data-easter-msg="Komputer stacjonarny z Ryzenem 5 5600G i RTX 4060. Służy mi do stawiania maszyn wirtualnych, ćwiczeń sieciowych i grania.">
               <div class="device-stage" style="--device-tint: #9AA3AE;">
                 <div class="cpu-render" aria-hidden="true">
                   <div class="cpu-pcb">
@@ -554,7 +559,7 @@
             <a href="mailto:michaldzido2@gmail.com" class="mail-card" aria-label="Wyślij e-mail do michaldzido2@gmail.com"
               data-i18n-aria="contact.email.aria">
               <h2 id="contact-heading" class="mail-heading" data-i18n="contact.heading">Napisz do mnie</h2>
-              <p class="mail-note" data-i18n="contact.email.desc">Najłatwiej złapać mnie mailowo.</p>
+              <p class="mail-note" data-i18n="contact.email.desc">Najłatwiej złapać mnie mailowo</p>
               <span class="mail-address">michaldzido2<wbr>@gmail.com</span>
               <span class="mail-fab" aria-hidden="true"><span class="material-symbols-rounded">arrow_outward</span></span>
             </a>
@@ -675,7 +680,7 @@
     </button>
   </aside>
 
-  <script src="scripts/main.js?v=23"></script>
+  <script src="scripts/main.js?v=24"></script>
 </body>
 
 </html>
